@@ -1,0 +1,13 @@
+*****
+Short Title: "Internships"
+Long Title: ""
+Sub Title: ""
+Description: ""
+Relative Link: "/internships"
+*****
+Short Title: "Hamilton Wood Type and Printing Museum"
+Long Title: "Portfolio 2023"
+Sub Title: "TBD"
+Description: ""
+Relative Link: "/internships/hamilton"
+*****

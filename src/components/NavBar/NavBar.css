@@ -1,0 +1,41 @@
+.nav-bar {
+    background-color: black;
+    height: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 120px;
+}
+
+
+.logo-image {
+    height: 60px;
+    width: 43px;
+    margin-right: 22px;
+}
+
+.name-title {
+    font-size: 22px;
+    color: #ffffff;
+    font-family: "Times New Roman", serif;
+    font-stretch: 80%;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.social-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}

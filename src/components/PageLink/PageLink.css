@@ -1,0 +1,16 @@
+.nav-link-text {
+    cursor: pointer;
+}
+
+.unselected-nav-link {
+    color: #fdfdfd;
+}
+
+.selected-nav-link {
+    color: #747474;
+}
+
+.nav-link-container {
+    display: inline-block;
+    margin-right: 20px;
+}

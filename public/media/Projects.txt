@@ -5,7 +5,7 @@ Description: "This is a poster supporting women"
 Type: "Image"
 Page Path: "/miad/second-year"
 *****
-Project Name: "Dead Flowers"
+Project Name: "Sunflowers"
 Filename: "Dead Flowers.png"
 Description: "These are some flowers"
 Type: "Image"

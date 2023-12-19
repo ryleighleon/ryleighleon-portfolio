@@ -181,7 +181,7 @@ function App() {
             }
         }
         populateProjects();
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         setAccessiblePages([]);

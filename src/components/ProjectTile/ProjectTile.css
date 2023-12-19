@@ -10,6 +10,7 @@
     width: 450px;
     display: inline-block;
     margin: 15px;
+    cursor: pointer;
 }
 
 .project-tile-overlay {
@@ -23,6 +24,7 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    cursor: pointer;
     color: white; /* Set text color for overlay content */
     /* Add any additional styling for the overlay content */
 }

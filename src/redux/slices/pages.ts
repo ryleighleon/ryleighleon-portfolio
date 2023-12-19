@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Page {
     shortTitle: string;
-    longTitle: string;
-    subTitle: string;
-    description: string;
+    longTitle?: string;
+    subTitle?: string;
+    description?: string;
     relativeLink: string;
     children: Page[];
 }
@@ -22,11 +22,25 @@ const pagesSlice = createSlice({
     initialState,
     reducers: {
         addPage: (state, action: PayloadAction<Page>) => {
-            state.pages.push(action.payload);
+            let parentPage;
+            for (const tempPage of state.pages) {
+                if (action.payload.relativeLink.startsWith(tempPage.relativeLink + '/')) {
+                    parentPage = tempPage;
+                }
+            }
+            if (parentPage) {
+                parentPage.children.push(action.payload)
+            } else {
+                console.log(`Adding page: ${action.payload.shortTitle}`);
+                state.pages.push(action.payload);
+            }
         },
-    },
+        clearPages: (state) => {
+            state.pages = [];
+        }
+    }
 });
 
-export const { addPage } = pagesSlice.actions;
+export const { addPage, clearPages } = pagesSlice.actions;
 
 export default pagesSlice.reducer;

@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Project {
+export interface Project {
     name: string;
-    description: string;
+    description?: string;
     type: string;
-    imageName: string;
+    filename: string;
+    path: string;
 }
 
 interface ProjectsState {
@@ -22,9 +23,12 @@ const projectsSlice = createSlice({
         addProject: (state, action: PayloadAction<Project>) => {
             state.projects.push(action.payload);
         },
+        clearProjects: (state) => {
+            state.projects = [];
+        }
     },
 });
 
-export const { addProject } = projectsSlice.actions;
+export const { addProject, clearProjects } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

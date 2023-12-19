@@ -1,0 +1,13 @@
+*****
+Project Name: "The Power of Supporting Women"
+Filename: "The Power of Supporting Women.png"
+Description: "This is a poster supporting women"
+Type: "Image"
+Page Path: "/miad/second-year"
+*****
+Project Name: "Dead Flowers"
+Filename: "Dead Flowers.png"
+Description: "These are some flowers"
+Type: "Image"
+Page Path: "/miad/second-year"
+*****

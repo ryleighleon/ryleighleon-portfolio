@@ -1,0 +1,42 @@
+.introduction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.profile-pic {
+    height: 420px;
+    width: 460px;
+}
+
+.welcome-text{
+    color: #fad28b;
+    font-size: 72px;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 20px;
+}
+
+.explore-text{
+    color: #000000;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.grab-snack-text{
+    color: black;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.intro-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 120px;
+}

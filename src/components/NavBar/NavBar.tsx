@@ -14,16 +14,21 @@ export default function NavBar(){
             </div>
             <div className={'nav-links'}>
                 <PageLink title={'Home'} relativeUrl={'/'} key={'home'} children={[]}/>
-                {pages.map(page => {
+                {pages.map((page, index) => {
                     return <PageLink
                         title={page.shortTitle}
                         relativeUrl={page.relativeLink}
-                        key={page.shortTitle}
+                        key={`${page.shortTitle}-${index}`}
                         children={page.children}
                     />;
                 })}
-                <img src={getFile('LinkedIn.png')} alt={'LinkedIn'} className={'social-icon'}/>
-                <img src={getFile('Instagram.png')} alt={'Instagram'} className={'social-icon'}/>
+                <PageLink title={'More'} relativeUrl={'/more'} key={'more'} children={[]}/>
+                <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
+                    <img src={getFile('LinkedInWhite.png')} alt={'LinkedIn'} className={'social-icon'}/>
+                </a>
+                <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
+                    <img src={getFile('InstagramWhite.png')} alt={'Instagram'} className={'social-icon'}/>
+                </a>
             </div>
         </div>
     )

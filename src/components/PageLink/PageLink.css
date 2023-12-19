@@ -1,5 +1,9 @@
-.nav-link-text {
+.clickable-text {
     cursor: pointer;
+}
+
+.not-clickable-text {
+    cursor: default;
 }
 
 .unselected-nav-link {
@@ -13,4 +17,28 @@
 .nav-link-container {
     display: inline-block;
     margin-right: 20px;
+    position: relative;
+}
+
+.child-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0 0;
+    background-color: #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.child-list li {
+    padding: 5px 10px;
+    color: #fdfdfd;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.child-list li:hover {
+    color: #747474;
 }

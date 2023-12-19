@@ -17,6 +17,7 @@ function App() {
     const dispatch = useAppDispatch();
     const pages = useAppSelector(state => state.pages.pages);
     const [accessiblePages, setAccessiblePages] = useState<Page[]>([]);
+
     useEffect(() => {
         const populatePages = async () => {
             try {
@@ -204,7 +205,7 @@ function App() {
                 <Routes>
                     <Route path="/" Component={HomePage} />
                     {accessiblePages.map(page => {
-                        return <Route path={page.relativeLink} element={<ProjectsPage page={page}/>} key={page.shortTitle}/>
+                        return <Route path={page.relativeLink} element={<ProjectsPage page={page} key={`${page.shortTitle}-${page.relativeLink}`}/>} key={page.shortTitle}/>
                     })}
                 </Routes>
                 <Footer/>

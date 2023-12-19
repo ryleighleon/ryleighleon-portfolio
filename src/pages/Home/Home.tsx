@@ -4,7 +4,7 @@ import './HomePage.css';
 
 export default function HomePage(){
     return (
-        <div className={'introduction'}>
+        <div className={'introduction page'}>
             <img src={getFile('profPic.jpg')} alt={'Profile'} className={'profile-pic'}/>
             <div className={'intro-text-container'}>
                 <span className={'welcome-text'}>Welcome!</span>

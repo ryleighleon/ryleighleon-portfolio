@@ -22,7 +22,7 @@ export default function ProjectsPage(props: ProjectsPageProps){
     }, [location.pathname, projects]);
 
     return (
-        <div className={'project-page-container'}>
+        <div className={'project-page-container page'}>
             {page.longTitle &&
                 <span className={'project-page-title'}>{page.longTitle}</span>
             }

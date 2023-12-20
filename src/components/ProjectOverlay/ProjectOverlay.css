@@ -74,11 +74,12 @@
 
 .overlay-title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 18px;
 }
 
 .overlay-description {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
+    white-space: pre-line;
 }

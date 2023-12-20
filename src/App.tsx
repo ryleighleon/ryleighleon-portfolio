@@ -8,21 +8,31 @@ import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import Footer from "./components/Footer/Footer";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import {addProject, clearProjects, Project} from "./redux/slices/projects";
+import AboutPage from "./pages/About/AboutPage";
+import NotFound from "./pages/NotFound/NotFound";
+import ContactPage from "./pages/Contact/ContactPage";
+import LoadingPage from "./pages/LoadingPage/LoadingPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
+}
+
+export async function getRootFileText(filename: string) {
+    const response = await fetch(process.env.PUBLIC_URL + '/media/' + filename);
+    return await response.text();
 }
 
 function App() {
     const dispatch = useAppDispatch();
     const pages = useAppSelector(state => state.pages.pages);
     const [accessiblePages, setAccessiblePages] = useState<Page[]>([]);
+    const [pagesLoading, setPagesLoading] = useState(true);
 
     useEffect(() => {
+        setPagesLoading(true);
         const populatePages = async () => {
             try {
-                const response = await fetch(process.env.PUBLIC_URL + '/media/Pages.txt');
-                const text = await response.text();
+                const text = await getRootFileText('Pages.txt');
                 const lines = text.split(/\r?\n/);
                 let lineIndex = 0;
                 let morePages = true;
@@ -99,11 +109,9 @@ function App() {
                 alert('A general formatting error occurred')
             }
         };
-        populatePages();
         const populateProjects = async () => {
             try {
-                const response = await fetch(process.env.PUBLIC_URL + '/media/Projects.txt');
-                const text = await response.text();
+                const text = await getRootFileText('Projects.txt');
                 const lines = text.split(/\r?\n/);
                 let lineIndex = 0;
                 let moreProjects = true;
@@ -180,7 +188,15 @@ function App() {
                 alert('A general formatting error occurred')
             }
         }
-        populateProjects();
+        async function populateData() {
+            const pagesPromise = populatePages();
+            const projectsPromise = populateProjects();
+
+            await Promise.all([pagesPromise, projectsPromise]);
+
+            setPagesLoading(false);
+        }
+        populateData();
     }, [dispatch]);
 
     useEffect(() => {
@@ -207,6 +223,13 @@ function App() {
                     {accessiblePages.map(page => {
                         return <Route path={page.relativeLink} element={<ProjectsPage page={page} key={`${page.shortTitle}-${page.relativeLink}`}/>} key={page.shortTitle}/>
                     })}
+                    <Route path={'more/about'} Component={AboutPage}/>
+                    <Route path={'more/contact'} Component={ContactPage}/>
+                    {pagesLoading ?
+                        <Route path={'*'} Component={LoadingPage}/>
+                        :
+                        <Route path={'*'} Component={NotFound}/>
+                    }
                 </Routes>
                 <Footer/>
             </Router>

@@ -1,0 +1,32 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.not-found-title{
+    color: #fad28b;
+    font-size: 72px;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 20px;
+}
+
+.not-found-body{
+    color: #000000;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.not-found-link {
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.not-found-link:hover {
+    text-decoration: underline;
+}

@@ -11,7 +11,7 @@
     width: 460px;
 }
 
-.welcome-text{
+.not-found-title{
     color: #fad28b;
     font-size: 72px;
     font-family: "Cormorant Garamond", serif;
@@ -39,4 +39,8 @@
     align-items: center;
     height: 100%;
     margin-left: 120px;
+}
+
+.contact-form-container {
+    margin-bottom: 50px;
 }

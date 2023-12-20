@@ -5,9 +5,33 @@ Description: "This is a poster supporting women"
 Type: "Image"
 Page Path: "/miad/second-year"
 *****
-Project Name: "Dead Flowers"
-Filename: "Dead Flowers.png"
+Project Name: "Sunflowers"
+Filename: "SunFlowers.png"
 Description: "These are some flowers"
 Type: "Image"
 Page Path: "/miad/second-year"
+*****
+Project Name: "Hamilton at the Farmers Market!"
+Filename: "Hamilton at the Farmers Market.png"
+Description: "At the beginning of my internship, Hamilton went to the local farmers market. We were printing free prints that said I love... and were preprinted. Guests could fill in the blank with their choice of word and we printed the word in the blank area."
+Type: "Image"
+Page Path: "/internships/hamilton"
+*****
+Project Name: "Ink and Drink Flyer"
+Filename: "Ink and Drink.png"
+Type: "Image"
+Page Path: "/internships/hamilton"
+*****
+Project Name: "Ernestine Debit Card"
+Filename: "Ernestine Debit Card.png"
+Type: "Image"
+Description: "Software Used: Adobe Illustrator and Photoshop
+Took a pattern created from the typeface, Ernestine Pro and applying it to a mock up."
+Page Path: "/miad/first-year"
+*****
+Project Name: "Album Cover Redesign"
+Filename: "Album Cover Redesign.png"
+Type: "Image"
+Description: "For the first project in my Art Direction class, we were paired up with a classmate to art direct and redesign an album cover. My partner Suleika had picked the album Sincerándome by Carlos Rivera."
+Page Path: "/miad/third-year"
 *****

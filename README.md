@@ -17,5 +17,3 @@ You may also see any lint errors in the console.
 ### `npm run deploy`
 
 Deploys the changes to the published site
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)

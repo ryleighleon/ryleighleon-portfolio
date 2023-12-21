@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import HomePage from "./pages/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
@@ -216,7 +216,7 @@ function App() {
 
     return (
         <div className={'app'}>
-            <Router basename="/ryleighleon-portfolio">
+            <Router>
                 <NavBar/>
                 <Routes>
                     <Route path="/" Component={HomePage} />

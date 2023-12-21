@@ -10,9 +10,11 @@ Short Title: "Internships"
 Relative Link: "/internships"
 *****
 Short Title: "Freelance Work"
+Long Title: "Freelance Work"
 Relative Link: "/freelance"
 *****
 Short Title: "Personal Works"
+Long Title: "Personal Works"
 Relative Link: "/personal"
 *****
 Short Title: "1st Year"

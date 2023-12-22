@@ -21,6 +21,7 @@ export default function PageLink(props: LinkItemProps) {
     };
 
     const handleMouseLeave = () => {
+        console.log('mouse leaving');
         setIsHovered(false);
     };
 

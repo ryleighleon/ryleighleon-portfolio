@@ -12,6 +12,7 @@ import AboutPage from "./pages/About/AboutPage";
 import NotFound from "./pages/NotFound/NotFound";
 import ContactPage from "./pages/Contact/ContactPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
+import ChristmasPage from "./pages/ChristmasPage/ChristmasPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -230,6 +231,7 @@ function App() {
                         :
                         <Route path={'*'} Component={NotFound}/>
                     }
+                    <Route path={'/christmas'} Component={ChristmasPage}/>
                 </Routes>
                 <Footer/>
             </Router>

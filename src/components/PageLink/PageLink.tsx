@@ -53,7 +53,7 @@ export default function PageLink(props: LinkItemProps) {
         <div
             className="nav-link-container"
             onMouseEnter={handleMouseEnter}
-            onMouseOut={handleMouseLeave}
+            onMouseLeave={handleMouseLeave}
         >
             <span className={classes.join(' ')} onClick={handleParentClick}>{props.title}</span>
             {isHovered && children && (

@@ -21,11 +21,15 @@ export default function MobileNavBar() {
         shortTitle: "Contact"
     };
 
-    useEffect(() => {
+    function resetAllPages(){
         const tempPages = pages.slice();
         tempPages.push(aboutPage);
         tempPages.push(contactPage);
         setAllPages(tempPages);
+    }
+
+    useEffect(() => {
+        resetAllPages();
     }, [pages]);
 
     function redirectHome() {
@@ -39,6 +43,7 @@ export default function MobileNavBar() {
     function handlePageClick(page: Page) {
         if (page.children.length === 0){
             navigate(page.relativeLink);
+            resetAllPages();
             setShowPages(false);
         } else {
             setAllPages(page.children);
@@ -60,7 +65,7 @@ export default function MobileNavBar() {
                                 {page.children.length > 0 ? (
                                     <span>{page.shortTitle}</span>
                                 ) : (
-                                    <a href={page.relativeLink}>{page.shortTitle}</a>
+                                    <span>{page.shortTitle}</span>
                                 )}
                             </li>
                         ))}

@@ -1,6 +1,6 @@
 # Viewing Site
 
-This portfolio can be viewed [here]([https://github.com/facebook/create-react-app](https://czerkisi.github.io/ryleighleon-portfolio/)).
+This portfolio can be viewed [here](https://czerkisi.github.io/ryleighleon-portfolio/).
 
 ## Available Scripts
 

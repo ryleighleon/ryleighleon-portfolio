@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import ContactPage from "./pages/Contact/ContactPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import ChristmasPage from "./pages/ChristmasPage/ChristmasPage";
+import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -28,6 +29,7 @@ function App() {
     const pages = useAppSelector(state => state.pages.pages);
     const [accessiblePages, setAccessiblePages] = useState<Page[]>([]);
     const [pagesLoading, setPagesLoading] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setPagesLoading(true);
@@ -215,10 +217,24 @@ function App() {
         setAccessiblePages(tempPages);
     }, [pages]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className={'app'}>
             <Router>
-                <NavBar/>
+                {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
                     <Route path="/" Component={HomePage} />
                     {accessiblePages.map(page => {

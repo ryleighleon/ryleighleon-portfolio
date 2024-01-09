@@ -1,0 +1,34 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Git Add",
+		"type": "shell",
+		"command": "git",
+		"args": ["add", "."],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  },
+	  {
+		"label": "Git Commit and Push",
+		"type": "shell",
+		"command": "git",
+		"args": [
+		  "commit",
+		  "-m",
+		  "Enter your commit message here (prompted at runtime)"
+		],
+		"dependsOn": "Git Add"
+	  },
+	  {
+		"label": "NPM Run Deploy",
+		"type": "shell",
+		"command": "npm",
+		"args": ["run", "deploy"],
+		"dependsOn": "Git Commit and Push"
+	  }
+	]
+  }
+  

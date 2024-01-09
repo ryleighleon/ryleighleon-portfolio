@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Deploy Changes",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+        "args": [],
+        "runtimeArgs": ["--inspect"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "stopOnEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bStarting server on (.+?)\\b",
+          "uriFormat": "http://$1",
+          "actionBackup": "openExternally",
+          "patternBackup": "\\bFailed to compile\\.\n"
+        },
+        "preLaunchTask": "NPM Run Deploy",
+        "outFiles": [],
+        "sourceMaps": false
+      }
+    ]
+  }
+  

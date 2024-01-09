@@ -8,7 +8,7 @@
 		"args": ["add", "."],
 		"group": {
 		  "kind": "build",
-		  "isDefault": true
+		  "isDefault": false
 		}
 	  },
 	  {
@@ -39,9 +39,13 @@
 		"dependsOn": "Git Push"
 	  },
 	  {
-		"label": "Run Full Workflow",
+		"label": "Deploy Changes",
 		"dependsOrder": "sequence",
-		"dependsOn": ["Git Add", "Git Commit", "Git Push", "Deploy to Server"]
+		"dependsOn": ["Git Add", "Git Commit", "Git Push", "Deploy to Server"],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
 	  },
 	  {
 		"label": "Preview Changes",

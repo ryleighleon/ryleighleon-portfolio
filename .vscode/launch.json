@@ -2,25 +2,39 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "Preview Changes",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/node_modules/react-scripts/scripts/start.js",
+        "stopOnEntry": false,
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": null,
+        "runtimeArgs": ["--inspect-brk=0"],
+        "env": {
+          "BABEL_ENV": "development",
+          "NODE_ENV": "development"
+        },
+        "sourceMaps": true,
+        "outFiles": [],
+        "externalConsole": false
+      },
+      {
         "name": "Deploy Changes",
         "type": "node",
         "request": "launch",
-        "program": "${workspaceFolder}/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-        "args": [],
-        "runtimeArgs": ["--inspect"],
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen",
+        "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
         "stopOnEntry": false,
-        "serverReadyAction": {
-          "action": "openExternally",
-          "pattern": "\\bStarting server on (.+?)\\b",
-          "uriFormat": "http://$1",
-          "actionBackup": "openExternally",
-          "patternBackup": "\\bFailed to compile\\.\n"
+        "args": ["Run Full Workflow"],
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": null,
+        "runtimeArgs": ["--inspect-brk=0"],
+        "env": {
+          "BABEL_ENV": "development",
+          "NODE_ENV": "development"
         },
-        "preLaunchTask": "NPM Run Deploy",
+        "sourceMaps": true,
         "outFiles": [],
-        "sourceMaps": false
       }
     ]
   }

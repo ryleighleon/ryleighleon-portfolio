@@ -12,22 +12,42 @@
 		}
 	  },
 	  {
-		"label": "Git Commit and Push",
+		"label": "Git Commit",
 		"type": "shell",
 		"command": "git",
 		"args": [
 		  "commit",
 		  "-m",
-		  "Enter your commit message here (prompted at runtime)"
+		  "new changes"
 		],
 		"dependsOn": "Git Add"
 	  },
 	  {
-		"label": "NPM Run Deploy",
+		"label": "Git Push",
+		"type": "shell",
+		"command": "git",
+		"args": [
+		  "push"
+		],
+		"dependsOn": "Git Commit"
+	  },
+	  {
+		"label": "Deploy to Server",
 		"type": "shell",
 		"command": "npm",
 		"args": ["run", "deploy"],
-		"dependsOn": "Git Commit and Push"
+		"dependsOn": "Git Push"
+	  },
+	  {
+		"label": "Run Full Workflow",
+		"dependsOrder": "sequence",
+		"dependsOn": ["Git Add", "Git Commit", "Git Push", "Deploy to Server"]
+	  },
+	  {
+		"label": "Preview Changes",
+		"type": "shell",
+		"command": "npm",
+		"args": ["run", "start"]
 	  }
 	]
   }

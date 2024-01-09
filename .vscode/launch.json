@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [ 
       {
-          "name": "Chrome",
+          "name": "Preview Changes",
           "type": "chrome",
           "request": "launch",
-          "url": "http://localhost:3000/ryleighleon-portfolio",      // create-react-app's default port 3000
+          "url": "http://google.com",      // create-react-app's default port 3000
           "webRoot": "${workspaceRoot}/src",
           "preLaunchTask": "Start Preview Changes"        // Add prelaunch Task npm: start (defined in tasks.json)
       }

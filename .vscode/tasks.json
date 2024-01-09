@@ -51,7 +51,7 @@
 		"label": "Start Preview Changes",
 		"type": "shell",
 		"command": "npm",
-		"args": ["run", "start-no-open"],
+		"args": ["run", "start"],
 		"group": {
 		  "kind": "test",
 		  "isDefault": true

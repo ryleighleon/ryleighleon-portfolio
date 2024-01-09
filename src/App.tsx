@@ -15,6 +15,10 @@ import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import ChristmasPage from "./pages/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
 import MobileChristmasPage from "./pages/MobileChristmasPage/MobileChristmasPage";
+import MobileHomePage from "./pages/MobileHome/MobileHome";
+import MobileAboutPage from "./pages/MobileAbout/MobileAboutPage";
+import MobileFooter from "./components/MobileFooter/MobileFooter";
+import MobileProjectsPage from "./pages/MobileProjectsPage/MobileProjectsPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -237,11 +241,25 @@ function App() {
             <Router>
                 {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
-                    <Route path="/" Component={HomePage} />
+                    <Route path="/" Component={isMobile ? MobileHomePage : HomePage} />
                     {accessiblePages.map(page => {
-                        return <Route path={page.relativeLink} element={<ProjectsPage page={page} key={`${page.shortTitle}-${page.relativeLink}`}/>} key={page.shortTitle}/>
+                        return <Route
+                                    path={page.relativeLink}
+                                    element={isMobile ?
+                                                <MobileProjectsPage
+                                                    page={page}
+                                                    key={`${page.shortTitle}-${page.relativeLink}`}
+                                                />
+                                            :
+                                                <ProjectsPage
+                                                    page={page}
+                                                    key={`${page.shortTitle}-${page.relativeLink}`}
+                                                />
+                                            }
+                                    key={`${isMobile}-${page.shortTitle}`}
+                                />
                     })}
-                    <Route path={'more/about'} Component={AboutPage}/>
+                    <Route path={'more/about'} Component={isMobile ? MobileAboutPage : AboutPage}/>
                     <Route path={'more/contact'} Component={ContactPage}/>
                     {pagesLoading ?
                         <Route path={'*'} Component={LoadingPage}/>
@@ -250,7 +268,7 @@ function App() {
                     }
                     <Route path={'/christmas'} Component={isMobile ? MobileChristmasPage : ChristmasPage}/>
                 </Routes>
-                <Footer/>
+                {isMobile ? <MobileFooter/> : <Footer/>}
             </Router>
         </div>
     );

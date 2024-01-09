@@ -14,6 +14,7 @@ import ContactPage from "./pages/Contact/ContactPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import ChristmasPage from "./pages/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
+import MobileChristmasPage from "./pages/MobileChristmasPage/MobileChristmasPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -247,7 +248,7 @@ function App() {
                         :
                         <Route path={'*'} Component={NotFound}/>
                     }
-                    <Route path={'/christmas'} Component={ChristmasPage}/>
+                    <Route path={'/christmas'} Component={isMobile ? MobileChristmasPage : ChristmasPage}/>
                 </Routes>
                 <Footer/>
             </Router>

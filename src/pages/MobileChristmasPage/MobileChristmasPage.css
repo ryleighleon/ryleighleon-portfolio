@@ -1,0 +1,46 @@
+.mobile-christmas-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-christmas-title{
+    color: #fad28b;
+    font-size: 36px;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mobile-christmas-body{
+    color: #000000;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.mobile-wreath-img {
+    height: 150px;
+}
+
+.mobile-christmas-desc {
+    color: black;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mobile-christmas-link {
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mobile-christmas-link:hover {
+    text-decoration: underline;
+}
+
+.mobile-christmas-body-container {
+    margin-top: 20px;
+}

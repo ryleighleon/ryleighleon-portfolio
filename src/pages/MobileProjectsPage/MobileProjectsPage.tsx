@@ -3,9 +3,7 @@ import {Page} from "../../redux/slices/pages";
 import './MobileProjectsPage.css';
 import {Project} from "../../redux/slices/projects";
 import {useAppSelector} from "../../redux/hooks";
-import ProjectTile from "../../components/ProjectTile/ProjectTile";
 import {useLocation} from "react-router-dom";
-import ProjectOverlay from "../../components/ProjectOverlay/ProjectOverlay";
 import {getFile} from "../../App";
 
 interface ProjectsPageProps {

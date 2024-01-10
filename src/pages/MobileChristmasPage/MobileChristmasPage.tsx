@@ -9,7 +9,7 @@ export default function MobileChristmasPage(){
         navigate('/');
     }
     return (
-        <div className={'mobile-christmas-container'}>
+        <div className={'mobile-christmas-container page'}>
             <img src={getFile('christmasWreath.png')} alt={'wreath'} className={'mobile-wreath-img'}/>
             <span className={'mobile-christmas-title'}>Merry Christmas Ryleigh!</span>
             <span className={'mobile-christmas-desc'}>I recreated and hosted your site, so you can use a custom domain for it.</span>

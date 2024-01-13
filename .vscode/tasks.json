@@ -6,20 +6,12 @@
 			"type": "shell",
 			"command": "git",
 			"args": ["pull", "."],
-			"group": {
-			  "kind": "build",
-			  "isDefault": false
-			}
 		  },
 	  {
 		"label": "Git Add",
 		"type": "shell",
 		"command": "git",
 		"args": ["add", "."],
-		"group": {
-		  "kind": "build",
-		  "isDefault": false
-		},
 		"dependsOn": "Git Pull"
 	  },
 	  {
@@ -67,7 +59,7 @@
 		  "kind": "test",
 		  "isDefault": true
 		},
-		"isBackground": true,   // This prevents the launch.json to wait for the completion of the task
+		"isBackground": true,   // This prevents the launch.json to wait for the completion of the task.
 		"problemMatcher": {
 		   "owner": "custom",   // This is not needed but, required by the problemMatcher Object
 		   "pattern": {

@@ -35,3 +35,8 @@ Type: "Image"
 Description: "For the first project in my Art Direction class, we were paired up with a classmate to art direct and redesign an album cover. My partner Suleika had picked the album Sincerándome by Carlos Rivera."
 Page Path: "/miad/third-year"
 *****
+Project Name: "Fish Poster"
+Filename: "Leon_IDR_P1Final.png"
+Type: "Image"
+Page Path: "/miad/third-year"
+*****

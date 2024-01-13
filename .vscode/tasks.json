@@ -1,6 +1,16 @@
 {
 	"version": "2.0.0",
 	"tasks": [
+		{
+			"label": "Git Pull",
+			"type": "shell",
+			"command": "git",
+			"args": ["pull", "."],
+			"group": {
+			  "kind": "build",
+			  "isDefault": false
+			}
+		  },
 	  {
 		"label": "Git Add",
 		"type": "shell",
@@ -9,7 +19,8 @@
 		"group": {
 		  "kind": "build",
 		  "isDefault": false
-		}
+		},
+		"dependsOn": "Git Pull"
 	  },
 	  {
 		"label": "Git Commit",

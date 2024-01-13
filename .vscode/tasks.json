@@ -43,12 +43,12 @@
 	  },
 	  {
 		"label": "Deploy Changes",
-		"dependsOrder": "sequence",
-		"dependsOn": ["Git Add", "Git Commit", "Git Push", "Deploy to Server"],
+		"dependsOrder": "sequence",  // Change this property from "sequence" to "parallel"
+		"dependsOn": ["Git Pull", "Git Add", "Git Commit", "Git Push", "Deploy to Server"],
 		"group": {
 		  "kind": "build",
 		  "isDefault": true
-		}
+		}	  
 	  },
 	  {
 		"label": "Start Preview Changes",

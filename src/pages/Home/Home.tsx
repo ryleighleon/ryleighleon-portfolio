@@ -15,7 +15,7 @@ export default function HomePage(){
                 </div>
             </div>
             <div className={'contact-form-container'}>
-                <ContactForm color={'yellow'}/>
+                <ContactForm color={'blue'}/>
             </div>
         </div>
 

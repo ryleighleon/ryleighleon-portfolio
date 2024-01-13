@@ -1,7 +1,7 @@
-.contact-email-yellow {
+.contact-email-blue {
     font-size: 15px;
     font-family: 'Nunito Sans', sans-serif;
-    color: black;
+    color: white;
     text-decoration: none;
     outline: none;
     margin-bottom: 20px;
@@ -16,7 +16,7 @@
     margin-bottom: 20px;
 }
 
-.contact-email-yellow:hover {
+.contact-email-blue:hover {
     text-decoration: underline;
 }
 
@@ -24,8 +24,8 @@
     text-decoration: underline;
 }
 
-.contact-info-body-yellow {
-    color: black;
+.contact-info-body-blue {
+    color: white;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
@@ -46,17 +46,17 @@
     margin-right: 50px;
 }
 
-.contact-info-title-yellow {
-    color: #000000;
+.contact-info-title-blue {
+    color: white;
     font-size: 40px;
-    font-family: "Cormorant Garamond", serif;
+    font-family: 'Old Standard TT', serif;
     margin-bottom: 30px;
 }
 
 .contact-info-title-gray {
     color: #ffffff;
     font-size: 40px;
-    font-family: "Cormorant Garamond", serif;
+    font-family: 'Old Standard TT', serif;
     margin-bottom: 30px;
 }
 
@@ -81,7 +81,7 @@
     max-width: 550px;
 }
 
-.contact-container-yellow {
+.contact-container-blue {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -89,7 +89,7 @@
     padding: 30px 30px 40px;
     margin-left: 80px;
     margin-right: 80px;
-    background-color: #f4d085;
+    background-color: #4859a8;
 }
 
 .contact-container-gray {
@@ -103,16 +103,16 @@
     background-color: #747474;
 }
 
-.contact-input-yellow {
+.contact-input-blue {
     margin-left: 50px;
     margin-right: 50px;
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     border-left: none;
     border-right: none;
     border-top: none;
     background-color: transparent;
-    color: black;
+    color: white;
     height: 30px;
     outline: none;
     font-family: Arial, serif;
@@ -130,7 +130,7 @@
     border-right: none;
     border-top: none;
     background-color: transparent;
-    color: black;
+    color: white;
     height: 30px;
     outline: none;
     font-family: Arial, serif;
@@ -139,19 +139,19 @@
     padding: 3px 3px 3px 12px;
 }
 
-.contact-input-yellow::placeholder {
-    color: black;
+.contact-input-blue::placeholder {
+    color: white;
     font-family: 'Montserrat', serif;
     font-weight: 200;
     font-size: 15px;
 }
 
-.contact-input-yellow:hover {
-    border: 1px solid black;
+.contact-input-blue:hover {
+    border: 1px solid white;
 }
 
-.contact-input-yellow:focus {
-    border: 1px solid black;
+.contact-input-blue:focus {
+    border: 1px solid white;
 }
 
 .contact-input-gray::placeholder {
@@ -173,7 +173,7 @@
     height: 80px;
 }
 
-.contact-submit-button-yellow {
+.contact-submit-button-blue {
     margin-left: 50px;
     margin-right: 50px;
     width: 100%;
@@ -183,13 +183,13 @@
     border-radius: 0;
     border: none;
     outline: none;
-    color: white;
-    background-color: black;
+    color: #4859a8;
+    background-color: white;
     cursor: pointer;
 }
 
-.contact-submit-button-yellow:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+.contact-submit-button-blue:hover {
+    background-color: rgba(211, 211, 211, 0.7);
 }
 
 .contact-submit-button-gray {

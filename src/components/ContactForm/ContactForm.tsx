@@ -9,7 +9,7 @@ interface FormData {
 }
 
 interface ContactFormProps {
-    color: 'yellow' | 'gray';
+    color: 'blue' | 'gray';
 }
 
 export default function ContactForm(props: ContactFormProps) {
@@ -57,10 +57,10 @@ export default function ContactForm(props: ContactFormProps) {
                 <a href='mailto:ryleighleon@gmail.com' className={'contact-email-' + color}>ryleighleon@gmail.com</a>
                 <div className={'contact-socials'}>
                     <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`LinkedIn${color === 'gray' ? 'White': 'Black'}.png`)} alt={'LinkedIn'} className={'social-icon'}/>
+                        <img src={getFile(`LinkedInWhite.png`)} alt={'LinkedIn'} className={'social-icon'}/>
                     </a>
                     <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`Instagram${color === 'gray' ? 'White': 'Black'}.png`)} alt={'Instagram'} className={'social-icon'}/>
+                        <img src={getFile(`InstagramWhite.png`)} alt={'Instagram'} className={'social-icon'}/>
                     </a>
                 </div>
             </div>

@@ -35,7 +35,15 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                             <span className={'project-navigation-icon go-back-span'} onClick={props.goBackward}>{`<`}</span>
                         </div>
                     }
-                    <img src={getFile(project.filename)} alt={project.name} className={'project-image'}/>
+                    {project.type === 'Image' &&
+                        <img src={getFile(project.filename)} alt={project.name} className={'project-image'}/>
+                    }
+                    {project.type === 'Video' &&
+                        <video className={'project-image'} controls>
+                            <source src={getFile(project.filename)} type="video/mp4"/>
+                                Your browser does not support the video tag.
+                        </video>
+                    }
                     {props.canGoForward &&
                         <div className={'nav-button-container'}>
                             <span className={'project-navigation-icon go-forward-span'} onClick={props.goForward}>{`>`}</span>

@@ -24,11 +24,19 @@ export default function ProjectTile(props: ProjectTileProps) {
             onClick={onOpen}
             className={'project-tile'}
         >
-            <img
-                src={getFile(project.filename)}
-                alt={project.name}
-                className={'project-tile-img'}
-            />
+            {project.type === 'Image' &&
+                <img
+                    src={getFile(project.filename)}
+                    alt={project.name}
+                    className={'project-tile-img'}
+                />
+            }
+            {project.type === 'Video' &&
+                <video className={'project-tile-img'} controls>
+                    <source src={getFile(project.filename)} type="video/mp4"/>
+                    Your browser does not support videos
+                </video>
+            }
             {isHovered &&
                 <div className={'project-tile-overlay'}>
                     <span>{project.name}</span>

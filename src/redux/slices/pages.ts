@@ -31,7 +31,6 @@ const pagesSlice = createSlice({
             if (parentPage) {
                 parentPage.children.push(action.payload)
             } else {
-                console.log(`Adding page: ${action.payload.shortTitle}`);
                 state.pages.push(action.payload);
             }
         },

@@ -5,7 +5,7 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    z-index: 99999;
+    z-index: 99998;
 }
 
 .button-bar-container {
@@ -44,7 +44,9 @@
 }
 
 .nav-button-container {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 70%;
     align-items: center;
 }
@@ -69,7 +71,7 @@
 }
 
 .project-image {
-    max-width: 100%;
+    max-width: 90%;
     max-height: 70%;
     object-fit: contain;
 }

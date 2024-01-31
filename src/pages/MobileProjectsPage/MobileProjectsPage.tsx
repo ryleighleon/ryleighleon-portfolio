@@ -36,7 +36,19 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
                 {thisPageProjects.map((project, index) => {
                     return (
                         <div className={'mobile-project-tile'}>
-                            <img src={getFile(project.filename)} alt={project.name} className={'mobile-project-image'}/>
+                            {project.type === 'Image' &&
+                                <img
+                                    src={getFile(project.filename)}
+                                    alt={project.name}
+                                    className={'mobile-project-image'}
+                                />
+                            }
+                            {project.type === 'Video' &&
+                                <video className={'mobile-project-image'} controls>
+                                    <source src={getFile(project.filename)} type="video/mp4"/>
+                                    Your browser does not support videos
+                                </video>
+                            }
                             {project.name &&
                                 <span className={'mobile-project-title'}>{project.name}</span>
                             }

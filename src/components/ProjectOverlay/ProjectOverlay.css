@@ -26,7 +26,7 @@
 }
 
 .project-navigation-icon {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 35px;
     cursor: pointer;
 }
@@ -77,13 +77,13 @@
 }
 
 .overlay-title {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     margin-bottom: 18px;
 }
 
 .overlay-description {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     white-space: pre-line;
 }

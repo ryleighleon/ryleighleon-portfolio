@@ -1,7 +1,7 @@
 import React from "react";
 import './ChristmasPage.css';
 import {useNavigate} from "react-router-dom";
-import {getFile} from "../../App";
+import {getFile} from "../../../App";
 
 export default function ChristmasPage(){
     const navigate = useNavigate();

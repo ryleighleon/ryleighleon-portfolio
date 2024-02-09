@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getFile, getRootFileText} from "../../App";
+import {getFile, getRootFileText} from "../../../App";
 import './MobileAboutPage.css';
 
 export default function MobileAboutPage(){

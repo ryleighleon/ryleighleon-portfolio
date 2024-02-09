@@ -1,5 +1,5 @@
 import React from "react";
-import {getFile} from "../../App";
+import {getFile} from "../../../App";
 import './MobileHome.css';
 
 export default function HomePage(){

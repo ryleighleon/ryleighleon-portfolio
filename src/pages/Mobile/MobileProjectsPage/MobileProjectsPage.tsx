@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Page} from "../../redux/slices/pages";
+import {Page} from "../../../redux/slices/pages";
 import './MobileProjectsPage.css';
-import {Project} from "../../redux/slices/projects";
-import {useAppSelector} from "../../redux/hooks";
+import {Project} from "../../../redux/slices/projects";
+import {useAppSelector} from "../../../redux/hooks";
 import {useLocation} from "react-router-dom";
-import {getFile} from "../../App";
+import {getFile} from "../../../App";
 
 interface ProjectsPageProps {
     page: Page;

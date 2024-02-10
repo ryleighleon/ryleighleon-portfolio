@@ -255,7 +255,7 @@ function App() {
 
     return (
         <div className={'app'}>
-            <Router hashType="noslash">
+            <Router>
                 {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
                     <Route path="/" Component={isMobile ? MobileHomePage : HomePage} />

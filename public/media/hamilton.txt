@@ -1,0 +1,10 @@
+*****
+Project Name: "Hamilton at the Farmers Market!"
+Filename: "Hamilton at the Farmers Market.png"
+Description: "At the beginning of my internship, Hamilton went to the local farmers market. We were printing free prints that said I love... and were preprinted. Guests could fill in the blank with their choice of word and we printed the word in the blank area."
+Type: "Image"
+*****
+Project Name: "Ink and Drink Flyer"
+Filename: "Ink and Drink.png"
+Type: "Image"
+*****

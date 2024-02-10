@@ -1,7 +1,7 @@
 import React from "react";
-import {getFile} from "../../App";
+import {getFile} from "../../../App";
 import './HomePage.css';
-import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactForm from "../../../components/ContactForm/ContactForm";
 
 export default function HomePage(){
     return (

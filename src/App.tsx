@@ -1,33 +1,42 @@
 import React, {useEffect, useState} from 'react';
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import HomePage from "./pages/Home/Home";
+import HomePage from "./pages/Desktop/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import {addPage, clearPages, Page} from "./redux/slices/pages";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import Footer from "./components/Footer/Footer";
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import ProjectsPage from "./pages/Desktop/ProjectsPage/ProjectsPage";
 import {addProject, clearProjects, Project} from "./redux/slices/projects";
-import AboutPage from "./pages/About/AboutPage";
-import NotFound from "./pages/NotFound/NotFound";
-import ContactPage from "./pages/Contact/ContactPage";
-import LoadingPage from "./pages/LoadingPage/LoadingPage";
-import ChristmasPage from "./pages/ChristmasPage/ChristmasPage";
+import AboutPage from "./pages/Desktop/About/AboutPage";
+import NotFound from "./pages/Desktop/NotFound/NotFound";
+import ContactPage from "./pages/Desktop/Contact/ContactPage";
+import LoadingPage from "./pages/Desktop/LoadingPage/LoadingPage";
+import ChristmasPage from "./pages/Desktop/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
-import MobileChristmasPage from "./pages/MobileChristmasPage/MobileChristmasPage";
-import MobileHomePage from "./pages/MobileHome/MobileHome";
-import MobileAboutPage from "./pages/MobileAbout/MobileAboutPage";
+import MobileChristmasPage from "./pages/Mobile/MobileChristmasPage/MobileChristmasPage";
+import MobileHomePage from "./pages/Mobile/MobileHome/MobileHome";
+import MobileAboutPage from "./pages/Mobile/MobileAbout/MobileAboutPage";
 import MobileFooter from "./components/MobileFooter/MobileFooter";
-import MobileProjectsPage from "./pages/MobileProjectsPage/MobileProjectsPage";
+import MobileProjectsPage from "./pages/Mobile/MobileProjectsPage/MobileProjectsPage";
+import {store} from "./redux/store";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
 }
 
 export async function getRootFileText(filename: string) {
-    const response = await fetch(process.env.PUBLIC_URL + '/media/' + filename);
-    return await response.text();
+    try {
+        const response = await fetch(process.env.PUBLIC_URL + '/media/' + filename);
+        if (!response.ok) {
+            return '';
+        }
+        return await response.text();
+    } catch (error) {
+        return '';
+    }
 }
+
 
 function App() {
     const dispatch = useAppDispatch();
@@ -106,6 +115,7 @@ function App() {
                     }
                     if (page.relativeLink && page.shortTitle){
                         dispatch(addPage(page));
+                        console.log('Adding page '+ page.shortTitle);
                     } else {
                         alert(`A required attribute for Page ${page.shortTitle ? page.subTitle: '[No Title]'} is missing/formatted incorrectly`)
                     }
@@ -119,77 +129,82 @@ function App() {
         };
         const populateProjects = async () => {
             try {
-                const text = await getRootFileText('Projects.txt');
-                const lines = text.split(/\r?\n/);
-                let lineIndex = 0;
-                let moreProjects = true;
-                dispatch(clearProjects())
-                while (moreProjects){
-                    const project: Project = {
-                        filename: "", type: "", name: "", path: ""
+                const currPages = store.getState().pages.pages;
+                dispatch(clearProjects());
+                const tempPages: Page[] = [];
+                for (let parentPage of currPages){
+                    if (parentPage.children.length === 0){
+                        tempPages.push(parentPage)
+                    } else {
+                        tempPages.push(...parentPage.children);
                     }
-                    let nextLine = lines[lineIndex + 1];
-                    while (moreProjects && !nextLine.startsWith('*')){
-                        if (nextLine.startsWith('Project Name')){
-                            const match = nextLine.match(/"([^"]*)"/);
-                            if (match && match.length > 1) {
-                                project.name = match[1]
-                            } else {
-                                alert(`This line is not formatted correctly: '${nextLine}'`)
-                            }
-                        } else if (nextLine.startsWith('Filename')){
-                            const match = nextLine.match(/"([^"]*)"/);
-                            if (match && match.length > 1) {
-                                project.filename = match[1]
-                            } else {
-                                alert(`This line is not formatted correctly: '${nextLine}'`)
-                            }
-                        } else if (nextLine.startsWith('Type')){
-                            const match = nextLine.match(/"([^"]*)"/);
-                            if (match && match.length > 1) {
-                                project.type = match[1]
-                            } else {
-                                alert(`This line is not formatted correctly: '${nextLine}'`)
-                            }
-                        } else if (nextLine.startsWith('Description')){
-                            try {
-                                let description = '';
+                }
+                for (let i = 0; i < tempPages.length; i++) {
+                    const page = tempPages[i];
+                    const text = await getRootFileText(`${page.relativeLink.replace(/.*\//, '')}.txt`);
+                    const lines = text.split(/\r?\n/);
+                    let lineIndex = 0;
+                    let moreProjects = lines.length > 2;
+                    while (moreProjects) {
+                        const project: Project = {
+                            filename: "", type: "", name: "", path: page.relativeLink
+                        }
+                        let nextLine = lines[lineIndex + 1];
+                        while (moreProjects && !nextLine.startsWith('*')){
+                            if (nextLine.startsWith('Project Name')){
                                 const match = nextLine.match(/"([^"]*)"/);
                                 if (match && match.length > 1) {
-                                    project.description = match[1]
+                                    project.name = match[1]
                                 } else {
-                                    description += nextLine.slice(nextLine.indexOf('"') + 1);
-                                    lineIndex += 1;
-                                    nextLine = lines[lineIndex];
-                                    while (!nextLine.includes('"')){
-                                        description += `\n${nextLine}`
+                                    alert(`This line is not formatted correctly: '${nextLine}'`)
+                                }
+                            } else if (nextLine.startsWith('Filename')){
+                                const match = nextLine.match(/"([^"]*)"/);
+                                if (match && match.length > 1) {
+                                    project.filename = match[1]
+                                } else {
+                                    alert(`This line is not formatted correctly: '${nextLine}'`)
+                                }
+                            } else if (nextLine.startsWith('Type')){
+                                const match = nextLine.match(/"([^"]*)"/);
+                                if (match && match.length > 1) {
+                                    project.type = match[1]
+                                } else {
+                                    alert(`This line is not formatted correctly: '${nextLine}'`)
+                                }
+                            } else if (nextLine.startsWith('Description')){
+                                try {
+                                    let description = '';
+                                    const match = nextLine.match(/"([^"]*)"/);
+                                    if (match && match.length > 1) {
+                                        project.description = match[1]
+                                    } else {
+                                        description += nextLine.slice(nextLine.indexOf('"') + 1);
                                         lineIndex += 1;
                                         nextLine = lines[lineIndex];
+                                        while (!nextLine.includes('"')){
+                                            description += `\n${nextLine}`
+                                            lineIndex += 1;
+                                            nextLine = lines[lineIndex];
+                                        }
+                                        description += `\n${nextLine.slice(0, nextLine.indexOf('"'))}`
+                                        project.description = description;
                                     }
-                                    description += `\n${nextLine.slice(0, nextLine.indexOf('"'))}`
-                                    project.description = description;
+                                } catch (error){
+                                    alert(`The description for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
                                 }
-                            } catch (error){
-                                alert(`The description for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
                             }
-                        } else if (nextLine.startsWith('Page Path')){
-                            const match = nextLine.match(/"([^"]*)"/);
-                            if (match && match.length > 1) {
-                                project.path = match[1]
-                            } else {
-                                alert(`This line is not formatted correctly: '${nextLine}'`)
-                            }
+                            lineIndex += 1;
+                            nextLine = lines[lineIndex];
                         }
-                        lineIndex += 1;
-                        nextLine = lines[lineIndex];
-                    }
-                    if (project.type && project.filename && project.name && project.path){
-                        dispatch(addProject(project));
-                    } else {
-                        alert(`A required attribute for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
-                    }
-                    if (lineIndex >= lines.length - 1){
-                        moreProjects = false;
+                        if (project.type && project.filename && project.name){
+                            dispatch(addProject(project));
+                        } else {
+                            alert(`A required attribute for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
+                        }
+                        if (lineIndex >= lines.length - 1){
+                            moreProjects = false;
+                        }
                     }
                 }
             } catch (error) {
@@ -197,12 +212,14 @@ function App() {
             }
         }
         async function populateData() {
-            const pagesPromise = populatePages();
-            const projectsPromise = populateProjects();
-
-            await Promise.all([pagesPromise, projectsPromise]);
-
-            setPagesLoading(false);
+            try {
+                await populatePages();
+                await populateProjects();
+            } catch (error) {
+                console.error("Error while populating data:", error);
+            } finally {
+                setPagesLoading(false);
+            }
         }
         populateData();
     }, [dispatch]);
@@ -238,7 +255,7 @@ function App() {
 
     return (
         <div className={'app'}>
-            <Router>
+            <Router hashType="noslash">
                 {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
                     <Route path="/" Component={isMobile ? MobileHomePage : HomePage} />

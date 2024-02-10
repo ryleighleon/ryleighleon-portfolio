@@ -21,7 +21,9 @@ const projectsSlice = createSlice({
     initialState,
     reducers: {
         addProject: (state, action: PayloadAction<Project>) => {
-            state.projects.push(action.payload);
+            if (!state.projects.some(project => project.name === action.payload.name && project.filename === action.payload.filename)) {
+                state.projects.push(action.payload);
+            }
         },
         clearProjects: (state) => {
             state.projects = [];

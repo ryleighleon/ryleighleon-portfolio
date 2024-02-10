@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Page} from "../../redux/slices/pages";
+import {Page} from "../../../redux/slices/pages";
 import './ProjectsPage.css';
-import {Project} from "../../redux/slices/projects";
-import {useAppSelector} from "../../redux/hooks";
-import ProjectTile from "../../components/ProjectTile/ProjectTile";
+import {Project} from "../../../redux/slices/projects";
+import {useAppSelector} from "../../../redux/hooks";
+import ProjectTile from "../../../components/ProjectTile/ProjectTile";
 import {useLocation} from "react-router-dom";
-import ProjectOverlay from "../../components/ProjectOverlay/ProjectOverlay";
+import ProjectOverlay from "../../../components/ProjectOverlay/ProjectOverlay";
 
 interface ProjectsPageProps {
     page: Page;
@@ -64,7 +64,7 @@ export default function ProjectsPage(props: ProjectsPageProps){
                     return <ProjectTile
                                 project={project}
                                 onClick={() => handleClick(index)}
-                                key={`${project.name}-${project.filename}`}
+                                key={`${project.name}-${project.filename}-${index}`}
                             />
                 })}
             </div>

@@ -1,10 +1,15 @@
 *****
 Project Name: "Hamilton at the Farmers Market!"
 Filename: "Hamilton at the Farmers Market.png"
-Description: "At the beginning of my internship, Hamilton went to the local farmers market. We were printing free prints that said I love... and were preprinted. Guests could fill in the blank with their choice of word and we printed the word in the blank area."
+Description: "At the beginning of my internship, Hamilton had a stand at the local farmers market. 
+We brought pre-printed pages that said I love blank. Guests could fill in the blanks with their words, 
+and we printed it in the blank area. Above, I printed a guest’s word on a tiny showcard press. 
+I also cleaned and helped people set wood type."
 Type: "Image"
 *****
 Project Name: "Ink and Drink Flyer"
 Filename: "Ink and Drink.png"
+Description: "The TV slide was to promote the summer workshops Hamilton hosted. 
+I used Hamilton’s brand guidelines to design the slides."
 Type: "Image"
 *****

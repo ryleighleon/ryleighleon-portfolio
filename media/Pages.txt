@@ -51,6 +51,12 @@ Description: "Here is work from my third year at the Milwaukee Institute of Art 
 *****
 Short Title: "Hamilton Wood Type & Printing Museum"
 Long Title: "Hamilton Wood Type & Printing Museum"
-Description: "Summer of 2023 internship through the WAICU."
+Description: "Graphic Design Summer Internship through the Wisconsin Association of Independent Colleges and Universities (WAICU). 
+WAICU provides paid internship opportunities for students with nonprofit organizations to gain valuable hands-on experience and aid in community development. 
+The Hamilton Wood Type & Printing Museum is in Two Rivers, WI. They have over 1.5 million pieces of wood type in their collection. 
+Hamilton is a 501(c)3 nonprofit arts and educational organization. They are passionate about teaching people about typography and the history of American printing.
+Hamilton has a gallery space in the museum and offers tours, workshops, and a store with prints and wood type to buy. <br> During this internship,  
+I implemented the museum’s branding system and executed layouts for all marketing channels. I also prepared, designed, and laid out pieces for the January 2024 
+Hamilton Exhibition at MIAD."
 Relative Link: "/internships/hamilton"
 *****

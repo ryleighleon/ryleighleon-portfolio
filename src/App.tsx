@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import HomePage from "./pages/Desktop/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
@@ -59,7 +59,7 @@ function App() {
                         children: [], relativeLink: "", shortTitle: "",
                     };
                     let nextLine = lines[lineIndex + 1];
-                    while (morePages && !nextLine.startsWith('*')){
+                    while (morePages && nextLine !== undefined && !nextLine.startsWith('*')){
                         if (nextLine.startsWith('Short Title')){
                             const match = nextLine.match(/"([^"]*)"/);
                             if (match && match.length > 1) {
@@ -150,7 +150,7 @@ function App() {
                             filename: "", type: "", name: "", path: page.relativeLink
                         }
                         let nextLine = lines[lineIndex + 1];
-                        while (moreProjects && !nextLine.startsWith('*')){
+                        while (moreProjects && nextLine !== undefined && !nextLine.startsWith('*')){
                             if (nextLine.startsWith('Project Name')){
                                 const match = nextLine.match(/"([^"]*)"/);
                                 if (match && match.length > 1) {

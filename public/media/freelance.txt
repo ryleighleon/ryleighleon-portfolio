@@ -1,0 +1,9 @@
+*****
+Project Name: "SPD Sticker 1"
+Filename: "SPDletterssticker.png"
+Type: "Image"
+*****
+Project Name: "SPD Sticker 2"
+Filename: "SPDCircleSticker.png"
+Type: "Image"
+*****

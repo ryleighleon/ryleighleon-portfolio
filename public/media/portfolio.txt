@@ -1,0 +1,18 @@
+*****
+Project Name: "Old Type New Ways Logo"
+Filename: "HWTxMIAD_Logo.png"
+Type: "Image"
+*****
+Project Name: "Ink and Drink"
+Filename: "Ink and Drink.png"
+Description: "The TV slide was to promote the summer workshops Hamilton hosted. I used Hamilton’s brand guidelines to design the slides."
+Type: "Image"
+*****
+Project Name: "Drink Token"
+Filename: "Drink Token.png"
+Type: "Image"
+*****
+Project Name: "Target Magazine Ad"
+Filename: "Target Magazine Ad.png"
+Type: "Image"
+*****

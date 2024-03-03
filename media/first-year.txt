@@ -2,11 +2,8 @@
 Project Name: "Ernestine Debit Card"
 Filename: "Ernestine Debit Card.png"
 Type: "Image"
-Description: "Software Used: Adobe Illustrator and Photoshop
-Took a pattern created from the typeface, Ernestine Pro and applying it to a mock up."
 *****
-Project Name: "Motion Video"
-Filename: "Leon_T2P3_1.mp4"
-Type: "Video"
-Description: "A lyric video of the song Location by Khalid. Using the software Adobe After Effects."
+Project Name: "No Signal"
+Filename: "No Signal.png"
+Type: "Image"
 *****

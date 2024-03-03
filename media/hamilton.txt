@@ -7,7 +7,7 @@ and we printed it in the blank area. Above, I printed a guest’s word on a tiny
 I also cleaned and helped people set wood type."
 Type: "Image"
 *****
-Project Name: "Ink and Drink Flyer"
+Project Name: "Ink and Drink"
 Filename: "Ink and Drink.png"
 Description: "The TV slide was to promote the summer workshops Hamilton hosted. 
 I used Hamilton’s brand guidelines to design the slides."

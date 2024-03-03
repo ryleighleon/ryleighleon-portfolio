@@ -20,34 +20,17 @@ Relative Link: "/personal"
 Short Title: "1st Year"
 Long Title: "First Year Experience"
 Sub Title: "August 2021 - April 2022"
-Description: "Work from my first year at MIAD. I worked in both traditional and digital forms.
-
-Systems of Drawing: Techniques learned - Observational drawing, Ortho and Iso, Perspective, Tetris, Semiotics
-
-What's Your Type: Research, Process, Connection (RPC). Learning and creating different forms of typography in traditional and untraditional ways.
-
-Digital 4-D: Learning the fundamentals of video and motion. Software used in this class was Dragonframe, Adobe Photoshop, Premiere Pro, After Effects, Media Encoder, and Bridge
-
-Digital 2-D: Learning the fundamentals of digital art in 2-D form. The software used in this class was Adobe Photoshop, Illustrator, and InDesign
-
-Fabrication
-
-Visual Language
-
-Intro to Study: CD 1"
 Relative Link: "/miad/first-year"
 *****
 Short Title: "2nd Year"
 Long Title: "Second Year Experience"
 Sub Title: "August 2022 - April 2023"
 Relative Link: "/miad/second-year"
-Description: "Here is work from my second year at the Milwaukee Institute of Art and Design. The studio classes I took this year are; Communication Design 2, Typography 1 & 2, Advanced Digital 2D, Advanced Digital 4D, Illustrator 1, and Sewing 1."
 *****
 Short Title: "3rd Year"
 Long Title: "Third Year Experience"
 Sub Title: "August 2023 - May 2024"
 Relative Link: "/miad/third-year"
-Description: "Here is work from my third year at the Milwaukee Institute of Art and Design. The studio classes I took this year are; Identity Design, Information Design and Research, and Art Direction."
 *****
 Short Title: "Hamilton Wood Type & Printing Museum"
 Long Title: "Hamilton Wood Type & Printing Museum"

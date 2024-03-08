@@ -1,45 +1,11 @@
 {
 	"version": "2.0.0",
 	"tasks": [
-		{
-			"label": "Git Pull",
-			"type": "shell",
-			"command": "git",
-			"args": ["pull", "."],
-		  },
-	  {
-		"label": "Git Add",
-		"type": "shell",
-		"command": "git",
-		"args": ["add", "."],
-		"dependsOn": "Git Pull"
-	  },
-	  {
-		"label": "Git Commit",
-		"type": "shell",
-		"command": "git",
-		"args": [
-		  "commit",
-		  "-m",
-		  "new changes"
-		],
-		"dependsOn": "Git Add"
-	  },
-	  {
-		"label": "Git Push",
-		"type": "shell",
-		"command": "git",
-		"args": [
-		  "push"
-		],
-		"dependsOn": "Git Commit"
-	  },
 	  {
 		"label": "Deploy to Server",
 		"type": "shell",
 		"command": "npm",
 		"args": ["run", "deploy"],
-		"dependsOn": "Git Push"
 	  },
 	  {
 		"label": "Deploy Changes",

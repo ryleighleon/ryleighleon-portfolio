@@ -16,3 +16,15 @@ Project Name: "Target Magazine Ad"
 Filename: "Target Magazine Ad.png"
 Type: "Image"
 *****
+Project Name: "Target Web Ad"
+Filename: "Target Banner Ad MU.png"
+Type: "Image"
+*****
+Project Name: "Simply Lemonade Social Media Ad"
+Filename: "AD1.png"
+Type: "Image"
+*****
+Project Name: "Simply Lemonade Subway Ad"
+Filename: "AD3.png"
+Type: "Image"
+*****

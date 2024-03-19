@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {getFile, getRootFileText} from "../../../App";
-import './MobileAboutPage.css';
+import './MobilePortfolio.css';
 
-export default function MobileAboutPage(){
+export default function MobilePortfolio(){
     const [aboutMeText, setAboutMeText] = useState('');
 
     useEffect(() => {

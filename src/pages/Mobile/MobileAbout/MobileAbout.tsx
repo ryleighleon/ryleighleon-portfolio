@@ -1,8 +1,8 @@
 import React from "react";
 import {getFile} from "../../../App";
-import './MobileHome.css';
+import './MobileAbout.css';
 
-export default function HomePage(){
+export default function MobileAbout(){
     return (
         <div className={'mobile-homepage page'} >
             <div className={'mobile-introduction'}>

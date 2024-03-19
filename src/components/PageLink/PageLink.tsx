@@ -40,8 +40,6 @@ export default function PageLink(props: LinkItemProps) {
 
     if (pathname === props.relativeUrl || isHovered) {
         classes.push('selected-nav-link');
-    } else {
-        classes.push('unselected-nav-link');
     }
     if (children.length === 0){
         classes.push('clickable-text');
@@ -55,7 +53,7 @@ export default function PageLink(props: LinkItemProps) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <span className={classes.join(' ')} onClick={handleParentClick}>{props.title}</span>
+            <span className={`page-link-text ${classes.join(' ')}`} onClick={handleParentClick}>{props.title}</span>
             {isHovered && children && (
                 <ul className="child-list">
                     {children.map((child, index) => (

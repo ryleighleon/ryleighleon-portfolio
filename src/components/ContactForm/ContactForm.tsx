@@ -8,12 +8,7 @@ interface FormData {
     body: string;
 }
 
-interface ContactFormProps {
-    color: 'blue' | 'gray';
-}
-
-export default function ContactForm(props: ContactFormProps) {
-    const color = props.color;
+export default function ContactForm() {
     const [formData, setFormData] = useState<FormData>({
         name: '',
         subject: '',
@@ -50,17 +45,17 @@ export default function ContactForm(props: ContactFormProps) {
 
 
     return (
-        <div className={'contact-container-' + color}>
+        <div className={'contact-container'}>
             <div className={'contact-info'}>
-                <span className={'contact-info-title-' + color}>Connect with Me!</span>
-                <span className={'contact-info-body-' + color}>Interested in learning more about me, my work or how we can collaborate on an upcoming project? Feel free to reach out anytime, I would be more than happy to chat.</span>
-                <a href='mailto:ryleighleon@gmail.com' className={'contact-email-' + color}>ryleighleon@gmail.com</a>
+                <span className={'contact-info-title'}>Connect with Me!</span>
+                <span className={'contact-info-body'}>Interested in learning more about me, my work or how we can collaborate on an upcoming project? Feel free to reach out anytime, I would be more than happy to chat.</span>
+                <a href='mailto:ryleighleon@gmail.com' className={'contact-email'}>ryleighleon@gmail.com</a>
                 <div className={'contact-socials'}>
                     <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`LinkedInWhite.png`)} alt={'LinkedIn'} className={'social-icon'}/>
+                        <img src={getFile(`LinkedInBlack.png`)} alt={'LinkedIn'} className={'social-icon'}/>
                     </a>
                     <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`InstagramWhite.png`)} alt={'Instagram'} className={'social-icon'}/>
+                        <img src={getFile(`InstagramBlack.png`)} alt={'Instagram'} className={'social-icon'}/>
                     </a>
                 </div>
             </div>
@@ -72,7 +67,7 @@ export default function ContactForm(props: ContactFormProps) {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className={'contact-input-' + color}
+                    className={'contact-input'}
                     placeholder={'Name'}
                 />
                 <input
@@ -82,7 +77,7 @@ export default function ContactForm(props: ContactFormProps) {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className={'contact-input-' + color}
+                    className={'contact-input'}
                     placeholder={'Subject'}
                 />
                 <textarea
@@ -91,10 +86,10 @@ export default function ContactForm(props: ContactFormProps) {
                     value={formData.body}
                     onChange={handleChange}
                     required
-                    className={`contact-input-${color} contact-input-text-area`}
+                    className={`contact-input contact-input-text-area`}
                     placeholder={'Type your message here...'}
                 ></textarea>
-                <button type="submit" className={'contact-submit-button-' + color}>Email ✉️</button>
+                <button type="submit" className={'contact-submit-button'}>Email</button>
             </form>
         </div>
     );

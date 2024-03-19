@@ -22,25 +22,17 @@ export default function NavBar(){
     return (
         <div className={'nav-bar'}>
             <div className={'nav-logo'} onClick={redirectHome}>
-                <img className={'logo-image'} src={getFile('logo.png')} alt={'logo'}/>
-                <span className={'name-title'}>Ryleigh Leon</span>
+                <img className={'logo-image'} src={getFile('LogoFull.png')} alt={'logo'}/>
             </div>
             <div className={'nav-links'}>
-                <PageLink title={'Home'} relativeUrl={'/'} key={'home'} children={[]}/>
-                {pages.map((page, index) => {
-                    return <PageLink
-                        title={page.shortTitle}
-                        relativeUrl={page.relativeLink}
-                        key={`${page.shortTitle}-${index}`}
-                        children={page.children}
-                    />;
-                })}
-                <PageLink relativeUrl={'/more'} title={'More'} key={'more'} children={[aboutPage, contactPage]}/>
+                <PageLink title={'Portfolio'} relativeUrl={'/'} key={'portfolio-link'} children={[]}/>
+                {/*<PageLink title={'Work'} relativeUrl={'/work'} key={'portfolio'} children={pages}/>*/}
+                <PageLink relativeUrl={'/about'} title={'About'} key={'about'} children={[]}/>
                 <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                    <img src={getFile('LinkedInWhite.png')} alt={'LinkedIn'} className={'social-icon'}/>
+                    <img src={getFile('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>
                 </a>
                 <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                    <img src={getFile('InstagramWhite.png')} alt={'Instagram'} className={'social-icon'}/>
+                    <img src={getFile('InstagramBlack.png')} alt={'Instagram'} className={'social-icon'}/>
                 </a>
             </div>
         </div>

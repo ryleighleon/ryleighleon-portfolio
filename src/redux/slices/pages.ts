@@ -1,5 +1,48 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+interface WorkPage {
+    projectSections: ProjectSection[];
+}
+
+interface Works {
+    workPages: WorkPage[];
+}
+
+export interface RegularProject {
+    title: string;
+    type: string;
+    filename: string;
+}
+
+interface ProjectSection {
+    title: string;
+    subtitle: string;
+    description?: string;
+    projects: RegularProject[];
+}
+
+interface PortfolioParagraph {
+    title: string;
+    text: string;
+}
+
+interface PortfolioSection {
+    title: string;
+    subtitle: string;
+    imageName: string;
+    portfolioParagraphs: PortfolioParagraph[];
+    portfolioProjects: string[];
+}
+
+interface PortfolioPage {
+    portfolioSections: PortfolioSection[];
+}
+
+
+
+
+
+
 export interface Page {
     shortTitle: string;
     longTitle?: string;

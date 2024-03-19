@@ -18,12 +18,12 @@ export default function MobileNavBar() {
 
     const aboutPage = useMemo(() => ({
         children: [],
-        relativeLink: "/more/about",
+        relativeLink: "/about",
         shortTitle: "About Me"
     }), []);
 
     function resetAllPages(){
-        const tempPages = pages.slice();
+        const tempPages = /*pages.slice()*/ [];
         tempPages.unshift(homePage);
         tempPages.push(aboutPage);
         setAllPages(tempPages);
@@ -31,7 +31,7 @@ export default function MobileNavBar() {
 
     useEffect(() => {
         function clearPageDropdown(){
-            const tempPages = pages.slice();
+            const tempPages = /*pages.slice()*/ [];
             tempPages.unshift(homePage);
             tempPages.push(aboutPage);
             setAllPages(tempPages);
@@ -64,8 +64,7 @@ export default function MobileNavBar() {
 
     return (
         <div className={'mobile-nav-bar'}>
-            <img className={'mobile-logo-image'} src={getFile('logo.png')} alt={'logo'} onClick={redirectHome} />
-            <span className={'mobile-name-title'}>Ryleigh Leon</span>
+            <img className={'mobile-logo-image'} src={getFile('LogoFull.png')} alt={'logo'} onClick={redirectHome} />
             <img src={getFile('hamburgerIcon.png')} alt={'nav'} className={'mobile-hamburger-icon'} onClick={handleHamburgerClick} />
 
             {showPages && (

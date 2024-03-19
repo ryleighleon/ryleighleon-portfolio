@@ -1,25 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import HomePage from "./pages/Desktop/Home/Home";
+import './variables.css';
 import NavBar from "./components/NavBar/NavBar";
 import {addPage, clearPages, Page} from "./redux/slices/pages";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import Footer from "./components/Footer/Footer";
 import ProjectsPage from "./pages/Desktop/ProjectsPage/ProjectsPage";
 import {addProject, clearProjects, Project} from "./redux/slices/projects";
-import AboutPage from "./pages/Desktop/About/AboutPage";
 import NotFound from "./pages/Desktop/NotFound/NotFound";
 import ContactPage from "./pages/Desktop/Contact/ContactPage";
 import LoadingPage from "./pages/Desktop/LoadingPage/LoadingPage";
 import ChristmasPage from "./pages/Desktop/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
 import MobileChristmasPage from "./pages/Mobile/MobileChristmasPage/MobileChristmasPage";
-import MobileHomePage from "./pages/Mobile/MobileHome/MobileHome";
-import MobileAboutPage from "./pages/Mobile/MobileAbout/MobileAboutPage";
 import MobileFooter from "./components/MobileFooter/MobileFooter";
 import MobileProjectsPage from "./pages/Mobile/MobileProjectsPage/MobileProjectsPage";
 import {store} from "./redux/store";
+import MobilePortfolio from "./pages/Mobile/MobilePortfolio/MobilePortfolio";
+import Portfolio from "./pages/Desktop/Portfolio/Portfolio";
+import MobileAbout from "./pages/Mobile/MobileAbout/MobileAbout";
+import AboutPage from "./pages/Desktop/About/AboutPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -253,13 +254,26 @@ function App() {
         };
     }, []);
 
+    const tempPages: Page[] = [];
+    let portfolioPage = accessiblePages.find(page => page.shortTitle === 'Portfolio');
+    if (!portfolioPage){
+        portfolioPage = accessiblePages[0];
+    }
     return (
         <div className={'app'}>
             <Router>
                 {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
-                    <Route path="/" Component={isMobile ? MobileHomePage : HomePage} />
-                    {accessiblePages.map(page => {
+                    {portfolioPage ?
+                        <Route
+                            path="/"
+                            element={isMobile ? <MobileProjectsPage page={portfolioPage}/> : <ProjectsPage page={portfolioPage}/>}
+                        />
+                        :
+                        <Route path="/" element={<LoadingPage/>}/>
+                    }
+
+                    {tempPages.map(page => {
                         return <Route
                                     path={page.relativeLink}
                                     element={isMobile ?
@@ -276,8 +290,7 @@ function App() {
                                     key={`${isMobile}-${page.shortTitle}`}
                                 />
                     })}
-                    <Route path={'more/about'} Component={isMobile ? MobileAboutPage : AboutPage}/>
-                    <Route path={'more/contact'} Component={ContactPage}/>
+                    <Route path={'about'} Component={isMobile ? MobileAbout : AboutPage}/>
                     {pagesLoading ?
                         <Route path={'*'} Component={LoadingPage}/>
                         :

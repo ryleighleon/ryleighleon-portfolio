@@ -1,8 +1,8 @@
 .mobile-project-page-title {
     font-family: 'Old Standard TT', serif;
-    color: #4865b2;
+    color: var(--greenColor);
     font-size: 54px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
     line-height: 0.9;
 }
@@ -10,7 +10,7 @@
 .mobile-project-page-subtitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     max-width: 780px;
     text-align: center;
 }
@@ -18,11 +18,10 @@
 .mobile-project-page-description {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
-    margin-top: 15px;
+    margin-bottom: 30px;
     white-space: pre-line;
     max-width: 780px;
     text-align: center;
-    margin-bottom: 15px;
 }
 
 .mobile-project-page-container {
@@ -53,6 +52,7 @@
 .mobile-project-image {
     width: 85%;
     max-height: 500px;
+    margin-top: 30px;
 }
 
 .project-tile-text-container {

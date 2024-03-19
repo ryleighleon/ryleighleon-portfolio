@@ -1,37 +1,37 @@
-.mobile-about-page {
+.about-page {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 780px;
+    margin-right: 80px;
+    margin-left: 80px;
 }
 
-.mobile-about-pic {
-    width: 40%;
-    border-radius: 50%;
-    margin-top: 30px;
+.about-pic {
+    height: 660px;
+    width: 550px;
 }
 
-.mobile-about-me-title{
-    color: #4865b2;
+.about-me-title{
+    color: var(--greenColor);
     font-size: 40px;
     font-family: 'Old Standard TT', serif;
     margin-bottom: 20px;
-    text-align: center;
-    margin-top: 20px;
 }
 
-.mobile-about-me-body{
+.about-me-body{
     color: black;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     line-height: 2;
 }
 
-.mobile-about-text-container {
+.about-text-container {
     display: flex;
-    width: 80%;
+    margin-left: 80px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 30px;
+    height: 100%;
 }

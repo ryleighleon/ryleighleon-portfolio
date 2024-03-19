@@ -10,7 +10,7 @@
 }
 
 .mobile-christmas-title{
-    color: #4865b2;
+    color: var(--greenColor);
     font-size: 36px;
     font-family: 'Old Standard TT', serif;
     margin-bottom: 20px;

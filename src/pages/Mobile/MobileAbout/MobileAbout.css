@@ -12,7 +12,7 @@
 }
 
 .mobile-not-found-title{
-    color: #4865b2;
+    color: var(--greenColor);
     font-size: 60px;
     font-family: 'Old Standard TT', serif;
     margin-bottom: 20px;

@@ -7,7 +7,7 @@
 
 .spinner {
     border: 8px solid #f3f3f3; /* Light gray border */
-    border-top: 8px solid #4859a8; /* Blue border for the spinner */
+    border-top: 8px solid var(--greenColor); /* Blue border for the spinner */
     border-radius: 50%;
     width: 50px;
     height: 50px;

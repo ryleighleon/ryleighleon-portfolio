@@ -1,6 +1,6 @@
 .project-page-title {
     font-family: 'Old Standard TT', serif;
-    color: #4865b2;
+    color: var(--greenColor);
     font-size: 72px;
     margin-top: 120px;
     max-width: 780px;

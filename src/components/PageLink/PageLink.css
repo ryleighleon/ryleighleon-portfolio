@@ -1,3 +1,8 @@
+.page-link-text {
+    color: #000000;
+    text-decoration: none;
+}
+
 .clickable-text {
     cursor: pointer;
 }
@@ -6,12 +11,9 @@
     cursor: default;
 }
 
-.unselected-nav-link {
-    color: #fdfdfd;
-}
-
 .selected-nav-link {
-    color: #747474;
+    border-bottom: 5px solid var(--blueColor);
+    padding-bottom: 3px;
 }
 
 .nav-link-container {
@@ -22,18 +24,17 @@
 
 .child-list {
     position: absolute;
-    top: 100%;
     right: 0;
     list-style: none;
     margin: 0;
-    padding: 10px 0 0;
-    background-color: #000000;
+    padding: 5px 0 0;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .child-list li {
     padding: 5px 10px;
-    color: #fdfdfd;
+    color: #000000;
     cursor: pointer;
     white-space: nowrap;
     text-align: right;

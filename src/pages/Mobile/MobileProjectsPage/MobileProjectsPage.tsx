@@ -17,7 +17,7 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
     const location = useLocation();
 
     useEffect(() => {
-        const pathname = location.pathname;
+        const pathname = /*location.pathname*/ '/portfolio';
         setThisPageProjects(projects.filter(project => project.path === pathname));
     }, [location.pathname, projects]);
 
@@ -36,6 +36,12 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
                 {thisPageProjects.map((project, index) => {
                     return (
                         <div className={'mobile-project-tile'}>
+                            {project.name &&
+                                <span className={'mobile-project-title'}>{project.name}</span>
+                            }
+                            {project.description &&
+                                <span className={'mobile-project-description'}>{project.description}</span>
+                            }
                             {project.type === 'Image' &&
                                 <img
                                     src={getFile(project.filename)}
@@ -48,12 +54,6 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
                                     <source src={getFile(project.filename)} type="video/mp4"/>
                                     Your browser does not support videos
                                 </video>
-                            }
-                            {project.name &&
-                                <span className={'mobile-project-title'}>{project.name}</span>
-                            }
-                            {project.description &&
-                                <span className={'mobile-project-description'}>{project.description}</span>
                             }
                             {index < thisPageProjects.length - 1 &&
                                 <div className={'mobile-projects-divider'}></div>

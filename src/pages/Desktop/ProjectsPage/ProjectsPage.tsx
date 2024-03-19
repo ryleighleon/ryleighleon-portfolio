@@ -22,7 +22,7 @@ export default function ProjectsPage(props: ProjectsPageProps){
     const location = useLocation();
 
     useEffect(() => {
-        const pathname = location.pathname;
+        const pathname = /* location.pathname; */ '/portfolio';
         setThisPageProjects(projects.filter(project => project.path === pathname));
     }, [location.pathname, projects]);
 

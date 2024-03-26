@@ -66,6 +66,7 @@ const EditPage: React.FC = () => {
         a.href = url;
         a.download = `pages version ${version + 1}.rld`;
         a.click();
+        setInitialState(pages);
     }
 
     function importPages(event: React.ChangeEvent<HTMLInputElement>) {

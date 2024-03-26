@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Page} from "../../../redux/slices/pages";
 import './ProjectsPage.css';
-import {Project} from "../../../redux/slices/projects";
+import {OldProject} from "../../../redux/slices/projects";
 import {useAppSelector} from "../../../redux/hooks";
 import ProjectTile from "../../../components/ProjectTile/ProjectTile";
 import {useLocation} from "react-router-dom";
@@ -13,8 +13,8 @@ interface ProjectsPageProps {
 
 export default function ProjectsPage(props: ProjectsPageProps){
     const page = props.page;
-    const projects: Project[] = useAppSelector(state => state.projects.projects);
-    const [thisPageProjects, setThisPageProjects] = useState<Project[]>([]);
+    const projects: OldProject[] = useAppSelector(state => state.projects.projects);
+    const [thisPageProjects, setThisPageProjects] = useState<OldProject[]>([]);
     const [projectIndex, setProjectIndex] = useState(0);
     const [showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [canGoForward, setCanGoForward] = useState(false);
@@ -50,15 +50,15 @@ export default function ProjectsPage(props: ProjectsPageProps){
 
     return (
         <div className={'project-page-container page'}>
-            {page.longTitle &&
-                <span className={'project-page-title'}>{page.longTitle}</span>
-            }
-            {page.subTitle &&
-                <span className={'project-page-subtitle'}>{page.subTitle}</span>
-            }
-            {page.description &&
-                <span className={'project-page-description'}>{page.description}</span>
-            }
+            {/*{page.longTitle &&*/}
+            {/*    <span className={'project-page-title'}>{page.longTitle}</span>*/}
+            {/*}*/}
+            {/*{page.subTitle &&*/}
+            {/*    <span className={'project-page-subtitle'}>{page.subTitle}</span>*/}
+            {/*}*/}
+            {/*{page.description &&*/}
+            {/*    <span className={'project-page-description'}>{page.description}</span>*/}
+            {/*}*/}
             <div className={'projects-container'}>
                 {thisPageProjects.map((project, index) => {
                     return <ProjectTile

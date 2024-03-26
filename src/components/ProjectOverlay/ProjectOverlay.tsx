@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './ProjectOverlay.css';
-import {Project} from "../../redux/slices/projects";
+import {OldProject} from "../../redux/slices/projects";
 import {getFile} from "../../App";
 
 interface ProjectOverlayProps {
-    project: Project;
+    project: OldProject;
     onClose: () => void;
     goForward: () => void;
     goBackward: () => void;

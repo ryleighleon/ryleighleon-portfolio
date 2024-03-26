@@ -9,12 +9,6 @@ import {useNavigate} from "react-router-dom";
 export default function NavBar(){
     const pages = useAppSelector(state => state.pages.pages);
     const navigate = useNavigate();
-    const aboutPage: Page = {
-        children: [], relativeLink: "/more/about", shortTitle: "About Me"
-    }
-    const contactPage: Page = {
-        children: [], relativeLink: "/more/contact", shortTitle: "Contact"
-    }
 
     function redirectHome(){
         navigate('/');

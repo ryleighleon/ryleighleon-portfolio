@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './ProjectTile.css';
-import {Project} from "../../redux/slices/projects";
+import {OldProject} from "../../redux/slices/projects";
 import {getFile} from "../../App";
 
 interface ProjectTileProps {
-    project: Project;
+    project: OldProject;
     onClick: () => void;
 }
 

@@ -10,34 +10,17 @@ export default function MobileNavBar() {
     const [allPages, setAllPages] = useState<Page[]>([]);
     const [showPages, setShowPages] = useState(false);
     const navigate = useNavigate();
-    const homePage = useMemo(() => ({
-        children: [],
-        relativeLink: "/",
-        shortTitle: "Home"
-    }), []);
-
-    const aboutPage = useMemo(() => ({
-        children: [],
-        relativeLink: "/about",
-        shortTitle: "About Me"
-    }), []);
 
     function resetAllPages(){
-        const tempPages = /*pages.slice()*/ [];
-        tempPages.unshift(homePage);
-        tempPages.push(aboutPage);
-        setAllPages(tempPages);
+
     }
 
     useEffect(() => {
         function clearPageDropdown(){
-            const tempPages = /*pages.slice()*/ [];
-            tempPages.unshift(homePage);
-            tempPages.push(aboutPage);
-            setAllPages(tempPages);
+
         }
         clearPageDropdown();
-    }, [pages, homePage, aboutPage]);
+    }, [pages]);
 
     function redirectHome() {
         navigate('/');
@@ -47,15 +30,15 @@ export default function MobileNavBar() {
         setShowPages(!showPages);
     }
 
-    function handlePageClick(page: Page) {
-        if (page.children.length === 0){
-            navigate(page.relativeLink);
-            resetAllPages();
-            setShowPages(false);
-        } else {
-            setAllPages(page.children);
-        }
-    }
+    // function handlePageClick(page: Page) {
+    //     if (page.children.length === 0){
+    //         navigate(page.relativeLink);
+    //         resetAllPages();
+    //         setShowPages(false);
+    //     } else {
+    //         setAllPages(page.children);
+    //     }
+    // }
 
     function closeOverlay(){
         setShowPages(false);
@@ -71,15 +54,15 @@ export default function MobileNavBar() {
                 <div className={'mobile-pages-list'}>
                     <span className={'mobile-close-button'} onClick={closeOverlay}>X</span>
                     <ul>
-                        {allPages.map((page, index) => (
-                            <li key={index} onClick={() => handlePageClick(page)}>
-                                {page.children.length > 0 ? (
-                                    <span>{page.shortTitle}</span>
-                                ) : (
-                                    <span>{page.shortTitle}</span>
-                                )}
-                            </li>
-                        ))}
+                        {/*{allPages.map((page, index) => (*/}
+                        {/*    <li key={index} onClick={() => handlePageClick(page)}>*/}
+                        {/*        {page.children.length > 0 ? (*/}
+                        {/*            <span>{page.shortTitle}</span>*/}
+                        {/*        ) : (*/}
+                        {/*            <span>{page.shortTitle}</span>*/}
+                        {/*        )}*/}
+                        {/*    </li>*/}
+                        {/*))}*/}
                     </ul>
                 </div>
             )}

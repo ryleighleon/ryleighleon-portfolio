@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Page} from "../../../redux/slices/pages";
 import './MobileProjectsPage.css';
-import {Project} from "../../../redux/slices/projects";
+import {OldProject} from "../../../redux/slices/projects";
 import {useAppSelector} from "../../../redux/hooks";
 import {useLocation} from "react-router-dom";
 import {getFile} from "../../../App";
@@ -12,8 +12,8 @@ interface ProjectsPageProps {
 
 export default function MobileProjectsPage(props: ProjectsPageProps){
     const page = props.page;
-    const projects: Project[] = useAppSelector(state => state.projects.projects);
-    const [thisPageProjects, setThisPageProjects] = useState<Project[]>([]);
+    const projects: OldProject[] = useAppSelector(state => state.projects.projects);
+    const [thisPageProjects, setThisPageProjects] = useState<OldProject[]>([]);
     const location = useLocation();
 
     useEffect(() => {
@@ -23,15 +23,15 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
 
     return (
         <div className={'mobile-project-page-container page'}>
-            {page.longTitle &&
-                <span className={'mobile-project-page-title'}>{page.longTitle}</span>
-            }
-            {page.subTitle &&
-                <span className={'mobile-project-page-subtitle'}>{page.subTitle}</span>
-            }
-            {page.description &&
-                <span className={'mobile-project-page-description'}>{page.description}</span>
-            }
+            {/*{page.longTitle &&*/}
+            {/*    <span className={'mobile-project-page-title'}>{page.longTitle}</span>*/}
+            {/*}*/}
+            {/*{page.subTitle &&*/}
+            {/*    <span className={'mobile-project-page-subtitle'}>{page.subTitle}</span>*/}
+            {/*}*/}
+            {/*{page.description &&*/}
+            {/*    <span className={'mobile-project-page-description'}>{page.description}</span>*/}
+            {/*}*/}
             <div className={'mobile-projects-container'}>
                 {thisPageProjects.map((project, index) => {
                     return (

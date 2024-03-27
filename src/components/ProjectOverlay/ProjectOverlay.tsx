@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './ProjectOverlay.css';
-import {OldProject} from "../../redux/slices/projects";
 import {getFile} from "../../App";
 import {Project} from "../../redux/slices/pages";
+import SubMediaImage from "./SubMediaImage";
 
 interface ProjectOverlayProps {
     project: Project;
     onClose: () => void;
     goForward: () => void;
     goBackward: () => void;
-    canGoForward: boolean;
-    canGoBackward: boolean;
+    nextProjectTitle: string;
+    previousProjectTitle: string;
 }
 
 export default function ProjectOverlay(props: ProjectOverlayProps){
@@ -18,25 +18,51 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
     return (
         <div className={'project-overlay-container'}>
             <img src={getFile(project.mainImageFilename)} alt={project.projectTitle} className={'project-overlay-img'}/>
-            <span className={'project-overlay-title'}>{project.projectTitle}</span>
-            <span className={'project-overlay-subtitle'}>{project.projectSubtitle}</span>
-            {project.projectParagraphs.map((paragraph, index) => {
-                return (
-                    <div>
-                        <span className={'project-overlay-paragraph-title'}>{paragraph.paragraphTitle}</span>
-                        <span className={'project-overlay-paragraph-text'}>{paragraph.paragraphText}</span>
+            <div className={'project-overlay-description-container'}>
+                {project.projectTitle && <span className={'project-overlay-title'}>{project.projectTitle}</span>}
+                {project.projectSubtitle && <span className={'project-overlay-subtitle'}>{project.projectSubtitle}</span>}
+                <div className={'project-paragraphs-container'}>
+                    <div className={'project-paragraph-column'}>
+                        {project.projectParagraphs.map((paragraph, index) => {
+                            if (index % 2 === 0){
+                                return (
+                                    <div className={'project-paragraph-container'}>
+                                        <span className={'project-overlay-paragraph-title'}>{paragraph.paragraphTitle}</span>
+                                        <span className={'project-overlay-paragraph-text'}>{paragraph.paragraphText}</span>
+                                    </div>
+                                )
+                            }
+                        })}
                     </div>
-                )
-            })}
-            {project.subMedia.map((media, index) => {
-                return (
-                    <div>
-                        {media.type === 'image' &&
-                            <img src={getFile(media.mediaFilename)} alt={media.mediaDescription} className={'project-overlay-sub-media-image'}/>
-                        }
+                    <div className={'project-paragraph-column'}>
+                        {project.projectParagraphs.map((paragraph, index) => {
+                            if (index % 2 !== 0){
+                                return (
+                                    <div className={'project-paragraph-container'}>
+                                        <span className={'project-overlay-paragraph-title'}>{paragraph.paragraphTitle}</span>
+                                        <span className={'project-overlay-paragraph-text'}>{paragraph.paragraphText}</span>
+                                    </div>
+                                )
+                            }
+                        })}
                     </div>
-                );
-            })}
+                </div>
+            </div>
+            <div className={'project-overlay-sub-media-container'}>
+                {project.subMedia.map((media, index) =>
+                    <SubMediaImage subMedia={media} key={index}/>
+                )}
+            </div>
+            <div className={'project-overlay-navigation-container'}>
+                <div className={'project-overlay-nav-previous'} onClick={props.goBackward}>
+                    {props.previousProjectTitle && <span className={'project-overlay-nav-icon-text'}>{'<'}</span>}
+                    {props.previousProjectTitle && <span className={'project-overlay-nav-description'}>{props.previousProjectTitle}</span>}
+                </div>
+                {props.nextProjectTitle && <div className={'project-overlay-nav-next'} onClick={props.goForward}>
+                    <span className={'project-overlay-nav-description'}>{props.nextProjectTitle}</span>
+                    <span className={'project-overlay-nav-icon-text'}>{'>'}</span>
+                </div>}
+            </div>
         </div>
     )
 }

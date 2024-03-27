@@ -8,6 +8,7 @@ interface LinkItemProps {
     relativeUrl?: string;
     title: string;
     children: Page[];
+    setShowProjectOverlay: (show: boolean) => void;
 }
 
 export default function PageLink(props: LinkItemProps) {
@@ -33,6 +34,7 @@ export default function PageLink(props: LinkItemProps) {
     const navigateToLink = (toNavigate: string) => {
         navigate(toNavigate);
         setIsHovered(false);
+        props.setShowProjectOverlay(false);
     }
 
     const location = useLocation();

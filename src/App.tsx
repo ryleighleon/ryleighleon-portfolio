@@ -46,6 +46,7 @@ function App() {
     const pages = useAppSelector(state => state.pages.pages);
     const [pagesLoading, setPagesLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [showProjectOverlay, setShowProjectOverlay] = useState(false);
 
     useEffect(() => {
         const fetchPages = async () => {
@@ -73,9 +74,11 @@ function App() {
     return (
         <div className={'app'}>
             <Router>
-                {isMobile ? <MobileNavBar/> : <NavBar/>}
+                {isMobile ? <MobileNavBar/> : <NavBar setShowProjectOverlay={setShowProjectOverlay}/>}
                 <Routes>
-                    {pages.map((page, index) => <Route path={page.relativeLink} key={index} element={<ProjectPage page={page}/>}/>)}
+                    {pages.map((page, index) => <Route path={page.relativeLink} key={index} element={
+                        <ProjectPage page={page} setShowProjectOverlay={setShowProjectOverlay} showProjectOverlay={showProjectOverlay}/>
+                    }/>)}
                     <Route path={'about'} Component={isMobile ? MobileAbout : AboutPage}/>
                     {pagesLoading ?
                         <Route path={'*'} Component={LoadingPage}/>

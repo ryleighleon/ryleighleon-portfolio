@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {getFile} from "../../App";
+import {getRegularImage, getThumbnailImage} from "../../App";
 
 interface SubMediaImageProps {
     subMedia: any;
+    projectTitle: string;
 }
 
 export default function SubMediaImage(props: SubMediaImageProps) {
@@ -15,7 +16,7 @@ export default function SubMediaImage(props: SubMediaImageProps) {
             className={'submedia-image-container'}
         >
             <img
-                src={getFile(media.mediaFilename)}
+                src={getThumbnailImage(media.mediaFilename, props.projectTitle)}
                 alt={media.mediaDescription}
                 className={'submedia-image'}
             />

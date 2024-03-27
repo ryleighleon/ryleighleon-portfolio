@@ -4,7 +4,7 @@ import './MobileProjectsPage.css';
 import {OldProject} from "../../../redux/slices/projects";
 import {useAppSelector} from "../../../redux/hooks";
 import {useLocation} from "react-router-dom";
-import {getFile} from "../../../App";
+import {getRegularImage} from "../../../App";
 
 interface ProjectsPageProps {
     page: Page;
@@ -44,14 +44,14 @@ export default function MobileProjectsPage(props: ProjectsPageProps){
                             }
                             {project.type === 'Image' &&
                                 <img
-                                    src={getFile(project.filename)}
+                                    src={getRegularImage(project.filename)}
                                     alt={project.name}
                                     className={'mobile-project-image'}
                                 />
                             }
                             {project.type === 'Video' &&
                                 <video className={'mobile-project-image'} controls>
-                                    <source src={getFile(project.filename)} type="video/mp4"/>
+                                    <source src={getRegularImage(project.filename)} type="video/mp4"/>
                                     Your browser does not support videos
                                 </video>
                             }

@@ -1,13 +1,12 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useAppSelector } from "../../redux/hooks";
 import './MobileNavBar.css';
-import { getFile } from "../../App";
+import { getRegularImage } from "../../App";
 import { Page } from "../../redux/slices/pages";
 import { useNavigate } from "react-router-dom";
 
 export default function MobileNavBar() {
     const pages = useAppSelector(state => state.pages.pages);
-    const [allPages, setAllPages] = useState<Page[]>([]);
     const [showPages, setShowPages] = useState(false);
     const navigate = useNavigate();
 
@@ -47,8 +46,8 @@ export default function MobileNavBar() {
 
     return (
         <div className={'mobile-nav-bar'}>
-            <img className={'mobile-logo-image'} src={getFile('LogoFull.png')} alt={'logo'} onClick={redirectHome} />
-            <img src={getFile('hamburgerIcon.png')} alt={'nav'} className={'mobile-hamburger-icon'} onClick={handleHamburgerClick} />
+            <img className={'mobile-logo-image'} src={getRegularImage('LogoFull.png')} alt={'logo'} onClick={redirectHome} />
+            <img src={getRegularImage('hamburgerIcon.png')} alt={'nav'} className={'mobile-hamburger-icon'} onClick={handleHamburgerClick} />
 
             {showPages && (
                 <div className={'mobile-pages-list'}>

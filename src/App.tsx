@@ -24,8 +24,17 @@ import AboutPage from "./pages/Desktop/About/AboutPage";
 import EditPage from "./pages/Desktop/EditPage/EditPage";
 import ProjectPage from "./pages/Desktop/ProjectPage/ProjectPage";
 
-export function getFile(filename: string){
-    return process.env.PUBLIC_URL + '/media/files/' + filename;
+export function getRegularImage(filename: string){
+    return process.env.PUBLIC_URL + '/media/files/icons/' + filename;
+}
+
+export function getFullProjectImage(filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/files/${projectName}/${filename}`;
+
+}
+
+export function getThumbnailImage(filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/thumbnails/${projectName}/${filename}`;
 }
 
 export async function getRootFileText(filename: string) {

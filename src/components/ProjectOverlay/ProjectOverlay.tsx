@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './ProjectOverlay.css';
-import {getFile} from "../../App";
+import {getFullProjectImage} from "../../App";
 import {Project} from "../../redux/slices/pages";
 import SubMediaImage from "./SubMediaImage";
 
@@ -17,7 +17,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
     const project = props.project;
     return (
         <div className={'project-overlay-container'}>
-            <img src={getFile(project.mainImageFilename)} alt={project.projectTitle} className={'project-overlay-img'}/>
+            <img src={getFullProjectImage(project.mainImageFilename, project.projectTitle)} alt={project.projectTitle} className={'project-overlay-img'}/>
             <div className={'project-overlay-description-container'}>
                 {project.projectTitle && <span className={'project-overlay-title'}>{project.projectTitle}</span>}
                 {project.projectSubtitle && <span className={'project-overlay-subtitle'}>{project.projectSubtitle}</span>}
@@ -50,7 +50,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             </div>
             <div className={'project-overlay-sub-media-container'}>
                 {project.subMedia.map((media, index) =>
-                    <SubMediaImage subMedia={media} key={index}/>
+                    <SubMediaImage subMedia={media} projectTitle={project.projectTitle} key={index}/>
                 )}
             </div>
             <div className={'project-overlay-navigation-container'}>

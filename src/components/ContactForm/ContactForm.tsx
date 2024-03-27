@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './ContactForm.css';
-import {getFile} from "../../App";
+import {getRegularImage} from "../../App";
 
 interface FormData {
     name: string;
@@ -52,10 +52,10 @@ export default function ContactForm() {
                 <a href='mailto:ryleighleon@gmail.com' className={'contact-email'}>ryleighleon@gmail.com</a>
                 <div className={'contact-socials'}>
                     <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`LinkedInBlack.png`)} alt={'LinkedIn'} className={'social-icon'}/>
+                        <img src={getRegularImage(`LinkedInBlack.png`)} alt={'LinkedIn'} className={'social-icon'}/>
                     </a>
                     <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                        <img src={getFile(`InstagramBlack.png`)} alt={'Instagram'} className={'social-icon'}/>
+                        <img src={getRegularImage(`InstagramBlack.png`)} alt={'Instagram'} className={'social-icon'}/>
                     </a>
                 </div>
             </div>

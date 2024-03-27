@@ -1,12 +1,12 @@
 import React from "react";
-import {getFile} from "../../../App";
+import {getRegularImage} from "../../../App";
 import './MobileAbout.css';
 
 export default function MobileAbout(){
     return (
         <div className={'mobile-homepage page'} >
             <div className={'mobile-introduction'}>
-                <img src={getFile('homePic.jpg')} alt={'Profile'} className={'mobile-profile-pic'}/>
+                <img src={getRegularImage('homePic.jpg')} alt={'Profile'} className={'mobile-profile-pic'}/>
                 <div className={'mobile-intro-text-container'}>
                     <span className={'mobile-not-found-title'}>Welcome!</span>
                     <span className={'mobile-explore-text'}>Explore My Work</span>

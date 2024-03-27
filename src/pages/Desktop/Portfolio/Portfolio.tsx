@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getFile, getRootFileText} from "../../../App";
+import {getRegularImage, getRootFileText} from "../../../App";
 import './Portfolio.css';
 
 export default function Portfolio(){
@@ -15,7 +15,7 @@ export default function Portfolio(){
 
     return (
         <div className={'about-page page'}>
-            <img src={getFile('aboutPic.jpeg')} alt={'Profile'} className={'about-pic'}/>
+            <img src={getRegularImage('aboutPic.jpeg')} alt={'Profile'} className={'about-pic'}/>
             <div className={'about-text-container'}>
                 <span className={'about-me-title'}>Get to know me!</span>
                 <span className={'about-me-body'}>{aboutMeText}</span>

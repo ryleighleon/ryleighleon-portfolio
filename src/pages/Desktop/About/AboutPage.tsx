@@ -1,5 +1,5 @@
 import React from "react";
-import {getFile} from "../../../App";
+import {getRegularImage} from "../../../App";
 import './AboutPage.css';
 import ContactForm from "../../../components/ContactForm/ContactForm";
 
@@ -7,7 +7,7 @@ export default function AboutPage(){
     return (
         <div className={'homepage page'} >
             <div className={'introduction'}>
-                <img src={getFile('homePic.jpg')} alt={'Profile'} className={'profile-pic'}/>
+                <img src={getRegularImage('homePic.jpg')} alt={'Profile'} className={'profile-pic'}/>
                 <div className={'intro-text-container'}>
                     <span className={'not-found-title'}>Welcome!</span>
                     <span className={'explore-text'}>Explore My Work</span>

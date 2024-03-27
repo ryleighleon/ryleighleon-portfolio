@@ -71,9 +71,9 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
                 />
             :
                 <div className={'project-section-container'}>
-                    {section.title && <span className={'project-section-title'}>{section.title}</span>}
-                    {section.subtitle && <span className={'project-section-subtitle'}>{section.subtitle}</span>}
-                    {section.description && <span className={'project-section-description'}>{section.description}</span>}
+                    {section.title && <span className={'project-page-title'}>{section.title}</span>}
+                    {section.subtitle && <span className={'project-page-subtitle'}>{section.subtitle}</span>}
+                    {section.description && <span className={'project-page-description'}>{section.description}</span>}
                     <div className={'projects-container'}>
                         {projects.map((project, index) => {
                             return <ProjectTile

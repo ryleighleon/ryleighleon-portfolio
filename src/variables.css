@@ -5,6 +5,11 @@
     --blackColor: #000000;
     --whiteColor: #FFFFFF;
 
-    --playfair-font: Playfair, serif;
-    --montserrat-font: Montserrat, sans-serif;
+    --playfair-font: 'Playfair', serif;
+    --montserrat-font: 'Montserrat', sans-serif;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }

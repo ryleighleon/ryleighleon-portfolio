@@ -1,9 +1,0 @@
-*****
-Project Name: "Lawrence Sunset"
-Filename: "Lawrence Sunset.jpg"
-Type: "Image"
-*****
-Project Name: "New York!"
-Filename: "New York.png"
-Type: "Image"
-*****

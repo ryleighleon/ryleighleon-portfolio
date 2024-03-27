@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 export default function NavBar(){
     const pages = useAppSelector(state => state.pages.pages);
     const navigate = useNavigate();
+    const pagesWithoutPortfolio = pages.filter((page: Page) => page.relativeLink !== '/');
 
     function redirectHome(){
         navigate('/');
@@ -20,7 +21,7 @@ export default function NavBar(){
             </div>
             <div className={'nav-links'}>
                 <PageLink title={'Portfolio'} relativeUrl={'/'} key={'portfolio-link'} children={[]}/>
-                {/*<PageLink title={'Work'} relativeUrl={'/work'} key={'portfolio'} children={pages}/>*/}
+                <PageLink title={'Work'} key={'work'} children={pagesWithoutPortfolio}/>
                 <PageLink relativeUrl={'/about'} title={'About'} key={'about'} children={[]}/>
                 <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
                     <img src={getFile('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>

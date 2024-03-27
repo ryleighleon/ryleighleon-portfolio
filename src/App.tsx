@@ -3,10 +3,10 @@ import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import './variables.css';
 import NavBar from "./components/NavBar/NavBar";
-import {addPage, Page} from "./redux/slices/pages";
+import {addPage, Page, setPages} from "./redux/slices/pages";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import Footer from "./components/Footer/Footer";
-import ProjectsPage from "./pages/Desktop/ProjectsPage/ProjectsPage";
+import ProjectSectionPage from "./pages/Desktop/ProjectSectionPage/ProjectSectionPage";
 import {addProject, clearProjects, OldProject} from "./redux/slices/projects";
 import NotFound from "./pages/Desktop/NotFound/NotFound";
 import ContactPage from "./pages/Desktop/Contact/ContactPage";
@@ -22,6 +22,7 @@ import Portfolio from "./pages/Desktop/Portfolio/Portfolio";
 import MobileAbout from "./pages/Mobile/MobileAbout/MobileAbout";
 import AboutPage from "./pages/Desktop/About/AboutPage";
 import EditPage from "./pages/Desktop/EditPage/EditPage";
+import ProjectPage from "./pages/Desktop/ProjectPage/ProjectPage";
 
 export function getFile(filename: string){
     return process.env.PUBLIC_URL + '/media/files/' + filename;
@@ -43,203 +44,17 @@ export async function getRootFileText(filename: string) {
 function App() {
     const dispatch = useAppDispatch();
     const pages = useAppSelector(state => state.pages.pages);
-    const [accessiblePages, setAccessiblePages] = useState<Page[]>([]);
     const [pagesLoading, setPagesLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
 
-    // useEffect(() => {
-    //     setPagesLoading(true);
-    //     const populatePages = async () => {
-    //         try {
-    //             const text = await getRootFileText('Pages.txt');
-    //             const lines = text.split(/\r?\n/);
-    //             let lineIndex = 0;
-    //             let morePages = true;
-    //             dispatch(clearPages())
-    //             while (morePages){
-    //                 const page: Page = {
-    //                     children: [], relativeLink: "", shortTitle: "",
-    //                 };
-    //                 let nextLine = lines[lineIndex + 1];
-    //                 while (morePages && nextLine !== undefined && !nextLine.startsWith('*')){
-    //                     if (nextLine.startsWith('Short Title')){
-    //                         const match = nextLine.match(/"([^"]*)"/);
-    //                         if (match && match.length > 1) {
-    //                             page.shortTitle = match[1]
-    //                         } else {
-    //                             alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                         }
-    //                     } else if (nextLine.startsWith('Long Title')){
-    //                         const match = nextLine.match(/"([^"]*)"/);
-    //                         if (match && match.length > 1) {
-    //                             page.longTitle = match[1]
-    //                         } else {
-    //                             alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                         }
-    //                     } else if (nextLine.startsWith('Sub Title')){
-    //                         const match = nextLine.match(/"([^"]*)"/);
-    //                         if (match && match.length > 1) {
-    //                             page.subTitle = match[1]
-    //                         } else {
-    //                             alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                         }
-    //                     } else if (nextLine.startsWith('Description')){
-    //                         try {
-    //                             let description = '';
-    //                             const match = nextLine.match(/"([^"]*)"/);
-    //                             if (match && match.length > 1) {
-    //                                 page.description = match[1]
-    //                             } else {
-    //                                 description += nextLine.slice(nextLine.indexOf('"') + 1);
-    //                                 lineIndex += 1;
-    //                                 nextLine = lines[lineIndex];
-    //                                 while (!nextLine.includes('"')){
-    //                                     description += `\n${nextLine}`
-    //                                     lineIndex += 1;
-    //                                     nextLine = lines[lineIndex];
-    //                                 }
-    //                                 description += `\n${nextLine.slice(0, nextLine.indexOf('"'))}`
-    //                                 page.description = description;
-    //                             }
-    //                         } catch (error){
-    //                             alert(`The description for Page ${page.shortTitle ? page.subTitle: '[No Title]'} is missing/formatted incorrectly`);
-    //                         }
-    //                     } else if (nextLine.startsWith('Relative Link')){
-    //                         const match = nextLine.match(/"([^"]*)"/);
-    //                         if (match && match.length > 1) {
-    //                             page.relativeLink = match[1]
-    //                         } else {
-    //                             alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                         }
-    //                     }
-    //                     lineIndex += 1;
-    //                     nextLine = lines[lineIndex];
-    //                 }
-    //                 if (page.relativeLink && page.shortTitle){
-    //                     dispatch(addPage(page));
-    //                     console.log('Adding page '+ page.shortTitle);
-    //                 } else {
-    //                     alert(`A required attribute for Page ${page.shortTitle ? page.subTitle: '[No Title]'} is missing/formatted incorrectly`)
-    //                 }
-    //                 if (lineIndex >= lines.length - 1){
-    //                     morePages = false;
-    //                 }
-    //             }
-    //         } catch (error) {
-    //             alert('A general formatting error occurred')
-    //         }
-    //     };
-    //     const populateProjects = async () => {
-    //         try {
-    //             const currPages = store.getState().pages.pages;
-    //             dispatch(clearProjects());
-    //             const tempPages: Page[] = [];
-    //             for (let parentPage of currPages){
-    //                 if (parentPage.children.length === 0){
-    //                     tempPages.push(parentPage)
-    //                 } else {
-    //                     tempPages.push(...parentPage.children);
-    //                 }
-    //             }
-    //             for (let i = 0; i < tempPages.length; i++) {
-    //                 const page = tempPages[i];
-    //                 const text = await getRootFileText(`${page.relativeLink.replace(/.*\//, '')}.txt`);
-    //                 const lines = text.split(/\r?\n/);
-    //                 let lineIndex = 0;
-    //                 let moreProjects = lines.length > 2;
-    //                 while (moreProjects) {
-    //                     const project: OldProject = {
-    //                         filename: "", type: "", name: "", path: page.relativeLink
-    //                     }
-    //                     let nextLine = lines[lineIndex + 1];
-    //                     while (moreProjects && nextLine !== undefined && !nextLine.startsWith('*')){
-    //                         if (nextLine.startsWith('Project Name')){
-    //                             const match = nextLine.match(/"([^"]*)"/);
-    //                             if (match && match.length > 1) {
-    //                                 project.name = match[1]
-    //                             } else {
-    //                                 alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                             }
-    //                         } else if (nextLine.startsWith('Filename')){
-    //                             const match = nextLine.match(/"([^"]*)"/);
-    //                             if (match && match.length > 1) {
-    //                                 project.filename = match[1]
-    //                             } else {
-    //                                 alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                             }
-    //                         } else if (nextLine.startsWith('Type')){
-    //                             const match = nextLine.match(/"([^"]*)"/);
-    //                             if (match && match.length > 1) {
-    //                                 project.type = match[1]
-    //                             } else {
-    //                                 alert(`This line is not formatted correctly: '${nextLine}'`)
-    //                             }
-    //                         } else if (nextLine.startsWith('Description')){
-    //                             try {
-    //                                 let description = '';
-    //                                 const match = nextLine.match(/"([^"]*)"/);
-    //                                 if (match && match.length > 1) {
-    //                                     project.description = match[1]
-    //                                 } else {
-    //                                     description += nextLine.slice(nextLine.indexOf('"') + 1);
-    //                                     lineIndex += 1;
-    //                                     nextLine = lines[lineIndex];
-    //                                     while (!nextLine.includes('"')){
-    //                                         description += `\n${nextLine}`
-    //                                         lineIndex += 1;
-    //                                         nextLine = lines[lineIndex];
-    //                                     }
-    //                                     description += `\n${nextLine.slice(0, nextLine.indexOf('"'))}`
-    //                                     project.description = description;
-    //                                 }
-    //                             } catch (error){
-    //                                 alert(`The description for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
-    //                             }
-    //                         }
-    //                         lineIndex += 1;
-    //                         nextLine = lines[lineIndex];
-    //                     }
-    //                     if (project.type && project.filename && project.name){
-    //                         dispatch(addProject(project));
-    //                     } else {
-    //                         alert(`A required attribute for '${project.name ? project.name: '[No Project Name]'}' is is missing/formatted incorrectly`);
-    //                     }
-    //                     if (lineIndex >= lines.length - 1){
-    //                         moreProjects = false;
-    //                     }
-    //                 }
-    //             }
-    //         } catch (error) {
-    //             alert('A general formatting error occurred')
-    //         }
-    //     }
-    //     async function populateData() {
-    //         try {
-    //             await populatePages();
-    //             await populateProjects();
-    //         } catch (error) {
-    //             console.error("Error while populating data:", error);
-    //         } finally {
-    //             setPagesLoading(false);
-    //         }
-    //     }
-    //     populateData();
-    // }, [dispatch]);
-
-    // useEffect(() => {
-    //     setAccessiblePages([]);
-    //     const tempPages: Page[] = [];
-    //     for (let parentPage of pages){
-    //         if (parentPage.children.length === 0){
-    //             tempPages.push(parentPage)
-    //         } else {
-    //             for (let childPage of parentPage.children){
-    //                 tempPages.push(childPage);
-    //             }
-    //         }
-    //     }
-    //     setAccessiblePages(tempPages);
-    // }, [pages]);
+    useEffect(() => {
+        const fetchPages = async () => {
+            const response = await fetch(process.env.PUBLIC_URL + '/media/pages.rld');
+            const data = await response.json();
+            dispatch(setPages(data));
+        }
+        fetchPages().then(() => setPagesLoading(false));
+    }, [dispatch]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -255,42 +70,12 @@ function App() {
         };
     }, []);
 
-    const tempPages: Page[] = [];
-    let portfolioPage = accessiblePages.find(page => page.shortTitle === 'Portfolio');
-    if (!portfolioPage){
-        portfolioPage = accessiblePages[0];
-    }
     return (
         <div className={'app'}>
             <Router>
                 {isMobile ? <MobileNavBar/> : <NavBar/>}
                 <Routes>
-                    {portfolioPage ?
-                        <Route
-                            path="/"
-                            element={isMobile ? <MobileProjectsPage page={portfolioPage}/> : <ProjectsPage page={portfolioPage}/>}
-                        />
-                        :
-                        <Route path="/" element={<LoadingPage/>}/>
-                    }
-
-                    {tempPages.map(page => {
-                        return <Route
-                                    path={page.relativeLink}
-                                    element={isMobile ?
-                                                <MobileProjectsPage
-                                                    page={page}
-                                                    key={`${page.shortTitle}-${page.relativeLink}`}
-                                                />
-                                            :
-                                                <ProjectsPage
-                                                    page={page}
-                                                    key={`${page.shortTitle}-${page.relativeLink}`}
-                                                />
-                                            }
-                                    key={`${isMobile}-${page.shortTitle}`}
-                                />
-                    })}
+                    {pages.map((page, index) => <Route path={page.relativeLink} key={index} element={<ProjectPage page={page}/>}/>)}
                     <Route path={'about'} Component={isMobile ? MobileAbout : AboutPage}/>
                     {pagesLoading ?
                         <Route path={'*'} Component={LoadingPage}/>

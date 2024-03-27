@@ -5,7 +5,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 
 interface LinkItemProps {
-    relativeUrl: string;
+    relativeUrl?: string;
     title: string;
     children: Page[];
 }
@@ -25,7 +25,7 @@ export default function PageLink(props: LinkItemProps) {
     };
 
     const handleParentClick = () => {
-        if (children.length === 0){
+        if (children.length === 0 && props.relativeUrl) {
             navigateToLink(props.relativeUrl);
         }
     };
@@ -39,6 +39,8 @@ export default function PageLink(props: LinkItemProps) {
     const pathname = location.pathname;
 
     if (pathname === props.relativeUrl || isHovered) {
+        classes.push('selected-nav-link');
+    } else if ((pathname !== '/' && props.relativeUrl !== '/') && (pathname !== '/about' && props.relativeUrl !== '/about')) {
         classes.push('selected-nav-link');
     }
     if (children.length === 0){

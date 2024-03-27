@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Page} from "../../../redux/slices/pages";
-import './ProjectsPage.css';
+import {Page, ProjectSection} from "../../../redux/slices/pages";
+import './ProjectSectionPage.css';
 import {OldProject} from "../../../redux/slices/projects";
 import {useAppSelector} from "../../../redux/hooks";
 import ProjectTile from "../../../components/ProjectTile/ProjectTile";
@@ -8,28 +8,17 @@ import {useLocation} from "react-router-dom";
 import ProjectOverlay from "../../../components/ProjectOverlay/ProjectOverlay";
 
 interface ProjectsPageProps {
-    page: Page;
+    section: ProjectSection;
 }
 
-export default function ProjectsPage(props: ProjectsPageProps){
-    const page = props.page;
-    const projects: OldProject[] = useAppSelector(state => state.projects.projects);
-    const [thisPageProjects, setThisPageProjects] = useState<OldProject[]>([]);
+export default function ProjectSectionPage(props: ProjectsPageProps){
+    const section = props.section;
+    const projects = section.projects;
+
     const [projectIndex, setProjectIndex] = useState(0);
     const [showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [canGoForward, setCanGoForward] = useState(false);
     const [canGoBackward, setCanGoBackward] = useState(false);
-    const location = useLocation();
-
-    useEffect(() => {
-        const pathname = /* location.pathname; */ '/portfolio';
-        setThisPageProjects(projects.filter(project => project.path === pathname));
-    }, [location.pathname, projects]);
-
-    useEffect(() => {
-        setCanGoForward(projectIndex < thisPageProjects.length - 1);
-        setCanGoBackward(projectIndex > 0);
-    }, [projectIndex, thisPageProjects]);
 
     const handleClick = (index: number) => {
         setProjectIndex(index);
@@ -50,27 +39,21 @@ export default function ProjectsPage(props: ProjectsPageProps){
 
     return (
         <div className={'project-page-container page'}>
-            {/*{page.longTitle &&*/}
-            {/*    <span className={'project-page-title'}>{page.longTitle}</span>*/}
-            {/*}*/}
-            {/*{page.subTitle &&*/}
-            {/*    <span className={'project-page-subtitle'}>{page.subTitle}</span>*/}
-            {/*}*/}
-            {/*{page.description &&*/}
-            {/*    <span className={'project-page-description'}>{page.description}</span>*/}
-            {/*}*/}
+            {section.title && <span className={'project-page-title'}>{section.title}</span>}
+            {section.subtitle && <span className={'project-page-subtitle'}>{section.subtitle}</span>}
+            {section.description && <span className={'project-page-description'}>{section.description}</span>}
             <div className={'projects-container'}>
-                {thisPageProjects.map((project, index) => {
+                {projects.map((project, index) => {
                     return <ProjectTile
                                 project={project}
                                 onClick={() => handleClick(index)}
-                                key={`${project.name}-${project.filename}-${index}`}
+                                key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}
                             />
                 })}
             </div>
             {showProjectOverlay &&
                 <ProjectOverlay
-                    project={thisPageProjects[projectIndex]}
+                    project={projects[projectIndex]}
                     onClose={handleClose}
                     goForward={goForward}
                     goBackward={goBackward}

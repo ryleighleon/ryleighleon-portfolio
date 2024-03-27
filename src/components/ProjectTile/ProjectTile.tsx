@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import './ProjectTile.css';
 import {OldProject} from "../../redux/slices/projects";
 import {getFile} from "../../App";
+import {Project} from "../../redux/slices/pages";
 
 interface ProjectTileProps {
-    project: OldProject;
+    project: Project;
     onClick: () => void;
 }
 
@@ -24,22 +25,14 @@ export default function ProjectTile(props: ProjectTileProps) {
             onClick={onOpen}
             className={'project-tile'}
         >
-            {project.type === 'Image' &&
-                <img
-                    src={getFile(project.filename)}
-                    alt={project.name}
-                    className={'project-tile-img'}
-                />
-            }
-            {project.type === 'Video' &&
-                <video className={'project-tile-img'} controls>
-                    <source src={getFile(project.filename)} type="video/mp4"/>
-                    Your browser does not support videos
-                </video>
-            }
+            <img
+                src={getFile(project.mainImageFilename)}
+                alt={project.projectTitle}
+                className={'project-tile-img'}
+            />
             {isHovered &&
                 <div className={'project-tile-overlay'}>
-                    <span>{project.name}</span>
+                    <span>{project.projectTitle}</span>
                 </div>
             }
         </div>

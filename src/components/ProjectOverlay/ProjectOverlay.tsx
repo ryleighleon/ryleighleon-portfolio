@@ -1,64 +1,68 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './ProjectOverlay.css';
-import {Project} from "../../redux/slices/projects";
-import {getFile} from "../../App";
+import {getFullProjectImage} from "../../App";
+import {Project} from "../../redux/slices/pages";
+import SubMediaImage from "./SubMediaImage";
 
 interface ProjectOverlayProps {
     project: Project;
     onClose: () => void;
     goForward: () => void;
     goBackward: () => void;
-    canGoForward: boolean;
-    canGoBackward: boolean;
+    nextProjectTitle: string;
+    previousProjectTitle: string;
 }
 
 export default function ProjectOverlay(props: ProjectOverlayProps){
     const project = props.project;
-    const [onlyImage, setOnlyImage] = useState(true);
-
-    useEffect(() => {
-        if (project.name || project.description){
-            setOnlyImage(false);
-        } else {
-            setOnlyImage(true);
-        }
-    }, [project]);
     return (
         <div className={'project-overlay-container'}>
-            <div className={'button-bar-container'}>
-                <span className={'project-navigation-icon'} onClick={props.onClose}>X</span>
-            </div>
-            <div className={`overlay-content-container ${onlyImage ? 'center-overlay': 'fit-overlay'}`} key={`${project.name}-${project.path}`}>
-                <div className={'overlay-image-nav-container'}>
-                    {props.canGoBackward &&
-                        <div className={'nav-button-container'}>
-                            <span className={'project-navigation-icon go-back-span'} onClick={props.goBackward}>{`<`}</span>
-                        </div>
-                    }
-                    {project.type === 'Image' &&
-                        <img src={getFile(project.filename)} alt={project.name} className={'project-image'}/>
-                    }
-                    {project.type === 'Video' &&
-                        <video className={'project-image'} controls>
-                            <source src={getFile(project.filename)} type="video/mp4"/>
-                                Your browser does not support the video tag.
-                        </video>
-                    }
-                    {props.canGoForward &&
-                        <div className={'nav-button-container'}>
-                            <span className={'project-navigation-icon go-forward-span'} onClick={props.goForward}>{`>`}</span>
-                        </div>
-                    }
-                </div>
-                {!onlyImage &&
-                    <div className={'project-overlay-text-container'}>
-                        <span className={'overlay-title'}>{project.name}</span>
-                        <span className={'overlay-description'}>{project.description}</span>
+            <img src={getFullProjectImage(project.mainImageFilename, project.projectTitle)} alt={project.projectTitle} className={'project-overlay-img'}/>
+            <div className={'project-overlay-description-container'}>
+                {project.projectTitle && <span className={'project-overlay-title'}>{project.projectTitle}</span>}
+                {project.projectSubtitle && <span className={'project-overlay-subtitle'}>{project.projectSubtitle}</span>}
+                <div className={'project-paragraphs-container'}>
+                    <div className={'project-paragraph-column'}>
+                        {project.projectParagraphs.map((paragraph, index) => {
+                            if (index % 2 === 0){
+                                return (
+                                    <div className={'project-paragraph-container'}>
+                                        <span className={'project-overlay-paragraph-title'}>{paragraph.paragraphTitle}</span>
+                                        <span className={'project-overlay-paragraph-text'}>{paragraph.paragraphText}</span>
+                                    </div>
+                                )
+                            }
+                        })}
                     </div>
-                }
+                    <div className={'project-paragraph-column'}>
+                        {project.projectParagraphs.map((paragraph, index) => {
+                            if (index % 2 !== 0){
+                                return (
+                                    <div className={'project-paragraph-container'}>
+                                        <span className={'project-overlay-paragraph-title'}>{paragraph.paragraphTitle}</span>
+                                        <span className={'project-overlay-paragraph-text'}>{paragraph.paragraphText}</span>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
+                </div>
             </div>
-
-
+            <div className={'project-overlay-sub-media-container'}>
+                {project.subMedia.map((media, index) =>
+                    <SubMediaImage subMedia={media} projectTitle={project.projectTitle} key={index}/>
+                )}
+            </div>
+            <div className={'project-overlay-navigation-container'}>
+                <div className={'project-overlay-nav-previous'} onClick={props.goBackward}>
+                    {props.previousProjectTitle && <span className={'project-overlay-nav-icon-text'}>{'<'}</span>}
+                    {props.previousProjectTitle && <span className={'project-overlay-nav-description'}>{props.previousProjectTitle}</span>}
+                </div>
+                {props.nextProjectTitle && <div className={'project-overlay-nav-next'} onClick={props.goForward}>
+                    <span className={'project-overlay-nav-description'}>{props.nextProjectTitle}</span>
+                    <span className={'project-overlay-nav-icon-text'}>{'>'}</span>
+                </div>}
+            </div>
         </div>
     )
 }

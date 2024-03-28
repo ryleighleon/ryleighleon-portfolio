@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface Project {
+export interface OldProject {
     name: string;
     description?: string;
     type: string;
@@ -9,7 +9,7 @@ export interface Project {
 }
 
 interface ProjectsState {
-    projects: Project[];
+    projects: OldProject[];
 }
 
 const initialState: ProjectsState = {
@@ -20,7 +20,7 @@ const projectsSlice = createSlice({
     name: 'projects',
     initialState,
     reducers: {
-        addProject: (state, action: PayloadAction<Project>) => {
+        addProject: (state, action: PayloadAction<OldProject>) => {
             if (!state.projects.some(project => project.name === action.payload.name && project.filename === action.payload.filename)) {
                 state.projects.push(action.payload);
             }

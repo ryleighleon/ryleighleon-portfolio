@@ -1,0 +1,51 @@
+.mobile-introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-profile-pic {
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.mobile-not-found-title{
+    color: var(--greenColor);
+    font-size: 60px;
+    font-family: 'Old Standard TT', serif;
+    margin-bottom: 20px;
+}
+
+.mobile-explore-text{
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.mobile-grab-snack-text{
+    color: black;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mobile-intro-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    width: 70%;
+}
+
+.mobile-contact-form-container {
+    margin-bottom: 50px;
+}
+
+.mobile-copyright {
+    font-size: 12px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import {getFile} from "../../App";
+import {getRegularImage} from "../../App";
 import './Footer.css';
 
 export default function Footer(){
@@ -12,10 +12,10 @@ export default function Footer(){
             <a href='mailto:ryleighleon@gmail.com' className={'email'}>ryleighleon@gmail.com</a>
             <div className={'footer-socials'}>
                 <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                    <img src={getFile('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>
+                    <img src={getRegularImage('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>
                 </a>
                 <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                    <img src={getFile('InstagramBlack.png')} alt={'Instagram'} className={'social-icon'}/>
+                    <img src={getRegularImage('InstagramBlack.png')} alt={'Instagram'} className={'social-icon'}/>
                 </a>
             </div>
             <span className={'copyright'}>{`©${currentYear} by Ryleigh Leon`}</span>

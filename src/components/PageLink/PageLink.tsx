@@ -5,9 +5,10 @@ import {useLocation, useNavigate} from "react-router-dom";
 
 
 interface LinkItemProps {
-    relativeUrl: string;
+    relativeUrl?: string;
     title: string;
     children: Page[];
+    setShowProjectOverlay: (show: boolean) => void;
 }
 
 export default function PageLink(props: LinkItemProps) {
@@ -25,7 +26,7 @@ export default function PageLink(props: LinkItemProps) {
     };
 
     const handleParentClick = () => {
-        if (children.length === 0){
+        if (children.length === 0 && props.relativeUrl) {
             navigateToLink(props.relativeUrl);
         }
     };
@@ -33,6 +34,7 @@ export default function PageLink(props: LinkItemProps) {
     const navigateToLink = (toNavigate: string) => {
         navigate(toNavigate);
         setIsHovered(false);
+        props.setShowProjectOverlay(false);
     }
 
     const location = useLocation();
@@ -40,8 +42,8 @@ export default function PageLink(props: LinkItemProps) {
 
     if (pathname === props.relativeUrl || isHovered) {
         classes.push('selected-nav-link');
-    } else {
-        classes.push('unselected-nav-link');
+    } else if ((pathname !== '/' && props.relativeUrl !== '/') && (pathname !== '/about' && props.relativeUrl !== '/about')) {
+        classes.push('selected-nav-link');
     }
     if (children.length === 0){
         classes.push('clickable-text');
@@ -55,7 +57,7 @@ export default function PageLink(props: LinkItemProps) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <span className={classes.join(' ')} onClick={handleParentClick}>{props.title}</span>
+            <span className={`page-link-text ${classes.join(' ')}`} onClick={handleParentClick}>{props.title}</span>
             {isHovered && children && (
                 <ul className="child-list">
                     {children.map((child, index) => (

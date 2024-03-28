@@ -1,9 +1,0 @@
-*****
-Project Name: "Ernestine Debit Card"
-Filename: "Ernestine Debit Card.png"
-Type: "Image"
-*****
-Project Name: "No Signal"
-Filename: "No Signal.png"
-Type: "Image"
-*****

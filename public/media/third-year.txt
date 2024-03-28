@@ -1,9 +1,0 @@
-*****
-Project Name: "Album Cover Redesign"
-Filename: "Album Cover Redesign.png"
-Type: "Image"
-*****
-Project Name: "Fish Poster"
-Filename: "Leon_IDR_P1Final.png"
-Type: "Image"
-*****

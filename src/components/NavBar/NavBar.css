@@ -1,17 +1,16 @@
 .nav-bar {
-    background-color: black;
-    height: 120px;
+    background-color: white;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 120px;
+    padding: 12px 30px;
 }
 
 
 .logo-image {
-    height: 60px;
+    height: 50px;
     margin-right: 22px;
 }
 

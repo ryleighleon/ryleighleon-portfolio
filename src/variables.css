@@ -1,10 +1,10 @@
 :root {
     --greenColor: #303A25;
     --orangeColor: #E6993A;
-    --blueColor: #B6C0DC;
+    --blueColor: #6c81be;
     --blackColor: #000000;
     --whiteColor: #FFFFFF;
 
-    --playfair-font: Playfair, serif;
-    --montserrat-font: Montserrat, sans-serif;
+    --playfair-font: 'Playfair', serif;
+    --montserrat-font: 'Montserrat', sans-serif;
 }

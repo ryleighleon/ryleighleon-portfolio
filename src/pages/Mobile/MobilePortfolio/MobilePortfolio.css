@@ -1,0 +1,37 @@
+.mobile-about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-about-pic {
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.mobile-about-me-title{
+    color: var(--greenColor);
+    font-size: 40px;
+    font-family: 'Old Standard TT', serif;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mobile-about-me-body{
+    color: black;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2;
+}
+
+.mobile-about-text-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}

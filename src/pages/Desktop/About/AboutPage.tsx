@@ -1,25 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {getFile, getRootFileText} from "../../../App";
+import React from "react";
+import {getRegularImage} from "../../../App";
 import './AboutPage.css';
+import ContactForm from "../../../components/ContactForm/ContactForm";
 
 export default function AboutPage(){
-    const [aboutMeText, setAboutMeText] = useState('');
-
-    useEffect(() => {
-        const populateBio = async () => {
-            const bio = await getRootFileText('Bio.txt');
-            setAboutMeText(bio);
-        }
-        populateBio();
-    }, []);
-
     return (
-        <div className={'about-page page'}>
-            <img src={getFile('aboutPic.jpeg')} alt={'Profile'} className={'about-pic'}/>
-            <div className={'about-text-container'}>
-                <span className={'about-me-title'}>Get to know me!</span>
-                <span className={'about-me-body'}>{aboutMeText}</span>
+        <div className={'homepage page'} >
+            <div className={'introduction'}>
+                <img src={getRegularImage('homePic.jpg')} alt={'Profile'} className={'profile-pic'}/>
+                <div className={'intro-text-container'}>
+                    <span className={'not-found-title'}>Welcome!</span>
+                    <span className={'explore-text'}>Explore My Work</span>
+                    <span className={'grab-snack-text'}>Grab a snack and stay awhile</span>
+                </div>
+            </div>
+            <div className={'contact-form-container'}>
+                <ContactForm/>
             </div>
         </div>
+
     );
 }

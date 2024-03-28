@@ -1,0 +1,25 @@
+import React, {useEffect, useState} from "react";
+import {getRegularImage, getRootFileText} from "../../../App";
+import './Portfolio.css';
+
+export default function Portfolio(){
+    const [aboutMeText, setAboutMeText] = useState('');
+
+    useEffect(() => {
+        const populateBio = async () => {
+            const bio = await getRootFileText('Bio.txt');
+            setAboutMeText(bio);
+        }
+        populateBio();
+    }, []);
+
+    return (
+        <div className={'about-page page'}>
+            <img src={getRegularImage('aboutPic.jpeg')} alt={'Profile'} className={'about-pic'}/>
+            <div className={'about-text-container'}>
+                <span className={'about-me-title'}>Get to know me!</span>
+                <span className={'about-me-body'}>{aboutMeText}</span>
+            </div>
+        </div>
+    );
+}

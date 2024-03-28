@@ -1,17 +1,21 @@
 .project-tile-img {
-    height: 350px;
     width: 450px;
-    object-fit: cover;
+    height: 100%; /* Set height to 100% to occupy the full height of the parent div */
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-tile {
     position: relative;
-    height: 350px;
     width: 450px;
     display: inline-block;
     margin: 15px;
     cursor: pointer;
+    overflow: hidden;
 }
+
 
 .project-tile-overlay {
     position: absolute; /* Position the overlay absolutely within the container */

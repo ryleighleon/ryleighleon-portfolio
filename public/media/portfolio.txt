@@ -2,6 +2,13 @@
 Project Name: "Old Type New Ways Logo"
 Filename: "HWTxMIAD_Logo.png"
 Type: "Image"
+Description: "Company: The Hamilton Wood Type & Printing Museum is in Two Rivers, WI. They have over 1.5 million pieces of wood type in their collection. Hamilton is a 501(c)3 nonprofit arts and educational organization. They are passionate about teaching people about typography and the history of American printing. Hamilton has a gallery space in the museum and offers tours, workshops, and a store with prints and type to buy.
+
+The Project: I worked on various projects for Hamilton. Some projects used the brand guide. Summer workshop TV slides and drink tokens for events with the bar (Ink & Drink workshop) used the brand guide. I also created an identity mark for the Old Type, New Ways Exhibition at MIAD
+
+Role In Project: Researcher, Sketching, Concepting
+
+The Process: During my internship, I led some projects and collaborated with other staff from the museum. For many of these projects, I did a lot of research and created documents for other team members to help communicate and organize my ideas."
 *****
 Project Name: "Ink and Drink"
 Filename: "Ink and Drink.png"
@@ -15,6 +22,22 @@ Type: "Image"
 Project Name: "Target Magazine Ad"
 Filename: "Target Magazine Ad.png"
 Type: "Image"
+Description: "The Project:
+Target is launching a new Mondo Llama product of paint and paintbrushes. They want a physical and a digital banner ad for the new product. A professional photographer will photograph the concept. You will direct them based on your sketches, mood board, and layout concepts to communicate your vision to the photographer.
+
+Both ads need to include:
+Target logo
+Target Visual Identity
+Headline and copy
+Photography of product
+Item name + price
+
+Role in Project: Art Director, Concepting, Research, Designer
+
+The Process:
+I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting.
+Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer’s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting.
+I shot more photos than I used to create the ad, but it gave me a couple of options in post-production."
 *****
 Project Name: "Target Web Ad"
 Filename: "Target Banner Ad MU.png"

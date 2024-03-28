@@ -22,7 +22,7 @@ export default function NavBar(props: NavBarProps){
     return (
         <div className={'nav-bar'}>
             <div className={'nav-logo'} onClick={redirectHome}>
-                <img className={'logo-image'} src={getRegularImage('LogoFull.png')} alt={'logo'}/>
+                <img className={'logo-image'} src={getRegularImage('Logofull.png')} alt={'logo'}/>
             </div>
             <div className={'nav-links'}>
                 <PageLink title={'Portfolio'} relativeUrl={'/'} key={'portfolio-link'} children={[]} setShowProjectOverlay={props.setShowProjectOverlay}/>

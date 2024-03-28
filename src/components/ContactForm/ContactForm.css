@@ -79,6 +79,7 @@
     font-size: 15px;
     margin-bottom: 30px;
     padding: 3px 3px 3px 12px;
+    box-sizing: border-box;
 }
 
 .contact-input::placeholder {

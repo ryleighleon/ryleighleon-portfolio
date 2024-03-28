@@ -10,6 +10,9 @@ output_directory = "thumbnails"
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
+# Define the maximum allowable image size in pixels
+max_image_size = 178956970
+
 # Iterate through each project folder in the input directory
 for project_folder in os.listdir(input_directory):
     # Skip the icons folder
@@ -39,14 +42,30 @@ for project_folder in os.listdir(input_directory):
         if not image_file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
             continue
 
-        # Open the image and resize it while maintaining aspect ratio
-        with Image.open(image_path) as img:
-            # Resize the image with the desired height while preserving aspect ratio
-            img.thumbnail((img.width, 400))
-            # Add padding if necessary to make the image square
-            img_padded = ImageOps.pad(img, (img.width, 400), color='white')
-            # Save the resized image (maintaining aspect ratio) to the thumbnail folder
-            thumbnail_path = os.path.join(thumbnail_folder, image_file)
-            img_padded.save(thumbnail_path)
+        try:
+            # Open the image and check its size
+            with Image.open(image_path) as img:
+                image_size = img.width * img.height
+
+                # Check if the image size exceeds the limit
+                if image_size > max_image_size:
+                    # Calculate the new dimensions to resize the image
+                    resize_ratio = (max_image_size / image_size) ** 0.5
+                    new_width = int(img.width * resize_ratio)
+                    new_height = int(img.height * resize_ratio)
+
+                    # Resize the image to the new dimensions
+                    img = img.resize((new_width, new_height))
+
+                # Resize the image with the desired height while preserving aspect ratio
+                img.thumbnail((img.width, 400))
+                # Add padding if necessary to make the image square
+                img_padded = ImageOps.pad(img, (img.width, 400), color='white')
+                # Save the resized image (maintaining aspect ratio) to the thumbnail folder
+                thumbnail_path = os.path.join(thumbnail_folder, image_file)
+                img_padded.save(thumbnail_path)
+
+        except Exception as e:
+            print(f"Error processing image '{image_file}': {e}")
 
 print("Thumbnails created successfully!")

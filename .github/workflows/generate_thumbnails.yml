@@ -34,3 +34,12 @@ jobs:
           git add .
           git commit -m "Generate thumbnails"
           git push
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Deploy Changes
+        run : |
+          npm run deploy

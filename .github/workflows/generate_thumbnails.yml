@@ -51,5 +51,7 @@ jobs:
           npm install
 
       - name: Deploy Changes
-        run : |
+        run: |
           npm run deploy
+        env:
+          CI: ""

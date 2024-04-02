@@ -25,4 +25,4 @@ jobs:
 
       - name: Run Thumbnail Generation Script
         run: |
-          python generate_thumbnails.py
+          python .github/generate_thumbnails.py

@@ -27,11 +27,6 @@ jobs:
         run: |
           python .github/generate_thumbnails.py
 
-      - name: GitHub Authentication
-        run: |
-          git config user.name "MyUsername"
-          git config user.email "MyEmail"
-
       - name: Check for changes
         id: check_changes
         run: |
@@ -43,18 +38,3 @@ jobs:
           git add .
           git commit -m "Generate thumbnails"
           git push
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-
-      - name: Install Node Dependencies
-        run: |
-          npm install
-
-      - name: Deploy Changes
-        run: |
-          npm run deploy
-        env:
-          CI: ""

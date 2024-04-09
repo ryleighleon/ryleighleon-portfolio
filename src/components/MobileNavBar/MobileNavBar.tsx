@@ -5,14 +5,16 @@ import { getRegularImage } from "../../App";
 import { Page } from "../../redux/slices/pages";
 import { useNavigate } from "react-router-dom";
 
-export default function MobileNavBar() {
+interface NavBarProps {
+    setShowProjectOverlay: (show: boolean) => void;
+}
+
+export default function MobileNavBar(props: NavBarProps) {
     const pages = useAppSelector(state => state.pages.pages);
+    const pagesWithoutPortfolio = pages.filter((page: Page) => page.relativeLink !== '/');
     const [showPages, setShowPages] = useState(false);
     const navigate = useNavigate();
-
-    function resetAllPages(){
-
-    }
+    const [showWork, setShowWork] = useState(false);
 
     useEffect(() => {
         function clearPageDropdown(){
@@ -21,8 +23,13 @@ export default function MobileNavBar() {
         clearPageDropdown();
     }, [pages]);
 
-    function redirectHome() {
-        navigate('/');
+    function navigateTo(relativeLink: string) {
+        return () => {
+            navigate(relativeLink);
+            setShowPages(false);
+            setShowWork(false);
+            props.setShowProjectOverlay(false);
+        }
     }
 
     function handleHamburgerClick() {
@@ -41,28 +48,29 @@ export default function MobileNavBar() {
 
     function closeOverlay(){
         setShowPages(false);
-        resetAllPages();
     }
 
     return (
         <div className={'mobile-nav-bar'}>
-            <img className={'mobile-logo-image'} src={getRegularImage('LogoFull.png')} alt={'logo'} onClick={redirectHome} />
+            <img className={'mobile-logo-image'} src={getRegularImage('LogoFull.png')} alt={'logo'} onClick={navigateTo('/')} />
             <img src={getRegularImage('hamburgerIcon.png')} alt={'nav'} className={'mobile-hamburger-icon'} onClick={handleHamburgerClick} />
 
             {showPages && (
                 <div className={'mobile-pages-list'}>
                     <span className={'mobile-close-button'} onClick={closeOverlay}>X</span>
-                    <ul>
-                        {/*{allPages.map((page, index) => (*/}
-                        {/*    <li key={index} onClick={() => handlePageClick(page)}>*/}
-                        {/*        {page.children.length > 0 ? (*/}
-                        {/*            <span>{page.shortTitle}</span>*/}
-                        {/*        ) : (*/}
-                        {/*            <span>{page.shortTitle}</span>*/}
-                        {/*        )}*/}
-                        {/*    </li>*/}
-                        {/*))}*/}
-                    </ul>
+                    {!showWork ?
+                        <ul>
+                            <li key={'home'} onClick={navigateTo('/')} className={'mobile-name-title'}>Home</li>
+                            <li key={'work'} onClick={() => setShowWork(true)} className={'mobile-name-title'}>Work</li>
+                            <li key={'about'} onClick={navigateTo('/about')} className={'mobile-name-title'}>About</li>
+                        </ul>
+                        :
+                        <ul>
+                            {pagesWithoutPortfolio.map((page: Page) => (
+                                <li key={page.relativeLink} onClick={navigateTo(page.relativeLink)} className={'mobile-name-title'}>{page.shortTitle}</li>
+                            ))}
+                        </ul>
+                    }
                 </div>
             )}
         </div>

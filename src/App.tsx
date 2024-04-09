@@ -15,10 +15,6 @@ import ChristmasPage from "./pages/Desktop/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
 import MobileChristmasPage from "./pages/Mobile/MobileChristmasPage/MobileChristmasPage";
 import MobileFooter from "./components/MobileFooter/MobileFooter";
-import MobileProjectsPage from "./pages/Mobile/MobileProjectsPage/MobileProjectsPage";
-import {store} from "./redux/store";
-import MobilePortfolio from "./pages/Mobile/MobilePortfolio/MobilePortfolio";
-import Portfolio from "./pages/Desktop/Portfolio/Portfolio";
 import MobileAbout from "./pages/Mobile/MobileAbout/MobileAbout";
 import AboutPage from "./pages/Desktop/About/AboutPage";
 import EditPage from "./pages/Desktop/EditPage/EditPage";
@@ -83,7 +79,7 @@ function App() {
     return (
         <div className={'app'}>
             <Router>
-                {isMobile ? <MobileNavBar/> : <NavBar setShowProjectOverlay={setShowProjectOverlay}/>}
+                {isMobile ? <MobileNavBar setShowProjectOverlay={setShowProjectOverlay}/> : <NavBar setShowProjectOverlay={setShowProjectOverlay}/>}
                 <Routes>
                     {pages.map((page, index) => <Route path={page.relativeLink} key={index} element={
                         <ProjectPage page={page} setShowProjectOverlay={setShowProjectOverlay} showProjectOverlay={showProjectOverlay}/>

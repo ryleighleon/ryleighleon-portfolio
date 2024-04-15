@@ -62,4 +62,4 @@ jobs:
         with:
             ACCESS_TOKEN: $
             BRANCH: gh-pages
-            FOLDER: public
+            FOLDER: build

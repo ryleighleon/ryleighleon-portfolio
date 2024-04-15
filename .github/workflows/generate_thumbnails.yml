@@ -54,14 +54,11 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Set process.env.CI to false
-        run: CI=false
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build project with --no-warnings
-        run: npm run build-no-warnings
+      - name: Build project and set CI=false
+        run: npm run build-no-warnings-cicd
 
       - name: Deploy to GitHub Pages
         run: npx gh-pages -d dist

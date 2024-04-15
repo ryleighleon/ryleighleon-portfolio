@@ -1,8 +1,5 @@
 name: Generate Thumbnails and Deploy
 
-env:
-  CI: false
-
 on:
   push:
     branches:

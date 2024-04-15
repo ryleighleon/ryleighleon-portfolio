@@ -52,7 +52,7 @@ jobs:
           node-version: '21'
 
       - name: Set process.env.CI to false
-        run: echo "process.env.CI = false" >> $GITHUB_ENV
+        run: CI=false
 
       - name: Install dependencies
         run: npm install

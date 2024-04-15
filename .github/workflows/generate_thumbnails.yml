@@ -57,5 +57,9 @@ jobs:
       - name: Build project and set CI=false
         run: npm run build-no-warnings-cicd
 
-      - name: Deploy to GitHub Pages
-        run: npx gh-pages -d public -b gh-pages -u "GitHub Actions"
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+            ACCESS_TOKEN: $
+            BRANCH: gh-pages
+            FOLDER: public

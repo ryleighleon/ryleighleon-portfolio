@@ -54,5 +54,5 @@ jobs:
       - name: Build and Deploy to GitHub Pages
         run: |
           npm install
-          npm run build
+          react-scripts build --no-warnings
           npx gh-pages -d dist

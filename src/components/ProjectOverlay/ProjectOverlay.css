@@ -207,7 +207,8 @@
     position: relative;
     height: 350px;
     display: inline-block;
-    margin: 10px
+    margin: 10px;
+    cursor: pointer;
 }
 
 .submedia-image-overlay {

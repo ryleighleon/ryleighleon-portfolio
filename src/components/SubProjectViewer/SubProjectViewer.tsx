@@ -33,13 +33,13 @@ export default function SubProjectViewer(props: ProjectSubMediaProps){
     return (
         <div className={'project-sub-media-container'}>
             <div className={'button-bar-container'}>
-                <span className={'project-navigation-icon'} onClick={props.onClose}>X</span>
+                <span className={'subproject-navigation-icon'} onClick={props.onClose}>X</span>
             </div>
             <div className={`sub-media-content-container ${onlyImage ? 'center-sub-media': 'fit-sub-media'}`} key={`${subMedia.subMediaUid}`}>
                 <div className={'sub-media-image-nav-container'}>
                     {props.canGoBackward &&
                         <div className={'nav-button-container'}>
-                            <span className={'project-navigation-icon go-back-span'} onClick={props.goBackward}>{`<`}</span>
+                            <span className={'subproject-navigation-icon go-back-span'} onClick={props.goBackward}>{`<`}</span>
                         </div>
                     }
                     {subMedia.type === 'Image' &&
@@ -53,7 +53,7 @@ export default function SubProjectViewer(props: ProjectSubMediaProps){
                     {/*}*/}
                     {props.canGoForward &&
                         <div className={'nav-button-container'}>
-                            <span className={'project-navigation-icon go-forward-span'} onClick={props.goForward}>{`>`}</span>
+                            <span className={'subproject-navigation-icon go-forward-span'} onClick={props.goForward}>{`>`}</span>
                         </div>
                     }
                 </div>

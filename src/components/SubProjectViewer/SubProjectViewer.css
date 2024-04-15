@@ -25,10 +25,11 @@
     flex-direction: column;
 }
 
-.project-navigation-icon {
+.subproject-navigation-icon {
     font-family: 'Montserrat', sans-serif;
     font-size: 35px;
     cursor: pointer;
+    color: var(--blueColor)
 }
 
 .go-back-span {

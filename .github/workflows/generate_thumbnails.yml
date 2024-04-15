@@ -51,8 +51,14 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Build and Deploy to GitHub Pages
-        run: |
-          npm install
-          npm run build-no-warnings
-          npx gh-pages -d dist
+      - name: Set process.env.CI to false
+        run: echo "process.env.CI = false" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project with --no-warnings
+        run: npm run build-no-warnings
+
+      - name: Deploy to GitHub Pages
+        run: npx gh-pages -d dist

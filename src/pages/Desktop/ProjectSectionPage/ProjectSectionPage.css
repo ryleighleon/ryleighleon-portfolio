@@ -24,9 +24,10 @@
 }
 
 .project-section-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .project-page-container {
@@ -35,12 +36,18 @@
     align-items: center;
 }
 
-.projects-container {
-    width: 100%;
-    margin-bottom: 40px;
+.project-section-row {
+    width: calc(84vw + 90px);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.project-rows-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .project-section-title {

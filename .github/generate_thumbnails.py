@@ -3,8 +3,8 @@ import shutil
 from PIL import Image, ImageOps
 
 # Define the input and output directories
-input_directory = "files"
-output_directory = "thumbnails"
+input_directory = "./public/media/files"
+output_directory = "./public/media/thumbnails"
 
 # Create the output directory if it doesn't exist
 if not os.path.exists(output_directory):

@@ -1,17 +1,18 @@
 .project-tile-img {
-    height: 350px;
-    width: 450px;
+    width: 28vw;
+    height: 28vw;
     object-fit: cover;
 }
 
 .project-tile {
     position: relative;
-    height: 350px;
-    width: 450px;
+    width: 28vw;
+    height: 28vw;
     display: inline-block;
     margin: 15px;
     cursor: pointer;
 }
+
 
 .project-tile-overlay {
     position: absolute; /* Position the overlay absolutely within the container */

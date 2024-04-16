@@ -4,6 +4,7 @@ import {getRegularImage, getThumbnailImage} from "../../App";
 interface SubMediaImageProps {
     subMedia: any;
     projectTitle: string;
+    onClick: () => void;
 }
 
 export default function SubMediaImage(props: SubMediaImageProps) {
@@ -13,6 +14,7 @@ export default function SubMediaImage(props: SubMediaImageProps) {
         <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={props.onClick}
             className={'submedia-image-container'}
         >
             <img

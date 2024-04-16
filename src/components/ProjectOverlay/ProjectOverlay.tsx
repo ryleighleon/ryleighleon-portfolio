@@ -20,7 +20,6 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
     const project = props.project;
     return (
         <div className={'project-overlay-container'}>
-            {/*<img src={getFullProjectImage(project.mainImageFilename, project.projectTitle)} alt={project.projectTitle} className={'project-overlay-img'}/>*/}
             <div className={'project-overlay-description-container'}>
                 {project.projectTitle && <span className={'project-overlay-title'}>{project.projectTitle}</span>}
                 {project.projectSubtitle && <span className={'project-overlay-subtitle'}>{project.projectSubtitle}</span>}

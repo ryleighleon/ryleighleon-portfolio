@@ -30,8 +30,8 @@
 .project-overlay-description-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding-left: 60px;
     max-width: 1300px;
     box-sizing: border-box;
@@ -59,11 +59,11 @@
 .project-overlay-paragraph-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 
 .project-overlay-paragraph-text {
-    font-size: 20px;
+    font-size: 1.1rem;
     margin-bottom: 16px;
     white-space: pre-line;
     line-height: 1.15;
@@ -138,13 +138,13 @@
 
 .overlay-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 1.4rem;
     margin-bottom: 18px;
 }
 
 .overlay-description {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 1.2rem;
     white-space: pre-line;
 }
 
@@ -183,7 +183,7 @@
 .project-overlay-nav-description {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .submedia-image {

@@ -42,7 +42,7 @@
 
 .project-paragraphs-container {
     display: flex;
-    width: 1500px;
+    max-width: 1500px;
     flex-direction: row;
     justify-content: space-between;
 }

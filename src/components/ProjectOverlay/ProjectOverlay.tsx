@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ProjectOverlay.css';
-import {getFullProjectImage} from "../../App";
+import {getProjectImage} from "../../App";
 import {Project} from "../../redux/slices/pages";
 import SubMediaImage from "./SubMediaImage";
 import SubProjectViewer from "../SubProjectViewer/SubProjectViewer";

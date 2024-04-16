@@ -14,11 +14,11 @@ import {
     Page,
     Project,
     ProjectSection,
-    setPages,
+    setPages, shiftPageDown, shiftPageUp,
     shiftParagraphDown,
     shiftParagraphUp,
     shiftProjectDown,
-    shiftProjectUp,
+    shiftProjectUp, shiftSectionDown, shiftSectionUp,
     shiftSubMediaDown,
     shiftSubMediaUp,
     updatePage
@@ -292,6 +292,10 @@ const EditPage: React.FC = () => {
                     <ImportComponent name={'bottomTitle'} value={selectedPage.bottomTitle} onChange={handlePageInputChange}/>
                     <div className={'delete-button-container'}>
                         <button onClick={() => dispatch(deletePage(selectedPage.uid))}>Delete Page</button>
+                        <div className={'shift-buttons-container'}>
+                            <button onClick={() => dispatch(shiftPageUp({ pageUid: selectedPage.uid }))}>Λ</button>
+                            <button onClick={() => dispatch(shiftPageDown({ pageUid: selectedPage.uid }))}>V</button>
+                        </div>
                     </div>
                     <div className={'title-input-container'}>
                         <label htmlFor="sectionTitle">Enter Section Title:</label>
@@ -315,6 +319,10 @@ const EditPage: React.FC = () => {
                             <ImportComponent name={'description'} value={selectedSection.description} onChange={handleSectionInputChange}/>
                             <div className={'delete-button-container'}>
                                 <button onClick={() => dispatch(deleteSection({ pageUid: selectedPageUid, sectionUid: selectedSectionUid }))}>Delete Section</button>
+                                <div className={'shift-buttons-container'}>
+                                    <button onClick={() => dispatch(shiftSectionUp({ pageUid: selectedPageUid, sectionUid: selectedSectionUid }))}>Λ</button>
+                                    <button onClick={() => dispatch(shiftSectionDown({ pageUid: selectedPageUid, sectionUid: selectedSectionUid }))}>V</button>
+                                </div>
                             </div>
                             <div className={'title-input-container'}>
                                 <label htmlFor="projectTitle">Enter Project Title:</label>

@@ -274,7 +274,45 @@ const pagesSlice = createSlice({
                     }
                 }
             }
-        }
+        },
+        shiftSectionUp(state, action: PayloadAction<{ pageUid: string; sectionUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const sectionIndex = page.projectSections.findIndex(section => section.uid === action.payload.sectionUid);
+                if (sectionIndex > 0) {
+                    const temp = page.projectSections[sectionIndex];
+                    page.projectSections[sectionIndex] = page.projectSections[sectionIndex - 1];
+                    page.projectSections[sectionIndex - 1] = temp;
+                }
+            }
+        },
+        shiftSectionDown(state, action: PayloadAction<{ pageUid: string; sectionUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const sectionIndex = page.projectSections.findIndex(section => section.uid === action.payload.sectionUid);
+                if (sectionIndex < page.projectSections.length - 1) {
+                    const temp = page.projectSections[sectionIndex];
+                    page.projectSections[sectionIndex] = page.projectSections[sectionIndex + 1];
+                    page.projectSections[sectionIndex + 1] = temp;
+                }
+            }
+        },
+        shiftPageUp(state, action: PayloadAction<{ pageUid: string }>) {
+            const pageIndex = state.pages.findIndex(page => page.uid === action.payload.pageUid);
+            if (pageIndex > 0) {
+                const temp = state.pages[pageIndex];
+                state.pages[pageIndex] = state.pages[pageIndex - 1];
+                state.pages[pageIndex - 1] = temp;
+            }
+        },
+        shiftPageDown(state, action: PayloadAction<{ pageUid: string }>) {
+            const pageIndex = state.pages.findIndex(page => page.uid === action.payload.pageUid);
+            if (pageIndex < state.pages.length - 1) {
+                const temp = state.pages[pageIndex];
+                state.pages[pageIndex] = state.pages[pageIndex + 1];
+                state.pages[pageIndex + 1] = temp;
+            }
+        },
     },
 });
 
@@ -296,7 +334,11 @@ export const { addPage,
     shiftProjectUp,
     shiftProjectDown,
     shiftSubMediaUp,
-    shiftSubMediaDown
+    shiftSubMediaDown,
+    shiftSectionUp,
+    shiftSectionDown,
+    shiftPageUp,
+    shiftPageDown
 } = pagesSlice.actions;
 
 export default pagesSlice.reducer;

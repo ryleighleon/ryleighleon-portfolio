@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './SubProjectViewer.css';
-import {getFullProjectImage} from "../../App";
+import {getProjectImage} from "../../App";
 
 interface SubMedia {
     mediaFilename: string;
@@ -43,7 +43,7 @@ export default function SubProjectViewer(props: ProjectSubMediaProps){
                         </div>
                     }
                     {subMedia.type === 'Image' &&
-                        <img src={getFullProjectImage(subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
+                        <img src={getProjectImage(subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
                     }
                     {/*{subMedia.type === 'Video' &&*/}
                     {/*    <video className={'project-image'} controls>*/}

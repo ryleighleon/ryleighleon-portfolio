@@ -32,7 +32,7 @@ export default function ProjectTile(props: ProjectTileProps) {
             />
             {isHovered &&
                 <div className={'project-tile-overlay'}>
-                    <span>{project.projectTitle}</span>
+                    <span className={'project-tile-overlay-title'}>{project.projectTitle}</span>
                 </div>
             }
         </div>

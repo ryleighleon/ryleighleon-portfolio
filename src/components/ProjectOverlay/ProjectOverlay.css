@@ -30,8 +30,8 @@
 .project-overlay-description-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding-left: 60px;
     max-width: 1300px;
     box-sizing: border-box;
@@ -39,27 +39,32 @@
 
 .project-paragraphs-container {
     display: flex;
+    width: 100%;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .project-paragraph-column {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    max-width: 50%;
+    width: fit-content;
     padding-right: 40px;
     box-sizing: border-box;
 }
 
 .project-paragraph-container {
+    width: fit-content; /* Set width to fit its content */
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: flex-start; /* Align items to the start of the flex container */
 }
 
 .project-overlay-paragraph-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
+    display: block;
 }
 
 .project-overlay-paragraph-text {
@@ -67,7 +72,9 @@
     margin-bottom: 16px;
     white-space: pre-line;
     line-height: 1.15;
+    display: block;
 }
+
 
 .button-bar-container {
     display: flex;

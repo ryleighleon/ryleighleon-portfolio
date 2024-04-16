@@ -58,6 +58,14 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
         handleScrollToTop();
     }
 
+    const chunkArray = (arr: any[], size: number) => {
+        return Array.from({ length: Math.ceil(arr.length / size) }, (_, index) =>
+            arr.slice(index * size, index * size + size)
+        );
+    };
+
+    const projectRows = chunkArray(projects, 3);
+
     return (
         <div>
             {showProjectOverlay ?
@@ -74,14 +82,18 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
                     {section.title && <span className={'project-page-title'}>{section.title}</span>}
                     {section.subtitle && <span className={'project-page-subtitle'}>{section.subtitle}</span>}
                     {section.description && <span className={'project-page-description'}>{section.description}</span>}
-                    <div className={'projects-container'}>
-                        {projects.map((project, index) => {
-                            return <ProjectTile
-                                project={project}
-                                onClick={() => handleClick(index)}
-                                key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}
-                            />
-                        })}
+                    <div className={'project-rows-container'}>
+                        {projectRows.map((row, rowIndex) => (
+                            <div className={'project-section-row'} key={`row-${rowIndex}`}>
+                                {row.map((project, index) => (
+                                    <ProjectTile
+                                        project={project}
+                                        onClick={() => handleClick(index)}
+                                        key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}
+                                    />
+                                ))}
+                            </div>
+                        ))}
                     </div>
                 </div>
             }

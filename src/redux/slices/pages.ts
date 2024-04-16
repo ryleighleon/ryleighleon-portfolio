@@ -178,6 +178,102 @@ const pagesSlice = createSlice({
         },
         setPages(state, action: PayloadAction<Page[]>) {
             state.pages = action.payload;
+        },
+        shiftParagraphUp(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string; paragraphUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const project = section.projects.find(project => project.uid === action.payload.projectUid);
+                    if (project) {
+                        const paragraphIndex = project.projectParagraphs.findIndex(paragraph => paragraph.paragraphUid === action.payload.paragraphUid);
+                        if (paragraphIndex > 0) {
+                            const temp = project.projectParagraphs[paragraphIndex];
+                            project.projectParagraphs[paragraphIndex] = project.projectParagraphs[paragraphIndex - 1];
+                            project.projectParagraphs[paragraphIndex - 1] = temp;
+                        }
+                    }
+                }
+            }
+        },
+        shiftParagraphDown(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string; paragraphUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const project = section.projects.find(project => project.uid === action.payload.projectUid);
+                    if (project) {
+                        const paragraphIndex = project.projectParagraphs.findIndex(paragraph => paragraph.paragraphUid === action.payload.paragraphUid);
+                        if (paragraphIndex < project.projectParagraphs.length - 1) {
+                            const temp = project.projectParagraphs[paragraphIndex];
+                            project.projectParagraphs[paragraphIndex] = project.projectParagraphs[paragraphIndex + 1];
+                            project.projectParagraphs[paragraphIndex + 1] = temp;
+                        }
+                    }
+                }
+            }
+        },
+        shiftProjectUp(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const projectIndex = section.projects.findIndex(project => project.uid === action.payload.projectUid);
+                    if (projectIndex > 0) {
+                        const temp = section.projects[projectIndex];
+                        section.projects[projectIndex] = section.projects[projectIndex - 1];
+                        section.projects[projectIndex - 1] = temp;
+                    }
+                }
+            }
+        },
+        shiftProjectDown(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const projectIndex = section.projects.findIndex(project => project.uid === action.payload.projectUid);
+                    if (projectIndex < section.projects.length - 1) {
+                        const temp = section.projects[projectIndex];
+                        section.projects[projectIndex] = section.projects[projectIndex + 1];
+                        section.projects[projectIndex + 1] = temp;
+                    }
+                }
+            }
+        },
+        shiftSubMediaUp(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string; subMediaUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const project = section.projects.find(project => project.uid === action.payload.projectUid);
+                    if (project) {
+                        const subMediaIndex = project.subMedia.findIndex(subMedia => subMedia.subMediaUid === action.payload.subMediaUid);
+                        if (subMediaIndex > 0) {
+                            const temp = project.subMedia[subMediaIndex];
+                            project.subMedia[subMediaIndex] = project.subMedia[subMediaIndex - 1];
+                            project.subMedia[subMediaIndex - 1] = temp;
+                        }
+                    }
+                }
+            }
+        },
+        shiftSubMediaDown(state, action: PayloadAction<{ pageUid: string; sectionUid: string; projectUid: string; subMediaUid: string }>) {
+            const page = state.pages.find(page => page.uid === action.payload.pageUid);
+            if (page) {
+                const section = page.projectSections.find(section => section.uid === action.payload.sectionUid);
+                if (section) {
+                    const project = section.projects.find(project => project.uid === action.payload.projectUid);
+                    if (project) {
+                        const subMediaIndex = project.subMedia.findIndex(subMedia => subMedia.subMediaUid === action.payload.subMediaUid);
+                        if (subMediaIndex < project.subMedia.length - 1) {
+                            const temp = project.subMedia[subMediaIndex];
+                            project.subMedia[subMediaIndex] = project.subMedia[subMediaIndex + 1];
+                            project.subMedia[subMediaIndex + 1] = temp;
+                        }
+                    }
+                }
+            }
         }
     },
 });
@@ -194,7 +290,13 @@ export const { addPage,
     deleteProject,
     deleteProjectParagraph,
     deleteProjectSubmedia,
-    setPages
+    setPages,
+    shiftParagraphUp,
+    shiftParagraphDown,
+    shiftProjectUp,
+    shiftProjectDown,
+    shiftSubMediaUp,
+    shiftSubMediaDown
 } = pagesSlice.actions;
 
 export default pagesSlice.reducer;

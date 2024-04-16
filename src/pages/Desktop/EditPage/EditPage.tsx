@@ -1,11 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 import {
-    addPageOnlyTitle, addProjectOnlyTitle, addProjectParagraphOnlyTitle, addProjectSubmediaOnlyFilename,
-    addSectionOnlyTitle, deletePage, deleteProject, deleteProjectParagraph, deleteProjectSubmedia, deleteSection,
+    addPageOnlyTitle,
+    addProjectOnlyTitle,
+    addProjectParagraphOnlyTitle,
+    addProjectSubmediaOnlyFilename,
+    addSectionOnlyTitle,
+    deletePage,
+    deleteProject,
+    deleteProjectParagraph,
+    deleteProjectSubmedia,
+    deleteSection,
     Page,
     Project,
-    ProjectSection, setPages,
+    ProjectSection,
+    setPages,
+    shiftParagraphDown,
+    shiftParagraphUp,
+    shiftProjectDown,
+    shiftProjectUp,
+    shiftSubMediaDown,
+    shiftSubMediaUp,
     updatePage
 } from "../../../redux/slices/pages";
 import ImportComponent from "./InputComponent";
@@ -322,32 +337,101 @@ const EditPage: React.FC = () => {
                                     <ImportComponent name={'projectTitle'} value={selectedProject.projectTitle} onChange={handleProjectInputChange}/>
                                     <ImportComponent name={'projectSubtitle'} value={selectedProject.projectSubtitle} onChange={handleProjectInputChange}/>
                                     <ImportComponent name={'imageName'} value={selectedProject.projectSubtitle} onChange={handleProjectInputChange}/>
-                                    <div className={'delete-button-container'}>
-                                        <button onClick={() => dispatch(deleteProject({ pageUid: selectedPageUid, sectionUid: selectedSectionUid, projectUid: selectedProjectUid }))}>Delete Project</button>
+                                    <div className={'delete-section-button-container'}>
+                                        <button onClick={() => dispatch(deleteProject({
+                                            pageUid: selectedPageUid,
+                                            sectionUid: selectedSectionUid,
+                                            projectUid: selectedProjectUid
+                                        }))}>Delete Project
+                                        </button>
+                                        <div className={'shift-buttons-container'}>
+                                            <button onClick={() => dispatch(shiftProjectUp({
+                                                pageUid: selectedPageUid,
+                                                sectionUid: selectedSectionUid,
+                                                projectUid: selectedProjectUid
+                                            }))}>Λ
+                                            </button>
+                                            <button onClick={() => dispatch(shiftProjectDown({
+                                                pageUid: selectedPageUid,
+                                                sectionUid: selectedSectionUid,
+                                                projectUid: selectedProjectUid
+                                            }))}>V
+                                            </button>
+                                        </div>
                                     </div>
+
                                     <div className={'title-input-container'}>
                                         <label htmlFor="paragraphTitle">Enter Paragraph Title:</label>
-                                        <input type="text" id="projectParagraphTitle" value={projectParagraphTitle} onChange={handleProjectParagraphTitleChange} />
+                                        <input type="text" id="projectParagraphTitle" value={projectParagraphTitle}
+                                               onChange={handleProjectParagraphTitleChange}/>
                                         <button onClick={handleAddProjectParagraphTitle}>Add Paragraph</button>
                                     </div>
                                     {selectedProject.projectParagraphs.map((paragraph, index) => (
                                         <div key={`project-paragraph: ${paragraph.paragraphUid}`} className={'input-section-container'}>
                                             <ImportComponent name={'paragraphTitle'} value={paragraph.paragraphTitle} onChange={(e) => handleProjectParagraphInputChange(e, paragraph.paragraphUid)}/>
                                             <ImportComponent name={'paragraphText'} value={paragraph.paragraphText} onChange={(e) => handleProjectParagraphInputChange(e, paragraph.paragraphUid)}/>
-                                            <button onClick={() => dispatch(deleteProjectParagraph({pageUid: selectedPageUid, sectionUid: selectedSectionUid, projectUid: selectedProjectUid, paragraphUid: paragraph.paragraphUid}))}>Delete Paragraph</button>
+                                            <div className={'delete-button-container'}>
+                                                <button onClick={() => dispatch(deleteProjectParagraph({
+                                                    pageUid: selectedPageUid,
+                                                    sectionUid: selectedSectionUid,
+                                                    projectUid: selectedProjectUid,
+                                                    paragraphUid: paragraph.paragraphUid
+                                                }))}>Delete Paragraph
+                                                </button>
+                                                <div className={'shift-buttons-container'}>
+                                                    <button onClick={() => shiftParagraphUp({
+                                                        paragraphUid: paragraph.paragraphUid,
+                                                        pageUid: selectedPageUid,
+                                                        sectionUid: selectedSectionUid,
+                                                        projectUid: selectedProjectUid
+                                                    })}>Λ
+                                                    </button>
+                                                    <button onClick={() => dispatch(shiftParagraphDown({
+                                                        paragraphUid: paragraph.paragraphUid,
+                                                        pageUid: selectedPageUid,
+                                                        sectionUid: selectedSectionUid,
+                                                        projectUid: selectedProjectUid
+                                                    }))}>V
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))}
                                     <div className={'title-input-container'}>
                                         <label htmlFor="projectSubmediaFilename">Enter Media Filename:</label>
-                                        <input type="text" id="projectParagraphTitle" value={projectSubMediaFilename} onChange={handleProjectSubMediaFilenameChange} />
+                                        <input type="text" id="projectParagraphTitle" value={projectSubMediaFilename}
+                                               onChange={handleProjectSubMediaFilenameChange}/>
                                         <button onClick={handleAddSubMediaFilename}>Add File</button>
                                     </div>
                                     {selectedProject.subMedia.map((subMedia, index) => (
-                                        <div key={`submedia-${subMedia.subMediaUid}`} className={'input-section-container'}>
+                                        <div key={`submedia-${subMedia.subMediaUid}`}
+                                             className={'input-section-container'}>
                                             <ImportComponent name={'mediaFilename'} value={subMedia.mediaFilename} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
                                             <ImportComponent name={'type'} value={subMedia.type} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
                                             <ImportComponent name={'mediaDescription'} value={subMedia.mediaDescription} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
-                                            <button onClick={() => dispatch(deleteProjectSubmedia({pageUid: selectedPageUid, sectionUid: selectedSectionUid, projectUid: selectedProjectUid, subMediaUid: subMedia.subMediaUid}))}>Delete File</button>
+                                            <div className={'delete-button-container'}>
+                                                <button onClick={() => dispatch(deleteProjectSubmedia({
+                                                    pageUid: selectedPageUid,
+                                                    sectionUid: selectedSectionUid,
+                                                    projectUid: selectedProjectUid,
+                                                    subMediaUid: subMedia.subMediaUid
+                                                }))}>Delete File
+                                                </button>
+                                                <div className={'shift-buttons-container'}>
+                                                    <button onClick={() => dispatch(shiftSubMediaUp({
+                                                        subMediaUid: subMedia.subMediaUid,
+                                                        pageUid: selectedPageUid,
+                                                        sectionUid: selectedSectionUid,
+                                                        projectUid: selectedProjectUid
+                                                    }))}>Λ</button>
+                                                    <button onClick={() => dispatch(shiftSubMediaDown({
+                                                        subMediaUid: subMedia.subMediaUid,
+                                                        pageUid: selectedPageUid,
+                                                        sectionUid: selectedSectionUid,
+                                                        projectUid: selectedProjectUid
+                                                    }))}>V</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))}
                                 </div>

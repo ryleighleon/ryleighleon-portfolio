@@ -23,7 +23,7 @@ export interface ProjectSection {
 
 export interface Project {
     uid: string;
-    mainImageFilename: string;
+    thumbnailImageFilename: string;
     projectTitle: string;
     projectSubtitle: string;
     imageName: string;
@@ -93,7 +93,7 @@ const pagesSlice = createSlice({
                 const section = page.projectSections.find(section => section.title === action.payload.sectionTitle);
                 if (section) {
                     section.projects.push({
-                        mainImageFilename: '',
+                        thumbnailImageFilename: '',
                         projectTitle: action.payload.projectTitle,
                         projectSubtitle: '',
                         imageName: '',

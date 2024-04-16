@@ -26,7 +26,7 @@ export default function ProjectTile(props: ProjectTileProps) {
             className={'project-tile'}
         >
             <img
-                src={getThumbnailImage(project.mainImageFilename, project.projectTitle)}
+                src={getThumbnailImage(project.thumbnailImageFilename, project.projectTitle)}
                 alt={project.projectTitle}
                 className={'project-tile-img'}
             />

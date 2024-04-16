@@ -10,10 +10,12 @@
 
 .import-component-container {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .import-component-container > input {
     margin-left: 20px;
+    width: 70vw;
 }
 
 .title-input-container {
@@ -23,6 +25,7 @@
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 #pageDropdown {
@@ -48,6 +51,8 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .delete-button-container {

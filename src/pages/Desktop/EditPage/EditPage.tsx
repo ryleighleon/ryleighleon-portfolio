@@ -318,7 +318,7 @@ const EditPage: React.FC = () => {
                             {selectedProject && (
                                 <div className={'input-section-container'}>
                                     <span className={'input-title'}>{`Project: ${selectedProject.projectTitle}`}</span>
-                                    <ImportComponent name={'mainImageFilename'} value={selectedProject.mainImageFilename} onChange={handleProjectInputChange}/>
+                                    <ImportComponent name={'thumbnailImageFilename'} value={selectedProject.thumbnailImageFilename} onChange={handleProjectInputChange}/>
                                     <ImportComponent name={'projectTitle'} value={selectedProject.projectTitle} onChange={handleProjectInputChange}/>
                                     <ImportComponent name={'projectSubtitle'} value={selectedProject.projectSubtitle} onChange={handleProjectInputChange}/>
                                     <ImportComponent name={'imageName'} value={selectedProject.projectSubtitle} onChange={handleProjectInputChange}/>

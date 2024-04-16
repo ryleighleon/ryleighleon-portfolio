@@ -33,7 +33,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 60px;
-    width: 100%;
+    max-width: 1300px;
     box-sizing: border-box;
 }
 

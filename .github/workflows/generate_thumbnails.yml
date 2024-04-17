@@ -33,6 +33,7 @@ jobs:
           git add -f public/media/thumbnails/
           git status
           git diff --quiet || echo "::set-output name=changes::true"
+          git diff --quiet
 
       - name: Commit and Push Changes
         if: steps.check_changes.outputs.changes == 'true'

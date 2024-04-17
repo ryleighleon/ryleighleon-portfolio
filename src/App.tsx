@@ -26,7 +26,10 @@ export function getRegularImage(filename: string){
 
 export function getProjectImage(filename: string, projectName: string){
     return `${process.env.PUBLIC_URL}/media/files/${projectName}/${filename}`;
+}
 
+export function getProjectThumbnailImage(filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/thumbnails/${projectName}/${filename}`;
 }
 
 export async function getRootFileText(filename: string) {

@@ -69,3 +69,5 @@ for project_folder in os.listdir(input_directory):
             print(f"Error processing image '{image_file}': {e}")
 
 print("Thumbnails created successfully!")
+print("Input Directory:", os.path.abspath(input_directory))
+print("Output Directory:", os.path.abspath(output_directory))

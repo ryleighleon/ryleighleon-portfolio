@@ -30,7 +30,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git status
+          git add -f public/media/thumbnails/
           git diff --quiet || echo "::set-output name=changes::true"
 
       - name: Commit and Push Changes

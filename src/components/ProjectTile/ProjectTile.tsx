@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ProjectTile.css';
-import {getProjectThumbnailImage} from "../../App";
+import {getProjectImage} from "../../App";
 import {Project} from "../../redux/slices/pages";
 
 interface ProjectTileProps {
@@ -25,7 +25,7 @@ export default function ProjectTile(props: ProjectTileProps) {
             className={'project-tile'}
         >
             <img
-                src={getProjectThumbnailImage(project.thumbnailImageFilename, project.projectTitle)}
+                src={getProjectImage(project.thumbnailImageFilename, project.projectTitle)}
                 alt={project.projectTitle}
                 className={'project-tile-img'}
             />

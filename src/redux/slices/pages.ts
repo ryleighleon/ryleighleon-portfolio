@@ -34,7 +34,7 @@ export interface Project {
     }[];
     subMedia: {
         mediaFilename: string;
-        type: string;
+        mediaType: 'Image' | 'Video' | 'GIF';
         mediaDescription?: string;
         subMediaUid: string;
     }[];
@@ -130,7 +130,7 @@ const pagesSlice = createSlice({
                     if (project) {
                         project.subMedia.push({
                             mediaFilename: action.payload.subMediaFilename,
-                            type: 'Image',
+                            mediaType: 'Image',
                             subMediaUid: Math.random().toString(36).substring(7),
                         });
                     }

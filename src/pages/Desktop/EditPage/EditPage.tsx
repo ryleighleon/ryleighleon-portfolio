@@ -12,7 +12,6 @@ import {
     deleteProjectSubmedia,
     deleteSection,
     Page,
-    Project,
     ProjectSection,
     setPages, shiftPageDown, shiftPageUp,
     shiftParagraphDown,
@@ -175,6 +174,19 @@ const EditPage: React.FC = () => {
             if (selectedSection && selectedPage){
                 const updatedProject = { ...selectedProject };
                 updatedProject.subMedia = selectedProject.subMedia.map(subMedia => subMedia.subMediaUid === submediaUid ? { ...subMedia, [name]: value } : subMedia);
+                const updatedSection: ProjectSection = { ...selectedSection, projects: selectedSection.projects.map(project => project.projectTitle === selectedProject.projectTitle ? updatedProject : project) };
+                const updatedPage: Page = { ...selectedPage, projectSections: selectedPage.projectSections.map(section => section.title === selectedSection.title ? updatedSection : section) };
+                dispatch(updatePage(updatedPage));
+            }
+        }
+    }
+
+    const handleProjectSubmediaTypeChange = (event: React.ChangeEvent<HTMLSelectElement>, submediaUid: string) => {
+        const type = event.target.value as 'Image' | 'Video' | 'GIF';
+        if (selectedProject) {
+            if (selectedSection && selectedPage){
+                const updatedProject = { ...selectedProject };
+                updatedProject.subMedia = selectedProject.subMedia.map(subMedia => subMedia.subMediaUid === submediaUid ? { ...subMedia, mediaType: type } : subMedia);
                 const updatedSection: ProjectSection = { ...selectedSection, projects: selectedSection.projects.map(project => project.projectTitle === selectedProject.projectTitle ? updatedProject : project) };
                 const updatedPage: Page = { ...selectedPage, projectSections: selectedPage.projectSections.map(section => section.title === selectedSection.title ? updatedSection : section) };
                 dispatch(updatePage(updatedPage));
@@ -414,9 +426,18 @@ const EditPage: React.FC = () => {
                                     {selectedProject.subMedia.map((subMedia, index) => (
                                         <div key={`submedia-${subMedia.subMediaUid}`}
                                              className={'input-section-container'}>
-                                            <ImportComponent name={'mediaFilename'} value={subMedia.mediaFilename} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
-                                            <ImportComponent name={'type'} value={subMedia.type} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
-                                            <ImportComponent name={'mediaDescription'} value={subMedia.mediaDescription} onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
+                                            <ImportComponent name={'mediaFilename'} value={subMedia.mediaFilename}
+                                                             onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
+                                            <div className={'import-component-container'}>
+                                                <label htmlFor={'mediaType'}>Media Type</label>
+                                                <select id="mediaType" value={subMedia.mediaType} onChange={(e) => handleProjectSubmediaTypeChange(e, subMedia.subMediaUid)}>
+                                                    <option value="Image">Image</option>
+                                                    <option value="Video">Video</option>
+                                                    <option value="GIF">GIF</option>
+                                                </select>
+                                            </div>
+                                            <ImportComponent name={'mediaDescription'} value={subMedia.mediaDescription}
+                                                             onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
                                             <div className={'delete-button-container'}>
                                                 <button onClick={() => dispatch(deleteProjectSubmedia({
                                                     pageUid: selectedPageUid,
@@ -431,13 +452,15 @@ const EditPage: React.FC = () => {
                                                         pageUid: selectedPageUid,
                                                         sectionUid: selectedSectionUid,
                                                         projectUid: selectedProjectUid
-                                                    }))}>Λ</button>
+                                                    }))}>Λ
+                                                    </button>
                                                     <button onClick={() => dispatch(shiftSubMediaDown({
                                                         subMediaUid: subMedia.subMediaUid,
                                                         pageUid: selectedPageUid,
                                                         sectionUid: selectedSectionUid,
                                                         projectUid: selectedProjectUid
-                                                    }))}>V</button>
+                                                    }))}>V
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

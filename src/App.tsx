@@ -24,7 +24,7 @@ export function getRegularImage(filename: string){
     return process.env.PUBLIC_URL + '/media/files/icons/' + filename;
 }
 
-export function getProjectImage(filename: string, projectName: string){
+export function getProjectFile(filename: string, projectName: string){
     return `${process.env.PUBLIC_URL}/media/files/${projectName}/${filename}`;
 }
 

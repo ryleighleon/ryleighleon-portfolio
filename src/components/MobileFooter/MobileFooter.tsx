@@ -1,5 +1,5 @@
 import React from "react";
-import {getRegularImage} from "../../App";
+import {getIconImage} from "../../App";
 import './MobileFooter.css';
 
 export default function MobileFooter(){
@@ -13,10 +13,10 @@ export default function MobileFooter(){
             <a href='mailto:ryleighleon@gmail.com' className={'mobile-email'}>ryleighleon@gmail.com</a>
             <div className={'mobile-footer-socials'}>
                 <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                    <img src={getRegularImage('LinkedInBlack.png')} alt={'LinkedIn'} className={'mobile-footer-social-icon'}/>
+                    <img src={getIconImage('LinkedInBlack.png')} alt={'LinkedIn'} className={'mobile-footer-social-icon'}/>
                 </a>
                 <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                    <img src={getRegularImage('InstagramBlack.png')} alt={'Instagram'} className={'mobile-footer-social-icon'}/>
+                    <img src={getIconImage('InstagramBlack.png')} alt={'Instagram'} className={'mobile-footer-social-icon'}/>
                 </a>
             </div>
             <span className={'mobile-copyright'}>{`©${currentYear} by Ryleigh Leon`}</span>

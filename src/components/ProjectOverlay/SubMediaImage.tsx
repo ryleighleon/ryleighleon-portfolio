@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {getRegularImage, getProjectFile, getProjectThumbnailImage} from "../../App";
+import {getIconImage, getProjectFile, getProjectThumbnailImage} from "../../App";
 
 interface SubMediaImageProps {
     subMedia: any;
@@ -27,14 +27,14 @@ export default function SubMediaImage(props: SubMediaImageProps) {
             }
             {props.type === 'Video' &&
                 <video
-                    src={getRegularImage(media.mediaFilename)}
+                    src={getIconImage(media.mediaFilename)}
                     className={'submedia-image'}
                     controls
                 />
             }
             {props.type === 'GIF' &&
                 <img
-                    src={getRegularImage(media.mediaFilename)}
+                    src={getIconImage(media.mediaFilename)}
                     alt={media.mediaDescription}
                     className={'submedia-image'}
                 />

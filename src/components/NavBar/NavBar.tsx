@@ -2,7 +2,7 @@ import React from "react";
 import {useAppSelector} from "../../redux/hooks";
 import './NavBar.css';
 import PageLink from "../PageLink/PageLink";
-import {getRegularImage} from "../../App";
+import {getIconImage} from "../../App";
 import {Page} from "../../redux/slices/pages";
 import {useNavigate} from "react-router-dom";
 
@@ -22,17 +22,17 @@ export default function NavBar(props: NavBarProps){
     return (
         <div className={'nav-bar'}>
             <div className={'nav-logo'} onClick={redirectHome}>
-                <img className={'logo-image'} src={getRegularImage('Logofull.png')} alt={'logo'}/>
+                <img className={'logo-image'} src={getIconImage('Logofull.png')} alt={'logo'}/>
             </div>
             <div className={'nav-links'}>
                 <PageLink title={'Portfolio'} relativeUrl={'/'} key={'portfolio-link'} children={[]} setShowProjectOverlay={props.setShowProjectOverlay}/>
                 <PageLink title={'Work'} key={'work'} children={pagesWithoutPortfolio} setShowProjectOverlay={props.setShowProjectOverlay}/>
                 <PageLink relativeUrl={'/about'} title={'About'} key={'about'} children={[]} setShowProjectOverlay={props.setShowProjectOverlay}/>
                 <a href={'https://www.linkedin.com/in/ryleigh-leon'} target="_blank" rel="noopener noreferrer">
-                    <img src={getRegularImage('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>
+                    <img src={getIconImage('LinkedInBlack.png')} alt={'LinkedIn'} className={'social-icon'}/>
                 </a>
                 <a href={'https://www.instagram.com/ryleighleon.design'} target="_blank" rel="noopener noreferrer">
-                    <img src={getRegularImage('InstagramBlack.png')} alt={'Instagram'} className={'social-icon'}/>
+                    <img src={getIconImage('InstagramBlack.png')} alt={'Instagram'} className={'social-icon'}/>
                 </a>
             </div>
         </div>

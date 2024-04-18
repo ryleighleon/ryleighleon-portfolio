@@ -20,7 +20,7 @@ import AboutPage from "./pages/Desktop/About/AboutPage";
 import EditPage from "./pages/Desktop/EditPage/EditPage";
 import ProjectPage from "./pages/Desktop/ProjectPage/ProjectPage";
 
-export function getRegularImage(filename: string){
+export function getIconImage(filename: string){
     return process.env.PUBLIC_URL + '/media/files/icons/' + filename;
 }
 

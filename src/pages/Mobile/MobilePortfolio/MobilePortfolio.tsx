@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getRegularImage, getRootFileText} from "../../../App";
+import {getIconImage, getRootFileText} from "../../../App";
 import './MobilePortfolio.css';
 
 export default function MobilePortfolio(){
@@ -15,7 +15,7 @@ export default function MobilePortfolio(){
 
     return (
         <div className={'mobile-about-page page'}>
-            <img src={getRegularImage('aboutPic.jpeg')} alt={'Profile'} className={'mobile-about-pic'}/>
+            <img src={getIconImage('aboutPic.jpeg')} alt={'Profile'} className={'mobile-about-pic'}/>
             <div className={'mobile-about-text-container'}>
                 <span className={'mobile-about-me-title'}>Get to know me!</span>
                 <span className={'mobile-about-me-body'}>{aboutMeText}</span>

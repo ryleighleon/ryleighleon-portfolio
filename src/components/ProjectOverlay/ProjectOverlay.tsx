@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ProjectOverlay.css';
-import {getProjectImage} from "../../App";
+import {getProjectFile} from "../../App";
 import {Project} from "../../redux/slices/pages";
 import SubMediaImage from "./SubMediaImage";
 import SubProjectViewer from "../SubProjectViewer/SubProjectViewer";
@@ -52,7 +52,13 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             </div>
             <div className={'project-overlay-sub-media-container'}>
                 {project.subMedia.map((media, index) =>
-                    <SubMediaImage subMedia={media} projectTitle={project.projectTitle} key={index} onClick={() => setSubMediaIndex(index)}/>
+                    <SubMediaImage
+                        subMedia={media}
+                        projectTitle={project.projectTitle}
+                        key={index}
+                        onClick={() => setSubMediaIndex(index)}
+                        type={media.mediaType}
+                    />
                 )}
             </div>
             {subMediaIndex !== undefined &&

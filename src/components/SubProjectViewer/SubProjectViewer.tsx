@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './SubProjectViewer.css';
-import {getProjectImage} from "../../App";
+import {getProjectFile} from "../../App";
 
 interface SubMedia {
     mediaFilename: string;
-    type: string;
+    mediaType: string;
     mediaDescription?: string;
     subMediaUid: string;
 }
@@ -42,15 +42,12 @@ export default function SubProjectViewer(props: ProjectSubMediaProps){
                             <span className={'subproject-navigation-icon go-back-span'} onClick={props.goBackward}>{`<`}</span>
                         </div>
                     }
-                    {subMedia.type === 'Image' &&
-                        <img src={getProjectImage(subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
+                    {(subMedia.mediaType === 'Image' || subMedia.mediaType === 'GIF') &&
+                        <img src={getProjectFile(subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
                     }
-                    {/*{subMedia.type === 'Video' &&*/}
-                    {/*    <video className={'project-image'} controls>*/}
-                    {/*        <source src={getRegularImage(subMedia.mediaFilename)} type="video/mp4"/>*/}
-                    {/*        Your browser does not support the video tag.*/}
-                    {/*    </video>*/}
-                    {/*}*/}
+                    {subMedia.mediaType === 'Video' &&
+                        <video src={getProjectFile(subMedia.mediaFilename, props.projectName)} className={'project-image'} controls/>
+                    }
                     {props.canGoForward &&
                         <div className={'nav-button-container'}>
                             <span className={'subproject-navigation-icon go-forward-span'} onClick={props.goForward}>{`>`}</span>

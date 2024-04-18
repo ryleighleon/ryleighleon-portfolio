@@ -88,7 +88,7 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
                                 {row.map((project, index) => (
                                     <ProjectTile
                                         project={project}
-                                        onClick={() => handleClick(index)}
+                                        onClick={() => handleClick(rowIndex * 3 + index)}
                                         key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}
                                     />
                                 ))}

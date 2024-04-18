@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {getRegularImage, getProjectImage} from "../../App";
+import {getRegularImage, getProjectFile, getProjectThumbnailImage} from "../../App";
 
 interface SubMediaImageProps {
     subMedia: any;
     projectTitle: string;
     onClick: () => void;
+    type: 'Image' | 'Video' | 'GIF';
 }
 
 export default function SubMediaImage(props: SubMediaImageProps) {
@@ -17,11 +18,27 @@ export default function SubMediaImage(props: SubMediaImageProps) {
             onClick={props.onClick}
             className={'submedia-image-container'}
         >
-            <img
-                src={getProjectImage(media.mediaFilename, props.projectTitle)}
-                alt={media.mediaDescription}
-                className={'submedia-image'}
-            />
+            {props.type === 'Image' &&
+                <img
+                    src={getProjectThumbnailImage(media.mediaFilename, props.projectTitle)}
+                    alt={media.mediaDescription}
+                    className={'submedia-image'}
+                />
+            }
+            {props.type === 'Video' &&
+                <video
+                    src={getRegularImage(media.mediaFilename)}
+                    className={'submedia-image'}
+                    controls
+                />
+            }
+            {props.type === 'GIF' &&
+                <img
+                    src={getRegularImage(media.mediaFilename)}
+                    alt={media.mediaDescription}
+                    className={'submedia-image'}
+                />
+            }
             {isHovered &&
                 <div className={'submedia-image-overlay'}>
                     <span>{media.mediaDescription}</span>

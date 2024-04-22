@@ -70,6 +70,7 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
         <div>
             {showProjectOverlay ?
                 <ProjectOverlay
+                    projectSection={section.title}
                     project={projects[projectIndex]}
                     onClose={handleClose}
                     goForward={goForward}
@@ -87,6 +88,7 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
                             <div className={'project-section-row'} key={`row-${rowIndex}`}>
                                 {row.map((project, index) => (
                                     <ProjectTile
+                                        sectionTitle={section.title}
                                         project={project}
                                         onClick={() => handleClick(rowIndex * 3 + index)}
                                         key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}

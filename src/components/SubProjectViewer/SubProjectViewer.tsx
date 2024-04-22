@@ -11,6 +11,7 @@ interface SubMedia {
 
 interface ProjectSubMediaProps {
     projectName: string;
+    sectionName: string;
     subMedia: SubMedia;
     onClose: () => void;
     goForward: () => void;
@@ -43,10 +44,10 @@ export default function SubProjectViewer(props: ProjectSubMediaProps){
                         </div>
                     }
                     {(subMedia.mediaType === 'Image' || subMedia.mediaType === 'GIF') &&
-                        <img src={getProjectFile(subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
+                        <img src={getProjectFile(props.sectionName, subMedia.mediaFilename, props.projectName)} alt={subMedia.mediaFilename} className={'project-image'}/>
                     }
                     {subMedia.mediaType === 'Video' &&
-                        <video src={getProjectFile(subMedia.mediaFilename, props.projectName)} className={'project-image'} controls/>
+                        <video src={getProjectFile(props.sectionName, subMedia.mediaFilename, props.projectName)} className={'project-image'} controls/>
                     }
                     {props.canGoForward &&
                         <div className={'nav-button-container'}>

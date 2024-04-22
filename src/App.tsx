@@ -24,12 +24,12 @@ export function getIconImage(filename: string){
     return process.env.PUBLIC_URL + '/media/files/icons/' + filename;
 }
 
-export function getProjectFile(filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/files/${projectName}/${filename}`;
+export function getProjectFile(sectionName: string, filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/files/${sectionName}/${projectName}/${filename}`;
 }
 
-export function getProjectThumbnailImage(filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/thumbnails/${projectName}/${filename}`;
+export function getProjectThumbnailImage(sectionName: string, filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/thumbnails/${sectionName}/${projectName}/${filename}`;
 }
 
 export async function getRootFileText(filename: string) {

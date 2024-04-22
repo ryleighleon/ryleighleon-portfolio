@@ -9,6 +9,10 @@ output_directory = "./public/media/thumbnails"
 # Create the output directory if it doesn't exist
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
+else:
+    # Clear the existing thumbnails in the output directory
+    shutil.rmtree(output_directory)
+    os.makedirs(output_directory)
 
 # Define the maximum allowable image size in pixels
 max_image_size = 178956970
@@ -32,10 +36,6 @@ for section_folder in os.listdir(input_directory):
         # Create a subfolder in the output directory for thumbnails
         thumbnail_folder = os.path.join(output_directory, section_folder, project_folder)
         if not os.path.exists(thumbnail_folder):
-            os.makedirs(thumbnail_folder)
-        else:
-            # Clear the existing thumbnails in the folder
-            shutil.rmtree(thumbnail_folder)
             os.makedirs(thumbnail_folder)
 
         # Iterate through each image file in the project folder

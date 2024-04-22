@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './ProjectOverlay.css';
-import {getProjectFile} from "../../App";
 import {Project} from "../../redux/slices/pages";
 import SubMediaImage from "./SubMediaImage";
 import SubProjectViewer from "../SubProjectViewer/SubProjectViewer";
@@ -35,6 +34,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                                     </div>
                                 )
                             }
+                            return null;
                         })}
                     </div>
                     <div className={'project-paragraph-column'} key={'para-2'}>
@@ -47,6 +47,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                                     </div>
                                 )
                             }
+                            return null;
                         })}
                     </div>
                 </div>

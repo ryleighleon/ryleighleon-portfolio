@@ -29,7 +29,7 @@ export function getProjectFile(sectionName: string, filename: string, projectNam
 }
 
 export function getProjectThumbnailImage(sectionName: string, filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/thumbnails/${sectionName}/${projectName}/${filename}`;
+    return `${process.env.PUBLIC_URL}/media/thumbnails/${sectionName || 'Portfolio'}/${projectName}/${filename}`;
 }
 
 export async function getRootFileText(filename: string) {

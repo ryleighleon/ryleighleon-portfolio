@@ -25,7 +25,7 @@ export function getIconImage(filename: string){
 }
 
 export function getProjectFile(sectionName: string, filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/files/${sectionName}/${projectName}/${filename}`;
+    return `${process.env.PUBLIC_URL}/media/files/${sectionName || 'Portfolio'}/${projectName}/${filename}`;
 }
 
 export function getProjectThumbnailImage(sectionName: string, filename: string, projectName: string){

@@ -32,12 +32,12 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
         }
     }, [projectIndex, projects]);
 
-    const handleScrollToTop = () => {
+    function handleScrollToTop (){
         window.scrollTo({
             top: 0,
             behavior: 'smooth' // Optional: adds smooth scrolling effect
         });
-    };
+    }
 
     const handleClick = (index: number) => {
         setProjectIndex(index);
@@ -50,12 +50,12 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
 
     const goForward = () => {
         setProjectIndex(projectIndex + 1);
-        handleScrollToTop();
+        // handleScrollToTop(); don't scroll to top
     }
 
     const goBackward = () => {
         setProjectIndex(projectIndex - 1);
-        handleScrollToTop();
+        // handleScrollToTop(); don't scroll to top
     }
 
     const chunkArray = (arr: any[], size: number) => {

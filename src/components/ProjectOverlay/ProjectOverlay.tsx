@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './ProjectOverlay.css';
-import {getProjectFile} from "../../App";
 import {Project} from "../../redux/slices/pages";
 import SubMediaImage from "./SubMediaImage";
 import SubProjectViewer from "../SubProjectViewer/SubProjectViewer";
@@ -12,6 +11,7 @@ interface ProjectOverlayProps {
     goBackward: () => void;
     nextProjectTitle: string;
     previousProjectTitle: string;
+    projectSection: string;
 }
 
 export default function ProjectOverlay(props: ProjectOverlayProps){
@@ -34,6 +34,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                                     </div>
                                 )
                             }
+                            return null;
                         })}
                     </div>
                     <div className={'project-paragraph-column'} key={'para-2'}>
@@ -46,6 +47,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                                     </div>
                                 )
                             }
+                            return null;
                         })}
                     </div>
                 </div>
@@ -53,6 +55,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             <div className={'project-overlay-sub-media-container'}>
                 {project.subMedia.map((media, index) =>
                     <SubMediaImage
+                        sectionTitle={props.projectSection}
                         subMedia={media}
                         projectTitle={project.projectTitle}
                         key={index}
@@ -64,6 +67,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             {subMediaIndex !== undefined &&
                 <SubProjectViewer
                     projectName={project.projectTitle}
+                    sectionName={props.projectSection}
                     subMedia={project.subMedia[subMediaIndex]}
                     onClose={() => setSubMediaIndex(undefined)}
                     goForward={() => setSubMediaIndex(subMediaIndex + 1)}

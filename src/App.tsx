@@ -3,13 +3,10 @@ import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import './variables.css';
 import NavBar from "./components/NavBar/NavBar";
-import {addPage, Page, setPages} from "./redux/slices/pages";
+import {setPages} from "./redux/slices/pages";
 import {useAppDispatch, useAppSelector} from "./redux/hooks";
 import Footer from "./components/Footer/Footer";
-import ProjectSectionPage from "./pages/Desktop/ProjectSectionPage/ProjectSectionPage";
-import {addProject, clearProjects, OldProject} from "./redux/slices/projects";
 import NotFound from "./pages/Desktop/NotFound/NotFound";
-import ContactPage from "./pages/Desktop/Contact/ContactPage";
 import LoadingPage from "./pages/Desktop/LoadingPage/LoadingPage";
 import ChristmasPage from "./pages/Desktop/ChristmasPage/ChristmasPage";
 import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
@@ -24,12 +21,12 @@ export function getIconImage(filename: string){
     return process.env.PUBLIC_URL + '/media/files/icons/' + filename;
 }
 
-export function getProjectFile(filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/files/${projectName}/${filename}`;
+export function getProjectFile(sectionName: string, filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/files/${sectionName || 'Portfolio'}/${projectName}/${filename}`;
 }
 
-export function getProjectThumbnailImage(filename: string, projectName: string){
-    return `${process.env.PUBLIC_URL}/media/thumbnails/${projectName}/${filename}`;
+export function getProjectThumbnailImage(sectionName: string, filename: string, projectName: string){
+    return `${process.env.PUBLIC_URL}/media/thumbnails/${sectionName || 'Portfolio'}/${projectName}/${filename}`;
 }
 
 export async function getRootFileText(filename: string) {

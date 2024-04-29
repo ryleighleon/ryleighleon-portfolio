@@ -32,12 +32,12 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
         }
     }, [projectIndex, projects]);
 
-    const handleScrollToTop = () => {
+    function handleScrollToTop (){
         window.scrollTo({
             top: 0,
             behavior: 'smooth' // Optional: adds smooth scrolling effect
         });
-    };
+    }
 
     const handleClick = (index: number) => {
         setProjectIndex(index);
@@ -50,12 +50,12 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
 
     const goForward = () => {
         setProjectIndex(projectIndex + 1);
-        handleScrollToTop();
+        // handleScrollToTop(); don't scroll to top
     }
 
     const goBackward = () => {
         setProjectIndex(projectIndex - 1);
-        handleScrollToTop();
+        // handleScrollToTop(); don't scroll to top
     }
 
     const chunkArray = (arr: any[], size: number) => {
@@ -70,6 +70,7 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
         <div>
             {showProjectOverlay ?
                 <ProjectOverlay
+                    projectSection={section.title}
                     project={projects[projectIndex]}
                     onClose={handleClose}
                     goForward={goForward}
@@ -87,6 +88,7 @@ export default function ProjectSectionPage(props: ProjectsPageProps){
                             <div className={'project-section-row'} key={`row-${rowIndex}`}>
                                 {row.map((project, index) => (
                                     <ProjectTile
+                                        sectionTitle={section.title}
                                         project={project}
                                         onClick={() => handleClick(rowIndex * 3 + index)}
                                         key={`${project.projectTitle}-${project.mainImageFilename}-${index}`}

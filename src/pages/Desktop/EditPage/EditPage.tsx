@@ -451,12 +451,12 @@ const EditPage: React.FC = () => {
                                                 </select>
                                             </div>
                                             <div className={'import-component-container'}>
-                                                <label htmlFor={'mediaType'}>Media Orientation</label>
-                                                <select id="mediaType" value={subMedia.mediaOrientation}
+                                                <label htmlFor={'orientation'}>Media Orientation</label>
+                                                <select id="orientation" value={subMedia.mediaOrientation}
                                                         onChange={(e) => handleProjectSubmediaOrientationChange(e, subMedia.subMediaUid)}>
-                                                    <option value="Image">Square</option>
-                                                    <option value="Video">Horizontal</option>
-                                                    <option value="GIF">Vertical</option>
+                                                    <option value="Square">Square</option>
+                                                    <option value="Horizontal">Horizontal</option>
+                                                    <option value="Vertical">Vertical</option>
                                                 </select>
                                             </div>
                                             <ImportComponent name={'mediaDescription'} value={subMedia.mediaDescription}

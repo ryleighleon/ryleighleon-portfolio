@@ -4,6 +4,14 @@ interface PagesState {
     pages: Page[];
 }
 
+export interface SubMedia {
+    mediaFilename: string;
+    mediaType: 'Image' | 'Video' | 'GIF';
+    mediaOrientation?: 'Square' | 'Vertical' | 'Horizontal';
+    mediaDescription?: string;
+    subMediaUid: string;
+}
+
 export interface Page {
     uid: string;
     shortTitle: string;

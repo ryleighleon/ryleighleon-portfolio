@@ -1,13 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './SubProjectViewer.css';
 import {getProjectFile} from "../../App";
-
-interface SubMedia {
-    mediaFilename: string;
-    mediaType: string;
-    mediaDescription?: string;
-    subMediaUid: string;
-}
+import {SubMedia} from "../../redux/slices/pages";
 
 interface ProjectSubMediaProps {
     projectName: string;

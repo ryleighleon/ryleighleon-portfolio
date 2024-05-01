@@ -68,6 +68,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
 
     useEffect(() => {
         const placeMediaInGrid = (media: SubMedia[]): GridItem[][] => {
+            if (maxWidth === 0) return [[]];
             let currentGrid: GridItem[][] = [];
             makeNewRow(currentGrid);
             let currentMedia = 0;
@@ -76,7 +77,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             while (currentMedia < media.length){
                 let placed = false;
                 while (!placed){
-                    if (canPlaceInIndex(currentGrid[currentRow], currentCol, media[currentMedia])){
+                    if (canPlaceInIndex(currentGrid, currentCol, currentRow, media[currentMedia])){
                         placeImageInIndex(media[currentMedia], currentGrid, currentCol, currentRow);
                         placed = true;
                     } else {
@@ -100,10 +101,8 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             if (getImageWidth(media) === 2){
                 currentGrid[rowIndex][colIndex + 1] = null;
             } else if (getImageHeight(media) === 2){
-                if (!currentGrid[rowIndex + 1]){
-                    makeNewRow(currentGrid);
-                    currentGrid[rowIndex + 1][colIndex] = null;
-                }
+                if (!currentGrid[rowIndex + 1]) makeNewRow(currentGrid);
+                currentGrid[rowIndex + 1][colIndex] = null;
             }
         }
 
@@ -115,21 +114,16 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
             }
         }
 
-        const canPlaceInIndex = (row: GridItem[], colIndex: number, media: SubMedia): boolean => {
-            if (row.length === 0) return true; // If the row is empty, place the image in it
-            // Logic to check if image can be placed in the row based on available space
-            const rowHeight = row.length > 0 ? getImageHeight(row[0]) : 0; // Height of the first image in the row
-            const rowWidth = row.reduce((acc, curr) => acc + getImageWidth(curr), 0);
-            const imageHeight = getImageHeight(media);
-            const imageWidth = getImageWidth(media);
-
-            // Check if the image can fit in the row horizontally
-            const horizontalFit = rowWidth + imageWidth <= maxWidth;
-
-            // Check if the image can fit in the row vertically (if it's a 2x1 and there's space vertically)
-            const verticalFit = imageHeight === 2 && rowHeight + imageHeight <= getImageHeight(row[0]);
-
-            return horizontalFit && verticalFit;
+        const canPlaceInIndex = (currentGrid: GridItem[][], colIndex: number, rowIndex: number, media: SubMedia): boolean => {
+            const currentCellEmpty = currentGrid[rowIndex][colIndex] === undefined;
+            if (media.mediaOrientation === 'Horizontal'){
+                return currentCellEmpty && colIndex + 1 < maxWidth && currentGrid[rowIndex][colIndex + 1] === undefined;
+            } else if (media.mediaOrientation === 'Vertical'){
+                if (rowIndex + 1 >= currentGrid.length) makeNewRow(currentGrid);
+                return currentCellEmpty && rowIndex + 1 < currentGrid.length && currentGrid[rowIndex + 1][colIndex] === undefined;
+            } else {
+                return currentCellEmpty;
+            }
         };
 
         // Call the function to arrange images in the grid and update the state
@@ -149,6 +143,7 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
     }
 
 
+    let counter = 0;
     return (
         <div className={'project-overlay-container'}>
             <div className={'project-overlay-description-container'}>
@@ -184,11 +179,33 @@ export default function ProjectOverlay(props: ProjectOverlayProps){
                 </div>
             </div>
             <div className={'project-overlay-sub-media-container'}>
-                {grid.map((row, rowIndex) => (
-                    <div key={rowIndex} className="project-overlay-sub-media-row">
-
-                    </div>
-                ))}
+                <table className={'sub-media-table'}>
+                    <tbody>
+                        <tr>
+                            {grid[0].map((media, colIndex) => {
+                                return <th key={colIndex} className={'project-overlay-sub-media-header'}></th>
+                            })}
+                        </tr>
+                        {grid.map((row, rowIndex) => (
+                            <tr key={rowIndex}>
+                                {row.map((media, colIndex) => {
+                                    if (media) {
+                                        counter++;
+                                        return <td
+                                            key={colIndex}
+                                            colSpan={getImageWidth(media)}
+                                            rowSpan={getImageHeight(media)}
+                                        >{generateSubMediaTile(media, rowIndex, colIndex, counter)}</td>
+                                    } else if (media === undefined) {
+                                        return <td key={colIndex} className={'project-overlay-sub-media-empty'}></td>
+                                    } else {
+                                        return null;
+                                    }
+                                })}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
             {subMediaIndex !== undefined &&
                 <SubProjectViewer

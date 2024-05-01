@@ -40,6 +40,19 @@
     box-sizing: border-box;
 }
 
+.sub-media-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submedia-image-container {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
 .project-paragraphs-container {
     display: flex;
     max-width: 1500px;
@@ -228,7 +241,7 @@
 }
 
 .submedia-orientation-vertical {
-    height: 1010px;
+    height: 1015px;
     width: 500px;
 }
 
@@ -250,4 +263,13 @@
     justify-content: center;
     z-index: 9999;
     color: white;
+}
+
+.project-overlay-sub-media-empty {
+    height: 500px;
+    width: 500px;
+}
+
+.project-overlay-sub-media-header {
+    width: 500px;
 }

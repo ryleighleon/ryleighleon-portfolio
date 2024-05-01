@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -45,7 +45,7 @@ jobs:
           node-version: '21'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
 
       - name: Build project and set CI=false
         run: npm run build-no-warnings-cicd

@@ -194,6 +194,19 @@ const EditPage: React.FC = () => {
         }
     }
 
+    const handleProjectSubmediaOrientationChange = (event: React.ChangeEvent<HTMLSelectElement>, submediaUid: string) => {
+        const orientation = event.target.value as 'Square' | 'Horizontal' | 'Vertical';
+        if (selectedProject) {
+            if (selectedSection && selectedPage){
+                const updatedProject = { ...selectedProject };
+                updatedProject.subMedia = selectedProject.subMedia.map(subMedia => subMedia.subMediaUid === submediaUid ? { ...subMedia, mediaOrientation: orientation } : subMedia);
+                const updatedSection: ProjectSection = { ...selectedSection, projects: selectedSection.projects.map(project => project.projectTitle === selectedProject.projectTitle ? updatedProject : project) };
+                const updatedPage: Page = { ...selectedPage, projectSections: selectedPage.projectSections.map(section => section.title === selectedSection.title ? updatedSection : section) };
+                dispatch(updatePage(updatedPage));
+            }
+        }
+    }
+
     const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPageTitle(event.target.value);
     };
@@ -430,10 +443,20 @@ const EditPage: React.FC = () => {
                                                              onChange={(e) => handleProjectSubmediaInputChange(e, subMedia.subMediaUid)}/>
                                             <div className={'import-component-container'}>
                                                 <label htmlFor={'mediaType'}>Media Type</label>
-                                                <select id="mediaType" value={subMedia.mediaType} onChange={(e) => handleProjectSubmediaTypeChange(e, subMedia.subMediaUid)}>
+                                                <select id="mediaType" value={subMedia.mediaType}
+                                                        onChange={(e) => handleProjectSubmediaTypeChange(e, subMedia.subMediaUid)}>
                                                     <option value="Image">Image</option>
                                                     <option value="Video">Video</option>
                                                     <option value="GIF">GIF</option>
+                                                </select>
+                                            </div>
+                                            <div className={'import-component-container'}>
+                                                <label htmlFor={'mediaType'}>Media Orientation</label>
+                                                <select id="mediaType" value={subMedia.mediaOrientation}
+                                                        onChange={(e) => handleProjectSubmediaTypeChange(e, subMedia.subMediaUid)}>
+                                                    <option value="Image">Square</option>
+                                                    <option value="Video">Horizontal</option>
+                                                    <option value="GIF">Vertical</option>
                                                 </select>
                                             </div>
                                             <ImportComponent name={'mediaDescription'} value={subMedia.mediaDescription}

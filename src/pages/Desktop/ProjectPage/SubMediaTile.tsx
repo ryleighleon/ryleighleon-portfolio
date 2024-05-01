@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {getIconImage, getProjectThumbnailImage} from "../../App";
+import {getIconImage, getProjectFile, getProjectThumbnailImage} from "../../../App";
 
 interface SubMediaImageProps {
     subMedia: any;
@@ -9,7 +9,8 @@ interface SubMediaImageProps {
     type: 'Image' | 'Video' | 'GIF';
 }
 
-export default function SubMediaImage(props: SubMediaImageProps) {
+export default function SubMediaTile(props: SubMediaImageProps) {
+    const orientation = props.subMedia.mediaOrientation || 'Square';
     const [isHovered, setIsHovered] = useState(false);
     const media = props.subMedia as any;
     return (
@@ -17,7 +18,7 @@ export default function SubMediaImage(props: SubMediaImageProps) {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={props.onClick}
-            className={'submedia-image-container'}
+            className={'submedia-image-container submedia-orientation-' + orientation.toLowerCase()}
         >
             {props.type === 'Image' &&
                 <img
@@ -28,14 +29,14 @@ export default function SubMediaImage(props: SubMediaImageProps) {
             }
             {props.type === 'Video' &&
                 <video
-                    src={getIconImage(media.mediaFilename)}
+                    src={getProjectFile(props.sectionTitle, media.mediaFilename, props.projectTitle)}
                     className={'submedia-image'}
                     controls
                 />
             }
             {props.type === 'GIF' &&
                 <img
-                    src={getIconImage(media.mediaFilename)}
+                    src={getProjectFile(props.sectionTitle, media.mediaFilename, props.projectTitle)}
                     alt={media.mediaDescription}
                     className={'submedia-image'}
                 />

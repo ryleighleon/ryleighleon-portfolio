@@ -215,6 +215,18 @@
     box-sizing: border-box;
 }
 
+.submedia-orientation-square {
+
+}
+
+.submedia-orientation-horizontal {
+
+}
+
+.submedia-orientation-vertical {
+
+}
+
 .submedia-image-container {
     position: relative;
     height: 500px;

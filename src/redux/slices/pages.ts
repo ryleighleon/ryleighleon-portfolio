@@ -35,6 +35,7 @@ export interface Project {
     subMedia: {
         mediaFilename: string;
         mediaType: 'Image' | 'Video' | 'GIF';
+        mediaOrientation?: 'Square' | 'Vertical' | 'Horizontal';
         mediaDescription?: string;
         subMediaUid: string;
     }[];

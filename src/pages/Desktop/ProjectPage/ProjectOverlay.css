@@ -216,21 +216,22 @@
 }
 
 .submedia-orientation-square {
-
+    height: 500px;
+    width: 500px;
 }
 
 .submedia-orientation-horizontal {
-
+    height: 500px;
+    width: 1010px;
 }
 
 .submedia-orientation-vertical {
-
+    height: 1010px;
+    width: 500px;
 }
 
 .submedia-image-container {
     position: relative;
-    height: 500px;
-    width: 500px;
     display: inline-block;
     margin: 10px;
     cursor: pointer;

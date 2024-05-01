@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ee0de6b.css",
-    "main.js": "/static/js/main.460c7288.js",
+    "main.css": "/static/css/main.a7df32cf.css",
+    "main.js": "/static/js/main.af80a77b.js",
     "static/js/453.64614c20.chunk.js": "/static/js/453.64614c20.chunk.js",
     "static/media/Montserrat-Italic.ttf": "/static/media/Montserrat-Italic.f4a742d68090a0bfc33f.ttf",
     "static/media/Montserrat-Bold.ttf": "/static/media/Montserrat-Bold.50f0257aa1e905f4bfaf.ttf",
@@ -10,12 +10,12 @@
     "static/media/PlayfairDisplay-Regular.ttf": "/static/media/PlayfairDisplay-Regular.693728812dc43ab34710.ttf",
     "static/media/PlayfairDisplay-Italic.ttf": "/static/media/PlayfairDisplay-Italic.a5b813a9539a87133d85.ttf",
     "index.html": "/index.html",
-    "main.0ee0de6b.css.map": "/static/css/main.0ee0de6b.css.map",
-    "main.460c7288.js.map": "/static/js/main.460c7288.js.map",
+    "main.a7df32cf.css.map": "/static/css/main.a7df32cf.css.map",
+    "main.af80a77b.js.map": "/static/js/main.af80a77b.js.map",
     "453.64614c20.chunk.js.map": "/static/js/453.64614c20.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ee0de6b.css",
-    "static/js/main.460c7288.js"
+    "static/css/main.a7df32cf.css",
+    "static/js/main.af80a77b.js"
   ]
 }

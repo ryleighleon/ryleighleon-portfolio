@@ -15,7 +15,7 @@ import MobileFooter from "./components/MobileFooter/MobileFooter";
 import MobileAbout from "./pages/Mobile/MobileAbout/MobileAbout";
 import AboutPage from "./pages/Desktop/About/AboutPage";
 import EditPage from "./pages/Desktop/EditPage/EditPage";
-import ProjectPage from "./pages/Desktop/ProjectPage/ProjectPage";
+import ProjectPage from "./pages/Desktop/Page/ProjectPage";
 
 export function getIconImage(filename: string){
     return process.env.PUBLIC_URL + '/media/files/icons/' + filename;

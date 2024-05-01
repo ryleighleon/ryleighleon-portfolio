@@ -16,14 +16,14 @@
 .about-me-title{
     color: var(--greenColor);
     font-size: 40px;
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     margin-bottom: 20px;
 }
 
 .about-me-body{
     color: black;
     font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     line-height: 2;
 }
 

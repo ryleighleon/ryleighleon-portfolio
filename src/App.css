@@ -19,5 +19,42 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+  src: local('Montserrat'),
+  url('./fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'),
+  url('./fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'),
+  url('./fonts/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: local('Playfair Display'),
+  url('./fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: local('Playfair Display'),
+  url('./fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: local('Playfair Display'),
+  url('./fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
+  font-style: italic;
 }

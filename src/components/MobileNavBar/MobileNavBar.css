@@ -25,7 +25,7 @@
 .mobile-name-title {
     font-size: 22px;
     color: #ffffff;
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     font-stretch: 80%;
     cursor: pointer;
 }

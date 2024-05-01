@@ -5,6 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
+import './fonts/Montserrat/static/Montserrat-Regular.ttf';
+import './fonts/Montserrat/static/Montserrat-Bold.ttf';
+import './fonts/Montserrat/static/Montserrat-Italic.ttf';
+import './fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf';
+import './fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf';
+import './fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

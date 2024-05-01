@@ -1,5 +1,5 @@
 .mobile-project-page-title {
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     color: var(--greenColor);
     font-size: 54px;
     margin-bottom: 20px;
@@ -8,7 +8,7 @@
 }
 
 .mobile-project-page-subtitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 20px;
     margin-bottom: 20px;
     max-width: 780px;
@@ -16,7 +16,7 @@
 }
 
 .mobile-project-page-description {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 15px;
     margin-bottom: 30px;
     white-space: pre-line;
@@ -64,13 +64,13 @@
 
 .mobile-project-title {
     margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 18px;
 }
 
 .mobile-project-description {
     margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 15px;
     text-align: center;
 }

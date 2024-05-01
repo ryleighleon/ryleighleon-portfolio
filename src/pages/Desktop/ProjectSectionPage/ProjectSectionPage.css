@@ -1,5 +1,5 @@
 .project-page-title {
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     color: var(--greenColor);
     font-size: 72px;
     max-width: 780px;
@@ -7,7 +7,7 @@
 }
 
 .project-page-subtitle {
-    font-family: 'Montserrat', serif;
+    font-family: var(--montserrat-font), serif;
     font-size: 20px;
     margin-top: 40px;
     max-width: 780px;
@@ -15,7 +15,7 @@
 }
 
 .project-page-description {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 15px;
     margin-top: 35px;
     white-space: pre-line;

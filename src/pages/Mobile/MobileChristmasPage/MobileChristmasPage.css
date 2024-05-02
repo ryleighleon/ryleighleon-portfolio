@@ -12,7 +12,7 @@
 .mobile-christmas-title{
     color: var(--greenColor);
     font-size: 36px;
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     margin-bottom: 20px;
     margin-top: 10px;
     text-align: center;
@@ -20,7 +20,7 @@
 
 .mobile-christmas-body{
     color: #000000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 15px;
     font-weight: 300;
     margin-bottom: 10px;
@@ -33,7 +33,7 @@
 .mobile-christmas-desc {
     color: black;
     font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
 }
 
 .mobile-christmas-link {

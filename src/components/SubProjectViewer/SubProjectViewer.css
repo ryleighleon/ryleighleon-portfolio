@@ -26,7 +26,7 @@
 }
 
 .subproject-navigation-icon {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 35px;
     cursor: pointer;
     color: var(--blueColor)
@@ -78,13 +78,13 @@
 }
 
 .sub-media-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 22px;
     margin-bottom: 18px;
 }
 
 .sub-media-description {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 18px;
     white-space: pre-line;
 }

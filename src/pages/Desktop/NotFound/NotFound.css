@@ -9,13 +9,13 @@
 .not-found-title{
     color: var(--greenColor);
     font-size: 72px;
-    font-family: 'Old Standard TT', serif;
+    font-family: var(--playfair-font), serif;
     margin-bottom: 20px;
 }
 
 .not-found-body{
     color: #000000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--montserrat-font), sans-serif;
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 20px;

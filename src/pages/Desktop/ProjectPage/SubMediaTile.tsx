@@ -24,13 +24,13 @@ export default function SubMediaTile(props: SubMediaImageProps) {
                 <img
                     src={getProjectThumbnailImage(props.sectionTitle, media.mediaFilename, props.projectTitle)}
                     alt={media.mediaDescription}
-                    className={'submedia-image'}
+                    className={'submedia-image submedia-orientation-' + orientation.toLowerCase()}
                 />
             }
             {props.type === 'Video' &&
                 <video
                     src={getProjectFile(props.sectionTitle, media.mediaFilename, props.projectTitle)}
-                    className={'submedia-image'}
+                    className={'submedia-image submedia-orientation-' + orientation.toLowerCase()}
                     controls
                 />
             }
@@ -38,7 +38,7 @@ export default function SubMediaTile(props: SubMediaImageProps) {
                 <img
                     src={getProjectFile(props.sectionTitle, media.mediaFilename, props.projectTitle)}
                     alt={media.mediaDescription}
-                    className={'submedia-image'}
+                    className={'submedia-image submedia-orientation-' + orientation.toLowerCase()}
                 />
             }
             {isHovered &&

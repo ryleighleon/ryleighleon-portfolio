@@ -50,6 +50,9 @@ jobs:
       - name: Build project and set CI=false
         run: npm run build-no-warnings-cicd
 
+      - name: 404 page
+        run: cp build/index.html build/404.html
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:

@@ -125,7 +125,7 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                                                     <div className="relative overflow-hidden">
                                                         <div className="relative aspect-[16/10] overflow-hidden">
                                                             <Image
-                                                                src={`/media/files/${pageId}/${section.path}/${project.uid}/${project.imageFilename}` || "/placeholder.svg"}
+                                                                src={`/media/${pageId}/${section.path}/${project.uid}/${project.imageFilename}` || "/placeholder.svg"}
                                                                 alt={project.projectTitle || "Project"}
                                                                 fill
                                                                 className="object-cover transition-all duration-500 group-hover:scale-105"

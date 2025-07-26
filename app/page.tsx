@@ -123,7 +123,7 @@ export default function Home() {
                 <Link href={`/portfolio/${project.uid}`} className="block group">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
                     <Image
-                      src={`/media/files/portfolio/portfolio/${project.uid}/${project.imageFilename}`}
+                      src={`/media/portfolio/portfolio/${project.uid}/${project.imageFilename}`}
                       alt={project.projectTitle || "Project"}
                       fill
                       className="object-cover transition-all duration-500 group-hover:scale-105"

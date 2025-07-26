@@ -119,7 +119,7 @@ export default function SubMediaEditor() {
               Save the image file at this path to ensure it displays correctly:
             </label>
             <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
-              {`/ryleighleon-portfolio/public/media/files/${selectedPageId}/${selectedProjectId}/${editData.mediaFilename}`}
+              {`/ryleighleon-portfolio/public/media/${selectedPageId}/${selectedProjectId}/${editData.mediaFilename}`}
             </p>
           </div>
         </div>

@@ -1,9 +1,9 @@
 export function getIconUrl(iconName: string): string {
-  return `/media/files/icons/${iconName}`
+  return `/media/icons/${iconName}`
 }
 
 export function getPersonalPictureUrl(iconName: string): string {
-  return `/media/files/personal_pictures/${iconName}`
+  return `/media/personal_pictures/${iconName}`
 }
 
 /**

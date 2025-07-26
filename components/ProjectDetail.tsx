@@ -108,7 +108,7 @@ export default function ProjectDetail({
         <section className="relative h-[70vh] bg-gray-900">
           <div className="absolute inset-0">
             <Image
-                src={`/media/files/${pageId}/${projectSection.path}/${projectId}/${currentProject.imageFilename}`}
+                src={`/media/${pageId}/${projectSection.path}/${projectId}/${currentProject.imageFilename}`}
                 alt={currentProject.projectTitle || "Project"}
                 fill
                 className="object-cover"
@@ -175,7 +175,7 @@ export default function ProjectDetail({
                           onClick={() => openMedia(media, index)}
                       >
                         <Image
-                            src={`/media/files/${pageId}/${projectSection.path}/${projectId}/${media.mediaFilename}`}
+                            src={`/media/${pageId}/${projectSection.path}/${projectId}/${media.mediaFilename}`}
                             alt={media.mediaDescription || currentProject.projectTitle}
                             fill
                             className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -219,7 +219,7 @@ export default function ProjectDetail({
                           <div className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <div className="relative aspect-[4/3] overflow-hidden">
                               <Image
-                                  src={`/media/files/${pageId}/${projectSection.path}/${project.path}/${project.imageFilename}`}
+                                  src={`/media/${pageId}/${projectSection.path}/${project.path}/${project.imageFilename}`}
                                   alt={project.projectTitle || "Project"}
                                   fill
                                   className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -269,7 +269,7 @@ export default function ProjectDetail({
                   {selectedMedia.mediaType === "Image" && (
                       <div className="relative h-full flex items-center justify-center">
                         <Image
-                            src={`/media/files/${pageId}/${projectSection.path}/${projectId}/${selectedMedia.mediaFilename}`}
+                            src={`/media/${pageId}/${projectSection.path}/${projectId}/${selectedMedia.mediaFilename}`}
                             alt={selectedMedia.mediaDescription || ""}
                             width={1200}
                             height={800}

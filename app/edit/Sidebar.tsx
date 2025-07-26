@@ -28,6 +28,7 @@ export default function Sidebar() {
   const dispatch = useAppDispatch()
   const { pages, selectedPageId, selectedSectionId, selectedProjectId, selectedSubMediaId } = useAppSelector((state) => state.pages)
   const { selectedAboutSection } = useAppSelector((state) => state.about)
+  const about = useAppSelector((state) => state.about)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
   const handlePageSelect = (pageId: string) => {
@@ -156,7 +157,7 @@ export default function Sidebar() {
   const handleExport = () => {
     const exportData = {
       pages: pages,
-      about: useAppSelector((state) => state.about),
+      about: about,
     }
 
     const dataStr = JSON.stringify(exportData, null, 2)

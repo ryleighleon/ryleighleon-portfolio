@@ -169,7 +169,7 @@ export default function ProjectEditor() {
                 Save the image file at this path to ensure it displays correctly:
               </label>
               <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
-                {`/ryleighleon-portfolio/public/media/${selectedPageId}/${selectedProjectId}/${editData.imageFilename || ""}`}
+                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.imageFilename || ""}`}
               </p>
             </div>
           </div>

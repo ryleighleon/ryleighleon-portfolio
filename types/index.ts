@@ -1,5 +1,5 @@
 export interface PagesState {
-  pages: Page[]
+  pages: ProjectPage[]
   status: "idle" | "loading" | "succeeded" | "failed"
   error: string | null
   initialized: boolean
@@ -36,7 +36,7 @@ export interface SubMedia {
   subMediaUid: string
 }
 
-export interface Page {
+export interface ProjectPage {
   uid: string // Internal unique identifier
   path: string // Used as the relative link (must be unique, lowercase, hyphenated)
   shortTitle: string

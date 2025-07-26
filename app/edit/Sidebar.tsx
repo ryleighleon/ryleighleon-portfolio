@@ -21,13 +21,12 @@ import {
 import { setAboutData, setSelectedAboutSection } from "@/lib/store/slices/aboutSlice"
 import { ChevronUp, ChevronDown } from "lucide-react"
 import { formatUid } from "@/lib/utils/image-paths"
-import { Page, ProjectSection, Project } from "@/types"
+import { ProjectPage, ProjectSection, Project } from "@/types"
 import { v4 as uuidv4 } from "uuid"
 
 export default function Sidebar() {
   const dispatch = useAppDispatch()
   const { pages, selectedPageId, selectedSectionId, selectedProjectId, selectedSubMediaId } = useAppSelector((state) => state.pages)
-  const about = useAppSelector((state) => state.about)
   const { selectedAboutSection } = useAppSelector((state) => state.about)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
@@ -77,7 +76,7 @@ export default function Sidebar() {
     }
   }
 
-  const handleDeletePage = (page: Page) => {
+  const handleDeletePage = (page: ProjectPage) => {
     if (window.confirm(`Are you sure you want to delete the page "${page.shortTitle}"? This action cannot be undone.`)) {
       dispatch(deletePage({ pageUid: page.uid }))
       setMessage({ text: "Page deleted successfully", type: "success" })
@@ -153,7 +152,7 @@ export default function Sidebar() {
   const handleExport = () => {
     const exportData = {
       pages: pages,
-      about: about
+      about: useAppSelector((state) => state.about),
     }
 
     const dataStr = JSON.stringify(exportData, null, 2)
@@ -167,7 +166,7 @@ export default function Sidebar() {
     linkElement.click()
 
     localStorage.setItem("pages.json.pages", JSON.stringify(pages))
-    localStorage.setItem("pages.json.about", JSON.stringify(about))
+    localStorage.setItem("pages.json.about", JSON.stringify(useAppSelector((state) => state.about)))
 
     setMessage({ text: "Data exported successfully", type: "success" })
     setTimeout(() => setMessage(null), 3000)
@@ -180,7 +179,7 @@ export default function Sidebar() {
       const uniquePath = isDuplicate ? `${newPath}-${Date.now().toString().slice(-4)}` : newPath
       const newUid = uuidv4()
 
-      const newPage: Page = {
+      const newPage: ProjectPage = {
         uid: newUid,
         path: uniquePath,
         shortTitle: "New Page",

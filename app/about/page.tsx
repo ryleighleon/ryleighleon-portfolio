@@ -88,8 +88,8 @@ export default function About() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <div className="absolute inset-0 bg-purple-900 z-10" />
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-6">
+        <div className="absolute inset-0 bg-purple-900" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 text-center"
             initial={{ opacity: 0, y: -20 }}
@@ -118,44 +118,51 @@ export default function About() {
       {/* Navigation Tabs */}
       <div className="sticky top-0 bg-white shadow-md z-30">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex overflow-x-auto py-4 gap-8 justify-center md:justify-start no-scrollbar">
+          <div className="flex overflow-x-auto py-4 gap-8 justify-center no-scrollbar">
             <button
-              onClick={() => scrollToSection("bio")}
-              className={`whitespace-nowrap px-4 py-2 font-medium transition-colors ${
-                activeSection === "bio"
-                  ? "text-purple-700 border-b-2 border-purple-700"
-                  : "text-gray-600 hover:text-purple-700"
-              }`}
+                onClick={() => scrollToSection("bio")}
+                className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
+    ${
+                    activeSection === "bio"
+                        ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                        : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                }`}
             >
               Biography
             </button>
+
             <button
-              onClick={() => scrollToSection("education")}
-              className={`whitespace-nowrap px-4 py-2 font-medium transition-colors ${
-                activeSection === "education"
-                  ? "text-purple-700 border-b-2 border-purple-700"
-                  : "text-gray-600 hover:text-purple-700"
-              }`}
+                onClick={() => scrollToSection("education")}
+                className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
+    ${
+                    activeSection === "education"
+                        ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                        : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                }`}
             >
               Education
             </button>
+
             <button
-              onClick={() => scrollToSection("experience")}
-              className={`whitespace-nowrap px-4 py-2 font-medium transition-colors ${
-                activeSection === "experience"
-                  ? "text-purple-700 border-b-2 border-purple-700"
-                  : "text-gray-600 hover:text-purple-700"
-              }`}
+                onClick={() => scrollToSection("experience")}
+                className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
+    ${
+                    activeSection === "experience"
+                        ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                        : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                }`}
             >
               Experience
             </button>
+
             <button
-              onClick={() => scrollToSection("skills")}
-              className={`whitespace-nowrap px-4 py-2 font-medium transition-colors ${
-                activeSection === "skills"
-                  ? "text-purple-700 border-b-2 border-purple-700"
-                  : "text-gray-600 hover:text-purple-700"
-              }`}
+                onClick={() => scrollToSection("skills")}
+                className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
+    ${
+                    activeSection === "skills"
+                        ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                        : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                }`}
             >
               Skills
             </button>

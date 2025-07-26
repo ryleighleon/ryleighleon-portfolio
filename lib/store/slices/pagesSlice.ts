@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-import type { Page, PagesState } from "@/types"
+import type { ProjectPage, PagesState } from "@/types"
 import pagesRLD from "@/data/pages.json"
 import { v4 as uuidv4 } from "uuid"
 
@@ -32,6 +32,7 @@ const defaultPagesData = [
                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
             projectTitle: "Target",
             projectSubtitle: "Art Direction",
+            imageName: "Target Mondo Llama",
             projectParagraphs: [
               {
                 paragraphTitle: "The Project",
@@ -65,7 +66,7 @@ const defaultPagesData = [
 ]
 
 const initialState: PagesState = {
-  pages: (pagesRLD.pages as Page[]) || defaultPagesData,
+  pages: (pagesRLD.pages as ProjectPage[]) || defaultPagesData,
   status: "succeeded",
   error: null,
   initialized: true,
@@ -79,12 +80,12 @@ export const pagesSlice = createSlice({
   name: "pages",
   initialState,
   reducers: {
-    setPages: (state, action: PayloadAction<Page[]>) => {
+    setPages: (state, action: PayloadAction<ProjectPage[]>) => {
       state.pages = action.payload
       state.initialized = true
       localStorage.setItem("pages.json.pages", JSON.stringify(state.pages))
     },
-    updatePage: (state, action: PayloadAction<Page>) => {
+    updatePage: (state, action: PayloadAction<ProjectPage>) => {
       const index = state.pages.findIndex((page) => page.uid === action.payload.uid)
       if (index !== -1) {
         state.pages[index] = action.payload

@@ -1,0 +1,425 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
+import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
+import { useParams } from "next/navigation"
+import Image from "next/image"
+import { X, ChevronLeft, ChevronRight, Share2, Bookmark, Calendar } from "lucide-react"
+import type { SubMedia } from "@/types"
+import Loading from "@/components/loading"
+import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
+import {fetchPages} from "@/lib/store/slices/pagesSlice";
+
+export default function ProjectDetail() {
+  const params = useParams()
+  const pageId = params.pageId as string
+  const projectId = params.projectId as string
+
+  const [selectedMedia, setSelectedMedia] = useState<SubMedia | null>(null)
+  const [mediaIndex, setMediaIndex] = useState(0)
+  const [currentProject, setCurrentProject] = useState<any>(null)
+  const [projectSection, setProjectSection] = useState<any>(null)
+  const [relatedProjects, setRelatedProjects] = useState<any[]>([])
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  const dispatch = useAppDispatch()
+  const { pages, status } = useAppSelector((state) => state.pages)
+
+  useEffect(() => {
+    dispatch(fetchPages())
+  }, [dispatch])
+
+  useEffect(() => {
+    if (pages && pages.length > 0 && projectId) {
+      // Find the project in the current page
+      const page = pages.find((p) => p.uid === pageId)
+      if (page && page.projectSections) {
+        for (const section of page.projectSections) {
+          if (section.projects) {
+            const project = section.projects.find((p) => p.uid === projectId)
+            if (project) {
+              setCurrentProject(project)
+              setProjectSection(section)
+
+              // Find related projects (from same section, excluding current)
+              const related = section.projects.filter((p: any) => p.uid !== projectId).slice(0, 3)
+              setRelatedProjects(related)
+              break
+            }
+          }
+        }
+      }
+    }
+  }, [pages, pageId, projectId])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!contentRef.current) return
+
+      const scrollTop = window.scrollY
+      const scrollHeight = contentRef.current.scrollHeight - window.innerHeight
+      const progress = (scrollTop / scrollHeight) * 100
+      setScrollProgress(Math.min(progress, 100))
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  if (status === "loading") {
+    return <Loading />
+  }
+
+  if (status === "failed") {
+    return (
+      <div className="py-12 px-6 text-center">
+        <h1 className="text-4xl font-bold mb-6">Project Details</h1>
+        <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-red-700 mb-2">Error Loading Project</h2>
+          <p className="text-red-600">We're having trouble loading the project details. Please try again later.</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!currentProject) {
+    return (
+      <div className="py-12 px-6 text-center">
+        <h1 className="text-4xl font-bold mb-6">Project Not Found</h1>
+        <p>The project you're looking for could not be found.</p>
+      </div>
+    )
+  }
+
+  const openMedia = (media: SubMedia, index: number) => {
+    setSelectedMedia(media)
+    setMediaIndex(index)
+  }
+
+  const closeMedia = () => {
+    setSelectedMedia(null)
+  }
+
+  const navigateMedia = (direction: "prev" | "next") => {
+    if (!currentProject || !currentProject.subMedia) return
+
+    const mediaCount = currentProject.subMedia.length
+    if (mediaCount <= 1) return
+
+    let newIndex
+    if (direction === "prev") {
+      newIndex = (mediaIndex - 1 + mediaCount) % mediaCount
+    } else {
+      newIndex = (mediaIndex + 1) % mediaCount
+    }
+
+    setMediaIndex(newIndex)
+    setSelectedMedia(currentProject.subMedia[newIndex])
+  }
+
+  return (
+    <div ref={contentRef} className="min-h-screen bg-white">
+      {/* Progress bar */}
+      <div
+        className="fixed top-0 left-0 h-1 bg-purple-600 z-50 transition-all duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      {currentProject.topTitle && (
+        <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-40">
+          <div className="px-4 py-1 bg-white/80 backdrop-blur-sm rounded-full shadow-md text-sm font-medium text-gray-800">
+            {currentProject.topTitle}
+          </div>
+        </div>
+      )}
+
+      {/* Hero Section */}
+      <section className="relative h-[70vh] bg-gray-900">
+        <div className="absolute inset-0">
+          <Image
+            src={currentProject.imageFilename || "/placeholder.svg"}
+            alt={currentProject.projectTitle || "Project"}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {currentProject.projectTags &&
+                currentProject.projectTags.map((tag: string) => (
+                  <span key={tag} className="text-xs px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+                    {tag}
+                  </span>
+                ))}
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">{currentProject.projectTitle}</h1>
+            {currentProject.projectSubtitle && (
+              <h2 className="text-xl md:text-2xl text-white/80 mb-6">{currentProject.projectSubtitle}</h2>
+            )}
+
+            <div className="flex flex-wrap gap-6 text-white/70 text-sm">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span>{new Date().getFullYear()}</span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <button className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Share2 className="w-4 h-4" />
+                  <span className="hidden sm:inline">Share</span>
+                </button>
+
+                <button className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Bookmark className="w-4 h-4" />
+                  <span className="hidden sm:inline">Save</span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 px-6 md:px-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-2">
+            {currentProject.projectParagraphs &&
+              currentProject.projectParagraphs.map((paragraph: any, index: number) => (
+                <motion.div
+                  key={paragraph.paragraphUid}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="mb-12"
+                >
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">{paragraph.paragraphTitle}</h3>
+                  <p className="text-gray-700 leading-relaxed">{paragraph.paragraphText}</p>
+                </motion.div>
+              ))}
+          </div>
+
+          <div className="lg:col-span-1">
+            <div className="bg-gray-50 p-6 rounded-xl sticky top-24">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Project Details</h3>
+
+              <div className="space-y-4">
+                {projectSection && (
+                  <div>
+                    <p className="text-sm text-gray-500">Category</p>
+                    <p className="font-medium text-gray-900">{projectSection.title}</p>
+                  </div>
+                )}
+
+                {currentProject.projectTags && currentProject.projectTags.length > 0 && (
+                  <div>
+                    <p className="text-sm text-gray-500">Tags</p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {currentProject.projectTags.map((tag: string) => (
+                        <span key={tag} className="text-xs px-3 py-1 bg-gray-200 rounded-full text-gray-800">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div>
+                  <p className="text-sm text-gray-500">Date</p>
+                  <p className="font-medium text-gray-900">{new Date().getFullYear()}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Media Gallery Section */}
+      {currentProject.subMedia && currentProject.subMedia.length > 0 && (
+        <section className="py-16 px-6 md:px-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-3xl font-bold mb-10 text-gray-900"
+            >
+              Project Gallery
+            </motion.h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {currentProject.subMedia.map((media: any, index: number) => (
+                <motion.div
+                  key={media.subMediaUid}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="relative aspect-square overflow-hidden rounded-xl shadow-md cursor-pointer group"
+                  onClick={() => openMedia(media, index)}
+                >
+                  <Image
+                    src={media.mediaFilename || "/placeholder.svg"}
+                    alt={media.mediaDescription || currentProject.projectTitle}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                    <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                      {media.mediaDescription && <p>{media.mediaDescription}</p>}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Projects Section */}
+      {relatedProjects.length > 0 && (
+        <section className="py-16 px-6 md:px-16">
+          <div className="max-w-7xl mx-auto">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-3xl font-bold mb-10 text-gray-900"
+            >
+              Related Projects
+            </motion.h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProjects.map((project, index) => (
+                <motion.div
+                  key={project.uid}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  <Link href={`/${pageId}/${project.uid}`}>
+                    <div className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <Image
+                          src={project.imageFilename || "/placeholder.svg"}
+                          alt={project.projectTitle || "Project"}
+                          fill
+                          className="object-cover transition-all duration-500 group-hover:scale-105"
+                        />
+                      </div>
+
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-700 transition-colors">
+                          {project.projectTitle || "Untitled Project"}
+                        </h3>
+                        {project.projectSubtitle && <p className="text-gray-600">{project.projectSubtitle}</p>}
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {currentProject.bottomTitle && (
+        <div className="bg-purple-900 text-white py-16 px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <p className="text-2xl md:text-3xl font-bold max-w-3xl mx-auto">{currentProject.bottomTitle}</p>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Media Overlay */}
+      <AnimatePresence>
+        {selectedMedia && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 md:p-10"
+            onClick={closeMedia}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              className="relative max-w-5xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute -top-12 right-0 text-white hover:text-purple-300 transition-colors"
+                onClick={closeMedia}
+              >
+                <X size={24} />
+              </button>
+
+              {selectedMedia.mediaType === "Image" && (
+                <div className="relative h-full flex items-center justify-center">
+                  <Image
+                    src={selectedMedia.mediaFilename || "/placeholder.svg"}
+                    alt={selectedMedia.mediaDescription || ""}
+                    width={1200}
+                    height={800}
+                    className="object-contain max-h-[80vh]"
+                  />
+                </div>
+              )}
+
+              {selectedMedia.mediaType === "Video" && (
+                <video src={selectedMedia.mediaFilename} controls className="max-h-[80vh] mx-auto" />
+              )}
+
+              {selectedMedia.mediaDescription && (
+                <div className="mt-4 text-white text-center">
+                  <p>{selectedMedia.mediaDescription}</p>
+                </div>
+              )}
+
+              {currentProject.subMedia && currentProject.subMedia.length > 1 && (
+                <>
+                  <button
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 md:-translate-x-16 text-white hover:text-purple-300 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      navigateMedia("prev")
+                    }}
+                  >
+                    <ChevronLeft size={36} />
+                  </button>
+                  <button
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 md:translate-x-16 text-white hover:text-purple-300 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      navigateMedia("next")
+                    }}
+                  >
+                    <ChevronRight size={36} />
+                  </button>
+                </>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}

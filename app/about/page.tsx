@@ -3,8 +3,6 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
-import { fetchPages } from "@/lib/store/slices/pagesSlice"
-import { fetchAboutData } from "@/lib/store/slices/aboutSlice"
 import Loading from "@/components/loading"
 import { motion } from "framer-motion"
 import {getPersonalPictureUrl} from "@/lib/utils/image-paths";
@@ -23,8 +21,6 @@ export default function About() {
   }
 
   useEffect(() => {
-    dispatch(fetchPages())
-    dispatch(fetchAboutData())
   }, [dispatch])
 
   useEffect(() => {

@@ -1,5 +1,31 @@
 export interface PagesState {
   pages: Page[]
+  status: "idle" | "loading" | "succeeded" | "failed"
+  error: string | null
+  initialized: boolean
+  selectedPageId: string | null
+  selectedSectionId: string | null
+  selectedProjectId: string | null
+  selectedSubMediaId: string | null
+}
+
+export interface AboutState {
+  bio: string
+  education: {
+    id: string
+    degree: string
+    institution: string
+    years: string
+  }[]
+  experience: {
+    id: string
+    title: string
+    company: string
+    period: string
+    responsibilities: string[]
+  }[]
+  skills: string[]
+  selectedAboutSection: "bio" | "education" | "experience" | "skills" | null
 }
 
 export interface SubMedia {
@@ -11,7 +37,8 @@ export interface SubMedia {
 }
 
 export interface Page {
-  uid: string // Used as the relative link (must be unique, lowercase, hyphenated)
+  uid: string // Internal unique identifier
+  path: string // Used as the relative link (must be unique, lowercase, hyphenated)
   shortTitle: string
   topTitle?: string
   bottomTitle?: string
@@ -19,7 +46,8 @@ export interface Page {
 }
 
 export interface ProjectSection {
-  uid: string
+  uid: string // Internal unique identifier
+  path: string // Used in URLs (must be unique within page, lowercase, hyphenated)
   title: string
   subtitle: string
   description: string
@@ -27,7 +55,8 @@ export interface ProjectSection {
 }
 
 export interface Project {
-  uid: string // Used as the project identifier in URLs (must be unique, lowercase, hyphenated)
+  uid: string // Internal unique identifier
+  path: string // Used as the project identifier in URLs (must be unique within section, lowercase, hyphenated)
   projectTitle: string
   projectSubtitle: string
   imageFilename: string

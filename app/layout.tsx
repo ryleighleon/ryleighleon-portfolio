@@ -19,9 +19,11 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Ryleigh Leon - Graphic Designer",
-  description: "Portfolio website for Ryleigh Leon, a graphic designer.",
-    generator: 'v0.dev'
+  title: 'Ryleigh Leon',
+  description: 'Web site created using Next.js',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

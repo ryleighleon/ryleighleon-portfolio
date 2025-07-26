@@ -127,9 +127,9 @@ export const defaultAboutData = {
 
 // Initialize data in localStorage if it doesn't exist
 export function initializeData() {
-  if (!localStorage.getItem("pages.rld")) {
+  if (!localStorage.getItem("pages.json")) {
     localStorage.setItem(
-      "pages.rld",
+      "pages.json",
       JSON.stringify({
         pages: defaultPagesData,
         about: defaultAboutData,

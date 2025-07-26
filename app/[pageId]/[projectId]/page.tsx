@@ -9,12 +9,11 @@ import type { SubMedia } from "@/types"
 import Loading from "@/components/loading"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import {fetchPages} from "@/lib/store/slices/pagesSlice";
 
 export default function ProjectDetail() {
   const params = useParams()
-  const pageId = params.pageId as string
-  const projectId = params.projectId as string
+  const pageId = params!.pageId as string
+  const projectId = params!.projectId as string
 
   const [selectedMedia, setSelectedMedia] = useState<SubMedia | null>(null)
   const [mediaIndex, setMediaIndex] = useState(0)
@@ -27,10 +26,6 @@ export default function ProjectDetail() {
 
   const dispatch = useAppDispatch()
   const { pages, status } = useAppSelector((state) => state.pages)
-
-  useEffect(() => {
-    dispatch(fetchPages())
-  }, [dispatch])
 
   useEffect(() => {
     if (pages && pages.length > 0 && projectId) {

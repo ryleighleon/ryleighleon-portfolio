@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
-import { fetchPages } from "@/lib/store/slices/pagesSlice"
 import { Menu, X } from "lucide-react"
 import {getIconUrl} from "@/lib/utils/image-paths";
 
@@ -18,10 +17,6 @@ export function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!initialized) {
-      dispatch(fetchPages())
-    }
-
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
       if (window.innerWidth >= 768) {

@@ -46,7 +46,8 @@
                 }
               ],
               "uid": "target",
-              "thumbnailImageFilename": "TargetTN_1.png"
+              "thumbnailImageFilename": "TargetTN_1.png",
+              "path": "target"
             },
             {
               "imageFilename": "Ink and Drink.png",
@@ -98,7 +99,8 @@
                 }
               ],
               "uid": "hamilton_wood_type_printing",
-              "thumbnailImageFilename": "HWT_InternshipTN_1.png"
+              "thumbnailImageFilename": "HWT_InternshipTN_1.png",
+              "path": "hamilton_wood_type_printing"
             },
             {
               "imageFilename": "AD3.png",
@@ -141,7 +143,8 @@
                 }
               ],
               "uid": "simply_lemonade",
-              "thumbnailImageFilename": "SimplyTN_2.png"
+              "thumbnailImageFilename": "SimplyTN_2.png",
+              "path": "simply_lemonade"
             },
             {
               "imageFilename": "Social.png",
@@ -233,7 +236,8 @@
                 }
               ],
               "uid": "wonder_fair",
-              "thumbnailImageFilename": "WonderFairTN1.png"
+              "thumbnailImageFilename": "WonderFairTN1.png",
+              "path": "wonder_fair"
             },
             {
               "imageFilename": "",
@@ -290,14 +294,17 @@
                 }
               ],
               "uid": "rockabilly_chili",
-              "thumbnailImageFilename": "RockabillyChiliTN1.png"
+              "thumbnailImageFilename": "RockabillyChiliTN1.png",
+              "path": "rockabilly_chili"
             }
           ],
-          "uid": "f9h8t"
+          "uid": "portfolio",
+          "path": "portfolio"
         }
       ],
       "topTitle": "Welcome!",
-      "bottomTitle": "Thank you!"
+      "bottomTitle": "Thank you!",
+      "path": "portfolio"
     },
     {
       "shortTitle": "Freelance",
@@ -333,7 +340,8 @@
                 }
               ],
               "uid": "stickers",
-              "thumbnailImageFilename": "SPD_Sticker_1.png"
+              "thumbnailImageFilename": "SPD_Sticker_1.png",
+              "path": "stickers"
             },
             {
               "imageFilename": "",
@@ -365,12 +373,15 @@
                 }
               ],
               "uid": "coozie",
-              "thumbnailImageFilename": "SPDCoozie1.png"
+              "thumbnailImageFilename": "SPDCoozie1.png",
+              "path": "coozie"
             }
           ],
-          "uid": "sigma_phi_delta"
+          "uid": "sigma_phi_delta",
+          "path": "sigma_phi_delta"
         }
-      ]
+      ],
+      "path": "freelance"
     },
     {
       "shortTitle": "Internship",
@@ -410,7 +421,8 @@
                 }
               ],
               "uid": "graphic_design_intern_projects",
-              "thumbnailImageFilename": "HWT_Internship_1.png"
+              "thumbnailImageFilename": "HWT_Internship_1.png",
+              "path": "graphic_design_intern_projects"
             },
             {
               "thumbnailImageFilename": "Really Big Print_8.png",
@@ -465,7 +477,8 @@
                   "subMediaUid": "u2bcpc"
                 }
               ],
-              "uid": "really_big_prints"
+              "uid": "really_big_prints",
+              "path": "really_big_prints"
             },
             {
               "thumbnailImageFilename": "Ocean is Calling_9.png",
@@ -520,7 +533,8 @@
                   "subMediaUid": "h5bc9j"
                 }
               ],
-              "uid": "the_ocean_is_calling"
+              "uid": "the_ocean_is_calling",
+              "path": "the_ocean_is_calling"
             },
             {
               "thumbnailImageFilename": "Experimental Type_3.png",
@@ -545,14 +559,17 @@
                   "subMediaUid": "udvq4a"
                 }
               ],
-              "uid": "experimental_type"
+              "uid": "experimental_type",
+              "path": "experimental_type"
             }
           ],
-          "uid": "hamilton_wood_type_printing_museum"
+          "uid": "hamilton_wood_type_printing_museum",
+          "path": "hamilton_wood_type_printing_museum"
         }
       ],
       "bottomTitle": "",
-      "topTitle": ""
+      "topTitle": "",
+      "path": "internship"
     },
     {
       "shortTitle": "MIAD",
@@ -576,10 +593,12 @@
                   "subMediaUid": "f5m2ci"
                 }
               ],
-              "uid": "what_s_your_type"
+              "uid": "whats_your_type",
+              "path": "whats_your_type"
             }
           ],
-          "uid": "first_year"
+          "uid": "first_year",
+          "path": "first_year"
         },
         {
           "title": "Second Year",
@@ -604,7 +623,8 @@
                   "subMediaUid": "wmrnr4q"
                 }
               ],
-              "uid": "hand_rendered_type"
+              "uid": "hand_rendered_type",
+              "path": "hand_rendered_type"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_12.png",
@@ -624,7 +644,8 @@
                   "subMediaUid": "zjzbk"
                 }
               ],
-              "uid": "photography"
+              "uid": "photography",
+              "path": "photography"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_8.png",
@@ -649,7 +670,8 @@
                   "subMediaUid": "5pwsc3"
                 }
               ],
-              "uid": "poster_design"
+              "uid": "poster_design",
+              "path": "poster_design"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_11.png",
@@ -669,7 +691,8 @@
                   "subMediaUid": "f3351"
                 }
               ],
-              "uid": "icons"
+              "uid": "icons",
+              "path": "icons"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_6.png",
@@ -689,7 +712,8 @@
                   "subMediaUid": "rqkdrp"
                 }
               ],
-              "uid": "monogram"
+              "uid": "monogram",
+              "path": "monogram"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_1.png",
@@ -709,10 +733,12 @@
                   "subMediaUid": "orih1d"
                 }
               ],
-              "uid": "fall_pattern_design"
+              "uid": "fall_pattern_design",
+              "path": "fall_pattern_design"
             }
           ],
-          "uid": "second_year"
+          "uid": "second_year",
+          "path": "second_year"
         },
         {
           "title": "Third Year",
@@ -737,7 +763,8 @@
                   "subMediaUid": "dxexo8"
                 }
               ],
-              "uid": "album_redesign"
+              "uid": "album_redesign",
+              "path": "album_redesign"
             },
             {
               "thumbnailImageFilename": "MIAD_Y3_5.png",
@@ -772,12 +799,15 @@
                   "subMediaUid": "f4dahh"
                 }
               ],
-              "uid": "infographic"
+              "uid": "infographic",
+              "path": "infographic"
             }
           ],
-          "uid": "third_year"
+          "uid": "third_year",
+          "path": "third_year"
         }
-      ]
+      ],
+      "path": "miad"
     }
   ],
   "about": {

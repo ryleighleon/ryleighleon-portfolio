@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
-import { fetchPages } from "@/lib/store/slices/pagesSlice"
 import { ContactForm } from "@/components/contact-form"
 import Loading from "@/components/loading"
 import { motion } from "framer-motion"
@@ -21,21 +20,11 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
 
   // Get featured projects from all pages
-  const featuredProjects = pages
+  const projectsToShow = pages
     .flatMap((page) =>
       page.projectSections.flatMap((section) => section.projects.filter((project) => project.featured)),
     )
     .slice(0, 3)
-
-  // Fallback to first project from each section if no featured projects
-  const projectsToShow =
-    featuredProjects.length > 0
-      ? featuredProjects
-      : pages.flatMap((page) => page.projectSections.flatMap((section) => section.projects.slice(0, 1))).slice(0, 3)
-
-  useEffect(() => {
-    dispatch(fetchPages())
-  }, [dispatch])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -134,7 +123,7 @@ export default function Home() {
                 <Link href={`/portfolio/${project.uid}`} className="block group">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
                     <Image
-                      src={project.imageFilename || "/placeholder.svg"}
+                      src={`/media/files/portfolio/${project.uid}/${project.imageFilename}`}
                       alt={project.projectTitle || "Project"}
                       fill
                       className="object-cover transition-all duration-500 group-hover:scale-105"

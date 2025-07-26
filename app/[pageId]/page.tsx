@@ -7,21 +7,14 @@ import Link from "next/link"
 import Image from "next/image"
 import Loading from "@/components/loading"
 import { motion } from "framer-motion"
-import {fetchPages} from "@/lib/store/slices/pagesSlice";
 
 export default function PageDetail() {
   const params = useParams()
-  const pageId = params.pageId as string
+  const pageId = params!.pageId as string
 
   const dispatch = useAppDispatch()
   const { pages, status, initialized } = useAppSelector((state) => state.pages)
   const currentPage = pages.find((page) => page.uid === pageId)
-
-  useEffect(() => {
-    if (!initialized) {
-      dispatch(fetchPages())
-    }
-  }, [dispatch, initialized])
 
   if (status === "loading") {
     return <Loading />

@@ -32,7 +32,6 @@ const defaultPagesData = [
                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
             projectTitle: "Target",
             projectSubtitle: "Art Direction",
-            imageName: "Target Mondo Llama",
             projectParagraphs: [
               {
                 paragraphTitle: "The Project",

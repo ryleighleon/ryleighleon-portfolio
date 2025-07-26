@@ -88,7 +88,7 @@ export default function About() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-purple-600/80 z-10" />
+        <div className="absolute inset-0 bg-purple-900 z-10" />
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-6">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 text-center"

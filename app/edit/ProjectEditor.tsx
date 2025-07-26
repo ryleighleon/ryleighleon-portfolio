@@ -154,16 +154,6 @@ export default function ProjectEditor() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Image Name</label>
-            <input
-                type="text"
-                name="imageName"
-                value={editData.imageName || ""}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            />
-          </div>
-          <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Image Filename</label>
             <input
                 type="text"

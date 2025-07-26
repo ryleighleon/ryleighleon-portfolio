@@ -27,6 +27,7 @@ import { v4 as uuidv4 } from "uuid"
 export default function Sidebar() {
   const dispatch = useAppDispatch()
   const { pages, selectedPageId, selectedSectionId, selectedProjectId, selectedSubMediaId } = useAppSelector((state) => state.pages)
+  const about = useAppSelector((state) => state.about)
   const { selectedAboutSection } = useAppSelector((state) => state.about)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
@@ -152,7 +153,7 @@ export default function Sidebar() {
   const handleExport = () => {
     const exportData = {
       pages: pages,
-      about: useAppSelector((state) => state.about),
+      about: about
     }
 
     const dataStr = JSON.stringify(exportData, null, 2)
@@ -166,7 +167,7 @@ export default function Sidebar() {
     linkElement.click()
 
     localStorage.setItem("pages.json.pages", JSON.stringify(pages))
-    localStorage.setItem("pages.json.about", JSON.stringify(useAppSelector((state) => state.about)))
+    localStorage.setItem("pages.json.about", JSON.stringify(about))
 
     setMessage({ text: "Data exported successfully", type: "success" })
     setTimeout(() => setMessage(null), 3000)

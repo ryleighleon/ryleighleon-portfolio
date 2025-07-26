@@ -13,7 +13,6 @@
               "imageFilename": "Target1.png",
               "projectTitle": "Target",
               "projectSubtitle": "Art Direction",
-              "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
@@ -22,7 +21,7 @@
                 },
                 {
                   "paragraphTitle": "Process: ",
-                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer\u2019s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
+                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer’s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
                   "paragraphUid": "pvx9q"
                 },
                 {
@@ -47,13 +46,13 @@
               ],
               "uid": "target",
               "thumbnailImageFilename": "TargetTN_1.png",
-              "path": "target"
+              "path": "target",
+              "featured": true
             },
             {
-              "imageFilename": "Ink and Drink.png",
+              "imageFilename": "HWT_Internship_1.png",
               "projectTitle": "Hamilton Wood Type & Printing",
               "projectSubtitle": "Internship",
-              "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "Company:",
@@ -103,10 +102,9 @@
               "path": "hamilton_wood_type_printing"
             },
             {
-              "imageFilename": "AD3.png",
+              "imageFilename": "Simply_1.png",
               "projectTitle": "Simply Lemonade",
               "projectSubtitle": "Advertising",
-              "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
@@ -144,17 +142,17 @@
               ],
               "uid": "simply_lemonade",
               "thumbnailImageFilename": "SimplyTN_2.png",
-              "path": "simply_lemonade"
+              "path": "simply_lemonade",
+              "featured": true
             },
             {
-              "imageFilename": "Social.png",
+              "imageFilename": "Wonder Fair SM Post_1.png",
               "projectTitle": "Wonder Fair",
               "projectSubtitle": "Branding",
-              "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
-                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn\u2019t accurately align with their business.",
+                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn’t accurately align with their business.",
                   "paragraphUid": "g34x1"
                 },
                 {
@@ -240,10 +238,9 @@
               "path": "wonder_fair"
             },
             {
-              "imageFilename": "",
+              "imageFilename": "Rockabilly Chili_1.png",
               "projectTitle": "Rockabilly Chili",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
@@ -295,7 +292,8 @@
               ],
               "uid": "rockabilly_chili",
               "thumbnailImageFilename": "RockabillyChiliTN1.png",
-              "path": "rockabilly_chili"
+              "path": "rockabilly_chili",
+              "featured": true
             }
           ],
           "uid": "portfolio",
@@ -307,83 +305,6 @@
       "path": "portfolio"
     },
     {
-      "shortTitle": "Freelance",
-      "uid": "freelance",
-      "projectSections": [
-        {
-          "title": "Sigma Phi Delta",
-          "subtitle": "",
-          "description": "",
-          "projects": [
-            {
-              "imageFilename": "SPDletterssticker.png",
-              "projectTitle": "Stickers",
-              "projectSubtitle": "",
-              "imageName": "",
-              "projectParagraphs": [
-                {
-                  "paragraphTitle": "The Project:",
-                  "paragraphText": "Sigma Phi Delta wanted stickers for their members. 2 designs were created and printed. One is a sticker with the Sigma Phi Delta Greek letters. The other sticker has the chapter name and the fraternity castle on the sticker.",
-                  "paragraphUid": "45me6"
-                }
-              ],
-              "subMedia": [
-                {
-                  "mediaFilename": "SPD_Sticker_1.png",
-                  "mediaType": "Image",
-                  "subMediaUid": "529j5"
-                },
-                {
-                  "mediaFilename": "SPD_Sticker_2.png",
-                  "mediaType": "Image",
-                  "subMediaUid": "ptvll3"
-                }
-              ],
-              "uid": "stickers",
-              "thumbnailImageFilename": "SPD_Sticker_1.png",
-              "path": "stickers"
-            },
-            {
-              "imageFilename": "",
-              "projectTitle": "Coozie",
-              "projectSubtitle": "",
-              "imageName": "",
-              "projectParagraphs": [
-                {
-                  "paragraphTitle": "The Project:",
-                  "paragraphText": "After the stickers, Sigma Phi Delta wanted to create a coozie design that the members and alum could buy. The sticker design inspired the coozie design. We incorporated the fraternity flowers in the design as well.",
-                  "paragraphUid": "llexcr"
-                }
-              ],
-              "subMedia": [
-                {
-                  "mediaFilename": "SPDCoozie1.png",
-                  "mediaType": "Image",
-                  "subMediaUid": "zlhf9s"
-                },
-                {
-                  "mediaFilename": "SPDCoozie2.png",
-                  "mediaType": "Image",
-                  "subMediaUid": "cff18a"
-                },
-                {
-                  "mediaFilename": "SPDCoozie3.png",
-                  "mediaType": "Image",
-                  "subMediaUid": "pnsjq"
-                }
-              ],
-              "uid": "coozie",
-              "thumbnailImageFilename": "SPDCoozie1.png",
-              "path": "coozie"
-            }
-          ],
-          "uid": "sigma_phi_delta",
-          "path": "sigma_phi_delta"
-        }
-      ],
-      "path": "freelance"
-    },
-    {
       "shortTitle": "Internship",
       "uid": "internship",
       "projectSections": [
@@ -393,10 +314,9 @@
           "description": "The Hamilton Wood Type & Printing Museum is in Two Rivers, WI. They have over 1.5 million pieces of wood type in their collection. Hamilton is a 501(c)3 nonprofit arts and educational organization. They are passionate about teaching people about typography and the history of American printing. Hamilton has a gallery space in the museum and offers tours, workshops, and a store with prints and type to buy.",
           "projects": [
             {
-              "imageFilename": "",
+              "imageFilename": "HWT_Internship_1.png",
               "projectTitle": "Graphic Design Intern Projects",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -428,7 +348,6 @@
               "thumbnailImageFilename": "Really Big Print_8.png",
               "projectTitle": "Really Big Prints",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -478,13 +397,13 @@
                 }
               ],
               "uid": "really_big_prints",
-              "path": "really_big_prints"
+              "path": "really_big_prints",
+              "imageFilename": "Really Big Print_1.png"
             },
             {
               "thumbnailImageFilename": "Ocean is Calling_9.png",
               "projectTitle": "The Ocean is Calling",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -534,13 +453,13 @@
                 }
               ],
               "uid": "the_ocean_is_calling",
-              "path": "the_ocean_is_calling"
+              "path": "the_ocean_is_calling",
+              "imageFilename": "Ocean is Calling_1.png"
             },
             {
               "thumbnailImageFilename": "Experimental Type_3.png",
               "projectTitle": "Experimental Type",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -560,7 +479,8 @@
                 }
               ],
               "uid": "experimental_type",
-              "path": "experimental_type"
+              "path": "experimental_type",
+              "imageFilename": "Experimental Type_1.png"
             }
           ],
           "uid": "hamilton_wood_type_printing_museum",
@@ -570,6 +490,81 @@
       "bottomTitle": "",
       "topTitle": "",
       "path": "internship"
+    },
+    {
+      "shortTitle": "Freelance",
+      "uid": "freelance",
+      "projectSections": [
+        {
+          "title": "Sigma Phi Delta",
+          "subtitle": "",
+          "description": "",
+          "projects": [
+            {
+              "imageFilename": "SPD_Sticker_1.png",
+              "projectTitle": "Stickers",
+              "projectSubtitle": "",
+              "projectParagraphs": [
+                {
+                  "paragraphTitle": "The Project:",
+                  "paragraphText": "Sigma Phi Delta wanted stickers for their members. 2 designs were created and printed. One is a sticker with the Sigma Phi Delta Greek letters. The other sticker has the chapter name and the fraternity castle on the sticker.",
+                  "paragraphUid": "45me6"
+                }
+              ],
+              "subMedia": [
+                {
+                  "mediaFilename": "SPD_Sticker_1.png",
+                  "mediaType": "Image",
+                  "subMediaUid": "529j5"
+                },
+                {
+                  "mediaFilename": "SPD_Sticker_2.png",
+                  "mediaType": "Image",
+                  "subMediaUid": "ptvll3"
+                }
+              ],
+              "uid": "stickers",
+              "thumbnailImageFilename": "SPD_Sticker_1.png",
+              "path": "stickers"
+            },
+            {
+              "imageFilename": "SPDCoozie1.png",
+              "projectTitle": "Coozie",
+              "projectSubtitle": "",
+              "projectParagraphs": [
+                {
+                  "paragraphTitle": "The Project:",
+                  "paragraphText": "After the stickers, Sigma Phi Delta wanted to create a coozie design that the members and alum could buy. The sticker design inspired the coozie design. We incorporated the fraternity flowers in the design as well.",
+                  "paragraphUid": "llexcr"
+                }
+              ],
+              "subMedia": [
+                {
+                  "mediaFilename": "SPDCoozie1.png",
+                  "mediaType": "Image",
+                  "subMediaUid": "zlhf9s"
+                },
+                {
+                  "mediaFilename": "SPDCoozie2.png",
+                  "mediaType": "Image",
+                  "subMediaUid": "cff18a"
+                },
+                {
+                  "mediaFilename": "SPDCoozie3.png",
+                  "mediaType": "Image",
+                  "subMediaUid": "pnsjq"
+                }
+              ],
+              "uid": "coozie",
+              "thumbnailImageFilename": "SPDCoozie1.png",
+              "path": "coozie"
+            }
+          ],
+          "uid": "sigma_phi_delta",
+          "path": "sigma_phi_delta"
+        }
+      ],
+      "path": "freelance"
     },
     {
       "shortTitle": "MIAD",
@@ -584,7 +579,6 @@
               "thumbnailImageFilename": "MIAD_Y1_1.png",
               "projectTitle": "What's Your Type",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -594,7 +588,8 @@
                 }
               ],
               "uid": "whats_your_type",
-              "path": "whats_your_type"
+              "path": "whats_your_type",
+              "imageFilename": "MIAD_Y1_1.png"
             }
           ],
           "uid": "first_year",
@@ -609,7 +604,6 @@
               "thumbnailImageFilename": "MIAD_Y2_3.png",
               "projectTitle": "Hand Rendered Type",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -624,13 +618,13 @@
                 }
               ],
               "uid": "hand_rendered_type",
-              "path": "hand_rendered_type"
+              "path": "hand_rendered_type",
+              "imageFilename": "MIAD_Y2_3.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_12.png",
               "projectTitle": "Photography",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -645,13 +639,13 @@
                 }
               ],
               "uid": "photography",
-              "path": "photography"
+              "path": "photography",
+              "imageFilename": "MIAD_Y2_9.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_8.png",
               "projectTitle": "Poster Design",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -671,13 +665,13 @@
                 }
               ],
               "uid": "poster_design",
-              "path": "poster_design"
+              "path": "poster_design",
+              "imageFilename": "MIAD_Y2_4.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_11.png",
               "projectTitle": "Icons",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -692,13 +686,13 @@
                 }
               ],
               "uid": "icons",
-              "path": "icons"
+              "path": "icons",
+              "imageFilename": "MIAD_Y2_10.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_6.png",
               "projectTitle": "Monogram",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -713,13 +707,13 @@
                 }
               ],
               "uid": "monogram",
-              "path": "monogram"
+              "path": "monogram",
+              "imageFilename": "MIAD_Y2_5.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_1.png",
               "projectTitle": "Fall Pattern Design",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -734,7 +728,8 @@
                 }
               ],
               "uid": "fall_pattern_design",
-              "path": "fall_pattern_design"
+              "path": "fall_pattern_design",
+              "imageFilename": "MIAD_Y2_1.png"
             }
           ],
           "uid": "second_year",
@@ -749,7 +744,6 @@
               "thumbnailImageFilename": "MIAD_Y3_1.png",
               "projectTitle": "Album Redesign",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -764,13 +758,13 @@
                 }
               ],
               "uid": "album_redesign",
-              "path": "album_redesign"
+              "path": "album_redesign",
+              "imageFilename": "MIAD_Y3_1.png"
             },
             {
               "thumbnailImageFilename": "MIAD_Y3_5.png",
               "projectTitle": "Infographic",
               "projectSubtitle": "",
-              "imageName": "",
               "projectParagraphs": [],
               "subMedia": [
                 {
@@ -800,7 +794,8 @@
                 }
               ],
               "uid": "infographic",
-              "path": "infographic"
+              "path": "infographic",
+              "imageFilename": "MIAD_Y3_3.png"
             }
           ],
           "uid": "third_year",
@@ -878,6 +873,7 @@
       "Youth Empowerment",
       "Mentoring",
       "Community Outreach"
-    ]
+    ],
+    "selectedAboutSection": null
   }
 }

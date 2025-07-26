@@ -24,7 +24,7 @@ export default function Page() {
           <p className="mb-4">
             The Admin Edit Page is your control center for managing your portfolio website’s content. Use the <strong>Sidebar</strong> on the left to navigate, add, reorder, or delete pages, project sections, projects, sub-media, and About page sections (Biography, Education, Experience, Skills). The <strong>Editor</strong> area on the right displays the selected item’s editor for making changes, which are saved automatically to local storage.
           </p>
-          <p className="mb-4">
+          <div className="mb-4">
             <strong>Sidebar Usage:</strong>
             <ul className="list-disc pl-5">
               <li><strong>Pages</strong>: Click a page to edit it, add a new page with "Add New Page," reorder with up/down arrows, or delete with the trash icon.</li>
@@ -34,7 +34,7 @@ export default function Page() {
               <li><strong>About Page</strong>: Click Biography, Education, Experience, or Skills to edit those sections. Selecting an About section clears page selections.</li>
               <li><strong>Import/Export</strong>: Import a <code>pages.json</code> file to replace data or export to download and save to local storage.</li>
             </ul>
-          </p>
+          </div>
           <p className="mb-4">
             <strong>Editor Area:</strong> The editor shown depends on your Sidebar selection:
             <ul className="list-disc pl-5">

@@ -336,12 +336,12 @@ export default function EditPage() {
 
   const handleExperienceChange = (index: number, field: string, value: string | string[]) => {
     if (aboutSection === "experience") {
-      const updatedExperience = [...editAboutData]
-      updatedExperience[index] = { ...updatedExperience[index], [field]: value }
-      setEditAboutData(updatedExperience)
-      dispatch(updateExperience(updatedExperience))
+      const updatedExperience = [...editAboutData];
+      updatedExperience[index] = { ...updatedExperience[index], [field]: value };
+      setEditAboutData(updatedExperience);
+      dispatch(updateExperience(updatedExperience));
     }
-  }
+  };
 
   const handleAddExperience = () => {
     if (aboutSection === "experience") {
@@ -350,14 +350,13 @@ export default function EditPage() {
         title: "New Position",
         company: "Company Name",
         period: "Time Period",
-        responsibilities: ["Responsibility 1"],
-      }
-
-      const updatedExperience = [...editAboutData, newExperience]
-      setEditAboutData(updatedExperience)
-      dispatch(addExperience(newExperience))
+        responsibilities: ["Responsibility 1"], // Ensure responsibilities is always an array
+      };
+      const updatedExperience = [...editAboutData, newExperience];
+      setEditAboutData(updatedExperience);
+      dispatch(addExperience(newExperience));
     }
-  }
+  };
 
   const handleRemoveExperience = (index: number) => {
     if (aboutSection === "experience") {
@@ -370,30 +369,45 @@ export default function EditPage() {
 
   const handleAddResponsibility = (expIndex: number) => {
     if (aboutSection === "experience") {
-      const updatedExperience = [...editAboutData]
-      updatedExperience[expIndex].responsibilities.push("New responsibility")
-      setEditAboutData(updatedExperience)
-      dispatch(updateExperience(updatedExperience))
+      const updatedExperience = [...editAboutData];
+      updatedExperience[expIndex] = {
+        ...updatedExperience[expIndex],
+        responsibilities: [...(updatedExperience[expIndex].responsibilities || []), "New responsibility"],
+      };
+      setEditAboutData(updatedExperience);
+      dispatch(updateExperience(updatedExperience));
     }
-  }
+  };
 
   const handleResponsibilityChange = (expIndex: number, respIndex: number, value: string) => {
     if (aboutSection === "experience") {
-      const updatedExperience = [...editAboutData]
-      updatedExperience[expIndex].responsibilities[respIndex] = value
-      setEditAboutData(updatedExperience)
-      dispatch(updateExperience(updatedExperience))
+      const updatedExperience = [...editAboutData];
+      updatedExperience[expIndex] = {
+        ...updatedExperience[expIndex],
+        responsibilities: [
+          ...updatedExperience[expIndex].responsibilities.slice(0, respIndex),
+          value,
+          ...updatedExperience[expIndex].responsibilities.slice(respIndex + 1),
+        ],
+      };
+      setEditAboutData(updatedExperience);
+      dispatch(updateExperience(updatedExperience));
     }
-  }
+  };
 
   const handleRemoveResponsibility = (expIndex: number, respIndex: number) => {
     if (aboutSection === "experience") {
-      const updatedExperience = [...editAboutData]
-      updatedExperience[expIndex].responsibilities.splice(respIndex, 1)
-      setEditAboutData(updatedExperience)
-      dispatch(updateExperience(updatedExperience))
+      const updatedExperience = [...editAboutData];
+      updatedExperience[expIndex] = {
+        ...updatedExperience[expIndex],
+        responsibilities: updatedExperience[expIndex].responsibilities.filter(
+            (_: string, i: number) => i !== respIndex
+        ),
+      };
+      setEditAboutData(updatedExperience);
+      dispatch(updateExperience(updatedExperience));
     }
-  }
+  };
 
   const handleAddNew = (type: "page" | "section" | "project" | "subMedia" | "paragraph") => {
     if (type === "page") {
@@ -453,7 +467,6 @@ export default function EditPage() {
         imageFilename: `/placeholder.svg`,
         projectTitle: "New Project",
         projectSubtitle: "New Project Subtitle",
-        imageName: "New Project Image",
         projectParagraphs: [],
         subMedia: [],
         featured: false,
@@ -942,11 +955,16 @@ export default function EditPage() {
                         placeholder="Enter full URL or path to image"
                       />
                       <p className="text-xs text-gray-500 mt-1">
-                        Recommended path: /images/{selectedPageId}/{selectedProjectId}/cover.png
+                        Recommended name: cover.png
                       </p>
-                      <p className="text-xs text-gray-500 mt-1 bg-gray-100 p-2 rounded font-mono">
-                        /ryleighleon-portfolio/public/images/{selectedPageId}/{selectedProjectId}/cover.png
-                      </p>
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Save the image file at this path to ensure it displays correctly:
+                        </label>
+                        <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
+                          {`/ryleighleon-portfolio/public/media/files/${selectedPageId}/${selectedProjectId}/${editData.imageFilename || ""}`}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex items-center">
                       <input
@@ -984,8 +1002,8 @@ export default function EditPage() {
 
                                 dispatch(
                                   updateProject({
-                                    pageUid: selectedPageId,
-                                    sectionUid: selectedSectionId,
+                                    pageUid: selectedPageId!,
+                                    sectionUid: selectedSectionId!,
                                     project: updatedProject,
                                   }),
                                 )
@@ -1010,8 +1028,8 @@ export default function EditPage() {
 
                                 dispatch(
                                   updateProject({
-                                    pageUid: selectedPageId,
-                                    sectionUid: selectedSectionId,
+                                    pageUid: selectedPageId!,
+                                    sectionUid: selectedSectionId!,
                                     project: updatedProject,
                                   }),
                                 )
@@ -1046,9 +1064,9 @@ export default function EditPage() {
 
                           dispatch(
                             updateSubMedia({
-                              pageUid: selectedPageId,
-                              sectionUid: selectedSectionId,
-                              projectUid: selectedProjectId,
+                              pageUid: selectedPageId!,
+                              sectionUid: selectedSectionId!,
+                              projectUid: selectedProjectId!,
                               subMedia: updated,
                             }),
                           )
@@ -1071,9 +1089,9 @@ export default function EditPage() {
 
                           dispatch(
                             updateSubMedia({
-                              pageUid: selectedPageId,
-                              sectionUid: selectedSectionId,
-                              projectUid: selectedProjectId,
+                              pageUid: selectedPageId!,
+                              sectionUid: selectedSectionId!,
+                              projectUid: selectedProjectId!,
                               subMedia: updated,
                             }),
                           )
@@ -1105,14 +1123,14 @@ export default function EditPage() {
                         className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                         placeholder="Enter full URL or path to media"
                       />
-                      <p className="text-xs text-gray-500 mt-1">
-                        Standard path: /images/{selectedPageId}/{selectedProjectId}/{editData.subMediaUid}.png or use a
-                        full URL
-                      </p>
-                      <p className="text-xs text-gray-500 mt-1 bg-gray-100 p-2 rounded font-mono">
-                        /ryleighleon-portfolio/public/images/{selectedPageId}/{selectedProjectId}/{editData.subMediaUid}
-                        .png
-                      </p>
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Save the image file at this path to ensure it displays correctly:
+                        </label>
+                        <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
+                          {`/ryleighleon-portfolio/public/media/files/${selectedPageId}/${selectedProjectId}/${editData.mediaFilename}`}
+                        </p>
+                      </div>
                     </div>
                   </>
                 )}
@@ -1140,7 +1158,7 @@ export default function EditPage() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4">Edit Education</h2>
 
-              {editAboutData?.map((edu: any, index: number) => (
+              {Array.isArray(editAboutData) && editAboutData?.map((edu: any, index: number) => (
                 <div key={edu.id} className="mb-6 p-4 border rounded">
                   <div className="mb-3">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Degree</label>
@@ -1188,88 +1206,89 @@ export default function EditPage() {
           )}
 
           {aboutSection === "experience" && (
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4">Edit Experience</h2>
-
-              {editAboutData?.map((exp: any, index: number) => (
-                <div key={exp.id} className="mb-6 p-4 border rounded">
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                    <input
-                      type="text"
-                      value={exp.title || ""}
-                      onChange={(e) => handleExperienceChange(index, "title", e.target.value)}
-                      className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
-                    <input
-                      type="text"
-                      value={exp.company || ""}
-                      onChange={(e) => handleExperienceChange(index, "company", e.target.value)}
-                      className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Period</label>
-                    <input
-                      type="text"
-                      value={exp.period || ""}
-                      onChange={(e) => handleExperienceChange(index, "period", e.target.value)}
-                      className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Responsibilities</label>
-                    {exp.responsibilities?.map((resp: string, respIndex: number) => (
-                      <div key={respIndex} className="flex mb-2">
-                        <input
-                          type="text"
-                          value={resp}
-                          onChange={(e) => handleResponsibilityChange(index, respIndex, e.target.value)}
-                          className="flex-1 p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                        />
-                        <button
-                          onClick={() => handleRemoveResponsibility(index, respIndex)}
-                          className="ml-2 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    ))}
-                    <button
-                      onClick={() => handleAddResponsibility(index)}
-                      className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
-                    >
-                      Add Responsibility
-                    </button>
-                  </div>
-
-                  <button
-                    onClick={() => handleRemoveExperience(index)}
-                    className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
-                  >
-                    Remove Experience
-                  </button>
-                </div>
-              ))}
-
-              <button
-                onClick={handleAddExperience}
-                className="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-              >
-                Add Experience
-              </button>
-            </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-4">Edit Experience</h2>
+                {/* Add safeguard to ensure editAboutData is ready */}
+                {!editAboutData ? (
+                    <Loading />
+                ) : (
+                    Array.isArray(editAboutData) && editAboutData?.map((exp: any, index: number) => (
+                        <div key={exp.id} className="mb-6 p-4 border rounded">
+                          <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                            <input
+                                type="text"
+                                value={exp.title || ""}
+                                onChange={(e) => handleExperienceChange(index, "title", e.target.value)}
+                                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                            />
+                          </div>
+                          <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                            <input
+                                type="text"
+                                value={exp.company || ""}
+                                onChange={(e) => handleExperienceChange(index, "company", e.target.value)}
+                                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                            />
+                          </div>
+                          <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Period</label>
+                            <input
+                                type="text"
+                                value={exp.period || ""}
+                                onChange={(e) => handleExperienceChange(index, "period", e.target.value)}
+                                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                            />
+                          </div>
+                          <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Responsibilities</label>
+                            {(exp.responsibilities || []).map((resp: string, respIndex: number) => (
+                                <div key={respIndex} className="flex mb-2">
+                                  <input
+                                      type="text"
+                                      value={resp || ""}
+                                      onChange={(e) => handleResponsibilityChange(index, respIndex, e.target.value)}
+                                      className="flex-1 p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                                  />
+                                  <button
+                                      onClick={() => handleRemoveResponsibility(index, respIndex)}
+                                      className="ml-2 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                            ))}
+                            <button
+                                onClick={() => handleAddResponsibility(index)}
+                                className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                            >
+                              Add Responsibility
+                            </button>
+                          </div>
+                          <button
+                              onClick={() => handleRemoveExperience(index)}
+                              className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                          >
+                            Remove Experience
+                          </button>
+                        </div>
+                    ))
+                )}
+                <button
+                    onClick={handleAddExperience}
+                    className="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  Add Experience
+                </button>
+              </div>
           )}
 
           {aboutSection === "skills" && (
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4">Edit Skills</h2>
 
-              {editAboutData?.map((skill: string, index: number) => (
+              {Array.isArray(editAboutData) && editAboutData?.map((skill: string, index: number) => (
                 <div key={index} className="flex mb-2">
                   <input
                     type="text"

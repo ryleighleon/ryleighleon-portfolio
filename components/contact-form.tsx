@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import Image from "next/image"
+import {getIconUrl} from "@/lib/utils/image-paths";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ export function ContactForm() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <Image src="/images/linkedin.png" alt="LinkedIn" width={24} height={24} />
+            <Image src={getIconUrl('LinkedInBlack.png')} alt="LinkedIn" width={24} height={24} />
           </a>
           <a
             href="https://www.instagram.com/ryleighleon.design"
@@ -57,7 +58,7 @@ export function ContactForm() {
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <Image src="/images/instagram.png" alt="Instagram" width={24} height={24} />
+            <Image src={getIconUrl('InstagramBlack.png')} alt="Instagram" width={24} height={24} />
           </a>
         </div>
       </div>

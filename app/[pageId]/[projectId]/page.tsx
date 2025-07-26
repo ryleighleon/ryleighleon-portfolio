@@ -140,7 +140,7 @@ export default function ProjectDetail() {
       <section className="relative h-[70vh] bg-gray-900">
         <div className="absolute inset-0">
           <Image
-            src={currentProject.imageFilename || "/placeholder.svg"}
+            src={`/media/files/${pageId}/${projectId}/${currentProject.imageFilename}`}
             alt={currentProject.projectTitle || "Project"}
             fill
             className="object-cover"
@@ -164,25 +164,6 @@ export default function ProjectDetail() {
             {currentProject.projectSubtitle && (
               <h2 className="text-xl md:text-2xl text-white/80 mb-6">{currentProject.projectSubtitle}</h2>
             )}
-
-            <div className="flex flex-wrap gap-6 text-white/70 text-sm">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{new Date().getFullYear()}</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 hover:text-white transition-colors">
-                  <Share2 className="w-4 h-4" />
-                  <span className="hidden sm:inline">Share</span>
-                </button>
-
-                <button className="flex items-center gap-2 hover:text-white transition-colors">
-                  <Bookmark className="w-4 h-4" />
-                  <span className="hidden sm:inline">Save</span>
-                </button>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -205,39 +186,6 @@ export default function ProjectDetail() {
                   <p className="text-gray-700 leading-relaxed">{paragraph.paragraphText}</p>
                 </motion.div>
               ))}
-          </div>
-
-          <div className="lg:col-span-1">
-            <div className="bg-gray-50 p-6 rounded-xl sticky top-24">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Project Details</h3>
-
-              <div className="space-y-4">
-                {projectSection && (
-                  <div>
-                    <p className="text-sm text-gray-500">Category</p>
-                    <p className="font-medium text-gray-900">{projectSection.title}</p>
-                  </div>
-                )}
-
-                {currentProject.projectTags && currentProject.projectTags.length > 0 && (
-                  <div>
-                    <p className="text-sm text-gray-500">Tags</p>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {currentProject.projectTags.map((tag: string) => (
-                        <span key={tag} className="text-xs px-3 py-1 bg-gray-200 rounded-full text-gray-800">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div>
-                  <p className="text-sm text-gray-500">Date</p>
-                  <p className="font-medium text-gray-900">{new Date().getFullYear()}</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -268,7 +216,7 @@ export default function ProjectDetail() {
                   onClick={() => openMedia(media, index)}
                 >
                   <Image
-                    src={media.mediaFilename || "/placeholder.svg"}
+                    src={`/media/files/${pageId}/${projectId}/${media.mediaFilename}`}
                     alt={media.mediaDescription || currentProject.projectTitle}
                     fill
                     className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -312,7 +260,7 @@ export default function ProjectDetail() {
                     <div className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full">
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <Image
-                          src={project.imageFilename || "/placeholder.svg"}
+                          src={`/media/files/${pageId}/${projectId}/${project.imageFilename}`}
                           alt={project.projectTitle || "Project"}
                           fill
                           className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -375,7 +323,7 @@ export default function ProjectDetail() {
               {selectedMedia.mediaType === "Image" && (
                 <div className="relative h-full flex items-center justify-center">
                   <Image
-                    src={selectedMedia.mediaFilename || "/placeholder.svg"}
+                    src={`/media/files/${pageId}/${projectId}/${selectedMedia.mediaFilename}`}
                     alt={selectedMedia.mediaDescription || ""}
                     width={1200}
                     height={800}

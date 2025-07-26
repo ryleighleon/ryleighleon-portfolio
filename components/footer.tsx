@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import {getIconUrl} from "@/lib/utils/image-paths";
 
 export function Footer() {
   return (
@@ -20,7 +21,7 @@ export function Footer() {
             aria-label="LinkedIn"
             className="flex items-center"
           >
-            <Image src="/images/linkedin.png" alt="LinkedIn" width={24} height={24} />
+            <Image src={getIconUrl('LinkedInBlack.png')} alt="LinkedIn" width={24} height={24} />
           </Link>
           <Link
             href="https://www.instagram.com/ryleighleon.design"
@@ -28,7 +29,7 @@ export function Footer() {
             aria-label="Instagram"
             className="flex items-center"
           >
-            <Image src="/images/instagram.png" alt="Instagram" width={24} height={24} />
+            <Image src={getIconUrl('InstagramBlack.png')} alt="Instagram" width={24} height={24} />
           </Link>
         </div>
         <div className="text-sm text-gray-500">&copy;{new Date().getFullYear()} by Ryleigh Leon</div>

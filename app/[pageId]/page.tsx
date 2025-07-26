@@ -135,7 +135,7 @@ export default function PageDetail() {
                           <div className="relative overflow-hidden">
                             <div className="relative aspect-[16/10] overflow-hidden">
                               <Image
-                                src={project.imageFilename || "/placeholder.svg"}
+                                src={`/media/files/${pageId}/${project.uid}/${project.imageFilename}` || "/placeholder.svg"}
                                 alt={project.projectTitle || "Project"}
                                 fill
                                 className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -146,20 +146,6 @@ export default function PageDetail() {
                               {/* Hover overlay */}
                               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-white">
                                 {project.projectSubtitle && <p className="text-lg mb-2">{project.projectSubtitle}</p>}
-                                {project.projectDescription && (
-                                  <p className="text-sm text-white/80 text-center line-clamp-4">
-                                    {project.projectDescription}
-                                  </p>
-                                )}
-                                {project.projectTags && project.projectTags.length > 0 && (
-                                  <div className="flex flex-wrap justify-center gap-2 mt-4">
-                                    {project.projectTags.map((tag) => (
-                                      <span key={tag} className="text-xs px-2 py-1 bg-white/20 rounded-full">
-                                        {tag}
-                                      </span>
-                                    ))}
-                                  </div>
-                                )}
                               </div>
                             </div>
                           </div>

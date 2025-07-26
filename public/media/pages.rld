@@ -10,7 +10,7 @@
           "description": "",
           "projects": [
             {
-              "mainImageFilename": "Target Banner Ad MU.png",
+              "imageFilename": "Target1.png",
               "projectTitle": "Target",
               "projectSubtitle": "Art Direction",
               "imageName": "",
@@ -22,7 +22,7 @@
                 },
                 {
                   "paragraphTitle": "Process: ",
-                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer’s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
+                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer\u2019s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
                   "paragraphUid": "pvx9q"
                 },
                 {
@@ -45,11 +45,11 @@
                   "mediaDescription": "Digital banner ad for website"
                 }
               ],
-              "uid": "nizd",
+              "uid": "target",
               "thumbnailImageFilename": "TargetTN_1.png"
             },
             {
-              "mainImageFilename": "Ink and Drink.png",
+              "imageFilename": "Ink and Drink.png",
               "projectTitle": "Hamilton Wood Type & Printing",
               "projectSubtitle": "Internship",
               "imageName": "",
@@ -97,11 +97,11 @@
                   "subMediaUid": "7ccqxm"
                 }
               ],
-              "uid": "l1t083",
+              "uid": "hamilton_wood_type_printing",
               "thumbnailImageFilename": "HWT_InternshipTN_1.png"
             },
             {
-              "mainImageFilename": "AD3.png",
+              "imageFilename": "AD3.png",
               "projectTitle": "Simply Lemonade",
               "projectSubtitle": "Advertising",
               "imageName": "",
@@ -140,18 +140,18 @@
                   "subMediaUid": "n15uuk"
                 }
               ],
-              "uid": "cs3r3i",
+              "uid": "simply_lemonade",
               "thumbnailImageFilename": "SimplyTN_2.png"
             },
             {
-              "mainImageFilename": "Social.png",
+              "imageFilename": "Social.png",
               "projectTitle": "Wonder Fair",
               "projectSubtitle": "Branding",
               "imageName": "",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
-                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn’t accurately align with their business.",
+                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn\u2019t accurately align with their business.",
                   "paragraphUid": "g34x1"
                 },
                 {
@@ -232,11 +232,11 @@
                   "subMediaUid": "waib48"
                 }
               ],
-              "uid": "uq3tow",
+              "uid": "wonder_fair",
               "thumbnailImageFilename": "WonderFairTN1.png"
             },
             {
-              "mainImageFilename": "",
+              "imageFilename": "",
               "projectTitle": "Rockabilly Chili",
               "projectSubtitle": "",
               "imageName": "",
@@ -289,7 +289,7 @@
                   "subMediaUid": "ltzm07"
                 }
               ],
-              "uid": "nlijn",
+              "uid": "rockabilly_chili",
               "thumbnailImageFilename": "RockabillyChiliTN1.png"
             }
           ],
@@ -309,7 +309,7 @@
           "description": "",
           "projects": [
             {
-              "mainImageFilename": "SPDletterssticker.png",
+              "imageFilename": "SPDletterssticker.png",
               "projectTitle": "Stickers",
               "projectSubtitle": "",
               "imageName": "",
@@ -332,11 +332,11 @@
                   "subMediaUid": "ptvll3"
                 }
               ],
-              "uid": "mr3pn",
+              "uid": "stickers",
               "thumbnailImageFilename": "SPD_Sticker_1.png"
             },
             {
-              "mainImageFilename": "",
+              "imageFilename": "",
               "projectTitle": "Coozie",
               "projectSubtitle": "",
               "imageName": "",
@@ -364,11 +364,11 @@
                   "subMediaUid": "pnsjq"
                 }
               ],
-              "uid": "7qtzuk",
+              "uid": "coozie",
               "thumbnailImageFilename": "SPDCoozie1.png"
             }
           ],
-          "uid": "457dyp"
+          "uid": "sigma_phi_delta"
         }
       ]
     },
@@ -382,7 +382,7 @@
           "description": "The Hamilton Wood Type & Printing Museum is in Two Rivers, WI. They have over 1.5 million pieces of wood type in their collection. Hamilton is a 501(c)3 nonprofit arts and educational organization. They are passionate about teaching people about typography and the history of American printing. Hamilton has a gallery space in the museum and offers tours, workshops, and a store with prints and type to buy.",
           "projects": [
             {
-              "mainImageFilename": "",
+              "imageFilename": "",
               "projectTitle": "Graphic Design Intern Projects",
               "projectSubtitle": "",
               "imageName": "",
@@ -409,7 +409,7 @@
                   "subMediaUid": "hbuqg5"
                 }
               ],
-              "uid": "mpeuq",
+              "uid": "graphic_design_intern_projects",
               "thumbnailImageFilename": "HWT_Internship_1.png"
             },
             {
@@ -465,7 +465,7 @@
                   "subMediaUid": "u2bcpc"
                 }
               ],
-              "uid": "vamxec"
+              "uid": "really_big_prints"
             },
             {
               "thumbnailImageFilename": "Ocean is Calling_9.png",
@@ -520,7 +520,7 @@
                   "subMediaUid": "h5bc9j"
                 }
               ],
-              "uid": "otfxpc"
+              "uid": "the_ocean_is_calling"
             },
             {
               "thumbnailImageFilename": "Experimental Type_3.png",
@@ -545,10 +545,10 @@
                   "subMediaUid": "udvq4a"
                 }
               ],
-              "uid": "3g7uj"
+              "uid": "experimental_type"
             }
           ],
-          "uid": "3baj45"
+          "uid": "hamilton_wood_type_printing_museum"
         }
       ],
       "bottomTitle": "",
@@ -576,10 +576,10 @@
                   "subMediaUid": "f5m2ci"
                 }
               ],
-              "uid": "or9its"
+              "uid": "what_s_your_type"
             }
           ],
-          "uid": "2nuzji"
+          "uid": "first_year"
         },
         {
           "title": "Second Year",
@@ -604,7 +604,7 @@
                   "subMediaUid": "wmrnr4q"
                 }
               ],
-              "uid": "h70hi"
+              "uid": "hand_rendered_type"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_12.png",
@@ -624,7 +624,7 @@
                   "subMediaUid": "zjzbk"
                 }
               ],
-              "uid": "2wvhlc"
+              "uid": "photography"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_8.png",
@@ -649,7 +649,7 @@
                   "subMediaUid": "5pwsc3"
                 }
               ],
-              "uid": "k3zll"
+              "uid": "poster_design"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_11.png",
@@ -669,7 +669,7 @@
                   "subMediaUid": "f3351"
                 }
               ],
-              "uid": "oiubft"
+              "uid": "icons"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_6.png",
@@ -689,7 +689,7 @@
                   "subMediaUid": "rqkdrp"
                 }
               ],
-              "uid": "s9hs04"
+              "uid": "monogram"
             },
             {
               "thumbnailImageFilename": "MIAD_Y2_1.png",
@@ -709,10 +709,10 @@
                   "subMediaUid": "orih1d"
                 }
               ],
-              "uid": "0pwjj9"
+              "uid": "fall_pattern_design"
             }
           ],
-          "uid": "zzrdc8"
+          "uid": "second_year"
         },
         {
           "title": "Third Year",
@@ -737,7 +737,7 @@
                   "subMediaUid": "dxexo8"
                 }
               ],
-              "uid": "8hp6ux"
+              "uid": "album_redesign"
             },
             {
               "thumbnailImageFilename": "MIAD_Y3_5.png",
@@ -772,10 +772,10 @@
                   "subMediaUid": "f4dahh"
                 }
               ],
-              "uid": "mfmux"
+              "uid": "infographic"
             }
           ],
-          "uid": "dj3mxc"
+          "uid": "third_year"
         }
       ]
     }

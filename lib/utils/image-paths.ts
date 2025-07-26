@@ -6,7 +6,6 @@ export function getPersonalPictureUrl(iconName: string): string {
   return `/media/files/personal_pictures/${iconName}`
 }
 
-
 /**
  * Validates and formats a UID string
  * Only allows lowercase letters, numbers, and hyphens

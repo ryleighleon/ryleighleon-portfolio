@@ -1,4 +1,6 @@
 import { createSlice, type PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
+import fs from "fs"
+import path from "path"
 
 export interface AboutState {
   bio: string
@@ -73,35 +75,47 @@ const initialState: AboutState = {
 
 export const fetchAboutData = createAsyncThunk("about/fetchAboutData", async () => {
   try {
-    // Try to fetch from public file first
-    const response = await fetch('/media/pages.rld');
-    if (response.ok) {
-      const data = await response.json();
-      if (data.about) {
-        return data.about;
+    // Check if in static build environment
+    if (process.env.STATIC_BUILD) {
+      const filePath = path.join(process.cwd(), "public", "media", "pages.rld")
+      if (fs.existsSync(filePath)) {
+        const fileData = fs.readFileSync(filePath, "utf-8")
+        const data = JSON.parse(fileData)
+        if (data.about) {
+          return data.about
+        }
+      }
+    } else {
+      // Try to fetch from public URL first
+      const response = await fetch('/media/pages.rld')
+      if (response.ok) {
+        const data = await response.json()
+        if (data.about) {
+          return data.about
+        }
       }
     }
 
-    // Fallback to localStorage if fetch fails or no about data
-    const storedData = localStorage.getItem("pages.rld");
+    // Fallback to localStorage if fetch/file read fails or no about data
+    const storedData = localStorage.getItem("pages.rld")
     if (storedData) {
       try {
-        const parsedData = JSON.parse(storedData);
+        const parsedData = JSON.parse(storedData)
         if (parsedData.about) {
-          return parsedData.about;
+          return parsedData.about
         }
       } catch (e) {
-        console.error("Error parsing localStorage data:", e);
+        console.error("Error parsing localStorage data:", e)
       }
     }
 
     // If both fail, return default data
-    return defaultAboutData;
+    return defaultAboutData
   } catch (error) {
-    console.error("Error fetching about data:", error);
-    return defaultAboutData;
+    console.error("Error fetching about data:", error)
+    return defaultAboutData
   }
-});
+})
 
 export const aboutSlice = createSlice({
   name: "about",
@@ -200,5 +214,5 @@ export const aboutSlice = createSlice({
 })
 
 export const { updateBio, updateEducation, addEducation, updateExperience, addExperience, updateSkills, setAboutData } =
-  aboutSlice.actions
+    aboutSlice.actions
 export default aboutSlice.reducer

@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit"
 import type { Page, PagesState } from "@/types"
+import fs from "fs"
+import path from "path"
 
 // Initial state with loading status
 const initialState: PagesState & {
@@ -35,7 +37,7 @@ const defaultPagesData = [
           {
             uid: "target",
             thumbnailImageFilename:
-              "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
+                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
             projectTitle: "Target",
             projectSubtitle: "Art Direction",
             imageName: "Target Mondo Llama",
@@ -43,14 +45,14 @@ const defaultPagesData = [
               {
                 paragraphTitle: "The Project",
                 paragraphText:
-                  "Target is launching a new Mondo Llama product of paint and paintbrushes. They want a physical and a digital banner ad for the new product. A professional photographer will photograph the concept. You will direct them based on your sketches, mood board, and layout concepts to communicate your vision to the photographer. Both ads need to include: Target logo, Target Visual Identity Headline and copy Photography of product Item name + price",
+                    "Target is launching a new Mondo Llama product of paint and paintbrushes. They want a physical and a digital banner ad for the new product. A professional photographer will photograph the concept. You will direct them based on your sketches, mood board, and layout concepts to communicate your vision to the photographer. Both ads need to include: Target logo, Target Visual Identity Headline and copy Photography of product Item name + price",
                 paragraphUid: "target-p1",
               },
             ],
             subMedia: [
               {
                 mediaFilename:
-                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.38%E2%80%AFPM-V1loYoe95T1bnYGnG0OOkHU3VgN5De.png",
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.38%E2%80%AFPM-V1loYoe95T1bnYGnG0OOkHU3VgN5De.png",
                 mediaType: "Image",
                 mediaOrientation: "Vertical",
                 mediaDescription: "Print ad for magazine spread",
@@ -79,17 +81,30 @@ export const fetchPages = createAsyncThunk("pages/fetchPages", async (_, { getSt
   }
 
   try {
-    // Try to fetch from public file first
-    const response = await fetch("/media/pages.rld")
-    if (response.ok) {
-      const data = await response.json()
-      if (data.pages) {
-        console.log("pages loaded successfully")
-        return data.pages
+    // Check if in static build environment
+    if (process.env.STATIC_BUILD) {
+      const filePath = path.join(process.cwd(), "public", "media", "pages.rld")
+      if (fs.existsSync(filePath)) {
+        const fileData = fs.readFileSync(filePath, "utf-8")
+        const data = JSON.parse(fileData)
+        if (data.pages) {
+          console.log("pages loaded successfully")
+          return data.pages
+        }
+      }
+    } else {
+      // Try to fetch from public URL first
+      const response = await fetch("/media/pages.rld")
+      if (response.ok) {
+        const data = await response.json()
+        if (data.pages) {
+          console.log("pages loaded successfully")
+          return data.pages
+        }
       }
     }
 
-    // Fallback to localStorage if fetch fails or no pages data
+    // Fallback to localStorage if fetch/file read fails or no pages data
     const storedData = localStorage.getItem("pages.rld")
     if (storedData) {
       try {
@@ -157,7 +172,7 @@ export const pagesSlice = createSlice({
 
         if (sectionIndex !== -1) {
           const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
-            (p) => p.uid === project.uid,
+              (p) => p.uid === project.uid,
           )
 
           if (projectIndex !== -1) {
@@ -172,13 +187,13 @@ export const pagesSlice = createSlice({
       }
     },
     updateSubMedia: (
-      state,
-      action: PayloadAction<{
-        pageUid: string
-        sectionUid: string
-        projectUid: string
-        subMedia: any
-      }>,
+        state,
+        action: PayloadAction<{
+          pageUid: string
+          sectionUid: string
+          projectUid: string
+          subMedia: any
+        }>,
     ) => {
       const { pageUid, sectionUid, projectUid, subMedia } = action.payload
       const pageIndex = state.pages.findIndex((page) => page.uid === pageUid)
@@ -188,17 +203,17 @@ export const pagesSlice = createSlice({
 
         if (sectionIndex !== -1) {
           const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
-            (p) => p.uid === projectUid,
+              (p) => p.uid === projectUid,
           )
 
           if (projectIndex !== -1) {
             const subMediaIndex = state.pages[pageIndex].projectSections[sectionIndex].projects[
-              projectIndex
-            ].subMedia.findIndex((sm) => sm.subMediaUid === subMedia.subMediaUid)
+                projectIndex
+                ].subMedia.findIndex((sm) => sm.subMediaUid === subMedia.subMediaUid)
 
             if (subMediaIndex !== -1) {
               state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex].subMedia[subMediaIndex] =
-                subMedia
+                  subMedia
             } else {
               state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex].subMedia.push(subMedia)
             }
@@ -210,13 +225,13 @@ export const pagesSlice = createSlice({
       }
     },
     addParagraphToProject: (
-      state,
-      action: PayloadAction<{
-        pageUid: string
-        sectionUid: string
-        projectUid: string
-        paragraph: any
-      }>,
+        state,
+        action: PayloadAction<{
+          pageUid: string
+          sectionUid: string
+          projectUid: string
+          paragraph: any
+        }>,
     ) => {
       const { pageUid, sectionUid, projectUid, paragraph } = action.payload
       const pageIndex = state.pages.findIndex((page) => page.uid === pageUid)
@@ -226,7 +241,7 @@ export const pagesSlice = createSlice({
 
         if (sectionIndex !== -1) {
           const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
-            (p) => p.uid === projectUid,
+              (p) => p.uid === projectUid,
           )
 
           if (projectIndex !== -1) {
@@ -235,7 +250,7 @@ export const pagesSlice = createSlice({
             }
 
             state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex].projectParagraphs.push(
-              paragraph,
+                paragraph,
             )
 
             // Update localStorage
@@ -245,13 +260,13 @@ export const pagesSlice = createSlice({
       }
     },
     moveItemUp: (
-      state,
-      action: PayloadAction<{
-        type: "page" | "section" | "project"
-        pageUid?: string
-        sectionUid?: string
-        itemUid: string
-      }>,
+        state,
+        action: PayloadAction<{
+          type: "page" | "section" | "project"
+          pageUid?: string
+          sectionUid?: string
+          itemUid: string
+        }>,
     ) => {
       const { type, pageUid, sectionUid, itemUid } = action.payload
 
@@ -284,7 +299,7 @@ export const pagesSlice = createSlice({
           const sectionIndex = state.pages[pageIndex].projectSections.findIndex((section) => section.uid === sectionUid)
           if (sectionIndex !== -1) {
             const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
-              (project) => project.uid === itemUid,
+                (project) => project.uid === itemUid,
             )
             if (projectIndex > 0) {
               // Swap with the previous item
@@ -302,13 +317,13 @@ export const pagesSlice = createSlice({
       }
     },
     moveItemDown: (
-      state,
-      action: PayloadAction<{
-        type: "page" | "section" | "project"
-        pageUid?: string
-        sectionUid?: string
-        itemUid: string
-      }>,
+        state,
+        action: PayloadAction<{
+          type: "page" | "section" | "project"
+          pageUid?: string
+          sectionUid?: string
+          itemUid: string
+        }>,
     ) => {
       const { type, pageUid, sectionUid, itemUid } = action.payload
 
@@ -341,7 +356,7 @@ export const pagesSlice = createSlice({
           const sectionIndex = state.pages[pageIndex].projectSections.findIndex((section) => section.uid === sectionUid)
           if (sectionIndex !== -1) {
             const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
-              (project) => project.uid === itemUid,
+                (project) => project.uid === itemUid,
             )
             if (projectIndex < state.pages[pageIndex].projectSections[sectionIndex].projects.length - 1) {
               // Swap with the next item
@@ -361,18 +376,18 @@ export const pagesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPages.pending, (state) => {
-        state.status = "loading"
-      })
-      .addCase(fetchPages.fulfilled, (state, action) => {
-        state.status = "succeeded"
-        state.pages = action.payload
-        state.initialized = true
-      })
-      .addCase(fetchPages.rejected, (state, action) => {
-        state.status = "failed"
-        state.error = action.error.message || "Failed to fetch pages"
-      })
+        .addCase(fetchPages.pending, (state) => {
+          state.status = "loading"
+        })
+        .addCase(fetchPages.fulfilled, (state, action) => {
+          state.status = "succeeded"
+          state.pages = action.payload
+          state.initialized = true
+        })
+        .addCase(fetchPages.rejected, (state, action) => {
+          state.status = "failed"
+          state.error = action.error.message || "Failed to fetch pages"
+        })
   },
 })
 

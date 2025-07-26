@@ -1,6 +1,4 @@
 import { createSlice, type PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
-import fs from "fs"
-import path from "path"
 
 export interface AboutState {
   bio: string
@@ -74,29 +72,22 @@ const initialState: AboutState = {
 }
 
 export const fetchAboutData = createAsyncThunk("about/fetchAboutData", async () => {
+  // For static builds, return empty initial state
+  if (process.env.STATIC_BUILD) {
+    return initialState
+  }
+
   try {
-    // Check if in static build environment
-    if (process.env.STATIC_BUILD) {
-      const filePath = path.join(process.cwd(), "public", "media", "pages.rld")
-      if (fs.existsSync(filePath)) {
-        const fileData = fs.readFileSync(filePath, "utf-8")
-        const data = JSON.parse(fileData)
-        if (data.about) {
-          return data.about
-        }
-      }
-    } else {
-      // Try to fetch from public URL first
-      const response = await fetch('/media/pages.rld')
-      if (response.ok) {
-        const data = await response.json()
-        if (data.about) {
-          return data.about
-        }
+    // Try to fetch from public URL
+    const response = await fetch('/media/pages.rld')
+    if (response.ok) {
+      const data = await response.json()
+      if (data.about) {
+        return data.about
       }
     }
 
-    // Fallback to localStorage if fetch/file read fails or no about data
+    // Fallback to localStorage if fetch fails or no about data
     const storedData = localStorage.getItem("pages.rld")
     if (storedData) {
       try {

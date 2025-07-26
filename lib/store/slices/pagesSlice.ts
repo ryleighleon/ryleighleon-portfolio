@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit"
 import type { Page, PagesState } from "@/types"
-import fs from "fs"
-import path from "path"
 
 // Initial state with loading status
 const initialState: PagesState & {
@@ -80,31 +78,23 @@ export const fetchPages = createAsyncThunk("pages/fetchPages", async (_, { getSt
     return (getState() as { pages: { pages: Page[] } }).pages.pages
   }
 
+  // For static builds, return empty initial state
+  if (process.env.STATIC_BUILD) {
+    return initialState.pages
+  }
+
   try {
-    // Check if in static build environment
-    if (process.env.STATIC_BUILD) {
-      const filePath = path.join(process.cwd(), "public", "media", "pages.rld")
-      if (fs.existsSync(filePath)) {
-        const fileData = fs.readFileSync(filePath, "utf-8")
-        const data = JSON.parse(fileData)
-        if (data.pages) {
-          console.log("pages loaded successfully")
-          return data.pages
-        }
-      }
-    } else {
-      // Try to fetch from public URL first
-      const response = await fetch("/media/pages.rld")
-      if (response.ok) {
-        const data = await response.json()
-        if (data.pages) {
-          console.log("pages loaded successfully")
-          return data.pages
-        }
+    // Try to fetch from public URL
+    const response = await fetch("/media/pages.rld")
+    if (response.ok) {
+      const data = await response.json()
+      if (data.pages) {
+        console.log("pages loaded successfully")
+        return data.pages
       }
     }
 
-    // Fallback to localStorage if fetch/file read fails or no pages data
+    // Fallback to localStorage if fetch fails or no pages data
     const storedData = localStorage.getItem("pages.rld")
     if (storedData) {
       try {

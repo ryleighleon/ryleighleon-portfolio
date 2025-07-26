@@ -78,8 +78,8 @@ export const fetchPages = createAsyncThunk("pages/fetchPages", async (_, { getSt
     return (getState() as { pages: { pages: Page[] } }).pages.pages
   }
 
-  // For static builds, return empty initial state
-  if (process.env.STATIC_BUILD) {
+  // During static build (NODE_ENV=production and no window), return empty initial state
+  if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
     return initialState.pages
   }
 

@@ -72,8 +72,8 @@ const initialState: AboutState = {
 }
 
 export const fetchAboutData = createAsyncThunk("about/fetchAboutData", async () => {
-  // For static builds, return empty initial state
-  if (process.env.STATIC_BUILD) {
+  // During static build (NODE_ENV=production and no window), return empty initial state
+  if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
     return initialState
   }
 

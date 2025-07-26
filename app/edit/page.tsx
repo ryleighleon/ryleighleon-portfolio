@@ -35,7 +35,7 @@ export default function Page() {
               <li><strong>Import/Export</strong>: Import a <code>pages.json</code> file to replace data or export to download and save to local storage.</li>
             </ul>
           </div>
-          <p className="mb-4">
+          <div className="mb-4">
             <strong>Editor Area:</strong> The editor shown depends on your Sidebar selection:
             <ul className="list-disc pl-5">
               <li><strong>Page Editor</strong>: Edit page titles.</li>
@@ -44,8 +44,8 @@ export default function Page() {
               <li><strong>SubMedia Editor</strong>: Edit media file path, type, orientation, and description.</li>
               <li><strong>About Editor</strong>: Edit bio (text), education (add/edit/remove entries), experience (add/edit/remove entries and responsibilities), or skills (add/edit/remove entries).</li>
             </ul>
-          </p>
-          <p className="mb-4">
+          </div>
+          <div className="mb-4">
             <strong>Images:</strong> Images are stored in <code>ryleighleon-portfolio/public/media/files/personal_pictures</code>:
             <ul className="list-disc pl-5">
               <li><code>about_pic.jpg</code>: Displayed on the About page.</li>
@@ -53,7 +53,7 @@ export default function Page() {
               <li><code>home_small.jpg</code>: Small image on the home page.</li>
             </ul>
             When editing projects or sub-media, ensure image paths point to this directory or upload new images here.
-          </p>
+          </div>
           <p>
             <strong>Tips:</strong> Always select an item in the Sidebar before editing. Adding a new page clears section/project/media selections; adding a section clears project/media selections; adding a project clears media selections. Confirm deletions to avoid accidental data loss. Export data regularly for backups. If no editor appears, select an item in the Sidebar. For import issues, ensure the <code>pages.json</code> file matches the expected format.
           </p>

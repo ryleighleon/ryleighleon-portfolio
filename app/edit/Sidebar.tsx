@@ -33,14 +33,18 @@ export default function Sidebar() {
   const handlePageSelect = (pageId: string) => {
     dispatch(setSelectedPageId(pageId))
     dispatch(setSelectedAboutSection(null))
+    dispatch(setSelectedProjectId(null))
+    dispatch(setSelectedSectionId(null))
   }
 
   const handleSectionSelect = (sectionId: string) => {
     dispatch(setSelectedSectionId(sectionId))
+    dispatch(setSelectedProjectId(null))
   }
 
   const handleProjectSelect = (projectId: string) => {
     dispatch(setSelectedProjectId(projectId))
+    dispatch(setSelectedSubMediaId(null))
   }
 
   const handleSubMediaSelect = (subMediaId: string) => {

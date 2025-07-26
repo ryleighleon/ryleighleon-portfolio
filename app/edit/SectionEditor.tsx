@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid"
 
 export default function SectionEditor() {
   const dispatch = useAppDispatch()
-  const { pages, selectedPageId, selectedSectionId } = useAppSelector((state) => state.pages)
+  const { pages, selectedPageId, selectedSectionId, selectedProjectId } = useAppSelector((state) => state.pages)
   const [editData, setEditData] = useState<any>(null)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
@@ -70,6 +70,7 @@ export default function SectionEditor() {
   }
 
   if (!editData || !selectedSectionId) return null
+  if (selectedProjectId !== null) return null
 
   return (
       <div className="bg-white p-6 rounded-lg shadow-md">

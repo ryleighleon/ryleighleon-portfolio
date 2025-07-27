@@ -35,14 +35,16 @@
                   "mediaType": "Image",
                   "subMediaUid": "jxm5wq",
                   "mediaDescription": "Print ad for magazine spread",
-                  "thumbnailImage": "Target_1.png"
+                  "thumbnailImage": "Target_1.png",
+                  "mediaOrientation": "Horizontal"
                 },
                 {
                   "mediaFilename": "Target_2.png",
                   "mediaType": "Image",
                   "subMediaUid": "h7x86",
                   "mediaDescription": "Digital banner ad for website",
-                  "thumbnailImage": "Target_2.png"
+                  "thumbnailImage": "Target_2.png",
+                  "mediaOrientation": "Vertical"
                 }
               ],
               "uid": "target",

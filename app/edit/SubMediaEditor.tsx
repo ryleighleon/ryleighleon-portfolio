@@ -102,19 +102,19 @@ export default function SubMediaEditor() {
               <option value="GIF">GIF</option>
             </select>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Media Orientation</label>
-            <select
-                name="mediaOrientation"
-                value={editData.mediaOrientation || "Square"}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            >
-              <option value="Square">Square</option>
-              <option value="Vertical">Vertical</option>
-              <option value="Horizontal">Horizontal</option>
-            </select>
-          </div>
+          {/*<div>*/}
+          {/*  <label className="block text-sm font-medium text-gray-700 mb-1">Media Orientation</label>*/}
+          {/*  <select*/}
+          {/*      name="mediaOrientation"*/}
+          {/*      value={editData.mediaOrientation || "Square"}*/}
+          {/*      onChange={handleInputChange}*/}
+          {/*      className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"*/}
+          {/*  >*/}
+          {/*    <option value="Square">Square</option>*/}
+          {/*    <option value="Vertical">Vertical</option>*/}
+          {/*    <option value="Horizontal">Horizontal</option>*/}
+          {/*  </select>*/}
+          {/*</div>*/}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Media Description</label>
             <input

@@ -49,7 +49,7 @@
               "path": "target",
               "featured": true,
               "mainImage": "Target1.png",
-              "thumbnailImage": "Target1.png"
+              "thumbnailImage": "Target2.png"
             },
             {
               "projectTitle": "Hamilton Wood Type & Printing",
@@ -885,7 +885,6 @@
     }
   ],
   "about": {
-    "awardsAndExhibitions": [],
     "bio": "I'm a graphic designer with a passion for creating meaningful visual experiences. My work spans branding, typography, packaging design, and digital media. With a background in fine arts and a degree in graphic design, I bring a unique perspective to each project. I believe in the power of thoughtful design to communicate ideas and evoke emotions. When I'm not designing, you can find me exploring nature, photographing interesting compositions, or experimenting with new creative techniques.",
     "education": [
       {
@@ -954,6 +953,7 @@
       "Mentoring",
       "Community Outreach"
     ],
+    "awardsAndExhibitions": [],
     "selectedAboutSection": null
   }
 }

@@ -33,10 +33,10 @@ export default function SubMediaEditor() {
     const { name, value } = e.target
     const updatedData = { ...editData, [name]: value }
 
-    // Validate that thumbnail and main image are provided for GIF/Video
+    // Validate that thumbnail is provided for non-Image media types
     if (name === "mediaType" && (value === "GIF" || value === "Video")) {
-      if (!updatedData.thumbnailImage || !updatedData.mainImage) {
-        setMessage({ text: "Thumbnail and Main Image are required for GIF or Video media types.", type: "error" })
+      if (!updatedData.thumbnailImage) {
+        setMessage({ text: "Thumbnail is required for GIF or Video media types.", type: "error" })
         return
       }
     }
@@ -61,7 +61,6 @@ export default function SubMediaEditor() {
       subMediaUid: subMediaUid,
       mediaFilename: `/images/${selectedPageId}/${selectedProjectId}/${subMediaUid}.png`,
       thumbnailImage: `/images/${selectedPageId}/${selectedProjectId}/thumbnail-${subMediaUid}.png`,
-      mainImage: `/images/${selectedPageId}/${selectedProjectId}/main-${subMediaUid}.png`,
       mediaType: "Image",
       mediaOrientation: "Square",
       mediaDescription: "New media item",
@@ -126,8 +125,8 @@ export default function SubMediaEditor() {
                 className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Media Filename</label>
+          <div className="border rounded-lg p-4 bg-gray-50">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Media Filename (Required)</label>
             <input
                 type="text"
                 name="mediaFilename"
@@ -145,9 +144,9 @@ export default function SubMediaEditor() {
               </p>
             </div>
           </div>
-          <div>
+          <div className="border rounded-lg p-4 bg-gray-50">
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Thumbnail Image {editData.mediaType === "GIF" || editData.mediaType === "Video" ? "(Required)" : "(Optional)"}
+              Thumbnail Image {editData.mediaType === "GIF" || editData.mediaType === "Video" ? "(Required)" : ""}
             </label>
             <input
                 type="text"
@@ -164,28 +163,6 @@ export default function SubMediaEditor() {
               </label>
               <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
                 {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.thumbnailImage || ""}`}
-              </p>
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Main Image {editData.mediaType === "GIF" || editData.mediaType === "Video" ? "(Required)" : "(Optional)"}
-            </label>
-            <input
-                type="text"
-                name="mainImage"
-                value={editData.mainImage || ""}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                placeholder="Enter full URL or path to main image"
-            />
-            <p className="text-xs text-gray-500 mt-1">Recommended name: main.png</p>
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Save the main image at this path to ensure it displays correctly:
-              </label>
-              <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
-                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.mainImage || ""}`}
               </p>
             </div>
           </div>

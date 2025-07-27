@@ -7,12 +7,12 @@ import { v4 as uuidv4 } from "uuid"
 export default function ProjectEditor() {
   const dispatch = useAppDispatch()
   const { pages, selectedPageId, selectedSectionId, selectedProjectId } = useAppSelector((state) => state.pages)
+  const page = pages.find((p) => p.uid === selectedPageId)
   const [editData, setEditData] = useState<any>(null)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
   useEffect(() => {
     if (selectedPageId && selectedSectionId && selectedProjectId) {
-      const page = pages.find((p) => p.uid === selectedPageId)
       if (page && page.projectSections) {
         const section = page.projectSections.find((s) => s.uid === selectedSectionId)
         if (section && section.projects) {
@@ -131,7 +131,7 @@ export default function ProjectEditor() {
                 className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             />
             <p className="text-xs text-gray-500 mt-1">
-              Only lowercase letters, numbers, and hyphens. Used in URLs like: /projects/{editData.path}
+              Only lowercase letters, numbers, and hyphens. Project will be located at <b>ryleighleon.com/{page!.path}/{editData.path}</b>
             </p>
           </div>
           <div>
@@ -154,28 +154,8 @@ export default function ProjectEditor() {
                 className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail Image (Optional)</label>
-            <input
-                type="text"
-                name="thumbnailImage"
-                value={editData.thumbnailImage || ""}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                placeholder="Enter full URL or path to thumbnail image"
-            />
-            <p className="text-xs text-gray-500 mt-1">Recommended name: thumbnail.png</p>
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Save the thumbnail image at this path to ensure it displays correctly:
-              </label>
-              <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
-                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.thumbnailImage || ""}`}
-              </p>
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Main Image (Optional)</label>
+          <div className="border rounded-lg p-4 bg-gray-50">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Main Image</label>
             <input
                 type="text"
                 name="mainImage"
@@ -191,6 +171,26 @@ export default function ProjectEditor() {
               </label>
               <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
                 {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.mainImage || ""}`}
+              </p>
+            </div>
+          </div>
+          <div className="border rounded-lg p-4 bg-gray-50">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail Image</label>
+            <input
+                type="text"
+                name="thumbnailImage"
+                value={editData.thumbnailImage || ""}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter full URL or path to thumbnail image"
+            />
+            <p className="text-xs text-gray-500 mt-1">Recommended name: thumbnail.png</p>
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Save the thumbnail image at this path to ensure it displays correctly:
+              </label>
+              <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
+                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.thumbnailImage || ""}`}
               </p>
             </div>
           </div>

@@ -38,7 +38,7 @@ export interface AboutState {
 
 export interface SubMedia {
   mediaFilename: string
-  thumbnailImage: string
+  thumbnailImage?: string
   mediaType: "Image" | "Video" | "GIF"
   mediaOrientation?: "Square" | "Vertical" | "Horizontal"
   mediaDescription?: string

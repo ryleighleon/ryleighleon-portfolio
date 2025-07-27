@@ -7,12 +7,12 @@ import { v4 as uuidv4 } from "uuid"
 export default function PageEditor() {
   const dispatch = useAppDispatch()
   const { pages, selectedPageId, selectedSectionId } = useAppSelector((state) => state.pages)
+  const page = pages.find((p) => p.uid === selectedPageId)
   const [editData, setEditData] = useState<any>(null)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
 
   useEffect(() => {
     if (selectedPageId) {
-      const page = pages.find((p) => p.uid === selectedPageId)
       if (page) {
         setEditData({ ...page })
       }
@@ -83,7 +83,7 @@ export default function PageEditor() {
                 className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             />
             <p className="text-xs text-gray-500 mt-1">
-              Only lowercase letters, numbers, and hyphens. Used in URLs like: /{editData.path}
+              Only lowercase letters, numbers, and hyphens. <b>Page will be located at ryleighleon.com/{page!.path}</b>
             </p>
           </div>
           <div>

@@ -10,7 +10,6 @@
           "description": "",
           "projects": [
             {
-              "imageFilename": "Target1.png",
               "projectTitle": "Target",
               "projectSubtitle": "Art Direction",
               "projectParagraphs": [
@@ -21,7 +20,7 @@
                 },
                 {
                   "paragraphTitle": "Process: ",
-                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer’s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
+                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer\u2019s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
                   "paragraphUid": "pvx9q"
                 },
                 {
@@ -35,22 +34,24 @@
                   "mediaFilename": "Target_1.png",
                   "mediaType": "Image",
                   "subMediaUid": "jxm5wq",
-                  "mediaDescription": "Print ad for magazine spread"
+                  "mediaDescription": "Print ad for magazine spread",
+                  "thumbnailImage": "Target_1.png"
                 },
                 {
                   "mediaFilename": "Target_2.png",
                   "mediaType": "Image",
                   "subMediaUid": "h7x86",
-                  "mediaDescription": "Digital banner ad for website"
+                  "mediaDescription": "Digital banner ad for website",
+                  "thumbnailImage": "Target_2.png"
                 }
               ],
               "uid": "target",
-              "thumbnailImageFilename": "TargetTN_1.png",
               "path": "target",
-              "featured": true
+              "featured": true,
+              "mainImage": "Target1.png",
+              "thumbnailImage": "Target1.png"
             },
             {
-              "imageFilename": "HWT_Internship_1.png",
               "projectTitle": "Hamilton Wood Type & Printing",
               "projectSubtitle": "Internship",
               "projectParagraphs": [
@@ -79,30 +80,34 @@
                 {
                   "mediaFilename": "HWT_Internship_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "itekqk"
+                  "subMediaUid": "itekqk",
+                  "thumbnailImage": "HWT_Internship_1.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "acvhywd"
+                  "subMediaUid": "acvhywd",
+                  "thumbnailImage": "HWT_Internship_2.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "qsqxqc"
+                  "subMediaUid": "qsqxqc",
+                  "thumbnailImage": "HWT_Internship_3.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "7ccqxm"
+                  "subMediaUid": "7ccqxm",
+                  "thumbnailImage": "HWT_Internship_4.png"
                 }
               ],
               "uid": "hamilton_wood_type_printing",
-              "thumbnailImageFilename": "HWT_InternshipTN_1.png",
-              "path": "hamilton-wood-type-printing"
+              "path": "hamilton-wood-type-printing",
+              "mainImage": "HWT_Internship_1.png",
+              "thumbnailImage": "HWT_Internship_1.png"
             },
             {
-              "imageFilename": "Simply_1.png",
               "projectTitle": "Simply Lemonade",
               "projectSubtitle": "Advertising",
               "projectParagraphs": [
@@ -127,32 +132,35 @@
                   "mediaFilename": "Simply_1.png",
                   "mediaType": "Image",
                   "subMediaUid": "jpzbj",
-                  "mediaDescription": "Digital ad for Instagram"
+                  "mediaDescription": "Digital ad for Instagram",
+                  "thumbnailImage": "Simply_1.png"
                 },
                 {
                   "mediaFilename": "Simply_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "tnrglv"
+                  "subMediaUid": "tnrglv",
+                  "thumbnailImage": "Simply_2.png"
                 },
                 {
                   "mediaFilename": "Simply_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "n15uuk"
+                  "subMediaUid": "n15uuk",
+                  "thumbnailImage": "Simply_3.png"
                 }
               ],
               "uid": "simply_lemonade",
-              "thumbnailImageFilename": "SimplyTN_2.png",
               "path": "simply-lemonade",
-              "featured": true
+              "featured": true,
+              "mainImage": "Simply_1.png",
+              "thumbnailImage": "Simply_1.png"
             },
             {
-              "imageFilename": "Wonder Fair SM Post_1.png",
               "projectTitle": "Wonder Fair",
               "projectSubtitle": "Branding",
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
-                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn’t accurately align with their business.",
+                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn\u2019t accurately align with their business.",
                   "paragraphUid": "g34x1"
                 },
                 {
@@ -170,75 +178,88 @@
                 {
                   "mediaFilename": "Wonder Fair_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "sqfd1b"
+                  "subMediaUid": "sqfd1b",
+                  "thumbnailImage": "Wonder Fair_1.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "jbpq0o"
+                  "subMediaUid": "jbpq0o",
+                  "thumbnailImage": "Wonder Fair_2.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "jo8q9o"
+                  "subMediaUid": "jo8q9o",
+                  "thumbnailImage": "Wonder Fair_3.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "mkoquv"
+                  "subMediaUid": "mkoquv",
+                  "thumbnailImage": "Wonder Fair_4.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "kmvy58"
+                  "subMediaUid": "kmvy58",
+                  "thumbnailImage": "Wonder Fair_5.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "p13q6"
+                  "subMediaUid": "p13q6",
+                  "thumbnailImage": "Wonder Fair_6.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "fvzqi9"
+                  "subMediaUid": "fvzqi9",
+                  "thumbnailImage": "Wonder Fair_7.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_8.png",
                   "mediaType": "Image",
-                  "subMediaUid": "qzr979"
+                  "subMediaUid": "qzr979",
+                  "thumbnailImage": "Wonder Fair_8.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_9.png",
                   "mediaType": "Image",
-                  "subMediaUid": "tcz4rf"
+                  "subMediaUid": "tcz4rf",
+                  "thumbnailImage": "Wonder Fair_9.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair_10.png",
                   "mediaType": "Image",
-                  "subMediaUid": "lhwth"
+                  "subMediaUid": "lhwth",
+                  "thumbnailImage": "Wonder Fair_10.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair SM Post_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "4lfyg"
+                  "subMediaUid": "4lfyg",
+                  "thumbnailImage": "Wonder Fair SM Post_1.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair SM Post_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "ss78ae"
+                  "subMediaUid": "ss78ae",
+                  "thumbnailImage": "Wonder Fair SM Post_2.png"
                 },
                 {
                   "mediaFilename": "Wonder Fair SM Post_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "waib48"
+                  "subMediaUid": "waib48",
+                  "thumbnailImage": "Wonder Fair SM Post_3.png"
                 }
               ],
               "uid": "wonder_fair",
-              "thumbnailImageFilename": "WonderFairTN1.png",
-              "path": "wonder-fair"
+              "path": "wonder-fair",
+              "mainImage": "Wonder Fair SM Post_1.png",
+              "thumbnailImage": "Wonder Fair SM Post_1.png"
             },
             {
-              "imageFilename": "Rockabilly Chili_1.png",
               "projectTitle": "Rockabilly Chili",
               "projectSubtitle": "",
               "projectParagraphs": [
@@ -262,38 +283,45 @@
                 {
                   "mediaFilename": "Rockabilly Chili_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "x5ptr"
+                  "subMediaUid": "x5ptr",
+                  "thumbnailImage": "Rockabilly Chili_1.png"
                 },
                 {
                   "mediaFilename": "Rockabilly Chili_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "koxazl"
+                  "subMediaUid": "koxazl",
+                  "thumbnailImage": "Rockabilly Chili_2.png"
                 },
                 {
                   "mediaFilename": "Rockabilly Chili_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "52lvh"
+                  "subMediaUid": "52lvh",
+                  "thumbnailImage": "Rockabilly Chili_3.png"
                 },
                 {
                   "mediaFilename": "Rockabilly Chili_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "qdmfkj"
+                  "subMediaUid": "qdmfkj",
+                  "thumbnailImage": "Rockabilly Chili_4.png"
                 },
                 {
                   "mediaFilename": "Rockabilly Chili_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "f3q51p"
+                  "subMediaUid": "f3q51p",
+                  "thumbnailImage": "Rockabilly Chili_5.png"
                 },
                 {
                   "mediaFilename": "Rockabilly Chili_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "ltzm07"
+                  "subMediaUid": "ltzm07",
+                  "thumbnailImage": "Rockabilly Chili_6.png"
                 }
               ],
               "uid": "rockabilly_chili",
-              "thumbnailImageFilename": "RockabillyChiliTN1.png",
               "path": "rockabilly-chili",
-              "featured": true
+              "featured": true,
+              "mainImage": "Rockabilly Chili_1.png",
+              "thumbnailImage": "Rockabilly Chili_1.png"
             }
           ],
           "uid": "portfolio",
@@ -314,7 +342,6 @@
           "description": "The Hamilton Wood Type & Printing Museum is in Two Rivers, WI. They have over 1.5 million pieces of wood type in their collection. Hamilton is a 501(c)3 nonprofit arts and educational organization. They are passionate about teaching people about typography and the history of American printing. Hamilton has a gallery space in the museum and offers tours, workshops, and a store with prints and type to buy.",
           "projects": [
             {
-              "imageFilename": "HWT_Internship_1.png",
               "projectTitle": "Graphic Design Intern Projects",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -322,30 +349,34 @@
                 {
                   "mediaFilename": "HWT_Internship_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "b1v33l"
+                  "subMediaUid": "b1v33l",
+                  "thumbnailImage": "HWT_Internship_1.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "b7ygkm"
+                  "subMediaUid": "b7ygkm",
+                  "thumbnailImage": "HWT_Internship_2.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "4xhb0f"
+                  "subMediaUid": "4xhb0f",
+                  "thumbnailImage": "HWT_Internship_3.png"
                 },
                 {
                   "mediaFilename": "HWT_Internship_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "hbuqg5"
+                  "subMediaUid": "hbuqg5",
+                  "thumbnailImage": "HWT_Internship_4.png"
                 }
               ],
               "uid": "graphic_design_intern_projects",
-              "thumbnailImageFilename": "HWT_Internship_1.png",
-              "path": "graphic-design-intern-projects"
+              "path": "graphic-design-intern-projects",
+              "mainImage": "HWT_Internship_1.png",
+              "thumbnailImage": "HWT_Internship_1.png"
             },
             {
-              "thumbnailImageFilename": "Really Big Print_8.png",
               "projectTitle": "Really Big Prints",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -353,55 +384,64 @@
                 {
                   "mediaFilename": "Really Big Print_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "t5hjgq"
+                  "subMediaUid": "t5hjgq",
+                  "thumbnailImage": "Really Big Print_4.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_9.png",
                   "mediaType": "Image",
-                  "subMediaUid": "h9fdk"
+                  "subMediaUid": "h9fdk",
+                  "thumbnailImage": "Really Big Print_9.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "0f9x3"
+                  "subMediaUid": "0f9x3",
+                  "thumbnailImage": "Really Big Print_1.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "fd59b"
+                  "subMediaUid": "fd59b",
+                  "thumbnailImage": "Really Big Print_6.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "8uapcs"
+                  "subMediaUid": "8uapcs",
+                  "thumbnailImage": "Really Big Print_3.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "k7r95"
+                  "subMediaUid": "k7r95",
+                  "thumbnailImage": "Really Big Print_2.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "vbz4kq"
+                  "subMediaUid": "vbz4kq",
+                  "thumbnailImage": "Really Big Print_7.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "w1zf18"
+                  "subMediaUid": "w1zf18",
+                  "thumbnailImage": "Really Big Print_5.png"
                 },
                 {
                   "mediaFilename": "Really Big Print_8.png",
                   "mediaType": "Image",
-                  "subMediaUid": "u2bcpc"
+                  "subMediaUid": "u2bcpc",
+                  "thumbnailImage": "Really Big Print_8.png"
                 }
               ],
               "uid": "really_big_prints",
               "path": "really-big-prints",
-              "imageFilename": "Really Big Print_1.png"
+              "mainImage": "Really Big Print_1.png",
+              "thumbnailImage": "Really Big Print_1.png"
             },
             {
-              "thumbnailImageFilename": "Ocean is Calling_9.png",
               "projectTitle": "The Ocean is Calling",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -409,55 +449,64 @@
                 {
                   "mediaFilename": "Ocean is Calling_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "egl05"
+                  "subMediaUid": "egl05",
+                  "thumbnailImage": "Ocean is Calling_1.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "72i7am"
+                  "subMediaUid": "72i7am",
+                  "thumbnailImage": "Ocean is Calling_4.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "yymyp9"
+                  "subMediaUid": "yymyp9",
+                  "thumbnailImage": "Ocean is Calling_5.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "w7yxbj"
+                  "subMediaUid": "w7yxbj",
+                  "thumbnailImage": "Ocean is Calling_6.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "acpvlk"
+                  "subMediaUid": "acpvlk",
+                  "thumbnailImage": "Ocean is Calling_7.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "amd0bim"
+                  "subMediaUid": "amd0bim",
+                  "thumbnailImage": "Ocean is Calling_2.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "rr131m"
+                  "subMediaUid": "rr131m",
+                  "thumbnailImage": "Ocean is Calling_3.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_8.png",
                   "mediaType": "Image",
-                  "subMediaUid": "uk7bq"
+                  "subMediaUid": "uk7bq",
+                  "thumbnailImage": "Ocean is Calling_8.png"
                 },
                 {
                   "mediaFilename": "Ocean is Calling_9.png",
                   "mediaType": "Image",
-                  "subMediaUid": "h5bc9j"
+                  "subMediaUid": "h5bc9j",
+                  "thumbnailImage": "Ocean is Calling_9.png"
                 }
               ],
               "uid": "the_ocean_is_calling",
               "path": "the-ocean-is-calling",
-              "imageFilename": "Ocean is Calling_1.png"
+              "mainImage": "Ocean is Calling_1.png",
+              "thumbnailImage": "Ocean is Calling_1.png"
             },
             {
-              "thumbnailImageFilename": "Experimental Type_3.png",
               "projectTitle": "Experimental Type",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -465,22 +514,26 @@
                 {
                   "mediaFilename": "Experimental Type_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "0je95b"
+                  "subMediaUid": "0je95b",
+                  "thumbnailImage": "Experimental Type_1.png"
                 },
                 {
                   "mediaFilename": "Experimental Type_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "fgi5x"
+                  "subMediaUid": "fgi5x",
+                  "thumbnailImage": "Experimental Type_2.png"
                 },
                 {
                   "mediaFilename": "Experimental Type_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "udvq4a"
+                  "subMediaUid": "udvq4a",
+                  "thumbnailImage": "Experimental Type_3.png"
                 }
               ],
               "uid": "experimental_type",
               "path": "experimental-type",
-              "imageFilename": "Experimental Type_1.png"
+              "mainImage": "Experimental Type_1.png",
+              "thumbnailImage": "Experimental Type_1.png"
             }
           ],
           "uid": "hamilton_wood_type_printing_museum",
@@ -501,7 +554,6 @@
           "description": "",
           "projects": [
             {
-              "imageFilename": "SPD_Sticker_1.png",
               "projectTitle": "Stickers",
               "projectSubtitle": "",
               "projectParagraphs": [
@@ -515,20 +567,22 @@
                 {
                   "mediaFilename": "SPD_Sticker_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "529j5"
+                  "subMediaUid": "529j5",
+                  "thumbnailImage": "SPD_Sticker_1.png"
                 },
                 {
                   "mediaFilename": "SPD_Sticker_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "ptvll3"
+                  "subMediaUid": "ptvll3",
+                  "thumbnailImage": "SPD_Sticker_2.png"
                 }
               ],
               "uid": "stickers",
-              "thumbnailImageFilename": "SPD_Sticker_1.png",
-              "path": "stickers"
+              "path": "stickers",
+              "mainImage": "SPD_Sticker_1.png",
+              "thumbnailImage": "SPD_Sticker_1.png"
             },
             {
-              "imageFilename": "SPDCoozie1.png",
               "projectTitle": "Coozie",
               "projectSubtitle": "",
               "projectParagraphs": [
@@ -542,22 +596,26 @@
                 {
                   "mediaFilename": "SPDCoozie1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "zlhf9s"
+                  "subMediaUid": "zlhf9s",
+                  "thumbnailImage": "SPDCoozie1.png"
                 },
                 {
                   "mediaFilename": "SPDCoozie2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "cff18a"
+                  "subMediaUid": "cff18a",
+                  "thumbnailImage": "SPDCoozie2.png"
                 },
                 {
                   "mediaFilename": "SPDCoozie3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "pnsjq"
+                  "subMediaUid": "pnsjq",
+                  "thumbnailImage": "SPDCoozie3.png"
                 }
               ],
               "uid": "coozie",
-              "thumbnailImageFilename": "SPDCoozie1.png",
-              "path": "coozie"
+              "path": "coozie",
+              "mainImage": "SPDCoozie1.png",
+              "thumbnailImage": "SPDCoozie1.png"
             }
           ],
           "uid": "sigma_phi_delta",
@@ -576,7 +634,6 @@
           "description": "",
           "projects": [
             {
-              "thumbnailImageFilename": "MIAD_Y1_1.png",
               "projectTitle": "What's Your Type",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -584,12 +641,14 @@
                 {
                   "mediaFilename": "MIAD_Y1_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "f5m2ci"
+                  "subMediaUid": "f5m2ci",
+                  "thumbnailImage": "MIAD_Y1_1.png"
                 }
               ],
               "uid": "whats_your_type",
               "path": "whats-your-type",
-              "imageFilename": "MIAD_Y1_1.png"
+              "mainImage": "MIAD_Y1_1.png",
+              "thumbnailImage": "MIAD_Y1_1.png"
             }
           ],
           "uid": "first_year",
@@ -601,7 +660,6 @@
           "description": "",
           "projects": [
             {
-              "thumbnailImageFilename": "MIAD_Y2_3.png",
               "projectTitle": "Hand Rendered Type",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -609,20 +667,22 @@
                 {
                   "mediaFilename": "MIAD_Y2_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "dtx5zc"
+                  "subMediaUid": "dtx5zc",
+                  "thumbnailImage": "MIAD_Y2_3.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "wmrnr4q"
+                  "subMediaUid": "wmrnr4q",
+                  "thumbnailImage": "MIAD_Y2_7.png"
                 }
               ],
               "uid": "hand_rendered_type",
               "path": "hand-rendered-type",
-              "imageFilename": "MIAD_Y2_3.png"
+              "mainImage": "MIAD_Y2_3.png",
+              "thumbnailImage": "MIAD_Y2_3.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y2_12.png",
               "projectTitle": "Photography",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -630,20 +690,22 @@
                 {
                   "mediaFilename": "MIAD_Y2_12.png",
                   "mediaType": "Image",
-                  "subMediaUid": "cud27"
+                  "subMediaUid": "cud27",
+                  "thumbnailImage": "MIAD_Y2_12.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_9.png",
                   "mediaType": "Image",
-                  "subMediaUid": "zjzbk"
+                  "subMediaUid": "zjzbk",
+                  "thumbnailImage": "MIAD_Y2_9.png"
                 }
               ],
               "uid": "photography",
               "path": "photography",
-              "imageFilename": "MIAD_Y2_9.png"
+              "mainImage": "MIAD_Y2_9.png",
+              "thumbnailImage": "MIAD_Y2_9.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y2_8.png",
               "projectTitle": "Poster Design",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -651,25 +713,28 @@
                 {
                   "mediaFilename": "MIAD_Y2_8.png",
                   "mediaType": "Image",
-                  "subMediaUid": "iglun"
+                  "subMediaUid": "iglun",
+                  "thumbnailImage": "MIAD_Y2_8.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "qpco5"
+                  "subMediaUid": "qpco5",
+                  "thumbnailImage": "MIAD_Y2_7.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "5pwsc3"
+                  "subMediaUid": "5pwsc3",
+                  "thumbnailImage": "MIAD_Y2_4.png"
                 }
               ],
               "uid": "poster_design",
               "path": "poster-design",
-              "imageFilename": "MIAD_Y2_4.png"
+              "mainImage": "MIAD_Y2_4.png",
+              "thumbnailImage": "MIAD_Y2_4.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y2_11.png",
               "projectTitle": "Icons",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -677,20 +742,22 @@
                 {
                   "mediaFilename": "MIAD_Y2_11.png",
                   "mediaType": "Image",
-                  "subMediaUid": "fpk8np"
+                  "subMediaUid": "fpk8np",
+                  "thumbnailImage": "MIAD_Y2_11.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_10.png",
                   "mediaType": "Image",
-                  "subMediaUid": "f3351"
+                  "subMediaUid": "f3351",
+                  "thumbnailImage": "MIAD_Y2_10.png"
                 }
               ],
               "uid": "icons",
               "path": "icons",
-              "imageFilename": "MIAD_Y2_10.png"
+              "mainImage": "MIAD_Y2_10.png",
+              "thumbnailImage": "MIAD_Y2_10.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y2_6.png",
               "projectTitle": "Monogram",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -698,20 +765,22 @@
                 {
                   "mediaFilename": "MIAD_Y2_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "2ao5u35"
+                  "subMediaUid": "2ao5u35",
+                  "thumbnailImage": "MIAD_Y2_6.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "rqkdrp"
+                  "subMediaUid": "rqkdrp",
+                  "thumbnailImage": "MIAD_Y2_5.png"
                 }
               ],
               "uid": "monogram",
               "path": "monogram",
-              "imageFilename": "MIAD_Y2_5.png"
+              "mainImage": "MIAD_Y2_5.png",
+              "thumbnailImage": "MIAD_Y2_5.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y2_1.png",
               "projectTitle": "Fall Pattern Design",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -719,17 +788,20 @@
                 {
                   "mediaFilename": "MIAD_Y2_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "8hcnjw"
+                  "subMediaUid": "8hcnjw",
+                  "thumbnailImage": "MIAD_Y2_1.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y2_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "orih1d"
+                  "subMediaUid": "orih1d",
+                  "thumbnailImage": "MIAD_Y2_2.png"
                 }
               ],
               "uid": "fall_pattern_design",
               "path": "fall-pattern-design",
-              "imageFilename": "MIAD_Y2_1.png"
+              "mainImage": "MIAD_Y2_1.png",
+              "thumbnailImage": "MIAD_Y2_1.png"
             }
           ],
           "uid": "second_year",
@@ -741,7 +813,6 @@
           "description": "",
           "projects": [
             {
-              "thumbnailImageFilename": "MIAD_Y3_1.png",
               "projectTitle": "Album Redesign",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -749,20 +820,22 @@
                 {
                   "mediaFilename": "MIAD_Y3_1.png",
                   "mediaType": "Image",
-                  "subMediaUid": "13gaz2"
+                  "subMediaUid": "13gaz2",
+                  "thumbnailImage": "MIAD_Y3_1.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y3_2.png",
                   "mediaType": "Image",
-                  "subMediaUid": "dxexo8"
+                  "subMediaUid": "dxexo8",
+                  "thumbnailImage": "MIAD_Y3_2.png"
                 }
               ],
               "uid": "album_redesign",
               "path": "album-redesign",
-              "imageFilename": "MIAD_Y3_1.png"
+              "mainImage": "MIAD_Y3_1.png",
+              "thumbnailImage": "MIAD_Y3_1.png"
             },
             {
-              "thumbnailImageFilename": "MIAD_Y3_5.png",
               "projectTitle": "Infographic",
               "projectSubtitle": "",
               "projectParagraphs": [],
@@ -770,32 +843,38 @@
                 {
                   "mediaFilename": "MIAD_Y3_3.png",
                   "mediaType": "Image",
-                  "subMediaUid": "25clyl"
+                  "subMediaUid": "25clyl",
+                  "thumbnailImage": "MIAD_Y3_3.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y3_4.png",
                   "mediaType": "Image",
-                  "subMediaUid": "4bh8n"
+                  "subMediaUid": "4bh8n",
+                  "thumbnailImage": "MIAD_Y3_4.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y3_5.png",
                   "mediaType": "Image",
-                  "subMediaUid": "fe1n1a"
+                  "subMediaUid": "fe1n1a",
+                  "thumbnailImage": "MIAD_Y3_5.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y3_6.png",
                   "mediaType": "Image",
-                  "subMediaUid": "284w5p"
+                  "subMediaUid": "284w5p",
+                  "thumbnailImage": "MIAD_Y3_6.png"
                 },
                 {
                   "mediaFilename": "MIAD_Y3_7.png",
                   "mediaType": "Image",
-                  "subMediaUid": "f4dahh"
+                  "subMediaUid": "f4dahh",
+                  "thumbnailImage": "MIAD_Y3_7.png"
                 }
               ],
               "uid": "infographic",
               "path": "infographic",
-              "imageFilename": "MIAD_Y3_3.png"
+              "mainImage": "MIAD_Y3_3.png",
+              "thumbnailImage": "MIAD_Y3_3.png"
             }
           ],
           "uid": "third_year",

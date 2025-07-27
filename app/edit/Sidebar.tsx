@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
 import {
@@ -52,7 +54,7 @@ export default function Sidebar() {
     dispatch(setSelectedSubMediaId(subMediaId))
   }
 
-  const handleAboutSectionSelect = (section: "bio" | "education" | "experience" | "skills") => {
+  const handleAboutSectionSelect = (section: "bio" | "education" | "experience" | "skills" | "awardsAndExhibitions") => {
     dispatch(setSelectedAboutSection(section))
     dispatch(setSelectedPageId(null))
   }
@@ -171,7 +173,7 @@ export default function Sidebar() {
     linkElement.click()
 
     localStorage.setItem("pages.json.pages", JSON.stringify(pages))
-    localStorage.setItem("pages.json.about", JSON.stringify(useAppSelector((state) => state.about)))
+    localStorage.setItem("pages.json.about", JSON.stringify(about))
 
     setMessage({ text: "Data exported successfully", type: "success" })
     setTimeout(() => setMessage(null), 3000)
@@ -270,62 +272,62 @@ export default function Sidebar() {
             {message.text}
           </div>
       )}
-        <div className="flex justify-end mb-4 space-x-2">
-          <button onClick={handleImport} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-            Import Data
-          </button>
-          <button onClick={handleExport} className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">
-            Export Data
-          </button>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Pages</h2>
-          <ul className="space-y-2">
-            {pages.map((page) => (
-                <li key={page.uid} className="flex items-center space-x-2">
+      <div className="flex justify-end mb-4 space-x-2">
+        <button onClick={handleImport} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Import Data
+        </button>
+        <button onClick={handleExport} className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">
+          Export Data
+        </button>
+      </div>
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Pages</h2>
+        <ul className="space-y-2">
+          {pages.map((page) => (
+              <li key={page.uid} className="flex items-center space-x-2">
+                <button
+                    onClick={() => handlePageSelect(page.uid)}
+                    className={`flex-1 text-left px-3 py-2 rounded ${
+                        selectedPageId === page.uid ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+                    }`}
+                >
+                  {page.shortTitle} <span className="text-xs opacity-70">({page.path})</span>
+                </button>
+                <div className="flex flex-col">
                   <button
-                      onClick={() => handlePageSelect(page.uid)}
-                      className={`flex-1 text-left px-3 py-2 rounded ${
-                          selectedPageId === page.uid ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
-                      }`}
+                      onClick={() => handleMoveUp("page", page.uid)}
+                      className="p-1 text-gray-600 hover:text-purple-600"
+                      aria-label="Move up"
                   >
-                    {page.shortTitle} <span className="text-xs opacity-70">({page.path})</span>
+                    <ChevronUp size={16} />
                   </button>
-                  <div className="flex flex-col">
-                    <button
-                        onClick={() => handleMoveUp("page", page.uid)}
-                        className="p-1 text-gray-600 hover:text-purple-600"
-                        aria-label="Move up"
-                    >
-                      <ChevronUp size={16} />
-                    </button>
-                    <button
-                        onClick={() => handleMoveDown("page", page.uid)}
-                        className="p-1 text-gray-600 hover:text-purple-600"
-                        aria-label="Move down"
-                    >
-                      <ChevronDown size={16} />
-                    </button>
-                  </div>
                   <button
-                      onClick={() => handleDeletePage(page)}
-                      className="p-1 text-gray-600 hover:text-red-600"
-                      aria-label="Delete page"
+                      onClick={() => handleMoveDown("page", page.uid)}
+                      className="p-1 text-gray-600 hover:text-purple-600"
+                      aria-label="Move down"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <ChevronDown size={16} />
                   </button>
-                </li>
-            ))}
-          </ul>
-          <button
-              onClick={() => handleAddNew("page")}
-              className="mt-2 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-          >
-            Add New Page
-          </button>
-        </div>
+                </div>
+                <button
+                    onClick={() => handleDeletePage(page)}
+                    className="p-1 text-gray-600 hover:text-red-600"
+                    aria-label="Delete page"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </li>
+          ))}
+        </ul>
+        <button
+            onClick={() => handleAddNew("page")}
+            className="mt-2 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          Add New Page
+        </button>
+      </div>
       {selectedPageId && (
           <div className="mb-8">
             <h2 className="text-xl font-semibold mb-2">Sections</h2>
@@ -489,51 +491,61 @@ export default function Sidebar() {
             )}
           </div>
       )}
-        <div className="mt-8 border-t pt-6">
-          <h2 className="text-xl font-semibold mb-2">About Page</h2>
-          <ul className="space-y-2">
-            <li>
-              <button
-                  onClick={() => handleAboutSectionSelect("bio")}
-                  className={`w-full text-left px-3 py-2 rounded ${
-                      selectedAboutSection === "bio" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
-                  }`}
+      <div className="mt-8 border-t pt-6">
+        <h2 className="text-xl font-semibold mb-2">About Page</h2>
+        <ul className="space-y-2">
+          <li>
+            <button
+                onClick={() => handleAboutSectionSelect("bio")}
+                className={`w-full text-left px-3 py-2 rounded ${
+                    selectedAboutSection === "bio" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+                }`}
+            >
+              Biography
+            </button>
+          </li>
+          <li>
+            <button
+                onClick={() => handleAboutSectionSelect("education")}
+                className={`w-full text-left px-3 py-2 rounded ${
+                    selectedAboutSection === "education" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+                }`}
+            >
+              Education
+            </button>
+          </li>
+          <li>
+            <button
+                onClick={() => handleAboutSectionSelect("experience")}
+                className={`w-full text-left px-3 py-2 rounded ${
+              selectedAboutSection === "experience" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+            }`}
               >
-                Biography
-              </button>
-            </li>
-            <li>
-              <button
-                  onClick={() => handleAboutSectionSelect("education")}
-                  className={`w-full text-left px-3 py-2 rounded ${
-                      selectedAboutSection === "education" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
-                  }`}
-              >
-                Education
-              </button>
-            </li>
-            <li>
-              <button
-                  onClick={() => handleAboutSectionSelect("experience")}
-                  className={`w-full text-left px-3 py-2 rounded ${
-                      selectedAboutSection === "experience" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
-                  }`}
-              >
-                Experience
-              </button>
-            </li>
-            <li>
-              <button
-                  onClick={() => handleAboutSectionSelect("skills")}
-                  className={`w-full text-left px-3 py-2 rounded ${
-                      selectedAboutSection === "skills" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
-                  }`}
-              >
-                Skills
-              </button>
-            </li>
-          </ul>
-        </div>
-      </>
-  )
+              Experience
+          </button>
+        </li>
+        <li>
+          <button
+              onClick={() => handleAboutSectionSelect("skills")}
+              className={`w-full text-left px-3 py-2 rounded ${
+                  selectedAboutSection === "skills" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+              }`}
+          >
+            Skills
+          </button>
+        </li>
+        <li>
+          <button
+              onClick={() => handleAboutSectionSelect("awardsAndExhibitions")}
+              className={`w-full text-left px-3 py-2 rounded ${
+                  selectedAboutSection === "awardsAndExhibitions" ? "bg-purple-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+              }`}
+          >
+            Awards & Exhibitions
+          </button>
+        </li>
+      </ul>
+      </div>
+</>
+)
 }

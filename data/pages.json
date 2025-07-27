@@ -99,7 +99,7 @@
               ],
               "uid": "hamilton_wood_type_printing",
               "thumbnailImageFilename": "HWT_InternshipTN_1.png",
-              "path": "hamilton_wood_type_printing"
+              "path": "hamilton-wood-type-printing"
             },
             {
               "imageFilename": "Simply_1.png",
@@ -142,7 +142,7 @@
               ],
               "uid": "simply_lemonade",
               "thumbnailImageFilename": "SimplyTN_2.png",
-              "path": "simply_lemonade",
+              "path": "simply-lemonade",
               "featured": true
             },
             {
@@ -235,7 +235,7 @@
               ],
               "uid": "wonder_fair",
               "thumbnailImageFilename": "WonderFairTN1.png",
-              "path": "wonder_fair"
+              "path": "wonder-fair"
             },
             {
               "imageFilename": "Rockabilly Chili_1.png",
@@ -292,7 +292,7 @@
               ],
               "uid": "rockabilly_chili",
               "thumbnailImageFilename": "RockabillyChiliTN1.png",
-              "path": "rockabilly_chili",
+              "path": "rockabilly-chili",
               "featured": true
             }
           ],
@@ -342,7 +342,7 @@
               ],
               "uid": "graphic_design_intern_projects",
               "thumbnailImageFilename": "HWT_Internship_1.png",
-              "path": "graphic_design_intern_projects"
+              "path": "graphic-design-intern-projects"
             },
             {
               "thumbnailImageFilename": "Really Big Print_8.png",
@@ -397,7 +397,7 @@
                 }
               ],
               "uid": "really_big_prints",
-              "path": "really_big_prints",
+              "path": "really-big-prints",
               "imageFilename": "Really Big Print_1.png"
             },
             {
@@ -453,7 +453,7 @@
                 }
               ],
               "uid": "the_ocean_is_calling",
-              "path": "the_ocean_is_calling",
+              "path": "the-ocean-is-calling",
               "imageFilename": "Ocean is Calling_1.png"
             },
             {
@@ -479,12 +479,12 @@
                 }
               ],
               "uid": "experimental_type",
-              "path": "experimental_type",
+              "path": "experimental-type",
               "imageFilename": "Experimental Type_1.png"
             }
           ],
           "uid": "hamilton_wood_type_printing_museum",
-          "path": "hamilton_wood_type_printing_museum"
+          "path": "hamilton-wood-type-printing-museum"
         }
       ],
       "bottomTitle": "",
@@ -561,7 +561,7 @@
             }
           ],
           "uid": "sigma_phi_delta",
-          "path": "sigma_phi_delta"
+          "path": "sigma-phi-delta"
         }
       ],
       "path": "freelance"
@@ -588,12 +588,12 @@
                 }
               ],
               "uid": "whats_your_type",
-              "path": "whats_your_type",
+              "path": "whats-your-type",
               "imageFilename": "MIAD_Y1_1.png"
             }
           ],
           "uid": "first_year",
-          "path": "first_year"
+          "path": "first-year"
         },
         {
           "title": "Second Year",
@@ -618,7 +618,7 @@
                 }
               ],
               "uid": "hand_rendered_type",
-              "path": "hand_rendered_type",
+              "path": "hand-rendered-type",
               "imageFilename": "MIAD_Y2_3.png"
             },
             {
@@ -665,7 +665,7 @@
                 }
               ],
               "uid": "poster_design",
-              "path": "poster_design",
+              "path": "poster-design",
               "imageFilename": "MIAD_Y2_4.png"
             },
             {
@@ -728,12 +728,12 @@
                 }
               ],
               "uid": "fall_pattern_design",
-              "path": "fall_pattern_design",
+              "path": "fall-pattern-design",
               "imageFilename": "MIAD_Y2_1.png"
             }
           ],
           "uid": "second_year",
-          "path": "second_year"
+          "path": "second-year"
         },
         {
           "title": "Third Year",
@@ -758,7 +758,7 @@
                 }
               ],
               "uid": "album_redesign",
-              "path": "album_redesign",
+              "path": "album-redesign",
               "imageFilename": "MIAD_Y3_1.png"
             },
             {
@@ -799,13 +799,14 @@
             }
           ],
           "uid": "third_year",
-          "path": "third_year"
+          "path": "third-year"
         }
       ],
       "path": "miad"
     }
   ],
   "about": {
+    "awardsAndExhibitions": [],
     "bio": "I'm a graphic designer with a passion for creating meaningful visual experiences. My work spans branding, typography, packaging design, and digital media. With a background in fine arts and a degree in graphic design, I bring a unique perspective to each project. I believe in the power of thoughtful design to communicate ideas and evoke emotions. When I'm not designing, you can find me exploring nature, photographing interesting compositions, or experimenting with new creative techniques.",
     "education": [
       {

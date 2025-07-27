@@ -3,7 +3,6 @@ import type { ProjectPage, PagesState } from "@/types"
 import pagesRLD from "@/data/pages.json"
 import { v4 as uuidv4 } from "uuid"
 
-// Default data to use if no data is found
 const defaultPagesData = [
   {
     uid: uuidv4(),
@@ -28,11 +27,10 @@ const defaultPagesData = [
           {
             uid: uuidv4(),
             path: "target",
-            thumbnailImageFilename:
-                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
+            thumbnailImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thumbnail-target.png",
+            mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/main-target.png",
             projectTitle: "Target",
             projectSubtitle: "Art Direction",
-            imageName: "Target Mondo Llama",
             projectParagraphs: [
               {
                 paragraphTitle: "The Project",
@@ -45,6 +43,10 @@ const defaultPagesData = [
               {
                 mediaFilename:
                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.38%E2%80%AFPM-V1loYoe95T1bnYGnG0OOkHU3VgN5De.png",
+                thumbnailImage:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thumbnail-ad.png",
+                mainImage:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/main-ad.png",
                 mediaType: "Image",
                 mediaOrientation: "Vertical",
                 mediaDescription: "Print ad for magazine spread",

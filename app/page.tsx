@@ -193,9 +193,6 @@ export default function Home() {
               <div className="aspect-square relative rounded-2xl overflow-hidden shadow-xl">
                 <Image src={getPersonalPictureUrl('home_small.jpg')} alt="Ryleigh Leon" fill className="object-cover" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-purple-600 text-white p-4 rounded-lg shadow-lg">
-                <Sparkles className="w-6 h-6" />
-              </div>
             </motion.div>
           </div>
         </div>

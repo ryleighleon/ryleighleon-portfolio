@@ -74,7 +74,8 @@ export default function ProjectEditor() {
     const newProject = {
       uid: newUid,
       path: uniquePath,
-      imageFilename: `/placeholder.svg`,
+      thumbnailImage: `/thumbnail-placeholder.svg`,
+      mainImage: `/main-placeholder.svg`,
       projectTitle: "New Project",
       projectSubtitle: "New Project Subtitle",
       projectParagraphs: [],
@@ -154,22 +155,42 @@ export default function ProjectEditor() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Image Filename</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail Image (Optional)</label>
             <input
                 type="text"
-                name="imageFilename"
-                value={editData.imageFilename || ""}
+                name="thumbnailImage"
+                value={editData.thumbnailImage || ""}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                placeholder="Enter full URL or path to image"
+                placeholder="Enter full URL or path to thumbnail image"
             />
-            <p className="text-xs text-gray-500 mt-1">Recommended name: cover.png</p>
+            <p className="text-xs text-gray-500 mt-1">Recommended name: thumbnail.png</p>
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Save the image file at this path to ensure it displays correctly:
+                Save the thumbnail image at this path to ensure it displays correctly:
               </label>
               <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
-                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.imageFilename || ""}`}
+                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.thumbnailImage || ""}`}
+              </p>
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Main Image (Optional)</label>
+            <input
+                type="text"
+                name="mainImage"
+                value={editData.mainImage || ""}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter full URL or path to main image"
+            />
+            <p className="text-xs text-gray-500 mt-1">Recommended name: main.png</p>
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Save the main image at this path to ensure it displays correctly:
+              </label>
+              <p className="text-xs text-gray-500 bg-gray-100 p-2 rounded font-mono">
+                {`/ryleighleon-portfolio/media/${selectedPageId}/${selectedProjectId}/${editData.mainImage || ""}`}
               </p>
             </div>
           </div>

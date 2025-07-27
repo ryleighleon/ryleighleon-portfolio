@@ -50,25 +50,6 @@ export default function SectionEditor() {
     }
   }
 
-  const handleAddNew = () => {
-    const newPath = formatUid("new-section")
-    const page = pages.find((p) => p.uid === selectedPageId)
-    const isDuplicate = page?.projectSections.some((section) => section.path === newPath)
-    const uniquePath = isDuplicate ? `${newPath}-${Date.now().toString().slice(-4)}` : newPath
-    const newUid = uuidv4()
-
-    const newSection = {
-      uid: newUid,
-      path: uniquePath,
-      title: "New Section",
-      subtitle: "New Section Subtitle",
-      description: "New section description",
-      projects: [],
-    }
-
-    dispatch(updateProjectSection({ pageUid: selectedPageId!, section: newSection }))
-  }
-
   if (!editData || !selectedSectionId) return null
   if (selectedProjectId !== null) return null
 

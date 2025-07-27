@@ -10,26 +10,35 @@ export interface PagesState {
 }
 
 export interface AboutState {
-  bio: string
+  bio: string;
   education: {
-    id: string
-    degree: string
-    institution: string
-    years: string
-  }[]
+    id: string;
+    degree: string;
+    institution: string;
+    years: string;
+    accomplishments?: string[];
+  }[];
   experience: {
-    id: string
-    title: string
-    company: string
-    period: string
-    responsibilities: string[]
-  }[]
-  skills: string[]
-  selectedAboutSection: "bio" | "education" | "experience" | "skills" | null
+    id: string;
+    title: string;
+    company: string;
+    period: string;
+    responsibilities: string[];
+  }[];
+  skills: string[];
+  awardsAndExhibitions: {
+    id: string;
+    title: string;
+    subtitle?: string;
+    date: string;
+    descriptions: string[];
+  }[];
+  selectedAboutSection: "bio" | "education" | "experience" | "skills" | "awardsAndExhibitions" | null;
 }
 
 export interface SubMedia {
   mediaFilename: string
+  thumbnailImage: string
   mediaType: "Image" | "Video" | "GIF"
   mediaOrientation?: "Square" | "Vertical" | "Horizontal"
   mediaDescription?: string
@@ -37,8 +46,8 @@ export interface SubMedia {
 }
 
 export interface ProjectPage {
-  uid: string // Internal unique identifier
-  path: string // Used as the relative link (must be unique, lowercase, hyphenated)
+  uid: string
+  path: string
   shortTitle: string
   topTitle?: string
   bottomTitle?: string
@@ -46,8 +55,8 @@ export interface ProjectPage {
 }
 
 export interface ProjectSection {
-  uid: string // Internal unique identifier
-  path: string // Used in URLs (must be unique within page, lowercase, hyphenated)
+  uid: string
+  path: string
   title: string
   subtitle: string
   description: string
@@ -55,16 +64,17 @@ export interface ProjectSection {
 }
 
 export interface Project {
-  uid: string // Internal unique identifier
-  path: string // Used as the project identifier in URLs (must be unique within section, lowercase, hyphenated)
+  uid: string
+  path: string
   projectTitle: string
   projectSubtitle: string
-  imageFilename: string
+  thumbnailImage?: string
+  mainImage?: string
   projectParagraphs: {
     paragraphTitle: string
     paragraphText: string
     paragraphUid: string
   }[]
   subMedia: SubMedia[]
-  featured?: boolean // New field to mark featured projects
+  featured?: boolean
 }

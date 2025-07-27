@@ -69,7 +69,7 @@ export interface Project {
   projectTitle: string
   projectSubtitle: string
   thumbnailImage?: string
-  mainImage?: string
+  mainImage: string
   projectParagraphs: {
     paragraphTitle: string
     paragraphText: string

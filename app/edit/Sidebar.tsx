@@ -230,12 +230,13 @@ export default function Sidebar() {
       const newProject: Project = {
         uid: newUid,
         path: uniquePath,
-        imageFilename: `/placeholder.svg`,
+        thumbnailImage: "",
         projectTitle: "New Project",
-        projectSubtitle: "New Project Subtitle",
+        projectSubtitle: "",
         projectParagraphs: [],
         subMedia: [],
         featured: false,
+        mainImage: ""
       }
 
       dispatch(updateProject({ pageUid: selectedPageId, sectionUid: selectedSectionId, project: newProject }))

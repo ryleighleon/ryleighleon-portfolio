@@ -123,7 +123,7 @@ export default function Home() {
                 <Link href={`/portfolio/${project.uid}`} className="block group">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
                     <Image
-                      src={`/media/portfolio/portfolio/${project.uid}/${project.imageFilename}`}
+                      src={`/media/portfolio/portfolio/${project.uid}/${project.thumbnailImage}`}
                       alt={project.projectTitle || "Project"}
                       fill
                       className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -188,7 +188,6 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="relative"
             >
               <div className="aspect-square relative rounded-2xl overflow-hidden shadow-xl">
                 <Image src={getPersonalPictureUrl('home_small.jpg')} alt="Ryleigh Leon" fill className="object-cover" />

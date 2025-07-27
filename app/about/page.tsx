@@ -213,46 +213,32 @@ export default function About() {
               variants={staggerContainer}
           >
             <h2 className="text-3xl font-bold mb-8 text-gray-800">Education</h2>
-            <div className="flex flex-col gap-8">
+            <div className="space-y-12">
               {aboutData.education && aboutData.education.length > 0 ? (
                   aboutData.education.map((edu) => (
-                      <motion.div
-                          key={edu.id}
-                          className="bg-white rounded-lg p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
-                          variants={fadeInUp}
-                      >
-                        <div className="flex items-start mb-4">
-                          <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-6 w-6 text-purple-700"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                              <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M12 14l9-5-9-5-9 5 9 5z"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-semibold text-gray-800">{edu.degree}</h3>
-                            <p className="text-gray-600">{edu.institution}</p>
-                            <div className="inline-block mt-2 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                              {edu.years}
+                      <motion.div key={edu.id} className="relative" variants={fadeInUp}>
+                        <div className="flex gap-8">
+                          <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                              <div>
+                                <h3 className="text-xl font-semibold text-gray-800">{edu.degree}</h3>
+                                <p className="text-gray-600">{edu.institution}</p>
+                              </div>
+                              <div className="mt-2 md:mt-0">
+                                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                                  {edu.years}
+                                </span>
+                              </div>
                             </div>
+                            {edu.accomplishments && edu.accomplishments.length > 0 && (
+                                <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
+                                  {edu.accomplishments.map((acc, idx) => (
+                                      <li key={idx}>{acc}</li>
+                                  ))}
+                                </ul>
+                            )}
                           </div>
                         </div>
-                        {edu.accomplishments && edu.accomplishments.length > 0 && (
-                            <ul className="mt-4 space-y-2 text-gray-700 ml-16 list-disc list-inside">
-                              {edu.accomplishments.map((acc, idx) => (
-                                  <li key={idx}>{acc}</li>
-                              ))}
-                            </ul>
-                        )}
                       </motion.div>
                   ))
               ) : (
@@ -260,7 +246,6 @@ export default function About() {
               )}
             </div>
           </motion.section>
-
 
           {/* Experience Section */}
           <motion.section
@@ -274,30 +259,9 @@ export default function About() {
             <h2 className="text-3xl font-bold mb-8 text-gray-800">Experience</h2>
             <div className="space-y-12">
               {aboutData.experience && aboutData.experience.length > 0 ? (
-                  aboutData.experience.map((exp, index) => (
+                  aboutData.experience.map((exp) => (
                       <motion.div key={exp.id} className="relative" variants={fadeInUp}>
-                        {index < aboutData.experience.length - 1 && (
-                            <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-purple-200"></div>
-                        )}
                         <div className="flex gap-8">
-                          <div className="flex-shrink-0">
-                            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center shadow-md">
-                              <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-8 w-8 text-purple-700"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                              >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                />
-                              </svg>
-                            </div>
-                          </div>
                           <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                               <div>
@@ -305,30 +269,15 @@ export default function About() {
                                 <p className="text-gray-600">{exp.company}</p>
                               </div>
                               <div className="mt-2 md:mt-0">
-                          <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                            {exp.period}
-                          </span>
+                                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                                  {exp.period}
+                                </span>
                               </div>
                             </div>
-                            <ul className="mt-4 space-y-2 text-gray-700">
+                            <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                               {exp.responsibilities &&
                                   exp.responsibilities.map((resp, idx) => (
-                                      <li key={idx} className="flex items-start">
-                                        <svg
-                                            className="h-5 w-5 text-purple-500 mr-2 mt-0.5"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                          <path
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth="2"
-                                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                          />
-                                        </svg>
-                                        {resp}
-                                      </li>
+                                      <li key={idx}>{resp}</li>
                                   ))}
                             </ul>
                           </div>
@@ -360,10 +309,7 @@ export default function About() {
                             className="px-4 py-3 bg-white text-purple-800 rounded-lg shadow-sm border border-purple-100 hover:shadow-md transition-shadow"
                             variants={fadeInUp}
                         >
-                          <div className="flex items-center">
-                            <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                            <span className="font-medium">{skill}</span>
-                          </div>
+                          <span className="font-medium">{skill}</span>
                         </motion.div>
                     ))}
                   </div>
@@ -385,30 +331,9 @@ export default function About() {
             <h2 className="text-3xl font-bold mb-8 text-gray-800">Awards & Exhibitions</h2>
             <div className="space-y-12">
               {aboutData.awardsAndExhibitions && aboutData.awardsAndExhibitions.length > 0 ? (
-                  aboutData.awardsAndExhibitions.map((award, index) => (
+                  aboutData.awardsAndExhibitions.map((award) => (
                       <motion.div key={award.id} className="relative" variants={fadeInUp}>
-                        {index < aboutData.awardsAndExhibitions.length - 1 && (
-                            <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-purple-200"></div>
-                        )}
                         <div className="flex gap-8">
-                          <div className="flex-shrink-0">
-                            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center shadow-md">
-                              <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-8 w-8 text-purple-700"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                              >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 9.143m-10 2l2.286 6.857L21 14.857m-10-2l6.857 2.286"
-                                />
-                              </svg>
-                            </div>
-                          </div>
                           <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                               <div>
@@ -416,30 +341,15 @@ export default function About() {
                                 {award.subtitle && <p className="text-gray-600">{award.subtitle}</p>}
                               </div>
                               <div className="mt-2 md:mt-0">
-                          <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                            {award.date}
-                          </span>
+                                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                                  {award.date}
+                                </span>
                               </div>
                             </div>
-                            <ul className="mt-4 space-y-2 text-gray-700">
+                            <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                               {award.descriptions &&
                                   award.descriptions.map((desc, idx) => (
-                                      <li key={idx} className="flex items-start">
-                                        <svg
-                                            className="h-5 w-5 text-purple-500 mr-2 mt-0.5"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                          <path
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth="2"
-                                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                          />
-                                        </svg>
-                                        {desc}
-                                      </li>
+                                      <li key={idx}>{desc}</li>
                                   ))}
                             </ul>
                           </div>

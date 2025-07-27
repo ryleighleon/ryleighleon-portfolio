@@ -108,7 +108,7 @@ export default function ProjectDetail({
         <section className="relative h-[70vh] bg-gray-900">
           <div className="absolute inset-0">
             <Image
-                src={`/media/${pageId}/${projectSection.path}/${projectId}/${currentProject.imageFilename}`}
+                src={`/media/${pageId}/${projectSection.path}/${projectId}/${currentProject.mainImage}`}
                 alt={currentProject.projectTitle || "Project"}
                 fill
                 className="object-cover"
@@ -219,7 +219,7 @@ export default function ProjectDetail({
                           <div className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <div className="relative aspect-[4/3] overflow-hidden">
                               <Image
-                                  src={`/media/${pageId}/${projectSection.path}/${project.path}/${project.imageFilename}`}
+                                  src={`/media/${pageId}/${projectSection.path}/${project.path}/${project.thumbnailImage}`}
                                   alt={project.projectTitle || "Project"}
                                   fill
                                   className="object-cover transition-all duration-500 group-hover:scale-105"

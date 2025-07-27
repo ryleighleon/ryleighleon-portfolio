@@ -3,7 +3,7 @@ export function getIconUrl(iconName: string): string {
 }
 
 export function getPersonalPictureUrl(iconName: string): string {
-  return `/media/personal_pictures/${iconName}`
+  return `/media/personal-pictures/${iconName}`
 }
 
 /**

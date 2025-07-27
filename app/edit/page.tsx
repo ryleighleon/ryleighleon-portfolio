@@ -46,7 +46,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="mb-4">
-            <strong>Images:</strong> Images are stored in <code>ryleighleon-portfolio/media/personal_pictures</code>:
+            <strong>Images:</strong> Images are stored in <code>ryleighleon-portfolio/media/personal-pictures</code>:
             <ul className="list-disc pl-5">
               <li><code>about_pic.jpg</code>: Displayed on the About page.</li>
               <li><code>home_large.jpg</code>: Large banner image on the home page.</li>

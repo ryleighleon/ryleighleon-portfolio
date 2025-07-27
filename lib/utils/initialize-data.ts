@@ -19,7 +19,7 @@ export const defaultPagesData = [
         projects: [
           {
             uid: "target",
-            imageFilename:
+            thumbnailImage:
               "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.56.17%E2%80%AFPM-qUB2hQS9wxoDYZ2eyqquVsK6wOdpmR.png",
             projectTitle: "Target",
             projectSubtitle: "Art Direction",
@@ -44,7 +44,7 @@ export const defaultPagesData = [
           },
           {
             uid: "typography",
-            imageFilename:
+            thumbnailImage:
               "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-22%20at%208.58.59%E2%80%AFPM-GEjACRqtTSk0sXseRBY9p1Ss06EfUr.png",
             projectTitle: "Typography",
             projectSubtitle: "Letterform Study",

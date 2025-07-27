@@ -20,7 +20,7 @@
                 },
                 {
                   "paragraphTitle": "Process: ",
-                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer\u2019s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
+                  "paragraphText": "I had about 15 minutes to shoot the photos I needed for my ad. My idea for the ad was more complex in post-production than some of my classmates. Iprepped for the photo shoot by coming in with a shot list and photo examples of lighting. Before the shoot, I had done a lot of planning and practice assembling the paintbrushes into letters. During the photoshoot, I had examples of the types of photos I wanted and a sketch of the final composition.I followed the photographer’s advice and adjusted my shot list during the photo shoot to keep the lighting consistent. I also used museum putty to help keep the paint brushes in place during shooting. I shot more photos than I used to create the ad, but it gave me a couple of options in post-production.",
                   "paragraphUid": "pvx9q"
                 },
                 {
@@ -102,7 +102,7 @@
                   "thumbnailImage": "HWT_Internship_4.png"
                 }
               ],
-              "uid": "hamilton_wood_type_printing",
+              "uid": "hamilton-wood-type-printing",
               "path": "hamilton-wood-type-printing",
               "mainImage": "HWT_Internship_1.png",
               "thumbnailImage": "HWT_Internship_1.png"
@@ -148,7 +148,7 @@
                   "thumbnailImage": "Simply_3.png"
                 }
               ],
-              "uid": "simply_lemonade",
+              "uid": "simply-lemonade",
               "path": "simply-lemonade",
               "featured": true,
               "mainImage": "Simply_1.png",
@@ -160,7 +160,7 @@
               "projectParagraphs": [
                 {
                   "paragraphTitle": "The Project:",
-                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn\u2019t accurately align with their business.",
+                  "paragraphText": "Wonder Fair is a stationary and art supply company in downtownLawrence, KS. It is a well-known store in the community.Some things that make the company unique are that they have a cat named Dave and a haunted bathroom. TheWonder Fair logo didn’t accurately align with their business.",
                   "paragraphUid": "g34x1"
                 },
                 {
@@ -254,7 +254,7 @@
                   "thumbnailImage": "Wonder Fair SM Post_3.png"
                 }
               ],
-              "uid": "wonder_fair",
+              "uid": "wonder-fair",
               "path": "wonder-fair",
               "mainImage": "Wonder Fair SM Post_1.png",
               "thumbnailImage": "Wonder Fair SM Post_1.png"
@@ -317,7 +317,7 @@
                   "thumbnailImage": "Rockabilly Chili_6.png"
                 }
               ],
-              "uid": "rockabilly_chili",
+              "uid": "rockabilly-chili",
               "path": "rockabilly-chili",
               "featured": true,
               "mainImage": "Rockabilly Chili_1.png",
@@ -371,7 +371,7 @@
                   "thumbnailImage": "HWT_Internship_4.png"
                 }
               ],
-              "uid": "graphic_design_intern_projects",
+              "uid": "graphic-design-intern-projects",
               "path": "graphic-design-intern-projects",
               "mainImage": "HWT_Internship_1.png",
               "thumbnailImage": "HWT_Internship_1.png"
@@ -436,7 +436,7 @@
                   "thumbnailImage": "Really Big Print_8.png"
                 }
               ],
-              "uid": "really_big_prints",
+              "uid": "really-big-prints",
               "path": "really-big-prints",
               "mainImage": "Really Big Print_1.png",
               "thumbnailImage": "Really Big Print_1.png"
@@ -501,7 +501,7 @@
                   "thumbnailImage": "Ocean is Calling_9.png"
                 }
               ],
-              "uid": "the_ocean_is_calling",
+              "uid": "the-ocean-is-calling",
               "path": "the-ocean-is-calling",
               "mainImage": "Ocean is Calling_1.png",
               "thumbnailImage": "Ocean is Calling_1.png"
@@ -530,13 +530,13 @@
                   "thumbnailImage": "Experimental Type_3.png"
                 }
               ],
-              "uid": "experimental_type",
+              "uid": "experimental-type",
               "path": "experimental-type",
               "mainImage": "Experimental Type_1.png",
               "thumbnailImage": "Experimental Type_1.png"
             }
           ],
-          "uid": "hamilton_wood_type_printing_museum",
+          "uid": "hamilton-wood-type-printing-museum",
           "path": "hamilton-wood-type-printing-museum"
         }
       ],
@@ -618,7 +618,7 @@
               "thumbnailImage": "SPDCoozie1.png"
             }
           ],
-          "uid": "sigma_phi_delta",
+          "uid": "sigma-phi-delta",
           "path": "sigma-phi-delta"
         }
       ],
@@ -645,13 +645,13 @@
                   "thumbnailImage": "MIAD_Y1_1.png"
                 }
               ],
-              "uid": "whats_your_type",
+              "uid": "whats-your-type",
               "path": "whats-your-type",
               "mainImage": "MIAD_Y1_1.png",
               "thumbnailImage": "MIAD_Y1_1.png"
             }
           ],
-          "uid": "first_year",
+          "uid": "first-year",
           "path": "first-year"
         },
         {
@@ -677,7 +677,7 @@
                   "thumbnailImage": "MIAD_Y2_7.png"
                 }
               ],
-              "uid": "hand_rendered_type",
+              "uid": "hand-rendered-type",
               "path": "hand-rendered-type",
               "mainImage": "MIAD_Y2_3.png",
               "thumbnailImage": "MIAD_Y2_3.png"
@@ -729,7 +729,7 @@
                   "thumbnailImage": "MIAD_Y2_4.png"
                 }
               ],
-              "uid": "poster_design",
+              "uid": "poster-design",
               "path": "poster-design",
               "mainImage": "MIAD_Y2_4.png",
               "thumbnailImage": "MIAD_Y2_4.png"
@@ -798,13 +798,13 @@
                   "thumbnailImage": "MIAD_Y2_2.png"
                 }
               ],
-              "uid": "fall_pattern_design",
+              "uid": "fall-pattern-design",
               "path": "fall-pattern-design",
               "mainImage": "MIAD_Y2_1.png",
               "thumbnailImage": "MIAD_Y2_1.png"
             }
           ],
-          "uid": "second_year",
+          "uid": "second-year",
           "path": "second-year"
         },
         {
@@ -830,7 +830,7 @@
                   "thumbnailImage": "MIAD_Y3_2.png"
                 }
               ],
-              "uid": "album_redesign",
+              "uid": "album-redesign",
               "path": "album-redesign",
               "mainImage": "MIAD_Y3_1.png",
               "thumbnailImage": "MIAD_Y3_1.png"
@@ -877,7 +877,7 @@
               "thumbnailImage": "MIAD_Y3_3.png"
             }
           ],
-          "uid": "third_year",
+          "uid": "third-year",
           "path": "third-year"
         }
       ],

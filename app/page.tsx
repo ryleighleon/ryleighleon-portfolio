@@ -54,7 +54,7 @@ export default function Home() {
           }}
         >
           <Image src={getPersonalPictureUrl('home_large.jpg')} alt="Ryleigh Leon" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-800/60 via-purple-900/70 to-black/80" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/portfolio"
-                className="px-8 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-all shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                className="px-8 py-3 bg-purple-400 text-black rounded-md hover:bg-purple-500 transition-all shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
               >
                 View Portfolio
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -105,7 +105,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Featured Work</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-green mb-4">Featured Work</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               A selection of my recent projects and creative explorations
             </p>
@@ -128,7 +128,7 @@ export default function Home() {
                       fill
                       className="object-cover transition-all duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-800/70 via-purple-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                       <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">
                         {project.projectTitle || "Untitled Project"}
@@ -169,14 +169,14 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Hi, I'm Ryleigh</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-green mb-6">Hi, I'm Ryleigh</h2>
+              <p className="text-lg text-green mb-6 leading-relaxed">
                 I'm a passionate graphic designer with a keen eye for detail and a love for creating visually stunning
                 designs that communicate effectively. My work spans branding, typography, and digital design.
               </p>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-purple-700 font-medium hover:text-purple-900 transition-colors group"
+                className="inline-flex items-center gap-2 text-purple-600 font-medium hover:text-purple-800 transition-colors group"
               >
                 Learn more about me
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -207,7 +207,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Connect</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-green mb-4">Let's Connect</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Have a project in mind? I'd love to hear about it and see how we can work together.
             </p>

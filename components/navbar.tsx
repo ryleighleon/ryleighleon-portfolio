@@ -64,8 +64,8 @@ export function Navbar() {
         <Link
           href="/portfolio"
           className={`${
-            pathname === "/portfolio" ? "border-b-2 border-purple-600" : ""
-          } hover:text-purple-600 transition-colors`}
+            pathname === "/portfolio" ? "border-b-2 border-purple-400" : ""
+          } hover:text-purple-400 transition-colors`}
         >
           Portfolio
         </Link>
@@ -73,8 +73,8 @@ export function Navbar() {
         <div className="relative group">
           <button
             className={`flex items-center space-x-1 ${
-              workPages.some((page) => pathname === `/${page.uid}`) ? "border-b-2 border-purple-600" : ""
-            } hover:text-purple-600 transition-colors`}
+              workPages.some((page) => pathname === `/${page.uid}`) ? "border-b-2 border-purple-400" : ""
+            } hover:text-purple-400 transition-colors`}
           >
             <span>Work</span>
           </button>
@@ -95,8 +95,8 @@ export function Navbar() {
         <Link
           href="/about"
           className={`${
-            pathname === "/about" ? "border-b-2 border-purple-600" : ""
-          } hover:text-purple-600 transition-colors`}
+            pathname === "/about" ? "border-b-2 border-purple-400" : ""
+          } hover:text-purple-400 transition-colors`}
         >
           About
         </Link>
@@ -140,8 +140,8 @@ export function Navbar() {
             <Link
               href="/portfolio"
               className={`${
-                pathname === "/portfolio" ? "text-purple-600 font-semibold" : ""
-              } hover:text-purple-600 transition-colors`}
+                pathname === "/portfolio" ? "text-purple-400 font-semibold" : ""
+              } hover:text-purple-400 transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
@@ -155,7 +155,7 @@ export function Navbar() {
                     <Link
                       key={page.uid}
                       href={`/${page.uid}`}
-                      className="block hover:text-purple-600"
+                      className="block hover:text-purple-400"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {page.shortTitle}
@@ -170,8 +170,8 @@ export function Navbar() {
             <Link
               href="/about"
               className={`${
-                pathname === "/about" ? "text-purple-600 font-semibold" : ""
-              } hover:text-purple-600 transition-colors`}
+                pathname === "/about" ? "text-purple-400 font-semibold" : ""
+              } hover:text-purple-400 transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               About

@@ -33,13 +33,13 @@ export function ContactForm() {
   return (
     <div className="flex flex-col md:flex-row gap-12">
       <div className="md:w-1/2">
-        <h2 className="text-3xl font-bold mb-6">Connect with Me!</h2>
-        <p className="mb-6">
+        <h2 className="text-3xl font-bold mb-6 text-green">Connect with Me!</h2>
+        <p className="mb-6 text-green">
           Interested in learning more about me, my work or how we can collaborate on an upcoming project? Feel free to
           reach out anytime, I would be more than happy to chat.
         </p>
-        <p className="mb-4">
-          <a href="mailto:ryleighleon@gmail.com" className="hover:text-purple-600 transition-colors">
+        <p className="mb-4 text-green">
+          <a href="mailto:ryleighleon@gmail.com" className="hover:text-purple-400 transition-colors">
             ryleighleon@gmail.com
           </a>
         </p>
@@ -72,7 +72,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="Name"
               required
-              className="w-full p-2 border-b border-purple-300 focus:border-purple-600 outline-none transition-colors"
+              className="w-full p-2 border-b border-purple-300 focus:border-purple-400 outline-none transition-colors"
             />
           </div>
           <div>
@@ -83,7 +83,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="Subject"
               required
-              className="w-full p-2 border-b border-purple-300 focus:border-purple-600 outline-none transition-colors"
+              className="w-full p-2 border-b border-purple-300 focus:border-purple-400 outline-none transition-colors"
             />
           </div>
           <div>
@@ -94,12 +94,12 @@ export function ContactForm() {
               placeholder="Type your message here..."
               required
               rows={6}
-              className="w-full p-2 border-b border-purple-300 focus:border-purple-600 outline-none transition-colors"
+              className="w-full p-2 border-b border-purple-300 focus:border-purple-400 outline-none transition-colors"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
+            className="w-full py-3 bg-purple-400 text-black rounded-md hover:bg-purple-500 transition-colors"
           >
             Email
           </button>

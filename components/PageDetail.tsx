@@ -41,10 +41,7 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative bg-purple-900 text-white py-24 px-6">
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-400 via-purple-700 to-purple-900"></div>
-                </div>
+            <section className={`relative ${pageId === "portfolio" ? "bg-white text-[#323b26] py-8" : "bg-purple-900 text-white py-8 h-[20vh] md:h-[25vh]"} px-6 flex items-center`}>
                 <div className="relative max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -57,17 +54,17 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="mb-8"
+                                className="mb-6"
                             >
-                <span className="text-xl md:text-2xl font-light tracking-wider text-white/90 relative inline-block">
-                  <span className="absolute -left-8 top-1/2 w-6 h-[1px] bg-white/60"></span>
-                    {currentPage.topTitle}
-                    <span className="absolute -right-8 top-1/2 w-6 h-[1px] bg-white/60"></span>
-                </span>
+                                <span className={`text-lg md:text-xl font-light tracking-wider ${pageId === "portfolio" ? "text-[#323b26]" : "text-white/90"} relative inline-block`}>
+                                    <span className={`absolute -left-6 top-1/2 w-4 h-[1px] ${pageId === "portfolio" ? "bg-[#323b26]/60" : "bg-white/60"}`}></span>
+                                    {currentPage.topTitle}
+                                    <span className={`absolute -right-6 top-1/2 w-4 h-[1px] ${pageId === "portfolio" ? "bg-[#323b26]/60" : "bg-white/60"}`}></span>
+                                </span>
                             </motion.div>
                         )}
                         <motion.h1
-                            className="text-5xl md:text-7xl font-bold"
+                            className={`text-4xl md:text-6xl font-bold ${pageId === "portfolio" ? "text-[#323b26]" : "text-white"}`}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
@@ -75,9 +72,9 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                             {currentPage.shortTitle}
                         </motion.h1>
                         <motion.div
-                            className="w-24 h-1 bg-purple-400 mx-auto mt-8"
+                            className={`w-20 h-1 ${pageId === "portfolio" ? "bg-[#323b26]" : "bg-purple-400"} mx-auto mt-6`}
                             initial={{ width: 0 }}
-                            animate={{ width: 96 }}
+                            animate={{ width: 80 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         />
                     </motion.div>
@@ -104,15 +101,15 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                                     viewport={{ once: true, margin: "-100px" }}
-                                    className="mb-20"
+                                    className="mb-8"
                                 >
                                     <div className="mb-10">
-                                        <h2 className="text-3xl font-bold mb-3 text-gray-900">{section.title}</h2>
+                                        <h2 className="text-3xl font-bold mb-3 text-[#323b26]">{section.title}</h2>
                                         {section.subtitle && <h3 className="text-xl text-gray-600 mb-4">{section.subtitle}</h3>}
                                         {section.description && <p className="text-gray-700 max-w-3xl">{section.description}</p>}
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {section.projects.map((project, index) => (
                                             <motion.div
                                                 key={project.uid}
@@ -122,26 +119,26 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                                                 viewport={{ once: true, margin: "-150px" }}
                                             >
                                                 <Link href={`/${currentPage.uid}/${project.uid}`} className="block group">
-                                                    <div className="relative overflow-hidden">
-                                                        <div className="relative aspect-[16/10] overflow-hidden">
+                                                    <div className="relative overflow-hidden rounded-xl">
+                                                        <div className="relative aspect-square overflow-hidden">
                                                             <Image
                                                                 src={`/media/${pageId}/${section.path}/${project.uid}/${project.thumbnailImage}` || "/placeholder.svg"}
                                                                 alt={project.projectTitle || "Project"}
                                                                 fill
                                                                 className="object-cover transition-all duration-500 group-hover:scale-105"
-                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                                                                 priority={sectionIndex === 0 && index < 4}
                                                             />
 
                                                             {/* Hover overlay */}
-                                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-white">
-                                                                {project.projectSubtitle && <p className="text-lg mb-2">{project.projectSubtitle}</p>}
+                                                            <div className="absolute inset-0 bg-[#323b26]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-white">
+                                                                {project.projectSubtitle && <p className="text-base mb-2">{project.projectSubtitle}</p>}
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     {/* Title below image */}
-                                                    <h3 className="mt-3 text-xl font-medium text-gray-900 group-hover:text-purple-700 transition-colors">
+                                                    <h3 className="mt-3 text-lg font-medium text-[#323b26] group-hover:text-purple-700 transition-colors">
                                                         {project.projectTitle || "Untitled Project"}
                                                     </h3>
                                                 </Link>
@@ -156,14 +153,14 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
             </div>
 
             {currentPage.bottomTitle && (
-                <div className="bg-purple-900 text-white py-16 px-6 text-center mt-20">
+                <div className={`py-8 px-6 text-center ${pageId === "portfolio" ? "bg-white text-[#323b26]" : "bg-purple-900 text-white"} mb-8`}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true, margin: "-100px" }}
                     >
-                        <p className="text-2xl md:text-3xl font-bold max-w-3xl mx-auto">{currentPage.bottomTitle}</p>
+                        <h2 className={`text-3xl md:text-5xl font-normal ${pageId === "portfolio" ? "text-[#323b26]" : "text-white"}`}>{currentPage.bottomTitle}</h2>
                     </motion.div>
                 </div>
             )}

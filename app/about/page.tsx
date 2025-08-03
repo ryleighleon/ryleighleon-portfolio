@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
 import Loading from "@/components/loading"
 import { motion } from "framer-motion"
 import { getPersonalPictureUrl } from "@/lib/utils/image-paths"
+import AnimatedLine from "@/components/AnimatedLine"
 
 export default function About() {
   const dispatch = useAppDispatch()
@@ -83,25 +84,19 @@ export default function About() {
   return (
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-          <div className="absolute inset-0 bg-purple-900" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
+        <div className="relative bg-purple-900 py-8 h-[20vh] md:h-[25vh] flex items-center overflow-hidden">
+          <div className="relative max-w-7xl mx-auto px-6 text-center">
             <motion.h1
-                className="text-4xl md:text-6xl font-bold mb-4 text-center"
+                className="text-4xl md:text-6xl font-bold mb-4 text-white"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
               {aboutPage?.topTitle || "About Me"}
             </motion.h1>
-            <motion.div
-                className="w-24 h-1 bg-white mb-6"
-                initial={{ width: 0 }}
-                animate={{ width: 96 }}
-                transition={{ duration: 1, delay: 0.4 }}
-            />
+            <AnimatedLine colorClass="bg-white" />
             <motion.h2
-                className="text-xl md:text-2xl text-center max-w-2xl"
+                className="text-lg md:text-xl text-white max-w-2xl mx-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}

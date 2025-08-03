@@ -20,7 +20,10 @@ export default async function ProjectPageComponent({ params }: { params: { pageI
                     if (project) {
                         currentProject = project
                         projectSection = section
-                        relatedProjects = section.projects.filter((p) => p.uid !== projectId).slice(0, 3)
+                        relatedProjects = section.projects
+                            .filter((p) => p.uid !== projectId)
+                            .sort(() => Math.random() - 0.5) // Shuffle
+                            .slice(0, 3); // Pick first 3
                         status = "succeeded"
                         break
                     }

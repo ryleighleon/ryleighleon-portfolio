@@ -189,8 +189,8 @@ export default function Sidebar() {
       const newPage: ProjectPage = {
         uid: newUid,
         path: uniquePath,
-        shortTitle: "New Page",
-        topTitle: "New Page Title",
+        shortTitle: "",
+        topTitle: "",
         projectSections: [],
       }
 
@@ -209,9 +209,9 @@ export default function Sidebar() {
       const newSection: ProjectSection = {
         uid: newUid,
         path: uniquePath,
-        title: "New Section",
-        subtitle: "New Section Subtitle",
-        description: "New section description",
+        title: "",
+        subtitle: "",
+        description: "",
         projects: [],
       }
 
@@ -231,7 +231,7 @@ export default function Sidebar() {
         uid: newUid,
         path: uniquePath,
         thumbnailImage: "",
-        projectTitle: "New Project",
+        projectTitle: "",
         projectSubtitle: "",
         projectParagraphs: [],
         subMedia: [],
@@ -248,8 +248,7 @@ export default function Sidebar() {
         subMediaUid: subMediaUid,
         mediaFilename: `/images/${selectedPageId}/${selectedProjectId}/${subMediaUid}.png`,
         mediaType: "Image",
-        mediaOrientation: "Square",
-        mediaDescription: "New media item",
+        mediaDescription: "",
       }
 
       dispatch(

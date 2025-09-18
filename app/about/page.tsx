@@ -84,10 +84,10 @@ export default function About() {
   return (
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative bg-purple-400 py-8 h-[20vh] md:h-[25vh] flex items-center overflow-hidden">
+        <div className="relative bg-purple-900 py-8 h-[20vh] md:h-[25vh] flex items-center overflow-hidden">
           <div className="relative max-w-7xl mx-auto px-6 text-center">
             <motion.h1
-                className="text-4xl md:text-6xl font-bold mb-4 text-green"
+                className="text-4xl md:text-6xl font-bold mb-4 text-white"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -96,7 +96,7 @@ export default function About() {
             </motion.h1>
             <AnimatedLine colorClass="bg-white" />
             <motion.h2
-                className="text-lg md:text-xl text-green max-w-2xl mx-auto"
+                className="text-lg md:text-xl text-white max-w-2xl mx-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -115,8 +115,8 @@ export default function About() {
                   className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
                 ${
                       activeSection === "bio"
-                          ? "text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-100 after:transition-all after:duration-300"
-                          : "text-gray-600 hover:text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                          ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                          : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
                   }`}
               >
                 Biography
@@ -126,8 +126,8 @@ export default function About() {
                   className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
                 ${
                       activeSection === "education"
-                          ? "text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-100 after:transition-all after:duration-300"
-                          : "text-gray-600 hover:text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                          ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                          : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
                   }`}
               >
                 Education
@@ -137,8 +137,8 @@ export default function About() {
                   className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
                 ${
                       activeSection === "experience"
-                          ? "text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-100 after:transition-all after:duration-300"
-                          : "text-gray-600 hover:text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                          ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                          : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
                   }`}
               >
                 Experience
@@ -148,8 +148,8 @@ export default function About() {
                   className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
                 ${
                       activeSection === "skills"
-                          ? "text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-100 after:transition-all after:duration-300"
-                          : "text-gray-600 hover:text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                          ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                          : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
                   }`}
               >
                 Skills
@@ -159,8 +159,8 @@ export default function About() {
                   className={`whitespace-nowrap px-4 py-2 font-medium relative transition-all duration-300
                 ${
                       activeSection === "awardsAndExhibitions"
-                          ? "text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-100 after:transition-all after:duration-300"
-                          : "text-gray-600 hover:text-purple-600 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-600 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
+                          ? "text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-100 after:transition-all after:duration-300"
+                          : "text-gray-600 hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-purple-700 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-all after:duration-300"
                   }`}
               >
                 Awards & Exhibitions
@@ -182,8 +182,8 @@ export default function About() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-bold mb-6 text-green">Biography</h2>
-                <div className="prose prose-lg max-w-none text-green">{aboutData.bio}</div>
+                <h2 className="text-3xl font-bold mb-6 text-gray-800">Biography</h2>
+                <div className="prose prose-lg max-w-none text-gray-600">{aboutData.bio}</div>
               </div>
               <div className="order-1 md:order-2">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-xl">
@@ -207,7 +207,7 @@ export default function About() {
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
           >
-            <h2 className="text-3xl font-bold mb-8 text-green">Education</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-800">Education</h2>
             <div className="space-y-12">
               {aboutData.education && aboutData.education.length > 0 ? (
                   aboutData.education.map((edu) => (
@@ -216,8 +216,8 @@ export default function About() {
                           <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                               <div>
-                                <h3 className="text-xl font-semibold text-green">{edu.degree}</h3>
-                                <p className="text-green">{edu.institution}</p>
+                                <h3 className="text-xl font-semibold text-gray-800">{edu.degree}</h3>
+                                <p className="text-gray-600">{edu.institution}</p>
                               </div>
                               <div className="mt-2 md:mt-0">
                                 <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
@@ -226,7 +226,7 @@ export default function About() {
                               </div>
                             </div>
                             {edu.accomplishments && edu.accomplishments.length > 0 && (
-                                <ul className="mt-4 space-y-2 text-green list-disc list-inside">
+                                <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                                   {edu.accomplishments.map((acc, idx) => (
                                       <li key={idx}>{acc}</li>
                                   ))}
@@ -251,7 +251,7 @@ export default function About() {
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
           >
-            <h2 className="text-3xl font-bold mb-8 text-green">Experience</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-800">Experience</h2>
             <div className="space-y-12">
               {aboutData.experience && aboutData.experience.length > 0 ? (
                   aboutData.experience.map((exp) => (
@@ -260,8 +260,8 @@ export default function About() {
                           <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                               <div>
-                                <h3 className="text-xl font-semibold text-green">{exp.title}</h3>
-                                <p className="text-green">{exp.company}</p>
+                                <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
+                                <p className="text-gray-600">{exp.company}</p>
                               </div>
                               <div className="mt-2 md:mt-0">
                                 <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
@@ -269,7 +269,7 @@ export default function About() {
                                 </span>
                               </div>
                             </div>
-                            <ul className="mt-4 space-y-2 text-green list-disc list-inside">
+                            <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                               {exp.responsibilities &&
                                   exp.responsibilities.map((resp, idx) => (
                                       <li key={idx}>{resp}</li>
@@ -294,14 +294,14 @@ export default function About() {
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
           >
-            <h2 className="text-3xl font-bold mb-8 text-green">Skills</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-800">Skills</h2>
             <div className="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-md">
               {aboutData.skills && aboutData.skills.length > 0 ? (
                   <div className="flex flex-wrap gap-3">
                     {aboutData.skills.map((skill, index) => (
                         <motion.div
                             key={index}
-                            className="px-4 py-3 bg-white text-purple-900 rounded-lg shadow-sm border border-purple-100 hover:shadow-md transition-shadow"
+                            className="px-4 py-3 bg-white text-purple-800 rounded-lg shadow-sm border border-purple-100 hover:shadow-md transition-shadow"
                             variants={fadeInUp}
                         >
                           <span className="font-medium">{skill}</span>
@@ -309,7 +309,7 @@ export default function About() {
                     ))}
                   </div>
               ) : (
-                  <p className="text-green">Skills information not available</p>
+                  <p className="text-gray-500">Skills information not available</p>
               )}
             </div>
           </motion.section>
@@ -323,7 +323,7 @@ export default function About() {
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
           >
-            <h2 className="text-3xl font-bold mb-8 text-green">Awards & Exhibitions</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-800">Awards & Exhibitions</h2>
             <div className="space-y-12">
               {aboutData.awardsAndExhibitions && aboutData.awardsAndExhibitions.length > 0 ? (
                   aboutData.awardsAndExhibitions.map((award) => (
@@ -332,8 +332,8 @@ export default function About() {
                           <div className="flex-grow bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                               <div>
-                                <h3 className="text-xl font-semibold text-green">{award.title}</h3>
-                                {award.subtitle && <p className="text-green">{award.subtitle}</p>}
+                                <h3 className="text-xl font-semibold text-gray-800">{award.title}</h3>
+                                {award.subtitle && <p className="text-gray-600">{award.subtitle}</p>}
                               </div>
                               <div className="mt-2 md:mt-0">
                                 <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
@@ -341,7 +341,7 @@ export default function About() {
                                 </span>
                               </div>
                             </div>
-                            <ul className="mt-4 space-y-2 text-green list-disc list-inside">
+                            <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                               {award.descriptions &&
                                   award.descriptions.map((desc, idx) => (
                                       <li key={idx}>{desc}</li>
@@ -359,15 +359,15 @@ export default function About() {
         </div>
 
         {/* Contact CTA */}
-        <div className="bg-purple-400 text-black py-16">
+        <div className="bg-purple-700 text-white py-16">
           <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Let's Work Together</h2>
-            <p className="text-black max-w-2xl mx-auto mb-8">
+            <p className="text-purple-100 max-w-2xl mx-auto mb-8">
               I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
             </p>
             <a
                 href="mailto:ryleighleon@gmail.com"
-                className="inline-block px-8 py-3 bg-white text-purple-600 font-medium rounded-lg hover:bg-purple-50 transition-colors"
+                className="inline-block px-8 py-3 bg-white text-purple-700 font-medium rounded-lg hover:bg-purple-50 transition-colors"
             >
               Get In Touch
             </a>

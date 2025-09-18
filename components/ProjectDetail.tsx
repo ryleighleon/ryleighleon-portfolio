@@ -99,70 +99,69 @@ export default function ProjectDetail({
 
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 max-w-5xl mx-auto text-white">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-3 pl-0">{currentProject.projectTitle}</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-3">{currentProject.projectTitle}</h1>
+                        <AnimatedLine colorClass="bg-purple-600" />
                         {currentProject.projectSubtitle && (
-                            <h2 className="text-xl md:text-2xl text-white/80 mb-6 pl-0">{currentProject.projectSubtitle}</h2>
+                            <h2 className="text-xl md:text-2xl text-white/80 mb-6">{currentProject.projectSubtitle}</h2>
                         )}
                     </motion.div>
                 </div>
             </section>
 
             {/* Content Section */}
-            <section className="py-8 px-6 md:px-12 max-w-5xl mx-auto content-wrapper">
-                <div className="content-wrapper">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        {currentProject.projectParagraphs &&
-                            currentProject.projectParagraphs.slice(0, 2).map((paragraph: any, index: number) => (
-                                <motion.div
-                                    key={paragraph.paragraphUid}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    className="mb-12"
-                                >
-                                    <h3 className="text-2xl font-semibold mb-4 text-green pl-0">
-                                        {paragraph.paragraphTitle}
-                                    </h3>
-                                    <p className="text-green leading-relaxed pl-0">
-                                        {paragraph.paragraphText}
-                                    </p>
-                                </motion.div>
-                            ))}
-                    </div>
-                    <div className="grid grid-cols-1">
-                        {currentProject.projectParagraphs &&
-                            currentProject.projectParagraphs.slice(2).map((paragraph: any, index: number) => (
-                                <motion.div
-                                    key={paragraph.paragraphUid}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    className="mb-12"
-                                >
-                                    <h3 className="text-2xl font-semibold mb-4 text-green pl-0">
-                                        {paragraph.paragraphTitle}
-                                    </h3>
-                                    <p className="text-green leading-relaxed pl-0">
-                                        {paragraph.paragraphText}
-                                    </p>
-                                </motion.div>
-                            ))}
-                    </div>
+            <section className="py-16 px-6 md:px-12 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {currentProject.projectParagraphs &&
+                        currentProject.projectParagraphs.slice(0, 2).map((paragraph: any, index: number) => (
+                            <motion.div
+                                key={paragraph.paragraphUid}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                className="mb-12"
+                            >
+                                <h3 className="text-2xl font-semibold mb-4 text-gray-900 pl-0">
+                                    {paragraph.paragraphTitle}
+                                </h3>
+                                <p className="text-gray-700 leading-relaxed pl-0">
+                                    {paragraph.paragraphText}
+                                </p>
+                            </motion.div>
+                        ))}
+                </div>
+                <div className="grid grid-cols-1">
+                    {currentProject.projectParagraphs &&
+                        currentProject.projectParagraphs.slice(2).map((paragraph: any, index: number) => (
+                            <motion.div
+                                key={paragraph.paragraphUid}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                className="mb-12"
+                            >
+                                <h3 className="text-2xl font-semibold mb-4 text-gray-900 pl-0">
+                                    {paragraph.paragraphTitle}
+                                </h3>
+                                <p className="text-gray-700 leading-relaxed pl-0">
+                                    {paragraph.paragraphText}
+                                </p>
+                            </motion.div>
+                        ))}
                 </div>
             </section>
 
             {/* Media Gallery Section */}
             {currentProject.subMedia && currentProject.subMedia.length > 0 && (
-                <section className="py-8 px-6 md:px-12 max-w-5xl mx-auto content-wrapper">
-                    <div className="content-wrapper">
+                <section className="py-16 px-6 md:px-12 bg-gray-50">
+                    <div className="max-w-5xl mx-auto">
                         <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            className="text-3xl font-bold mb-10 text-green pl-0"
+                            className="text-3xl font-bold mb-10 text-gray-900 pl-0"
                         >
                             Project Gallery
                         </motion.h3>
@@ -184,7 +183,7 @@ export default function ProjectDetail({
                                         fill
                                         className="object-cover transition-all duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-purple-800 bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                                         <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
                                             {media.mediaDescription && <p>{media.mediaDescription}</p>}
                                         </div>
@@ -198,14 +197,14 @@ export default function ProjectDetail({
 
             {/* Related Projects Section */}
             {relatedProjects.length > 0 && (
-                <section className="py-8 px-6 md:px-12 max-w-5xl mx-auto content-wrapper">
-                    <div className="content-wrapper">
+                <section className="py-16 px-6 md:px-12">
+                    <div className="max-w-5xl mx-auto">
                         <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            className="text-3xl font-bold mb-10 text-green pl-0"
+                            className="text-3xl font-bold mb-10 text-gray-900 pl-0"
                         >
                             Related Projects
                         </motion.h3>
@@ -231,11 +230,11 @@ export default function ProjectDetail({
                                             </div>
 
                                             <div className="p-6">
-                                                <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition-colors pl-0">
+                                                <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-700 transition-colors pl-0">
                                                     {project.projectTitle || "Untitled Project"}
                                                 </h3>
                                                 {project.projectSubtitle && (
-                                                    <p className="text-green pl-0">{project.projectSubtitle}</p>
+                                                    <p className="text-gray-600 pl-0">{project.projectSubtitle}</p>
                                                 )}
                                             </div>
                                         </div>

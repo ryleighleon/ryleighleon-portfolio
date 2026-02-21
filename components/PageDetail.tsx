@@ -41,7 +41,7 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className={`relative ${pageId === "portfolio" ? "bg-white text-green py-8" : "bg-purple-400 text-green py-8 h-[20vh] md:h-[25vh]"} px-6 flex items-center`}>
+            <section className={`relative bg-white text-green py-8 px-6 flex items-center`}>
                 <div className="relative max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -56,15 +56,15 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 className="mb-6"
                             >
-                                <span className={`text-lg md:text-xl font-light tracking-wider ${pageId === "portfolio" ? "text-green" : "text-green"} relative inline-block`}>
-                                    <span className={`absolute -left-6 top-1/2 w-4 h-[1px] ${pageId === "portfolio" ? "bg-green/60" : "bg-green/60"}`}></span>
+                                <span className={`text-lg md:text-xl font-light tracking-wider text-green relative inline-block`}>
+                                    <span className={`absolute -left-6 top-1/2 w-4 h-[1px] bg-green/60`}></span>
                                     {currentPage.topTitle}
-                                    <span className={`absolute -right-6 top-1/2 w-4 h-[1px] ${pageId === "portfolio" ? "bg-green/60" : "bg-green/60"}`}></span>
+                                    <span className={`absolute -right-6 top-1/2 w-4 h-[1px] bg-green/60`}></span>
                                 </span>
                             </motion.div>
                         )}
                         <motion.h1
-                            className={`text-4xl md:text-6xl font-bold ${pageId === "portfolio" ? "text-green" : "text-green"}`}
+                            className={`text-4xl md:text-6xl font-bold text-green`}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
@@ -72,7 +72,7 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                             {currentPage.shortTitle}
                         </motion.h1>
                         <motion.div
-                            className={`w-20 h-1 ${pageId === "portfolio" ? "bg-green" : "bg-purple-300"} mx-auto mt-6`}
+                            className={`w-20 h-1 bg-green mx-auto mt-6`}
                             initial={{ width: 0 }}
                             animate={{ width: 80 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
@@ -153,14 +153,14 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
             </div>
 
             {currentPage.bottomTitle && (
-                <div className={`py-8 px-6 text-center ${pageId === "portfolio" ? "bg-white text-green" : "bg-purple-400 text-green"} mb-8`}>
+                <div className={`py-8 px-6 text-center bg-white text-green mb-8`}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true, margin: "-100px" }}
                     >
-                        <h2 className={`text-3xl md:text-5xl font-normal ${pageId === "portfolio" ? "text-green" : "text-green"}`}>{currentPage.bottomTitle}</h2>
+                        <h2 className={`text-3xl md:text-5xl font-normal text-green}`}>{currentPage.bottomTitle}</h2>
                     </motion.div>
                 </div>
             )}

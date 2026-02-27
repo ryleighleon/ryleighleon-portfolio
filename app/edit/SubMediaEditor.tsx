@@ -59,11 +59,11 @@ export default function SubMediaEditor() {
     const subMediaUid = uuidv4()
     const newSubMedia = {
       subMediaUid: subMediaUid,
-      mediaFilename: `/images/${selectedPageId}/${selectedProjectId}/${subMediaUid}.png`,
-      thumbnailImage: `/images/${selectedPageId}/${selectedProjectId}/thumbnail-${subMediaUid}.png`,
+      mediaFilename: ``,
+      thumbnailImage: ``,
       mediaType: "Image",
       mediaOrientation: "Square",
-      mediaDescription: "New media item",
+      mediaDescription: "",
     }
 
     dispatch(

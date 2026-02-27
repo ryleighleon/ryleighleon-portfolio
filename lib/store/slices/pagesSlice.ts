@@ -452,6 +452,125 @@ export const pagesSlice = createSlice({
     setSelectedSubMediaId: (state, action: PayloadAction<string | null>) => {
       state.selectedSubMediaId = action.payload
     },
+    moveParagraphUp: (
+      state,
+      action: PayloadAction<{
+        pageUid: string;
+        sectionUid: string;
+        projectUid: string;
+        paragraphUid: string;
+      }>,
+    ) => {
+      const { pageUid, sectionUid, projectUid, paragraphUid } = action.payload;
+      const pageIndex = state.pages.findIndex((p) => p.uid === pageUid);
+      if (pageIndex === -1) return;
+
+      const sectionIndex = state.pages[pageIndex].projectSections.findIndex(
+        (s) => s.uid === sectionUid,
+      );
+      if (sectionIndex === -1) return;
+
+      const projectIndex = state.pages[pageIndex].projectSections[
+        sectionIndex
+      ].projects.findIndex((proj) => proj.uid === projectUid);
+      if (projectIndex === -1) return;
+
+      const paragraphs =
+        state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex]
+          .projectParagraphs;
+
+      if (!paragraphs || paragraphs.length < 2) return;
+
+      const paraIndex = paragraphs.findIndex((p) => p.paragraphUid === paragraphUid);
+      if (paraIndex <= 0) return;
+
+      // Swap with the one above
+      [paragraphs[paraIndex], paragraphs[paraIndex - 1]] = [
+        paragraphs[paraIndex - 1],
+        paragraphs[paraIndex],
+      ];
+
+      localStorage.setItem("pages.json.pages", JSON.stringify(state.pages));
+    },
+
+    moveParagraphDown: (
+      state,
+      action: PayloadAction<{
+        pageUid: string;
+        sectionUid: string;
+        projectUid: string;
+        paragraphUid: string;
+      }>,
+    ) => {
+      const { pageUid, sectionUid, projectUid, paragraphUid } = action.payload;
+      const pageIndex = state.pages.findIndex((p) => p.uid === pageUid);
+      if (pageIndex === -1) return;
+
+      const sectionIndex = state.pages[pageIndex].projectSections.findIndex(
+        (s) => s.uid === sectionUid,
+      );
+      if (sectionIndex === -1) return;
+
+      const projectIndex = state.pages[pageIndex].projectSections[
+        sectionIndex
+      ].projects.findIndex((proj) => proj.uid === projectUid);
+      if (projectIndex === -1) return;
+
+      const paragraphs =
+        state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex]
+          .projectParagraphs;
+
+      if (!paragraphs || paragraphs.length < 2) return;
+
+      const paraIndex = paragraphs.findIndex((p) => p.paragraphUid === paragraphUid);
+      if (paraIndex < 0 || paraIndex >= paragraphs.length - 1) return;
+
+      // Swap with the one below
+      [paragraphs[paraIndex], paragraphs[paraIndex + 1]] = [
+        paragraphs[paraIndex + 1],
+        paragraphs[paraIndex],
+      ];
+
+      localStorage.setItem("pages.json.pages", JSON.stringify(state.pages));
+    },
+    deleteParagraph: (
+      state,
+      action: PayloadAction<{
+        pageUid: string;
+        sectionUid: string;
+        projectUid: string;
+        paragraphUid: string;
+      }>,
+    ) => {
+      const { pageUid, sectionUid, projectUid, paragraphUid } = action.payload;
+
+      const pageIndex = state.pages.findIndex((p) => p.uid === pageUid);
+      if (pageIndex === -1) return;
+
+      const sectionIndex = state.pages[pageIndex].projectSections.findIndex(
+        (s) => s.uid === sectionUid,
+      );
+      if (sectionIndex === -1) return;
+
+      const projectIndex = state.pages[pageIndex].projectSections[sectionIndex].projects.findIndex(
+        (proj) => proj.uid === projectUid,
+      );
+      if (projectIndex === -1) return;
+
+      const paragraphs =
+        state.pages[pageIndex].projectSections[sectionIndex].projects[projectIndex]
+          .projectParagraphs;
+
+      if (!paragraphs) return;
+
+      state.pages[pageIndex].projectSections[sectionIndex].projects[
+        projectIndex
+      ].projectParagraphs = paragraphs.filter(
+        (p) => p.paragraphUid !== paragraphUid,
+      );
+
+      localStorage.setItem("pages.json.pages", JSON.stringify(state.pages));
+    },
   },
 })
 
@@ -474,5 +593,8 @@ export const {
   setSelectedSectionId,
   setSelectedProjectId,
   setSelectedSubMediaId,
+  moveParagraphUp,
+  moveParagraphDown,
+  deleteParagraph
 } = pagesSlice.actions
 export default pagesSlice.reducer

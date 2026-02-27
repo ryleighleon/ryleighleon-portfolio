@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
-import { updateProject, addParagraphToProject } from "@/lib/store/slices/pagesSlice"
+import { updateProject, addParagraphToProject, moveParagraphUp, moveParagraphDown, deleteParagraph } from "@/lib/store/slices/pagesSlice"
 import { formatUid } from "@/lib/utils/image-paths"
 import { v4 as uuidv4 } from "uuid"
 
@@ -10,6 +10,27 @@ export default function ProjectEditor() {
   const page = pages.find((p) => p.uid === selectedPageId)
   const [editData, setEditData] = useState<any>(null)
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null)
+
+  const handleDeleteParagraph = (paragraphUid: string) => {
+      if (!selectedPageId || !selectedSectionId || !selectedProjectId) return;
+
+      dispatch(
+        deleteParagraph({
+          pageUid: selectedPageId,
+          sectionUid: selectedSectionId,
+          projectUid: selectedProjectId,
+          paragraphUid,
+        }),
+      );
+
+      // Also update local editData to keep UI in sync immediately
+      setEditData((prev: any) => ({
+        ...prev,
+        projectParagraphs: prev.projectParagraphs.filter(
+          (p: any) => p.paragraphUid !== paragraphUid,
+        ),
+      }));
+    };
 
   useEffect(() => {
     if (selectedPageId && selectedSectionId && selectedProjectId) {
@@ -74,10 +95,10 @@ export default function ProjectEditor() {
     const newProject = {
       uid: newUid,
       path: uniquePath,
-      thumbnailImage: `/thumbnail-placeholder.svg`,
-      mainImage: `/main-placeholder.svg`,
-      projectTitle: "New Project",
-      projectSubtitle: "New Project Subtitle",
+      thumbnailImage: ``,
+      mainImage: ``,
+      projectTitle: "",
+      projectSubtitle: "",
       projectParagraphs: [],
       subMedia: [],
       featured: false,
@@ -89,8 +110,8 @@ export default function ProjectEditor() {
   const handleAddParagraph = () => {
     const newParagraph = {
       paragraphUid: uuidv4(),
-      paragraphTitle: "New Paragraph",
-      paragraphText: "New paragraph text",
+      paragraphTitle: "",
+      paragraphText: "",
     }
 
     dispatch(
@@ -107,6 +128,30 @@ export default function ProjectEditor() {
       projectParagraphs: [...(editData.projectParagraphs || []), newParagraph],
     })
   }
+
+  const handleMoveParagraphUp = (paragraphUid: string) => {
+      if (!selectedPageId || !selectedSectionId || !selectedProjectId) return;
+      dispatch(
+        moveParagraphUp({
+          pageUid: selectedPageId,
+          sectionUid: selectedSectionId,
+          projectUid: selectedProjectId,
+          paragraphUid,
+        }),
+      );
+    };
+
+    const handleMoveParagraphDown = (paragraphUid: string) => {
+      if (!selectedPageId || !selectedSectionId || !selectedProjectId) return;
+      dispatch(
+        moveParagraphDown({
+          pageUid: selectedPageId,
+          sectionUid: selectedSectionId,
+          projectUid: selectedProjectId,
+          paragraphUid,
+        }),
+      );
+    };
 
   if (!editData || !selectedProjectId) return null
 
@@ -210,20 +255,65 @@ export default function ProjectEditor() {
               </div>
           )}
           <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-2">Project Paragraphs</h3>
-            {editData.projectParagraphs?.map((paragraph: any, index: number) => (
-                <div key={paragraph.paragraphUid} className="mb-4 p-4 border rounded">
+              <h3 className="text-lg font-semibold mb-2">Project Paragraphs</h3>
+
+              {editData.projectParagraphs?.map((paragraph: any, index: number) => (
+                <div
+                  key={paragraph.paragraphUid}
+                  className="mb-4 p-4 border rounded bg-white relative"
+                >
+                  {/* Arrows – placed top-right */}
+                  <div className="absolute top-2 right-2 flex flex-col gap-1">
+                    <button
+                      onClick={() => handleMoveParagraphUp(paragraph.paragraphUid)}
+                      disabled={index === 0}
+                      title="Move up"
+                      className="text-gray-500 hover:text-purple-700 disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      ↑
+                    </button>
+                    <button
+                      onClick={() => handleMoveParagraphDown(paragraph.paragraphUid)}
+                      disabled={index === editData.projectParagraphs.length - 1}
+                      title="Move down"
+                      className="text-gray-500 hover:text-purple-700 disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      ↓
+                    </button>
+                    {/* Delete button – appears on hover or always visible */}
+                    <button
+                      onClick={() => handleDeleteParagraph(paragraph.paragraphUid)}
+                      title="Delete paragraph"
+                      className="absolute top-2 right-2 text-red-500 hover:text-red-700 opacity-70 hover:opacity-100 transition-opacity"
+                    >
+                      × {/* or use a trash icon from lucide-react / heroicons */}
+                    </button>
+                  </div>
                   <div className="mb-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Paragraph Title</label>
                     <input
                         type="text"
                         value={paragraph.paragraphTitle || ""}
                         onChange={(e) => {
-                          const updatedParagraphs = [...(editData.projectParagraphs || [])]
-                          updatedParagraphs[index].paragraphTitle = e.target.value
-                          const updatedProject = { ...editData, projectParagraphs: updatedParagraphs }
-                          setEditData(updatedProject)
-                          dispatch(updateProject({ pageUid: selectedPageId!, sectionUid: selectedSectionId!, project: updatedProject }))
+                          const updatedParagraphs = editData.projectParagraphs.map((p, i) =>
+                            i === index
+                              ? { ...p, paragraphTitle: e.target.value }   // ← create new object
+                              : p
+                          );
+
+                          const updatedProject = {
+                            ...editData,
+                            projectParagraphs: updatedParagraphs,
+                          };
+
+                          setEditData(updatedProject);
+                          dispatch(
+                            updateProject({
+                              pageUid: selectedPageId!,
+                              sectionUid: selectedSectionId!,
+                              project: updatedProject,
+                            })
+                          );
                         }}
                         className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                     />
@@ -233,11 +323,25 @@ export default function ProjectEditor() {
                     <textarea
                         value={paragraph.paragraphText || ""}
                         onChange={(e) => {
-                          const updatedParagraphs = [...(editData.projectParagraphs || [])]
-                          updatedParagraphs[index].paragraphText = e.target.value
-                          const updatedProject = { ...editData, projectParagraphs: updatedParagraphs }
-                          setEditData(updatedProject)
-                          dispatch(updateProject({ pageUid: selectedPageId!, sectionUid: selectedSectionId!, project: updatedProject }))
+                          const updatedParagraphs = editData.projectParagraphs.map((p, i) =>
+                              i === index
+                                  ? { ...p, paragraphText: e.target.value }
+                                  : p
+                          );
+
+                          const updatedProject = {
+                            ...editData,
+                            projectParagraphs: updatedParagraphs,
+                          };
+
+                          setEditData(updatedProject);
+                          dispatch(
+                              updateProject({
+                                pageUid: selectedPageId!,
+                                sectionUid: selectedSectionId!,
+                                project: updatedProject,
+                              })
+                          );
                         }}
                         rows={4}
                         className="w-full p-2 border rounded focus:border-purple-500 focus:ring-1 focus:ring-purple-500"

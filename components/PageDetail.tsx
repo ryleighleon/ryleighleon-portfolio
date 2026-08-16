@@ -77,6 +77,16 @@ export default function PageDetail({ pageId, currentPage, status }: PageDetailPr
                             animate={{ width: 80 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         />
+                        {pageId === "portfolio" && (
+                            <a
+                                href="/portfolio.pdf"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="mt-7 inline-flex rounded-full bg-purple-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-800"
+                            >
+                                View PDF
+                            </a>
+                        )}
                     </motion.div>
                 </div>
             </section>
